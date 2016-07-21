@@ -40,6 +40,13 @@ $ curl -O http://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0208.T
 $ cp JIS0208.TXT soma/font/
 ```
 
+フォントと変換表がダウンロードできたら soma/font ディレクトリへ移動し make でフォントデータを生成します。
+
+```
+$ cd soma/font
+$ make
+```
+
 あと UEFI のファームウェアが必要になるので以下のサイトからダウンロードして OVMF.fd を soma ディレクトリにコピーします。
 
 * Download EDK II from SourceForge.net
