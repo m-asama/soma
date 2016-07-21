@@ -1,0 +1,52 @@
+\hypertarget{memory__management_8h}{}\section{memory\+\_\+management.\+h ファイル}
+\label{memory__management_8h}\index{memory\+\_\+management.\+h@{memory\+\_\+management.\+h}}
+
+
+メモリ管理に関連する関数宣言。  
+
+
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+\subsection*{列挙型}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{memory__management_8h_a4696a34a68ce8eaea5f6a5091eead423}{}enum {\bfseries memory\+\_\+page\+\_\+size} \{ {\bfseries page\+\_\+size\+\_\+4k}, 
+{\bfseries page\+\_\+size\+\_\+2m}
+ \}\label{memory__management_8h_a4696a34a68ce8eaea5f6a5091eead423}
+
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{memory__management_8h_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}{}void $\ast$ {\bfseries memory\+\_\+alloc} (size\+\_\+t size)\label{memory__management_8h_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}
+
+\item 
+\hypertarget{memory__management_8h_afcebf79ab40d99b29ca9292d2261cf28}{}void {\bfseries memory\+\_\+free} (void $\ast$ptr)\label{memory__management_8h_afcebf79ab40d99b29ca9292d2261cf28}
+
+\item 
+\hypertarget{memory__management_8h_a36bc3d580564f68e96a274b8d1bddbe8}{}void $\ast$ {\bfseries memory\+\_\+alloc\+\_\+page\+\_\+lo} (memory\+\_\+page\+\_\+size page\+\_\+size)\label{memory__management_8h_a36bc3d580564f68e96a274b8d1bddbe8}
+
+\item 
+void \hyperlink{memory__management_8h_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\item 
+\hypertarget{memory__management_8h_a0ed1e5afce0951a5e13ccc2b1551341a}{}void {\bfseries memory\+\_\+dump} ()\label{memory__management_8h_a0ed1e5afce0951a5e13ccc2b1551341a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+メモリ管理に関連する関数宣言。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{memory__management_8h_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+management.\+h@{memory\+\_\+management.\+h}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+management.\+h@{memory\+\_\+management.\+h}}
+\subsubsection[{memory\+\_\+init(struct loader\+\_\+info $\ast$li)}]{\setlength{\rightskip}{0pt plus 5cm}void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)}\label{memory__management_8h_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 

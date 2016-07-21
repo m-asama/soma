@@ -1,0 +1,73 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp ファイル}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+ソーマ・カーネルのエントリーポイントとなる main 関数を定義。  
+
+
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}font.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}console\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}acpi.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}processor\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}irqchip\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pci\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}thread\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a9621c08739047c259bba4df3c69095cf}{main} (void $\ast$ptr)
+\item 
+int \hyperlink{main_8cpp_a7fd89c82095df80e5e12d6b2834a2acc}{atexit} (void($\ast$func)(void))
+\item 
+\hypertarget{main_8cpp_a4464d4205cf92370b8d5077d93bc48a6}{}void {\bfseries \+\_\+\+\_\+cxa\+\_\+pure\+\_\+virtual} (void)\label{main_8cpp_a4464d4205cf92370b8d5077d93bc48a6}
+
+\item 
+\hypertarget{main_8cpp_ad0091fed63deeca7b29d1222cb507fb0}{}void {\bfseries \+\_\+\+\_\+cxa\+\_\+deleted\+\_\+virtual} (void)\label{main_8cpp_ad0091fed63deeca7b29d1222cb507fb0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+ソーマ・カーネルのエントリーポイントとなる main 関数を定義。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{main_8cpp_a7fd89c82095df80e5e12d6b2834a2acc}{}\index{main.\+cpp@{main.\+cpp}!atexit@{atexit}}
+\index{atexit@{atexit}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{atexit(void($\ast$func)(void))}]{\setlength{\rightskip}{0pt plus 5cm}int atexit (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{func}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a7fd89c82095df80e5e12d6b2834a2acc}
+exit の際に実行されるコールバック関数を設定するための関数。 何もしない。 
+\begin{DoxyParams}{引数}
+{\em func} & コールバックされる関数へのポインタ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何もせず 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a9621c08739047c259bba4df3c69095cf}{}\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{main(void $\ast$ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void main (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a9621c08739047c259bba4df3c69095cf}
+エントリーポイント。 
+\begin{DoxyParams}{引数}
+{\em ptr} & ブートローダから渡される \hyperlink{structloader__info}{loader\+\_\+info} 構造体を指す。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何も返さない。 
+\end{DoxyReturn}

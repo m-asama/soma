@@ -1,0 +1,87 @@
+\hypertarget{assembly_8cpp}{}\section{assembly.\+cpp ファイル}
+\label{assembly_8cpp}\index{assembly.\+cpp@{assembly.\+cpp}}
+
+
+インラインアセンブリで書かれた関数実装。  
+
+
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{assembly_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479}{inb} (uint16\+\_\+t port)
+\item 
+void \hyperlink{assembly_8cpp_a8bf7a9af91c08e6f876aaffeccd48ff3}{outb} (uint16\+\_\+t port, uint8\+\_\+t val)
+\item 
+void \hyperlink{assembly_8cpp_ad7f8963860eb077bb23363aeebb62f41}{sti} ()
+\item 
+void \hyperlink{assembly_8cpp_a4229a9b84f8b8673326f12bd41acd27c}{cli} ()
+\item 
+uint64\+\_\+t \hyperlink{assembly_8cpp_ab04248d48dfa95e7782aadee925da5e7}{rflags} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+インラインアセンブリで書かれた関数実装。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{assembly_8cpp_a4229a9b84f8b8673326f12bd41acd27c}{}\index{assembly.\+cpp@{assembly.\+cpp}!cli@{cli}}
+\index{cli@{cli}!assembly.\+cpp@{assembly.\+cpp}}
+\subsubsection[{cli()}]{\setlength{\rightskip}{0pt plus 5cm}void cli (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{assembly_8cpp_a4229a9b84f8b8673326f12bd41acd27c}
+cli を実行し割り込みを無効化。 \hypertarget{assembly_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479}{}\index{assembly.\+cpp@{assembly.\+cpp}!inb@{inb}}
+\index{inb@{inb}!assembly.\+cpp@{assembly.\+cpp}}
+\subsubsection[{inb(uint16\+\_\+t port)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t inb (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{port}
+\end{DoxyParamCaption}
+)}\label{assembly_8cpp_a2e1e8e2c5724c1e8fd2dff2eada06479}
+inb を実行。 
+\begin{DoxyParams}{引数}
+{\em port} & I/\+O ポート番号。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+inb を実行した結果。 
+\end{DoxyReturn}
+\hypertarget{assembly_8cpp_a8bf7a9af91c08e6f876aaffeccd48ff3}{}\index{assembly.\+cpp@{assembly.\+cpp}!outb@{outb}}
+\index{outb@{outb}!assembly.\+cpp@{assembly.\+cpp}}
+\subsubsection[{outb(uint16\+\_\+t port, uint8\+\_\+t val)}]{\setlength{\rightskip}{0pt plus 5cm}void outb (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{port, }
+\item[{uint8\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\label{assembly_8cpp_a8bf7a9af91c08e6f876aaffeccd48ff3}
+outb を実行。 
+\begin{DoxyParams}{引数}
+{\em port} & I/\+O ポート番号。 \\
+\hline
+{\em val} & outb への引数。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{assembly_8cpp_ab04248d48dfa95e7782aadee925da5e7}{}\index{assembly.\+cpp@{assembly.\+cpp}!rflags@{rflags}}
+\index{rflags@{rflags}!assembly.\+cpp@{assembly.\+cpp}}
+\subsubsection[{rflags()}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t rflags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{assembly_8cpp_ab04248d48dfa95e7782aadee925da5e7}
+R\+F\+L\+A\+G\+S を取得する関数。 \begin{DoxyReturn}{戻り値}
+R\+F\+L\+A\+G\+S の値。 
+\end{DoxyReturn}
+\hypertarget{assembly_8cpp_ad7f8963860eb077bb23363aeebb62f41}{}\index{assembly.\+cpp@{assembly.\+cpp}!sti@{sti}}
+\index{sti@{sti}!assembly.\+cpp@{assembly.\+cpp}}
+\subsubsection[{sti()}]{\setlength{\rightskip}{0pt plus 5cm}void sti (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{assembly_8cpp_ad7f8963860eb077bb23363aeebb62f41}
+sti を実行し割り込みを有効化。 

@@ -1,0 +1,265 @@
+\documentclass[twoside]{book}
+
+% Packages required by doxygen
+\usepackage{fixltx2e}
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\PassOptionsToPackage{warn}{textcomp}
+\usepackage{textcomp}
+\usepackage[nointegrals]{wasysym}
+\usepackage[table]{xcolor}
+
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  a4paper,%
+  top=2.5cm,%
+  bottom=2.5cm,%
+  left=2.5cm,%
+  right=2.5cm%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize 2016年07月21日(木) 17時13分43秒作成 -\/ ソーマ・カーネル・プロジェクト / 構成\+:  Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize 2016年07月21日(木) 17時13分43秒作成 -\/ ソーマ・カーネル・プロジェクト / 構成\+:  Doxygen }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{#1}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+% Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
+\fi
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+
+%===== C O N T E N T S =====
+
+\begin{document}
+
+% Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarks=true,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
+\pagenumbering{roman}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large ソーマ・カーネル・プロジェクト }\\
+\vspace*{1cm}
+{\large 構築\+: Doxygen 1.8.10}\\
+\vspace*{0.5cm}
+{\small 2016年07月21日(木) 17時13分43秒}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+
+%--- Begin generated contents ---
+\chapter{階層索引}
+\input{hierarchy}
+\chapter{クラス索引}
+\input{annotated}
+\chapter{ファイル索引}
+\input{files}
+\chapter{クラス詳解}
+\input{classacpi__apic}
+\input{classacpi__rsdp}
+\input{structacpi__table__signature}
+\input{classacpi__xsdt}
+\input{classbidir__node}
+\input{classconsole__base}
+\input{classdisplay__console}
+\input{structfont__data}
+\input{classhash__table}
+\input{classintel64__gdt__entry}
+\input{classintel64__gdtr}
+\input{classintel64__idt__entry}
+\input{classintel64__idtr}
+\input{classintel64__ioapic}
+\input{classintel64__page__entry__base}
+\input{classintel64__page__table__base}
+\input{classintel64__pd__entry}
+\input{classintel64__pd__table}
+\input{classintel64__pdpt__entry}
+\input{classintel64__pdpt__table}
+\input{classintel64__pml4__entry}
+\input{classintel64__pml4__table}
+\input{classintel64__processor}
+\input{classintel64__processor__state}
+\input{classirqchip__base}
+\input{structli__memdesc}
+\input{classlinked__list}
+\input{structloader__info}
+\input{classmemory__block}
+\input{classmemory__pool}
+\input{classprocessor__base}
+\input{classprocessor__state__base}
+\input{classserial__console}
+\input{classsorted__list}
+\input{classspinlock}
+\input{classstring}
+\input{classthread}
+\chapter{ファイル詳解}
+\input{acpi_8cpp}
+\input{acpi_8h}
+\input{acpi__management_8cpp}
+\input{acpi__management_8h}
+\input{bidir__node_8cpp}
+\input{bidir__node_8h}
+\input{console__base_8cpp}
+\input{console__base_8h}
+\input{console__management_8cpp}
+\input{console__management_8h}
+\input{display__console_8h}
+\input{font_8cpp}
+\input{font_8h}
+\input{font__data_8cpp}
+\input{font__data_8h}
+\input{hash__table_8cpp}
+\input{hash__table_8h}
+\input{intel64__assembly_8cpp}
+\input{intel64__assembly_8h}
+\input{intel64__display__console_8cpp}
+\input{intel64__ioapic_8cpp}
+\input{intel64__ioapic_8h}
+\input{intel64__irqchip__management_8cpp}
+\input{intel64__processor_8cpp}
+\input{intel64__processor_8h}
+\input{intel64__processor__interrupt__handler_8cpp}
+\input{intel64__processor__interrupt__handler_8h}
+\input{intel64__processor__management_8cpp}
+\input{intel64__processor__state_8cpp}
+\input{intel64__processor__state_8h}
+\input{intel64__serial__console_8cpp}
+\input{intel64__util_8cpp}
+\input{irqchip__base_8cpp}
+\input{irqchip__base_8h}
+\input{irqchip__management_8h}
+\input{linked__list_8cpp}
+\input{linked__list_8h}
+\input{loader__info_8h}
+\input{main_8cpp}
+\input{memory__block_8cpp}
+\input{memory__block_8h}
+\input{memory__management_8cpp}
+\input{memory__management_8h}
+\input{memory__pool_8cpp}
+\input{memory__pool_8h}
+\input{pci__management_8h}
+\input{print_8cpp}
+\input{print_8h}
+\input{processor__base_8cpp}
+\input{processor__base_8h}
+\input{processor__management_8h}
+\input{processor__state__base_8cpp}
+\input{processor__state__base_8h}
+\input{serial__console_8h}
+\input{sorted__list_8cpp}
+\input{sorted__list_8h}
+\input{spinlock_8cpp}
+\input{spinlock_8h}
+\input{string_8cpp}
+\input{string_8h}
+\input{thread_8cpp}
+\input{thread_8h}
+\input{thread__management_8cpp}
+\input{thread__management_8h}
+\input{type_8h}
+\input{unicode_8cpp}
+\input{unicode_8h}
+\input{util_8cpp}
+\input{util_8h}
+%--- End generated contents ---
+
+% Index
+\backmatter
+\newpage
+\phantomsection
+\clearemptydoublepage
+\addcontentsline{toc}{chapter}{索引}
+\printindex
+
+\end{document}

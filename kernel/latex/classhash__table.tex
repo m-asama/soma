@@ -1,0 +1,47 @@
+\hypertarget{classhash__table}{}\section{hash\+\_\+table$<$ V $>$ クラステンプレート}
+\label{classhash__table}\index{hash\+\_\+table$<$ V $>$@{hash\+\_\+table$<$ V $>$}}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhash__table_a5e4a74748ecad78e798739a03be056cb}{}{\bfseries hash\+\_\+table} (uint64\+\_\+t($\ast$hash\+\_\+fn)(const V \&v), bool($\ast$equal\+\_\+fn)(const V \&vl, const V \&vr))\label{classhash__table_a5e4a74748ecad78e798739a03be056cb}
+
+\item 
+\hypertarget{classhash__table_a9e02312051be1517ad16ee8164af07dd}{}int {\bfseries insert} (V \&v)\label{classhash__table_a9e02312051be1517ad16ee8164af07dd}
+
+\item 
+\hypertarget{classhash__table_a8ac0d9136be9250f7059d07099a4393e}{}int {\bfseries remove} (const V \&v)\label{classhash__table_a8ac0d9136be9250f7059d07099a4393e}
+
+\item 
+\hypertarget{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}{}V $\ast$ {\bfseries find} (const V \&v)\label{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}
+
+\item 
+\hypertarget{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}{}uint64\+\_\+t {\bfseries table\+\_\+size} ()\label{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}
+
+\item 
+\hypertarget{classhash__table_ace4fefe428377b31e479f516aad83e72}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$$\ast$ {\bfseries table} ()\label{classhash__table_ace4fefe428377b31e479f516aad83e72}
+
+\item 
+\hypertarget{classhash__table_accb6f8935ae8965655975426140d9447}{}uint64\+\_\+t {\bfseries nodes} ()\label{classhash__table_accb6f8935ae8965655975426140d9447}
+
+\end{DoxyCompactItemize}
+\subsection*{フレンド}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\end{DoxyCompactItemize}
+
+
+\subsection{フレンドと関連関数の詳解}
+\hypertarget{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}{}\index{hash\+\_\+table@{hash\+\_\+table}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hash__table_8h}{hash\+\_\+table.\+h}\item 
+\hyperlink{hash__table_8cpp}{hash\+\_\+table.\+cpp}\end{DoxyCompactItemize}

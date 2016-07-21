@@ -1,0 +1,56 @@
+\hypertarget{console_8h}{}\section{console.\+h ファイル}
+\label{console_8h}\index{console.\+h@{console.\+h}}
+
+
+コンソール関連の処理をする関数宣言。  
+
+
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{console_8h_a8ac6f728badd605bf421dc3f3c6819b3}{console\+\_\+putchar} (uint32\+\_\+t c)
+\item 
+void \hyperlink{console_8h_a75af7b1670cc9244048ccbd627c9dfab}{console\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+コンソール関連の処理をする関数宣言。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{console_8h_a75af7b1670cc9244048ccbd627c9dfab}{}\index{console.\+h@{console.\+h}!console\+\_\+init@{console\+\_\+init}}
+\index{console\+\_\+init@{console\+\_\+init}!console.\+h@{console.\+h}}
+\subsubsection[{console\+\_\+init(struct loader\+\_\+info $\ast$li)}]{\setlength{\rightskip}{0pt plus 5cm}void console\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)}\label{console_8h_a75af7b1670cc9244048ccbd627c9dfab}
+コンソールの初期化を行う関数。 
+\begin{DoxyParams}{引数}
+{\em li} & ブートローダから渡された \hyperlink{structloader__info}{loader\+\_\+info} 構造体へのポインタ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何も返さない。 
+\end{DoxyReturn}
+\hypertarget{console_8h_a8ac6f728badd605bf421dc3f3c6819b3}{}\index{console.\+h@{console.\+h}!console\+\_\+putchar@{console\+\_\+putchar}}
+\index{console\+\_\+putchar@{console\+\_\+putchar}!console.\+h@{console.\+h}}
+\subsubsection[{console\+\_\+putchar(uint32\+\_\+t c)}]{\setlength{\rightskip}{0pt plus 5cm}void console\+\_\+putchar (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{c}
+\end{DoxyParamCaption}
+)}\label{console_8h_a8ac6f728badd605bf421dc3f3c6819b3}
+コンソールに 1 文字出力するための関数。 
+\begin{DoxyParams}{引数}
+{\em c} & U\+N\+I\+C\+O\+D\+E 文字。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何も返さない。 
+\end{DoxyReturn}

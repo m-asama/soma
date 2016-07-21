@@ -1,0 +1,59 @@
+\hypertarget{classmemory__block}{}\section{memory\+\_\+block クラス}
+\label{classmemory__block}\index{memory\+\_\+block@{memory\+\_\+block}}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmemory__block_a5e72abe346014b328921130d6576ffaa}{}{\bfseries memory\+\_\+block} (uint64\+\_\+t base, uint64\+\_\+t size)\label{classmemory__block_a5e72abe346014b328921130d6576ffaa}
+
+\item 
+\hypertarget{classmemory__block_a2622810f660307cb9d39516973abac9b}{}bool {\bfseries operator==} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)\label{classmemory__block_a2622810f660307cb9d39516973abac9b}
+
+\item 
+\hypertarget{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}{}bool {\bfseries operator$>$} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)\label{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}
+
+\item 
+\hypertarget{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}{}void {\bfseries base} (uint64\+\_\+t base)\label{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}
+
+\item 
+\hypertarget{classmemory__block_a4529412870636277c2bc5589ba841839}{}uint64\+\_\+t {\bfseries base} () const \label{classmemory__block_a4529412870636277c2bc5589ba841839}
+
+\item 
+\hypertarget{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{}void {\bfseries size} (uint64\+\_\+t size)\label{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}
+
+\item 
+\hypertarget{classmemory__block_a2c603c159e4652aec8af10818682d8f4}{}uint64\+\_\+t {\bfseries size} () const \label{classmemory__block_a2c603c159e4652aec8af10818682d8f4}
+
+\end{DoxyCompactItemize}
+\subsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmemory__block_a649a913a12355b1e28e0338f64f346d8}{}static void $\ast$ {\bfseries operator new} (size\+\_\+t size)\label{classmemory__block_a649a913a12355b1e28e0338f64f346d8}
+
+\item 
+\hypertarget{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}{}static void {\bfseries operator delete} (void $\ast$ptr)\label{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}
+
+\item 
+\hypertarget{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}{}static uint64\+\_\+t {\bfseries count} ()\label{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}
+
+\end{DoxyCompactItemize}
+\subsection*{フレンド}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\end{DoxyCompactItemize}
+
+
+\subsection{フレンドと関連関数の詳解}
+\hypertarget{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory__block_8h}{memory\+\_\+block.\+h}\item 
+\hyperlink{memory__block_8cpp}{memory\+\_\+block.\+cpp}\end{DoxyCompactItemize}

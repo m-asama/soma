@@ -1,0 +1,63 @@
+\hypertarget{console__management_8h}{}\section{console\+\_\+management.\+h ファイル}
+\label{console__management_8h}\index{console\+\_\+management.\+h@{console\+\_\+management.\+h}}
+
+
+コンソール関連の処理をする関数宣言。  
+
+
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{console__management_8h_a8ac6f728badd605bf421dc3f3c6819b3}{console\+\_\+putchar} (uint32\+\_\+t c)
+\item 
+\hypertarget{console__management_8h_a579adcc868f273c91c7131a2ed864f59}{}uint32\+\_\+t {\bfseries console\+\_\+getchar} ()\label{console__management_8h_a579adcc868f273c91c7131a2ed864f59}
+
+\item 
+void \hyperlink{console__management_8h_a78f42526d211e3e941152ece5d539bdf}{console\+\_\+init1} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\item 
+\hypertarget{console__management_8h_a966ed2a164fac76b5227e72bee609975}{}void {\bfseries console\+\_\+init2} ()\label{console__management_8h_a966ed2a164fac76b5227e72bee609975}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+コンソール関連の処理をする関数宣言。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{console__management_8h_a78f42526d211e3e941152ece5d539bdf}{}\index{console\+\_\+management.\+h@{console\+\_\+management.\+h}!console\+\_\+init1@{console\+\_\+init1}}
+\index{console\+\_\+init1@{console\+\_\+init1}!console\+\_\+management.\+h@{console\+\_\+management.\+h}}
+\subsubsection[{console\+\_\+init1(struct loader\+\_\+info $\ast$li)}]{\setlength{\rightskip}{0pt plus 5cm}void console\+\_\+init1 (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)}\label{console__management_8h_a78f42526d211e3e941152ece5d539bdf}
+コンソールの初期化を行う関数。 
+\begin{DoxyParams}{引数}
+{\em li} & ブートローダから渡された \hyperlink{structloader__info}{loader\+\_\+info} 構造体へのポインタ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何も返さない。 
+\end{DoxyReturn}
+\hypertarget{console__management_8h_a8ac6f728badd605bf421dc3f3c6819b3}{}\index{console\+\_\+management.\+h@{console\+\_\+management.\+h}!console\+\_\+putchar@{console\+\_\+putchar}}
+\index{console\+\_\+putchar@{console\+\_\+putchar}!console\+\_\+management.\+h@{console\+\_\+management.\+h}}
+\subsubsection[{console\+\_\+putchar(uint32\+\_\+t c)}]{\setlength{\rightskip}{0pt plus 5cm}void console\+\_\+putchar (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{c}
+\end{DoxyParamCaption}
+)}\label{console__management_8h_a8ac6f728badd605bf421dc3f3c6819b3}
+コンソールに 1 文字出力するための関数。 
+\begin{DoxyParams}{引数}
+{\em c} & U\+N\+I\+C\+O\+D\+E 文字。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+何も返さない。 
+\end{DoxyReturn}

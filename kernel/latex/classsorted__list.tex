@@ -1,0 +1,47 @@
+\hypertarget{classsorted__list}{}\section{sorted\+\_\+list$<$ V $>$ クラステンプレート}
+\label{classsorted__list}\index{sorted\+\_\+list$<$ V $>$@{sorted\+\_\+list$<$ V $>$}}
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsorted__list_a7a88d284cebe5f221de7bc45165e02e0}{}int {\bfseries insert} (V \&v)\label{classsorted__list_a7a88d284cebe5f221de7bc45165e02e0}
+
+\item 
+\hypertarget{classsorted__list_adeade10cead68bad83d1eae1a9c841aa}{}int {\bfseries remove} (V \&v)\label{classsorted__list_adeade10cead68bad83d1eae1a9c841aa}
+
+\item 
+\hypertarget{classsorted__list_a013a3060fad4b6f11507ad2d66fea59b}{}const V $\ast$ {\bfseries find} (const V \&v)\label{classsorted__list_a013a3060fad4b6f11507ad2d66fea59b}
+
+\item 
+\hypertarget{classsorted__list_a24c602fa9554ff65d4912d00ced7805b}{}int {\bfseries resort} ()\label{classsorted__list_a24c602fa9554ff65d4912d00ced7805b}
+
+\item 
+\hypertarget{classsorted__list_a31980ee808541eebcf39ac0a1e0a5773}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ {\bfseries head} ()\label{classsorted__list_a31980ee808541eebcf39ac0a1e0a5773}
+
+\item 
+\hypertarget{classsorted__list_ac89adea8f09aa4ee809e06f90c55b2b8}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ {\bfseries tail} ()\label{classsorted__list_ac89adea8f09aa4ee809e06f90c55b2b8}
+
+\item 
+\hypertarget{classsorted__list_a87bcb37ce7df9c4477eb1509601a8fea}{}int {\bfseries nodes} ()\label{classsorted__list_a87bcb37ce7df9c4477eb1509601a8fea}
+
+\end{DoxyCompactItemize}
+\subsection*{フレンド}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsorted__list_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\end{DoxyCompactItemize}
+
+
+\subsection{フレンドと関連関数の詳解}
+\hypertarget{classsorted__list_a8840f01b46a3b9c43a461591a579c1bd}{}\index{sorted\+\_\+list@{sorted\+\_\+list}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!sorted\+\_\+list@{sorted\+\_\+list}}
+\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classsorted__list_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sorted__list_8h}{sorted\+\_\+list.\+h}\item 
+\hyperlink{sorted__list_8cpp}{sorted\+\_\+list.\+cpp}\end{DoxyCompactItemize}

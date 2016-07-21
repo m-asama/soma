@@ -1,0 +1,155 @@
+\hypertarget{classbidir__node}{}\section{bidir\+\_\+node$<$ V $>$ クラステンプレート}
+\label{classbidir__node}\index{bidir\+\_\+node$<$ V $>$@{bidir\+\_\+node$<$ V $>$}}
+
+
+{\ttfamily \#include $<$bidir\+\_\+node.\+h$>$}
+
+\subsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbidir__node_a854687b3c2abf8087c390bc4d7ef90d9}{bidir\+\_\+node} (V \&\hyperlink{classbidir__node_a144596c53772e441240d51afeb8a475d}{v})
+\item 
+virtual \hyperlink{classbidir__node_a73267f07aa67bd4488fa684f1c5303b3}{$\sim$bidir\+\_\+node} ()
+\item 
+V \& \hyperlink{classbidir__node_a144596c53772e441240d51afeb8a475d}{v} ()
+\item 
+void \hyperlink{classbidir__node_a2e0451434557bab73a6950037073267a}{next} (\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$next)
+\item 
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classbidir__node_af76a5d53aff4b6f71361fa7477d0c758}{next} ()
+\item 
+void \hyperlink{classbidir__node_a7864b76461d92f398efb90819854f67c}{prev} (\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$prev)
+\item 
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classbidir__node_a4316757bf16173a1c04d84ddbc7fefc2}{prev} ()
+\end{DoxyCompactItemize}
+\subsection*{静的公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classbidir__node_aec71c6df26420dff2ffdf5a43f8b613e}{operator new} (size\+\_\+t size)
+\item 
+static void \hyperlink{classbidir__node_a50277ce12bf4fccf682ad0a7d70b4e0b}{operator delete} (void $\ast$ptr)
+\item 
+static uint64\+\_\+t \hyperlink{classbidir__node_a9851f8255f82458826f5a4c615de9a2a}{count} ()
+\end{DoxyCompactItemize}
+\subsection*{フレンド}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbidir__node_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+\subsubsection*{template$<$class V$>$class bidir\+\_\+node$<$ V $>$}
+
+双方向リンクリストのノード。 \hyperlink{classlinked__list}{linked\+\_\+list} や \hyperlink{classsorted__list}{sorted\+\_\+list} 、 \hyperlink{classhash__table}{hash\+\_\+table} が保持するオブジェクトごとに用意され、 それらを双方向でつなぐためのノード。 
+
+\subsection{構築子と解体子}
+\hypertarget{classbidir__node_a854687b3c2abf8087c390bc4d7ef90d9}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!bidir\+\_\+node@{bidir\+\_\+node}}
+\index{bidir\+\_\+node@{bidir\+\_\+node}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{bidir\+\_\+node(\+V \&v)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ {\bf bidir\+\_\+node}$<$ V $>$\+::{\bf bidir\+\_\+node} (
+\begin{DoxyParamCaption}
+\item[{V \&}]{v}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_a854687b3c2abf8087c390bc4d7ef90d9}
+コンストラクタ。 \hypertarget{classbidir__node_a73267f07aa67bd4488fa684f1c5303b3}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!````~bidir\+\_\+node@{$\sim$bidir\+\_\+node}}
+\index{````~bidir\+\_\+node@{$\sim$bidir\+\_\+node}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{$\sim$bidir\+\_\+node()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V $>$ {\bf bidir\+\_\+node}$<$ V $>$\+::$\sim${\bf bidir\+\_\+node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classbidir__node_a73267f07aa67bd4488fa684f1c5303b3}
+デストラクタ。 
+
+\subsection{関数詳解}
+\hypertarget{classbidir__node_a9851f8255f82458826f5a4c615de9a2a}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!count@{count}}
+\index{count@{count}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{count()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V $>$ uint64\+\_\+t {\bf bidir\+\_\+node}$<$ V $>$\+::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classbidir__node_a9851f8255f82458826f5a4c615de9a2a}
+現在割り当てられているノードの数を返す。 \hypertarget{classbidir__node_a2e0451434557bab73a6950037073267a}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!next@{next}}
+\index{next@{next}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{next(bidir\+\_\+node$<$ V $>$ $\ast$next)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void {\bf bidir\+\_\+node}$<$ V $>$\+::next (
+\begin{DoxyParamCaption}
+\item[{{\bf bidir\+\_\+node}$<$ V $>$ $\ast$}]{next}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_a2e0451434557bab73a6950037073267a}
+このノードの次のノードへのポインタを設定する。 
+\begin{DoxyParams}{引数}
+{\em next} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbidir__node_af76a5d53aff4b6f71361fa7477d0c758}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!next@{next}}
+\index{next@{next}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{next()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ {\bf bidir\+\_\+node}$<$ V $>$ $\ast$ {\bf bidir\+\_\+node}$<$ V $>$\+::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_af76a5d53aff4b6f71361fa7477d0c758}
+このノードの次のノードへのポインタを返す。 \hypertarget{classbidir__node_a50277ce12bf4fccf682ad0a7d70b4e0b}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{operator delete(void $\ast$ptr)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V $>$ void {\bf bidir\+\_\+node}$<$ V $>$\+::operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classbidir__node_a50277ce12bf4fccf682ad0a7d70b4e0b}
+メモリ削除演算子。メモリプールに返す。 
+\begin{DoxyParams}{引数}
+{\em 解放するメモリへのポインタ。} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbidir__node_aec71c6df26420dff2ffdf5a43f8b613e}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!operator new@{operator new}}
+\index{operator new@{operator new}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{operator new(size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V $>$ void $\ast$ {\bf bidir\+\_\+node}$<$ V $>$\+::operator new (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classbidir__node_aec71c6df26420dff2ffdf5a43f8b613e}
+メモリ割当演算子。 \hyperlink{classmemory__pool}{memory\+\_\+pool} から割り当てる。 
+\begin{DoxyParams}{引数}
+{\em size} & メモリを割り当てる大きさ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+確保されたメモリ領域へのポインタ。 
+\end{DoxyReturn}
+\hypertarget{classbidir__node_a7864b76461d92f398efb90819854f67c}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!prev@{prev}}
+\index{prev@{prev}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{prev(bidir\+\_\+node$<$ V $>$ $\ast$prev)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void {\bf bidir\+\_\+node}$<$ V $>$\+::prev (
+\begin{DoxyParamCaption}
+\item[{{\bf bidir\+\_\+node}$<$ V $>$ $\ast$}]{prev}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_a7864b76461d92f398efb90819854f67c}
+このノードの前のノードへのポインタを設定する。 \hypertarget{classbidir__node_a4316757bf16173a1c04d84ddbc7fefc2}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!prev@{prev}}
+\index{prev@{prev}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{prev()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ {\bf bidir\+\_\+node}$<$ V $>$ $\ast$ {\bf bidir\+\_\+node}$<$ V $>$\+::prev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_a4316757bf16173a1c04d84ddbc7fefc2}
+このノードの前のノードへのポインタを返す。 \hypertarget{classbidir__node_a144596c53772e441240d51afeb8a475d}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!v@{v}}
+\index{v@{v}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{v()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V $>$ V \& {\bf bidir\+\_\+node}$<$ V $>$\+::v (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classbidir__node_a144596c53772e441240d51afeb8a475d}
+このノードが保持するオブジェクトへの参照を返す。 \begin{DoxyReturn}{戻り値}
+このノードが保持するオブジェクトへの参照を返す。 
+\end{DoxyReturn}
+
+
+\subsection{フレンドと関連関数の詳解}
+\hypertarget{classbidir__node_a8840f01b46a3b9c43a461591a579c1bd}{}\index{bidir\+\_\+node@{bidir\+\_\+node}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!bidir\+\_\+node@{bidir\+\_\+node}}
+\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classbidir__node_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bidir__node_8h}{bidir\+\_\+node.\+h}\item 
+\hyperlink{bidir__node_8cpp}{bidir\+\_\+node.\+cpp}\end{DoxyCompactItemize}

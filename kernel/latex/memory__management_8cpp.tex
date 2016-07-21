@@ -1,0 +1,62 @@
+\hypertarget{memory__management_8cpp}{}\section{memory\+\_\+management.\+cpp ファイル}
+\label{memory__management_8cpp}\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+
+
+メモリ管理に関連する関数実装。  
+
+
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sorted\+\_\+list.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hash\+\_\+table.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}memory\+\_\+block.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}{}void $\ast$ {\bfseries memory\+\_\+alloc} (size\+\_\+t size)\label{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}
+
+\item 
+\hypertarget{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}{}void {\bfseries memory\+\_\+free} (void $\ast$ptr)\label{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}
+
+\item 
+\hypertarget{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}{}void $\ast$ {\bfseries memory\+\_\+alloc\+\_\+page\+\_\+lo} (memory\+\_\+page\+\_\+size page\+\_\+size)\label{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}
+
+\item 
+\hypertarget{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{}void $\ast$ {\bfseries operator new} (size\+\_\+t size)\label{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}
+
+\item 
+\hypertarget{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f}{}void $\ast$ {\bfseries operator new\mbox{[}$\,$\mbox{]}} (size\+\_\+t size)\label{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f}
+
+\item 
+\hypertarget{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637}{}void {\bfseries operator delete} (void $\ast$ptr) noexcept\label{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637}
+
+\item 
+\hypertarget{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391}{}void {\bfseries operator delete\mbox{[}$\,$\mbox{]}} (void $\ast$ptr) noexcept\label{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391}
+
+\item 
+void \hyperlink{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
+\item 
+\hypertarget{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}{}void {\bfseries memory\+\_\+dump} ()\label{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+メモリ管理に関連する関数実装。 
+
+\begin{DoxyAuthor}{著者}
+Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
+\end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+init@{memory\+\_\+init}}
+\index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+\subsubsection[{memory\+\_\+init(struct loader\+\_\+info $\ast$li)}]{\setlength{\rightskip}{0pt plus 5cm}void memory\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
+\end{DoxyParamCaption}
+)}\label{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
