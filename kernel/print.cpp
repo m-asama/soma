@@ -8,7 +8,7 @@
 //#include "assembly.h"
 #include "console_management.h"
 #include "unicode.h"
-#include "string.h"
+#include "utf8str.h"
 
 int
 putchar(const uint32_t c)
@@ -90,7 +90,7 @@ printstr(const char *str)
 }
 
 int
-printstr(const string &str)
+printstr(const utf8str &str)
 {
 	return printstr(str.ptr());
 }

@@ -93,7 +93,7 @@ processor_base::running_thread()
 void
 processor_base::dump()
 {
-	string s;
+	utf8str s;
 	s += "processor";
 	s.append_uint64(m_id, 0);
 	s += ": MMIO BASE = 0x";

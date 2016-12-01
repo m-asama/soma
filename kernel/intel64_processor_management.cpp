@@ -8,7 +8,7 @@
 #include "sorted_list.h"
 #include "intel64_assembly.h"
 #include "memory_management.h"
-#include "string.h"
+#include "utf8str.h"
 #include "print.h"
 #include "util.h"
 #include "processor_base.h"
@@ -179,7 +179,7 @@ processor_init_one(uint64_t id)
 {
 	processor_base *processor = nullptr;
 	thread *io_thread = nullptr;
-	string io_thread_name;
+	utf8str io_thread_name;
 
 	io_thread = thread_alloc(io_thread_main);
 	if (io_thread == nullptr) {
@@ -495,7 +495,7 @@ processor_dump()
 static void
 assert_sizeof_entry_classes()
 {
-	string s;
+	utf8str s;
 	int errors = 0;
 
 	if (sizeof(intel64_gdt_entry) != 8) {

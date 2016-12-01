@@ -6,7 +6,7 @@
 
 #include "type.h"
 #include "util.h"
-#include "string.h"
+#include "utf8str.h"
 #include "print.h"
 
 #include "loader_info.h"
@@ -22,7 +22,7 @@ void
 acpi_init(struct loader_info *li)
 {
 	char *ptr = (char *)li->rsdp_table;
-	string rsd_ptr_("RSD PTR ");
+	utf8str rsd_ptr_("RSD PTR ");
 	char buf[9];
 
 	if (ptr == nullptr) {

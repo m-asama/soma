@@ -7,7 +7,7 @@
 #include "type.h"
 #include "thread.h"
 #include "sorted_list.h"
-#include "string.h"
+#include "utf8str.h"
 #include "processor_management.h"
 
 #include "intel64_assembly.h"
@@ -49,7 +49,7 @@ thread *
 thread_alloc(void (*main)())
 {
 	thread *new_thread = nullptr;
-	string new_thread_name;
+	utf8str new_thread_name;
 	bidir_node<thread> *bn;
 	uint64_t id;
 

@@ -68,7 +68,7 @@ irqchip_base::gsi_base() const
 void
 irqchip_base::dump()
 {
-	string s;
+	utf8str s;
 	s += "irqchip";
 	s.append_uint64(m_id, 0);
 	s += ": MMIO BASE = 0x";

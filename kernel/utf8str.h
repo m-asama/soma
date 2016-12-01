@@ -1,5 +1,5 @@
 /**
- * @file	string.h
+ * @file	utf8str.h
  * @brief	文字列のクラス。
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
@@ -8,63 +8,63 @@
 
 #include "type.h"
 
-class string {
+class utf8str {
 
 public:
 	/**
 	 *
 	 */
-	string();
+	utf8str();
 
 	/**
 	 *
 	 */
-	virtual ~string();
+	virtual ~utf8str();
 
 	/**
 	 *
 	 */
-	string(const string &src);
+	utf8str(const utf8str &src);
 
 	/**
 	 *
 	 */
-	string(const string &&src) = delete;
+	utf8str(const utf8str &&src) = delete;
 
 	/**
 	 *
 	 */
-	string(const char *s);
+	utf8str(const char *s);
 
 	/**
 	 *
 	 */
-	string &operator=(const string &src);
+	utf8str &operator=(const utf8str &src);
 
 	/**
 	 *
 	 */
-	string &operator=(const string &&src) = delete;
+	utf8str &operator=(const utf8str &&src) = delete;
 
 	/**
 	 *
 	 */
-	string &operator=(const char *s);
+	utf8str &operator=(const char *s);
 
 	/**
 	 *
 	 */
-	string &operator+=(const string &s);
+	utf8str &operator+=(const utf8str &s);
 
 	/**
 	 *
 	 */
-	string &operator+=(const char *s);
+	utf8str &operator+=(const char *s);
 
 	/**
 	 *
 	 */
-	bool operator==(const string &s);
+	bool operator==(const utf8str &s);
 
 	/**
 	 *
@@ -74,7 +74,7 @@ public:
 	/**
 	 *
 	 */
-	bool operator!=(const string &s);
+	bool operator!=(const utf8str &s);
 
 	/**
 	 *
@@ -84,32 +84,32 @@ public:
 	/**
 	 *
 	 */
-	void init_string(const char *s);
+	void init_utf8str(const char *s);
 
 	/**
 	 *
 	 */
-	string &assign_string(const char *s);
+	utf8str &assign_utf8str(const char *s);
 
 	/**
 	 *
 	 */
-	string &append_string(const char *s, size_t width);
+	utf8str &append_utf8str(const char *s, size_t width);
 
 	/**
 	 *
 	 */
-	string &append_sint64(int64_t val, size_t width);
+	utf8str &append_sint64(int64_t val, size_t width);
 
 	/**
 	 *
 	 */
-	string &append_uint64(uint64_t val, size_t width);
+	utf8str &append_uint64(uint64_t val, size_t width);
 
 	/**
 	 *
 	 */
-	string &append_hex64(uint64_t val, size_t width);
+	utf8str &append_hex64(uint64_t val, size_t width);
 
 	/**
 	 *

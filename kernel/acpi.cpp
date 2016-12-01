@@ -6,7 +6,7 @@
 
 #include "type.h"
 #include "util.h"
-#include "string.h"
+#include "utf8str.h"
 #include "print.h"
 
 #include "loader_info.h"
@@ -228,7 +228,7 @@ acpi_xsdt *
 acpi_rsdp::xsdt()
 {
 	char *ptr = (char *)m_rsdp_address;
-	string xsdt("XSDT");
+	utf8str xsdt("XSDT");
 	char buf[5];
 	uint64_t *addrp;
 

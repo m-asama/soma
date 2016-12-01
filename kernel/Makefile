@@ -34,7 +34,7 @@ OBJS	      = main.o \
 		font_data.o \
 		unicode.o \
 		print.o \
-		string.o \
+		utf8str.o \
 		spinlock.o \
 		util.o
 

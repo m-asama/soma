@@ -7,7 +7,7 @@
 #include "type.h"
 #include "intel64_assembly.h"
 #include "memory_management.h"
-#include "string.h"
+#include "utf8str.h"
 #include "print.h"
 #include "util.h"
 #include "processor_state_base.h"

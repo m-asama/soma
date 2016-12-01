@@ -7,7 +7,7 @@
 #pragma once
 
 #include "type.h"
-#include "string.h"
+#include "utf8str.h"
 #include "processor_state_base.h"
 
 /**
@@ -74,7 +74,7 @@ public:
 	/**
 	 *
 	 */
-	int init(uint64_t id, const string &name);
+	int init(uint64_t id, const utf8str &name);
 
 	/**
 	 *
@@ -89,12 +89,12 @@ public:
 	/**
 	 *
 	 */
-	void name(const string &name);
+	void name(const utf8str &name);
 
 	/**
 	 *
 	 */
-	const string &name();
+	const utf8str &name();
 
 	/**
 	 *
@@ -135,7 +135,7 @@ private:
 	/**
 	 *
 	 */
-	string m_name;
+	utf8str m_name;
 
 	/**
 	 *

@@ -1,5 +1,5 @@
 /**
- * @file	string.cpp
+ * @file	utf8str.cpp
  * @brief	文字列のクラス。
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
@@ -10,7 +10,7 @@
 #include "font.h"
 #include "font_data.h"
 
-#include "string.h"
+#include "utf8str.h"
 
 const static size_t buffer_block_size = 256;
 const static size_t max_width = 256;
@@ -74,13 +74,13 @@ copy(const char *src, char *dst)
 	return i;
 }
 
-string::string()
+utf8str::utf8str()
 {
 	m_buffer = nullptr;
 	m_buffer_size = 0;
 }
 
-string::~string()
+utf8str::~utf8str()
 {
 	if (m_buffer != nullptr) {
 		memory_free(m_buffer);
@@ -90,66 +90,66 @@ string::~string()
 	m_buffer_size = 0;
 }
 
-string::string(const string &src)
+utf8str::utf8str(const utf8str &src)
 {
-	init_string(src.ptr());
+	init_utf8str(src.ptr());
 }
 
-string::string(const char *s)
+utf8str::utf8str(const char *s)
 {
-	init_string(s);
+	init_utf8str(s);
 }
 
-string &
-string::operator=(const string &src)
+utf8str &
+utf8str::operator=(const utf8str &src)
 {
-	return assign_string(src.ptr());
+	return assign_utf8str(src.ptr());
 }
 
-string &
-string::operator=(const char *s)
+utf8str &
+utf8str::operator=(const char *s)
 {
-	return assign_string(s);
+	return assign_utf8str(s);
 }
 
-string &
-string::operator+=(const string &s)
+utf8str &
+utf8str::operator+=(const utf8str &s)
 {
-	return append_string(s.ptr(), 0);
+	return append_utf8str(s.ptr(), 0);
 }
 
-string &
-string::operator+=(const char *s)
+utf8str &
+utf8str::operator+=(const char *s)
 {
-	return append_string(s, 0);
+	return append_utf8str(s, 0);
 }
 
 bool
-string::operator==(const string &s)
+utf8str::operator==(const utf8str &s)
 {
 	return is_equal(s.ptr());
 }
 
 bool
-string::operator==(const char *s)
+utf8str::operator==(const char *s)
 {
 	return is_equal(s);
 }
 
 bool
-string::operator!=(const string &s)
+utf8str::operator!=(const utf8str &s)
 {
 	return !is_equal(s.ptr());
 }
 
 bool
-string::operator!=(const char *s)
+utf8str::operator!=(const char *s)
 {
 	return !is_equal(s);
 }
 
 void
-string::init_string(const char *s)
+utf8str::init_utf8str(const char *s)
 {
 	size_t buffer_size = 0;
 
@@ -171,8 +171,8 @@ string::init_string(const char *s)
 	::copy(s, m_buffer);
 }
 
-string &
-string::assign_string(const char *s)
+utf8str &
+utf8str::assign_utf8str(const char *s)
 {
 	size_t buffer_size = 0;
 
@@ -201,8 +201,8 @@ string::assign_string(const char *s)
 	return *this;
 }
 
-string &
-string::append_string(const char *s, size_t width)
+utf8str &
+utf8str::append_utf8str(const char *s, size_t width)
 {
 	size_t length = 0;
 	char *buffer = nullptr;
@@ -252,8 +252,8 @@ string::append_string(const char *s, size_t width)
 	return *this;
 }
 
-string &
-string::append_sint64(int64_t val, size_t width)
+utf8str &
+utf8str::append_sint64(int64_t val, size_t width)
 {
 	char buf[max_width + 1];
 	bool pos = true;
@@ -294,13 +294,13 @@ string::append_sint64(int64_t val, size_t width)
 		i = max_width - width;
 	}
 
-	append_string(&buf[i], 0);
+	append_utf8str(&buf[i], 0);
 
 	return *this;
 }
 
-string &
-string::append_uint64(uint64_t val, size_t width)
+utf8str &
+utf8str::append_uint64(uint64_t val, size_t width)
 {
 	char buf[max_width + 1];
 	uint64_t div, mod;
@@ -330,13 +330,13 @@ string::append_uint64(uint64_t val, size_t width)
 		i = max_width - width;
 	}
 
-	append_string(&buf[i], 0);
+	append_utf8str(&buf[i], 0);
 
 	return *this;
 }
 
-string &
-string::append_hex64(uint64_t val, size_t width)
+utf8str &
+utf8str::append_hex64(uint64_t val, size_t width)
 {
 	char buf[max_width + 1];
 	uint8_t c;
@@ -360,13 +360,13 @@ string::append_hex64(uint64_t val, size_t width)
 		}
 	}
 
-	append_string(&buf[max_width - width], 0);
+	append_utf8str(&buf[max_width - width], 0);
 
 	return *this;
 }
 
 bool
-string::is_equal(const char *s)
+utf8str::is_equal(const char *s)
 {
 	int i = 0;
 
@@ -393,13 +393,13 @@ string::is_equal(const char *s)
 }
 
 const char *
-string::ptr(void) const
+utf8str::ptr(void) const
 {
 	return m_buffer;
 }
 
 size_t
-string::length() const
+utf8str::length() const
 {
 	if (m_buffer == nullptr) {
 		return 0;
@@ -408,7 +408,7 @@ string::length() const
 }
 
 size_t
-string::width() const
+utf8str::width() const
 {
 	if (m_buffer == nullptr) {
 		return 0;

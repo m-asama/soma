@@ -35,7 +35,7 @@ thread::operator>(const thread &rhs)
 }
 
 int
-thread::init(uint64_t id, const string &name)
+thread::init(uint64_t id, const utf8str &name)
 {
 	m_processor_state = processor_state_alloc();
 	if (m_processor_state == nullptr) {
@@ -60,12 +60,12 @@ thread::id() const
 }
 
 void
-thread::name(const string &name)
+thread::name(const utf8str &name)
 {
 	m_name = name;
 }
 
-const string &
+const utf8str &
 thread::name()
 {
 	return m_name;
@@ -112,7 +112,7 @@ thread::main()
 void
 thread::dump()
 {
-	string s;
+	utf8str s;
 	s += "thread";
 	s.append_uint64(m_id, 0);
 	s += ": NAME = ";

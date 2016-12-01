@@ -5,7 +5,7 @@
  */
 
 #include "type.h"
-#include "string.h"
+#include "utf8str.h"
 #include "print.h"
 #include "memory_management.h"
 #include "font.h"
