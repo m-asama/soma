@@ -129,7 +129,7 @@ serial_console::getchar()
 void
 serial_console::putchar(uint32_t c)
 {
-	char cc[6];
+	char cc[8];
 	int b, i;
 	if (c == '\n') {
 		while ((inb(m_io_port_base+5) & 0x20) == 0);

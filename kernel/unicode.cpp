@@ -10,21 +10,25 @@ int
 unicode_to_utf8(const uint32_t *unicode, char *utf8)
 {
 	if (*unicode <= 0x0000007f) {
+		utf8[1] = '\0';
 		utf8[0] = *unicode & 0x7f;
 		return 1;
 	}
 	if ((0x00000080 <= *unicode) && (*unicode <= 0x000007ff)) {
+		utf8[2] = '\0';
 		utf8[1] = (*unicode & 0x3f) | 0x80;
 		utf8[0] = ((*unicode >> 6) & 0x1f) | 0xc0;
 		return 2;
 	}
 	if ((0x00000800 <= *unicode) && (*unicode <= 0x0000ffff)) {
+		utf8[3] = '\0';
 		utf8[2] = (*unicode & 0x3f) | 0x80;
 		utf8[1] = ((*unicode >> 6) & 0x3f) | 0x80;
 		utf8[0] = ((*unicode >> 12) & 0x0f) | 0xe0;
 		return 3;
 	}
 	if ((0x00010000 <= *unicode) && (*unicode <= 0x001fffff)) {
+		utf8[4] = '\0';
 		utf8[3] = (*unicode & 0x3f) | 0x80;
 		utf8[2] = ((*unicode >> 6) & 0x3f) | 0x80;
 		utf8[1] = ((*unicode >> 12) & 0x3f) | 0x80;
@@ -32,6 +36,7 @@ unicode_to_utf8(const uint32_t *unicode, char *utf8)
 		return 4;
 	}
 	if ((0x00200000 <= *unicode) && (*unicode <= 0x03ffffff)) {
+		utf8[5] = '\0';
 		utf8[4] = (*unicode & 0x3f) | 0x80;
 		utf8[3] = ((*unicode >> 6) & 0x3f) | 0x80;
 		utf8[2] = ((*unicode >> 12) & 0x3f) | 0x80;
@@ -40,6 +45,7 @@ unicode_to_utf8(const uint32_t *unicode, char *utf8)
 		return 5;
 	}
 	if ((0x04000000 <= *unicode) && (*unicode <= 0x7fffffff)) {
+		utf8[6] = '\0';
 		utf8[5] = (*unicode & 0x3f) | 0x80;
 		utf8[4] = ((*unicode >> 6) & 0x3f) | 0x80;
 		utf8[3] = ((*unicode >> 12) & 0x3f) | 0x80;
