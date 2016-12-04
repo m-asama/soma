@@ -1,29 +1,104 @@
 \hypertarget{classacpi__rsdp}{}\section{acpi\+\_\+rsdp クラス}
 \label{classacpi__rsdp}\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+
+
+{\ttfamily \#include $<$acpi.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classacpi__rsdp_a1d261f44c3678f4986679e230b4b09c4}{}{\bfseries acpi\+\_\+rsdp} (uint8\+\_\+t $\ast$rsdp\+\_\+address)\label{classacpi__rsdp_a1d261f44c3678f4986679e230b4b09c4}
-
+\hyperlink{classacpi__rsdp_a1d261f44c3678f4986679e230b4b09c4}{acpi\+\_\+rsdp} (uint8\+\_\+t $\ast$rsdp\+\_\+address)
 \item 
-\hypertarget{classacpi__rsdp_a120265388dd84dbc6fb69ecb94d49eb1}{}{\bfseries acpi\+\_\+rsdp} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&src)=delete\label{classacpi__rsdp_a120265388dd84dbc6fb69ecb94d49eb1}
-
+\hyperlink{classacpi__rsdp_a054a922cb58cc17206ecdb0d3d1a85d9}{acpi\+\_\+rsdp} ()=delete
 \item 
-\hypertarget{classacpi__rsdp_a90d04a5ea31ef4a9c8c03dad7da1c87b}{}{\bfseries acpi\+\_\+rsdp} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&src)=delete\label{classacpi__rsdp_a90d04a5ea31ef4a9c8c03dad7da1c87b}
-
+virtual \hyperlink{classacpi__rsdp_a98f9d6ee90c359457ecc9193ccb33299}{$\sim$acpi\+\_\+rsdp} ()
 \item 
-\hypertarget{classacpi__rsdp_a837f521b7a9ea61afaa32c0f65580a78}{}\hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \& {\bfseries operator=} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&src)=delete\label{classacpi__rsdp_a837f521b7a9ea61afaa32c0f65580a78}
-
+\hyperlink{classacpi__rsdp_a120265388dd84dbc6fb69ecb94d49eb1}{acpi\+\_\+rsdp} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&src)=delete
 \item 
-\hypertarget{classacpi__rsdp_a8ced51610f5b4769fc89e222a866bf5a}{}\hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \& {\bfseries operator=} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&src)=delete\label{classacpi__rsdp_a8ced51610f5b4769fc89e222a866bf5a}
-
+\hyperlink{classacpi__rsdp_a90d04a5ea31ef4a9c8c03dad7da1c87b}{acpi\+\_\+rsdp} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&src)=delete
 \item 
-\hypertarget{classacpi__rsdp_a00665758ce838d3834c63fd0464e170f}{}char $\ast$ {\bfseries signature} ()\label{classacpi__rsdp_a00665758ce838d3834c63fd0464e170f}
-
+\hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \& \hyperlink{classacpi__rsdp_a837f521b7a9ea61afaa32c0f65580a78}{operator=} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&src)=delete
 \item 
-\hypertarget{classacpi__rsdp_a466b4f6a7be1d7d6c20376bade914d2f}{}\hyperlink{classacpi__xsdt}{acpi\+\_\+xsdt} $\ast$ {\bfseries xsdt} ()\label{classacpi__rsdp_a466b4f6a7be1d7d6c20376bade914d2f}
-
+\hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \& \hyperlink{classacpi__rsdp_a8ced51610f5b4769fc89e222a866bf5a}{operator=} (const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&src)=delete
+\item 
+char $\ast$ \hyperlink{classacpi__rsdp_a00665758ce838d3834c63fd0464e170f}{signature} ()
+\item 
+\hyperlink{classacpi__xsdt}{acpi\+\_\+xsdt} $\ast$ \hyperlink{classacpi__rsdp_a466b4f6a7be1d7d6c20376bade914d2f}{xsdt} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+A\+C\+PI R\+S\+DP テーブル。 
+
+\subsection{構築子と解体子}
+\hypertarget{classacpi__rsdp_a1d261f44c3678f4986679e230b4b09c4}{}\label{classacpi__rsdp_a1d261f44c3678f4986679e230b4b09c4} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{acpi\+\_\+rsdp()}{acpi\_rsdp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily acpi\+\_\+rsdp\+::acpi\+\_\+rsdp (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{rsdp\+\_\+address }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em rsdp\+\_\+address} & R\+S\+DP へのポインタ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classacpi__rsdp_a054a922cb58cc17206ecdb0d3d1a85d9}{}\label{classacpi__rsdp_a054a922cb58cc17206ecdb0d3d1a85d9} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{acpi\+\_\+rsdp()}{acpi\_rsdp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily acpi\+\_\+rsdp\+::acpi\+\_\+rsdp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コンストラクタ。引数なしのコンストラクタは禁止。 \hypertarget{classacpi__rsdp_a98f9d6ee90c359457ecc9193ccb33299}{}\label{classacpi__rsdp_a98f9d6ee90c359457ecc9193ccb33299} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!````~acpi\+\_\+rsdp@{$\sim$acpi\+\_\+rsdp}}
+\index{````~acpi\+\_\+rsdp@{$\sim$acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{$\sim$acpi\+\_\+rsdp()}{~acpi\_rsdp()}}
+{\footnotesize\ttfamily acpi\+\_\+rsdp\+::$\sim$acpi\+\_\+rsdp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classacpi__rsdp_a120265388dd84dbc6fb69ecb94d49eb1}{}\label{classacpi__rsdp_a120265388dd84dbc6fb69ecb94d49eb1} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{acpi\+\_\+rsdp()}{acpi\_rsdp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily acpi\+\_\+rsdp\+::acpi\+\_\+rsdp (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classacpi__rsdp_a90d04a5ea31ef4a9c8c03dad7da1c87b}{}\label{classacpi__rsdp_a90d04a5ea31ef4a9c8c03dad7da1c87b} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{acpi\+\_\+rsdp()}{acpi\_rsdp()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily acpi\+\_\+rsdp\+::acpi\+\_\+rsdp (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classacpi__rsdp_a837f521b7a9ea61afaa32c0f65580a78}{}\label{classacpi__rsdp_a837f521b7a9ea61afaa32c0f65580a78} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!operator=@{operator=}}
+\index{operator=@{operator=}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp}\& acpi\+\_\+rsdp\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classacpi__rsdp_a8ced51610f5b4769fc89e222a866bf5a}{}\label{classacpi__rsdp_a8ced51610f5b4769fc89e222a866bf5a} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!operator=@{operator=}}
+\index{operator=@{operator=}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp}\& acpi\+\_\+rsdp\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__rsdp}{acpi\+\_\+rsdp} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classacpi__rsdp_a00665758ce838d3834c63fd0464e170f}{}\label{classacpi__rsdp_a00665758ce838d3834c63fd0464e170f} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!signature@{signature}}
+\index{signature@{signature}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{signature()}{signature()}}
+{\footnotesize\ttfamily char $\ast$ acpi\+\_\+rsdp\+::signature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A\+C\+PI R\+S\+DP テーブルのシグネチャへのポインタを返す。 \begin{DoxyReturn}{戻り値}
+A\+C\+PI R\+S\+DP テーブルのシグネチャへのポインタ。 
+\end{DoxyReturn}
+\hypertarget{classacpi__rsdp_a466b4f6a7be1d7d6c20376bade914d2f}{}\label{classacpi__rsdp_a466b4f6a7be1d7d6c20376bade914d2f} 
+\index{acpi\+\_\+rsdp@{acpi\+\_\+rsdp}!xsdt@{xsdt}}
+\index{xsdt@{xsdt}!acpi\+\_\+rsdp@{acpi\+\_\+rsdp}}
+\subsubsection{\texorpdfstring{xsdt()}{xsdt()}}
+{\footnotesize\ttfamily \hyperlink{classacpi__xsdt}{acpi\+\_\+xsdt} $\ast$ acpi\+\_\+rsdp\+::xsdt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A\+C\+PI X\+S\+DT テーブルへのポインタを返す。 \begin{DoxyReturn}{戻り値}
+A\+C\+PI X\+S\+DT テーブルへのポインタ。 
+\end{DoxyReturn}
 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}

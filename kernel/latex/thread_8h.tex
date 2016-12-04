@@ -5,9 +5,9 @@
 スレッドを表現するクラス。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}processor\+\_\+state\+\_\+base.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8str.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}processor\+\_\+state\+\_\+base.\+h\char`\"{}}\newline
 \subsection*{クラス}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,16 +16,15 @@ class \hyperlink{classthread}{thread}
 \subsection*{型定義}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{thread_8h_a8e07d8105adb6ad897a08930f3027197}{}typedef void($\ast$ {\bfseries main\+\_\+fn}) ()\label{thread_8h_a8e07d8105adb6ad897a08930f3027197}
-
+\hypertarget{thread_8h_a8e07d8105adb6ad897a08930f3027197}{}\label{thread_8h_a8e07d8105adb6ad897a08930f3027197} 
+typedef void($\ast$ {\bfseries main\+\_\+fn}) ()
 \end{DoxyCompactItemize}
 \subsection*{列挙型}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{}enum {\bfseries thread\+\_\+state} \{ {\bfseries idle}, 
+enum \hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state} \{ {\bfseries idle}, 
 {\bfseries running}
- \}\label{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}
-
+ \}
 \end{DoxyCompactItemize}
 
 
@@ -35,3 +34,13 @@ class \hyperlink{classthread}{thread}
 \begin{DoxyAuthor}{著者}
 Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
 \end{DoxyAuthor}
+
+
+\subsection{列挙型詳解}
+\hypertarget{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{}\label{thread_8h_a4b1b32c1fc744438f665f0f1932dd207} 
+\index{thread.\+h@{thread.\+h}!thread\+\_\+state@{thread\+\_\+state}}
+\index{thread\+\_\+state@{thread\+\_\+state}!thread.\+h@{thread.\+h}}
+\subsubsection{\texorpdfstring{thread\+\_\+state}{thread\_state}}
+{\footnotesize\ttfamily enum \hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state}\hspace{0.3cm}{\ttfamily [strong]}}
+
+スレッドの状態を表す enum class。 

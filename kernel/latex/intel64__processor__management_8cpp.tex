@@ -2,117 +2,117 @@
 \label{intel64__processor__management_8cpp}\index{intel64\+\_\+processor\+\_\+management.\+cpp@{intel64\+\_\+processor\+\_\+management.\+cpp}}
 
 
-Intel64 C\+P\+U の初期化等を行う関数群実装。  
+Intel64 C\+PU の初期化等を行う関数群実装。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sorted\+\_\+list.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}intel64\+\_\+assembly.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}processor\+\_\+base.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}processor\+\_\+state\+\_\+base.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}intel64\+\_\+processor\+\_\+state.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}acpi\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}processor\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}thread.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}thread\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}intel64\+\_\+processor\+\_\+interrupt\+\_\+handler.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}console\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}intel64\+\_\+processor.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sorted\+\_\+list.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intel64\+\_\+assembly.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8str.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}processor\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}processor\+\_\+state\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intel64\+\_\+processor\+\_\+state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acpi\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}processor\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}thread.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}thread\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intel64\+\_\+processor\+\_\+interrupt\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}console\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intel64\+\_\+processor.\+h\char`\"{}}\newline
 \subsection*{関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{intel64__processor__management_8cpp_a4c2a7ea4dc0f103b45c6843250cf8b66}{}void {\bfseries interrupt\+\_\+handler} (uint64\+\_\+t gsi, uint64\+\_\+t sp)\label{intel64__processor__management_8cpp_a4c2a7ea4dc0f103b45c6843250cf8b66}
-
+\hypertarget{intel64__processor__management_8cpp_a4c2a7ea4dc0f103b45c6843250cf8b66}{}\label{intel64__processor__management_8cpp_a4c2a7ea4dc0f103b45c6843250cf8b66} 
+void {\bfseries interrupt\+\_\+handler} (uint64\+\_\+t gsi, uint64\+\_\+t sp)
 \item 
-\hypertarget{intel64__processor__management_8cpp_aa4a75b66a38962c3c47b685cfeb7fe4f}{}void {\bfseries boot\+\_\+subsequent\+\_\+processor} (uint64\+\_\+t id)\label{intel64__processor__management_8cpp_aa4a75b66a38962c3c47b685cfeb7fe4f}
-
+\hypertarget{intel64__processor__management_8cpp_aa4a75b66a38962c3c47b685cfeb7fe4f}{}\label{intel64__processor__management_8cpp_aa4a75b66a38962c3c47b685cfeb7fe4f} 
+void {\bfseries boot\+\_\+subsequent\+\_\+processor} (uint64\+\_\+t id)
 \item 
-\hypertarget{intel64__processor__management_8cpp_af0867e0f6dc8ed5d0545f012c0068720}{}void {\bfseries processor\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)\label{intel64__processor__management_8cpp_af0867e0f6dc8ed5d0545f012c0068720}
-
+\hypertarget{intel64__processor__management_8cpp_af0867e0f6dc8ed5d0545f012c0068720}{}\label{intel64__processor__management_8cpp_af0867e0f6dc8ed5d0545f012c0068720} 
+void {\bfseries processor\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
 \item 
-\hypertarget{intel64__processor__management_8cpp_a1e9858e2d7ba0fd97cd584301f57d33a}{}\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ {\bfseries processor\+\_\+alloc} (\hyperlink{classthread}{thread} \&io\+\_\+thread)\label{intel64__processor__management_8cpp_a1e9858e2d7ba0fd97cd584301f57d33a}
-
+\hypertarget{intel64__processor__management_8cpp_a1e9858e2d7ba0fd97cd584301f57d33a}{}\label{intel64__processor__management_8cpp_a1e9858e2d7ba0fd97cd584301f57d33a} 
+\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ {\bfseries processor\+\_\+alloc} (\hyperlink{classthread}{thread} \&io\+\_\+thread)
 \item 
-\hypertarget{intel64__processor__management_8cpp_ab2560c2e270385bc1876a3f3102255ba}{}void {\bfseries processor\+\_\+free} (\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ptr)\label{intel64__processor__management_8cpp_ab2560c2e270385bc1876a3f3102255ba}
-
+\hypertarget{intel64__processor__management_8cpp_ab2560c2e270385bc1876a3f3102255ba}{}\label{intel64__processor__management_8cpp_ab2560c2e270385bc1876a3f3102255ba} 
+void {\bfseries processor\+\_\+free} (\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ptr)
 \item 
-\hypertarget{intel64__processor__management_8cpp_ab930851c3d031dac6b8d57199489bc5d}{}void {\bfseries boot\+\_\+processor\+\_\+start} ()\label{intel64__processor__management_8cpp_ab930851c3d031dac6b8d57199489bc5d}
-
+\hypertarget{intel64__processor__management_8cpp_ab930851c3d031dac6b8d57199489bc5d}{}\label{intel64__processor__management_8cpp_ab930851c3d031dac6b8d57199489bc5d} 
+void {\bfseries boot\+\_\+processor\+\_\+start} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a55a0c8f1e956bbe04e8a50452b56467f}{}void {\bfseries subsequent\+\_\+processor\+\_\+start} ()\label{intel64__processor__management_8cpp_a55a0c8f1e956bbe04e8a50452b56467f}
-
+\hypertarget{intel64__processor__management_8cpp_a55a0c8f1e956bbe04e8a50452b56467f}{}\label{intel64__processor__management_8cpp_a55a0c8f1e956bbe04e8a50452b56467f} 
+void {\bfseries subsequent\+\_\+processor\+\_\+start} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a686ca7f9cae37665fdc891dd82b75d1b}{}void {\bfseries processor\+\_\+start} ()\label{intel64__processor__management_8cpp_a686ca7f9cae37665fdc891dd82b75d1b}
-
+\hypertarget{intel64__processor__management_8cpp_a686ca7f9cae37665fdc891dd82b75d1b}{}\label{intel64__processor__management_8cpp_a686ca7f9cae37665fdc891dd82b75d1b} 
+void {\bfseries processor\+\_\+start} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a3665288f90082fad6acfda528f925f35}{}void {\bfseries enable\+\_\+interrupt} ()\label{intel64__processor__management_8cpp_a3665288f90082fad6acfda528f925f35}
-
+\hypertarget{intel64__processor__management_8cpp_a3665288f90082fad6acfda528f925f35}{}\label{intel64__processor__management_8cpp_a3665288f90082fad6acfda528f925f35} 
+void {\bfseries enable\+\_\+interrupt} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_afa8cac971a125ca0d7cf62261336d550}{}void {\bfseries disable\+\_\+interrupt} ()\label{intel64__processor__management_8cpp_afa8cac971a125ca0d7cf62261336d550}
-
+\hypertarget{intel64__processor__management_8cpp_afa8cac971a125ca0d7cf62261336d550}{}\label{intel64__processor__management_8cpp_afa8cac971a125ca0d7cf62261336d550} 
+void {\bfseries disable\+\_\+interrupt} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a67d8aaca108c9704b43d3e97183821b8}{}void {\bfseries backup\+\_\+interrupt} (uint64\+\_\+t \&interrupt)\label{intel64__processor__management_8cpp_a67d8aaca108c9704b43d3e97183821b8}
-
+\hypertarget{intel64__processor__management_8cpp_a67d8aaca108c9704b43d3e97183821b8}{}\label{intel64__processor__management_8cpp_a67d8aaca108c9704b43d3e97183821b8} 
+void {\bfseries backup\+\_\+interrupt} (uint64\+\_\+t \&interrupt)
 \item 
-\hypertarget{intel64__processor__management_8cpp_a84bd00b7ac3028864c13ac4d0cc97f8f}{}void {\bfseries restore\+\_\+interrupt} (uint64\+\_\+t \&interrupt)\label{intel64__processor__management_8cpp_a84bd00b7ac3028864c13ac4d0cc97f8f}
-
+\hypertarget{intel64__processor__management_8cpp_a84bd00b7ac3028864c13ac4d0cc97f8f}{}\label{intel64__processor__management_8cpp_a84bd00b7ac3028864c13ac4d0cc97f8f} 
+void {\bfseries restore\+\_\+interrupt} (uint64\+\_\+t \&interrupt)
 \item 
-\hypertarget{intel64__processor__management_8cpp_a83abbeda22fc5e6c2b35523b64199c1c}{}void {\bfseries idle} ()\label{intel64__processor__management_8cpp_a83abbeda22fc5e6c2b35523b64199c1c}
-
+\hypertarget{intel64__processor__management_8cpp_a83abbeda22fc5e6c2b35523b64199c1c}{}\label{intel64__processor__management_8cpp_a83abbeda22fc5e6c2b35523b64199c1c} 
+void {\bfseries idle} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a7305f4640351136ab7727cea0578f99a}{}\hyperlink{classprocessor__state__base}{processor\+\_\+state\+\_\+base} $\ast$ {\bfseries processor\+\_\+state\+\_\+alloc} ()\label{intel64__processor__management_8cpp_a7305f4640351136ab7727cea0578f99a}
-
+\hypertarget{intel64__processor__management_8cpp_a7305f4640351136ab7727cea0578f99a}{}\label{intel64__processor__management_8cpp_a7305f4640351136ab7727cea0578f99a} 
+\hyperlink{classprocessor__state__base}{processor\+\_\+state\+\_\+base} $\ast$ {\bfseries processor\+\_\+state\+\_\+alloc} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a5740979ad51e4a8ab37cb0c72cb702ec}{}void {\bfseries processor\+\_\+state\+\_\+free} (\hyperlink{classprocessor__state__base}{processor\+\_\+state\+\_\+base} $\ast$ptr)\label{intel64__processor__management_8cpp_a5740979ad51e4a8ab37cb0c72cb702ec}
-
+\hypertarget{intel64__processor__management_8cpp_a5740979ad51e4a8ab37cb0c72cb702ec}{}\label{intel64__processor__management_8cpp_a5740979ad51e4a8ab37cb0c72cb702ec} 
+void {\bfseries processor\+\_\+state\+\_\+free} (\hyperlink{classprocessor__state__base}{processor\+\_\+state\+\_\+base} $\ast$ptr)
 \item 
-\hypertarget{intel64__processor__management_8cpp_a72dd94d4bc83cab44580b4d5945da6ce}{}\hyperlink{classintel64__pml4__table}{intel64\+\_\+pml4\+\_\+table} $\ast$ {\bfseries pml4\+\_\+table\+\_\+alloc} ()\label{intel64__processor__management_8cpp_a72dd94d4bc83cab44580b4d5945da6ce}
-
+\hypertarget{intel64__processor__management_8cpp_a72dd94d4bc83cab44580b4d5945da6ce}{}\label{intel64__processor__management_8cpp_a72dd94d4bc83cab44580b4d5945da6ce} 
+\hyperlink{classintel64__pml4__table}{intel64\+\_\+pml4\+\_\+table} $\ast$ {\bfseries pml4\+\_\+table\+\_\+alloc} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a713c759cf7a5bdb8e4add922305af4b0}{}void {\bfseries pml4\+\_\+table\+\_\+free} (\hyperlink{classintel64__pml4__table}{intel64\+\_\+pml4\+\_\+table} $\ast$pml4t)\label{intel64__processor__management_8cpp_a713c759cf7a5bdb8e4add922305af4b0}
-
+\hypertarget{intel64__processor__management_8cpp_a713c759cf7a5bdb8e4add922305af4b0}{}\label{intel64__processor__management_8cpp_a713c759cf7a5bdb8e4add922305af4b0} 
+void {\bfseries pml4\+\_\+table\+\_\+free} (\hyperlink{classintel64__pml4__table}{intel64\+\_\+pml4\+\_\+table} $\ast$pml4t)
 \item 
-\hypertarget{intel64__processor__management_8cpp_af603a4dedff661779efb2b99da237a44}{}uint64\+\_\+t {\bfseries processor\+\_\+id} ()\label{intel64__processor__management_8cpp_af603a4dedff661779efb2b99da237a44}
-
+\hypertarget{intel64__processor__management_8cpp_af603a4dedff661779efb2b99da237a44}{}\label{intel64__processor__management_8cpp_af603a4dedff661779efb2b99da237a44} 
+uint64\+\_\+t {\bfseries processor\+\_\+id} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_a98dcbe17cdd5bb6bcc83760c5bbc694a}{}\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ {\bfseries processor\+\_\+current} ()\label{intel64__processor__management_8cpp_a98dcbe17cdd5bb6bcc83760c5bbc694a}
-
+\hypertarget{intel64__processor__management_8cpp_a98dcbe17cdd5bb6bcc83760c5bbc694a}{}\label{intel64__processor__management_8cpp_a98dcbe17cdd5bb6bcc83760c5bbc694a} 
+\hyperlink{classprocessor__base}{processor\+\_\+base} $\ast$ {\bfseries processor\+\_\+current} ()
 \item 
-\hypertarget{intel64__processor__management_8cpp_aa984644750826cfbcac6bc0d491727c3}{}int {\bfseries processor\+\_\+add\+\_\+thread} (\hyperlink{classthread}{thread} \&\hyperlink{classthread}{thread})\label{intel64__processor__management_8cpp_aa984644750826cfbcac6bc0d491727c3}
-
+\hypertarget{intel64__processor__management_8cpp_aa984644750826cfbcac6bc0d491727c3}{}\label{intel64__processor__management_8cpp_aa984644750826cfbcac6bc0d491727c3} 
+int {\bfseries processor\+\_\+add\+\_\+thread} (\hyperlink{classthread}{thread} \&\hyperlink{classthread}{thread})
 \item 
-\hypertarget{intel64__processor__management_8cpp_aec42837a53479a28985259a2ab9ea03d}{}void {\bfseries processor\+\_\+dump} ()\label{intel64__processor__management_8cpp_aec42837a53479a28985259a2ab9ea03d}
-
+\hypertarget{intel64__processor__management_8cpp_aec42837a53479a28985259a2ab9ea03d}{}\label{intel64__processor__management_8cpp_aec42837a53479a28985259a2ab9ea03d} 
+void {\bfseries processor\+\_\+dump} ()
 \end{DoxyCompactItemize}
 \subsection*{変数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{intel64__processor__management_8cpp_a15c11292210331df89f50ceba42a3ea3}{}uint64\+\_\+t {\bfseries boot\+\_\+processor\+\_\+pml4\+\_\+table\+\_\+address} = 0x0000000000000000ul\label{intel64__processor__management_8cpp_a15c11292210331df89f50ceba42a3ea3}
-
+\hypertarget{intel64__processor__management_8cpp_a15c11292210331df89f50ceba42a3ea3}{}\label{intel64__processor__management_8cpp_a15c11292210331df89f50ceba42a3ea3} 
+uint64\+\_\+t {\bfseries boot\+\_\+processor\+\_\+pml4\+\_\+table\+\_\+address} = 0x0000000000000000ul
 \item 
-\hypertarget{intel64__processor__management_8cpp_aa1ba5b3cbcf4938ecf710125b92d7637}{}uint64\+\_\+t {\bfseries boot\+\_\+processor\+\_\+stack\+\_\+pointer} = 0x0000000000000000ul\label{intel64__processor__management_8cpp_aa1ba5b3cbcf4938ecf710125b92d7637}
-
+\hypertarget{intel64__processor__management_8cpp_aa1ba5b3cbcf4938ecf710125b92d7637}{}\label{intel64__processor__management_8cpp_aa1ba5b3cbcf4938ecf710125b92d7637} 
+uint64\+\_\+t {\bfseries boot\+\_\+processor\+\_\+stack\+\_\+pointer} = 0x0000000000000000ul
 \item 
-\hypertarget{intel64__processor__management_8cpp_a0e2c08b06a078b7a18f3397ce2e51e2d}{}uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+pml4\+\_\+table\+\_\+address}\label{intel64__processor__management_8cpp_a0e2c08b06a078b7a18f3397ce2e51e2d}
-
+\hypertarget{intel64__processor__management_8cpp_a0e2c08b06a078b7a18f3397ce2e51e2d}{}\label{intel64__processor__management_8cpp_a0e2c08b06a078b7a18f3397ce2e51e2d} 
+uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+pml4\+\_\+table\+\_\+address}
 \item 
-\hypertarget{intel64__processor__management_8cpp_abe9399a5ce0feb703886ae2d87619cc0}{}uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+stack\+\_\+pointer}\label{intel64__processor__management_8cpp_abe9399a5ce0feb703886ae2d87619cc0}
-
+\hypertarget{intel64__processor__management_8cpp_abe9399a5ce0feb703886ae2d87619cc0}{}\label{intel64__processor__management_8cpp_abe9399a5ce0feb703886ae2d87619cc0} 
+uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+stack\+\_\+pointer}
 \item 
-\hypertarget{intel64__processor__management_8cpp_a188ecd7c862362eb64f4d46d7117753e}{}uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+status}\label{intel64__processor__management_8cpp_a188ecd7c862362eb64f4d46d7117753e}
-
+\hypertarget{intel64__processor__management_8cpp_a188ecd7c862362eb64f4d46d7117753e}{}\label{intel64__processor__management_8cpp_a188ecd7c862362eb64f4d46d7117753e} 
+uint64\+\_\+t {\bfseries subsequent\+\_\+processor\+\_\+status}
 \item 
-\hypertarget{intel64__processor__management_8cpp_a1797d33365a5ce2eb0ef930e655b5df0}{}void $\ast$ {\bfseries subsequent\+\_\+processor\+\_\+boot\+\_\+code} = nullptr\label{intel64__processor__management_8cpp_a1797d33365a5ce2eb0ef930e655b5df0}
-
+\hypertarget{intel64__processor__management_8cpp_a1797d33365a5ce2eb0ef930e655b5df0}{}\label{intel64__processor__management_8cpp_a1797d33365a5ce2eb0ef930e655b5df0} 
+void $\ast$ {\bfseries subsequent\+\_\+processor\+\_\+boot\+\_\+code} = nullptr
 \end{DoxyCompactItemize}
 
 
 \subsection{詳解}
-Intel64 C\+P\+U の初期化等を行う関数群実装。 
+Intel64 C\+PU の初期化等を行う関数群実装。 
 
 \begin{DoxyAuthor}{著者}
 Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 

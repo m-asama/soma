@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: memory_management.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -84,34 +62,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">memory_management.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="memory__management_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loader__info_8h.html">loader_info.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">enum class</span> memory_page_size {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    page_size_4k,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    page_size_2m,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> *memory_alloc(<span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> memory_free(<span class="keywordtype">void</span> *ptr);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> *memory_alloc_page_lo(memory_page_size page_size);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//void *memory_alloc_page_hi(memory_page_size page_size);</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="memory__management_8h.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(<span class="keyword">struct</span> <a class="code" href="structloader__info.html">loader_info</a> *li);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> memory_dump();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<a href="memory__management_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="loader__info_8h.html">loader_info.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="memory__management_8h.html#a4696a34a68ce8eaea5f6a5091eead423">   14</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="memory__management_8h.html#a4696a34a68ce8eaea5f6a5091eead423">memory_page_size</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    page_size_4k,</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    page_size_2m,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="memory__management_8h.html#a8b54e36c16bc0ebb5c2f69f9aad5e1aa">memory_alloc</a>(<span class="keywordtype">size_t</span> size);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="memory__management_8h.html#afcebf79ab40d99b29ca9292d2261cf28">memory_free</a>(<span class="keywordtype">void</span> *ptr);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="memory__management_8h.html#a36bc3d580564f68e96a274b8d1bddbe8">memory_alloc_page_lo</a>(<a class="code" href="memory__management_8h.html#a4696a34a68ce8eaea5f6a5091eead423">memory_page_size</a> page_size);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * できるだけ高位のアドレスからページを割り当てる関数。</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * @param page_size 割り当てたいページサイズ。</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * @return 割り当てられたアドレスを指すポインタ。</span></div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//void *memory_alloc_page_hi(memory_page_size page_size);</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="memory__management_8h.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(<span class="keyword">struct</span> <a class="code" href="structloader__info.html">loader_info</a> *li);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="memory__management_8h.html#a0ed1e5afce0951a5e13ccc2b1551341a">memory_dump</a>();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="ttc" id="memory__management_8h_html_a0ed1e5afce0951a5e13ccc2b1551341a"><div class="ttname"><a href="memory__management_8h.html#a0ed1e5afce0951a5e13ccc2b1551341a">memory_dump</a></div><div class="ttdeci">void memory_dump()</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:328</div></div>
+<div class="ttc" id="memory__management_8h_html_a4696a34a68ce8eaea5f6a5091eead423"><div class="ttname"><a href="memory__management_8h.html#a4696a34a68ce8eaea5f6a5091eead423">memory_page_size</a></div><div class="ttdeci">memory_page_size</div><div class="ttdef"><b>Definition:</b> memory_management.h:14</div></div>
+<div class="ttc" id="memory__management_8h_html_a8b54e36c16bc0ebb5c2f69f9aad5e1aa"><div class="ttname"><a href="memory__management_8h.html#a8b54e36c16bc0ebb5c2f69f9aad5e1aa">memory_alloc</a></div><div class="ttdeci">void * memory_alloc(size_t size)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:20</div></div>
 <div class="ttc" id="structloader__info_html"><div class="ttname"><a href="structloader__info.html">loader_info</a></div><div class="ttdef"><b>Definition:</b> loader_info.h:17</div></div>
 <div class="ttc" id="loader__info_8h_html"><div class="ttname"><a href="loader__info_8h.html">loader_info.h</a></div><div class="ttdoc">ブートローダからカーネルへデータを渡すための構造体。 </div></div>
+<div class="ttc" id="memory__management_8h_html_a36bc3d580564f68e96a274b8d1bddbe8"><div class="ttname"><a href="memory__management_8h.html#a36bc3d580564f68e96a274b8d1bddbe8">memory_alloc_page_lo</a></div><div class="ttdeci">void * memory_alloc_page_lo(memory_page_size page_size)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:111</div></div>
 <div class="ttc" id="memory__management_8h_html_a8840f01b46a3b9c43a461591a579c1bd"><div class="ttname"><a href="memory__management_8h.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a></div><div class="ttdeci">void memory_init(struct loader_info *li)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:208</div></div>
+<div class="ttc" id="memory__management_8h_html_afcebf79ab40d99b29ca9292d2261cf28"><div class="ttname"><a href="memory__management_8h.html#afcebf79ab40d99b29ca9292d2261cf28">memory_free</a></div><div class="ttdeci">void memory_free(void *ptr)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

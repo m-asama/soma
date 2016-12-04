@@ -189,14 +189,3 @@ sorted_list<V>::nodes()
 	return m_nodes;
 }
 
-template<class V>
-sorted_list<V>::sorted_list(const sorted_list<V> &src)
-{
-}
-
-template<class V>
-void
-sorted_list<V>::operator=(const sorted_list<V> &src)
-{
-}
-

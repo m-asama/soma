@@ -5,41 +5,37 @@
 メモリ管理に関連する関数実装。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sorted\+\_\+list.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}hash\+\_\+table.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}memory\+\_\+block.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sorted\+\_\+list.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hash\+\_\+table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory\+\_\+block.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\newline
 \subsection*{関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}{}void $\ast$ {\bfseries memory\+\_\+alloc} (size\+\_\+t size)\label{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}
-
+void $\ast$ \hyperlink{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}{memory\+\_\+alloc} (size\+\_\+t size)
 \item 
-\hypertarget{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}{}void {\bfseries memory\+\_\+free} (void $\ast$ptr)\label{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}
-
+void \hyperlink{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}{memory\+\_\+free} (void $\ast$ptr)
 \item 
-\hypertarget{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}{}void $\ast$ {\bfseries memory\+\_\+alloc\+\_\+page\+\_\+lo} (memory\+\_\+page\+\_\+size page\+\_\+size)\label{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}
-
+void $\ast$ \hyperlink{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}{memory\+\_\+alloc\+\_\+page\+\_\+lo} (\hyperlink{memory__management_8h_a4696a34a68ce8eaea5f6a5091eead423}{memory\+\_\+page\+\_\+size} page\+\_\+size)
 \item 
-\hypertarget{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{}void $\ast$ {\bfseries operator new} (size\+\_\+t size)\label{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}
-
+\hypertarget{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{}\label{memory__management_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719} 
+void $\ast$ {\bfseries operator new} (size\+\_\+t size)
 \item 
-\hypertarget{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f}{}void $\ast$ {\bfseries operator new\mbox{[}$\,$\mbox{]}} (size\+\_\+t size)\label{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f}
-
+\hypertarget{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f}{}\label{memory__management_8cpp_a63ce4f64887b9307317aee5baae6b18f} 
+void $\ast$ {\bfseries operator new\mbox{[}$\,$\mbox{]}} (size\+\_\+t size)
 \item 
-\hypertarget{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637}{}void {\bfseries operator delete} (void $\ast$ptr) noexcept\label{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637}
-
+\hypertarget{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637}{}\label{memory__management_8cpp_afa145befcf5e7b83424408ca503c8637} 
+void {\bfseries operator delete} (void $\ast$ptr) noexcept
 \item 
-\hypertarget{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391}{}void {\bfseries operator delete\mbox{[}$\,$\mbox{]}} (void $\ast$ptr) noexcept\label{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391}
-
+\hypertarget{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391}{}\label{memory__management_8cpp_a22aea74a1155aa798d6032da46da2391} 
+void {\bfseries operator delete\mbox{[}$\,$\mbox{]}} (void $\ast$ptr) noexcept
 \item 
 void \hyperlink{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+init} (struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$li)
 \item 
-\hypertarget{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}{}void {\bfseries memory\+\_\+dump} ()\label{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}
-
+void \hyperlink{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}{memory\+\_\+dump} ()
 \end{DoxyCompactItemize}
 
 
@@ -52,11 +48,55 @@ Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+
 
 
 \subsection{関数詳解}
-\hypertarget{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+init@{memory\+\_\+init}}
+\hypertarget{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa}{}\label{memory__management_8cpp_a8b54e36c16bc0ebb5c2f69f9aad5e1aa} 
+\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+alloc@{memory\+\_\+alloc}}
+\index{memory\+\_\+alloc@{memory\+\_\+alloc}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+\subsubsection{\texorpdfstring{memory\+\_\+alloc()}{memory\_alloc()}}
+{\footnotesize\ttfamily void$\ast$ memory\+\_\+alloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+メモリ割り当て関数。 
+\begin{DoxyParams}{引数}
+{\em size} & 割り当てたいサイズ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+割り当てられたアドレスを指すポインタ。 
+\end{DoxyReturn}
+\hypertarget{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8}{}\label{memory__management_8cpp_a36bc3d580564f68e96a274b8d1bddbe8} 
+\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+alloc\+\_\+page\+\_\+lo@{memory\+\_\+alloc\+\_\+page\+\_\+lo}}
+\index{memory\+\_\+alloc\+\_\+page\+\_\+lo@{memory\+\_\+alloc\+\_\+page\+\_\+lo}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+\subsubsection{\texorpdfstring{memory\+\_\+alloc\+\_\+page\+\_\+lo()}{memory\_alloc\_page\_lo()}}
+{\footnotesize\ttfamily void$\ast$ memory\+\_\+alloc\+\_\+page\+\_\+lo (\begin{DoxyParamCaption}\item[{\hyperlink{memory__management_8h_a4696a34a68ce8eaea5f6a5091eead423}{memory\+\_\+page\+\_\+size}}]{page\+\_\+size }\end{DoxyParamCaption})}
+
+できるだけ低位のアドレスからページを割り当てる関数。 
+\begin{DoxyParams}{引数}
+{\em page\+\_\+size} & 割り当てたいページサイズ。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+割り当てられたアドレスを指すポインタ。 
+\end{DoxyReturn}
+\hypertarget{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a}{}\label{memory__management_8cpp_a0ed1e5afce0951a5e13ccc2b1551341a} 
+\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+dump@{memory\+\_\+dump}}
+\index{memory\+\_\+dump@{memory\+\_\+dump}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+\subsubsection{\texorpdfstring{memory\+\_\+dump()}{memory\_dump()}}
+{\footnotesize\ttfamily void memory\+\_\+dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+メモリ割り当てで管理している情報を表示する関数。 \hypertarget{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28}{}\label{memory__management_8cpp_afcebf79ab40d99b29ca9292d2261cf28} 
+\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+free@{memory\+\_\+free}}
+\index{memory\+\_\+free@{memory\+\_\+free}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
+\subsubsection{\texorpdfstring{memory\+\_\+free()}{memory\_free()}}
+{\footnotesize\ttfamily void memory\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+割り当てられたメモリを解放する関数。 
+\begin{DoxyParams}{引数}
+{\em ptr} & 解放したいアドレスを指すポインタ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}{}\label{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd} 
+\index{memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}!memory\+\_\+init@{memory\+\_\+init}}
 \index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+management.\+cpp@{memory\+\_\+management.\+cpp}}
-\subsubsection[{memory\+\_\+init(struct loader\+\_\+info $\ast$li)}]{\setlength{\rightskip}{0pt plus 5cm}void memory\+\_\+init (
-\begin{DoxyParamCaption}
-\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
-\end{DoxyParamCaption}
-)}\label{memory__management_8cpp_a8840f01b46a3b9c43a461591a579c1bd}
+\subsubsection{\texorpdfstring{memory\+\_\+init()}{memory\_init()}}
+{\footnotesize\ttfamily void memory\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$}]{li }\end{DoxyParamCaption})}
+
 メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 

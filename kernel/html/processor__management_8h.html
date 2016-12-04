@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: processor_management.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,58 +75,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a4c2a7ea4dc0f103b45c6843250cf8b66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c2a7ea4dc0f103b45c6843250cf8b66"></a>
+<tr class="memitem:a4c2a7ea4dc0f103b45c6843250cf8b66"><td class="memItemLeft" align="right" valign="top"><a id="a4c2a7ea4dc0f103b45c6843250cf8b66"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>interrupt_handler</b> (uint64_t gsi, uint64_t sp)</td></tr>
 <tr class="separator:a4c2a7ea4dc0f103b45c6843250cf8b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0867e0f6dc8ed5d0545f012c0068720"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0867e0f6dc8ed5d0545f012c0068720"></a>
+<tr class="memitem:af0867e0f6dc8ed5d0545f012c0068720"><td class="memItemLeft" align="right" valign="top"><a id="af0867e0f6dc8ed5d0545f012c0068720"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_init</b> (struct <a class="el" href="structloader__info.html">loader_info</a> *li)</td></tr>
 <tr class="separator:af0867e0f6dc8ed5d0545f012c0068720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9858e2d7ba0fd97cd584301f57d33a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e9858e2d7ba0fd97cd584301f57d33a"></a>
+<tr class="memitem:a1e9858e2d7ba0fd97cd584301f57d33a"><td class="memItemLeft" align="right" valign="top"><a id="a1e9858e2d7ba0fd97cd584301f57d33a"></a>
 <a class="el" href="classprocessor__base.html">processor_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>processor_alloc</b> (<a class="el" href="classthread.html">thread</a> &amp;io_thread)</td></tr>
 <tr class="separator:a1e9858e2d7ba0fd97cd584301f57d33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2560c2e270385bc1876a3f3102255ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2560c2e270385bc1876a3f3102255ba"></a>
+<tr class="memitem:ab2560c2e270385bc1876a3f3102255ba"><td class="memItemLeft" align="right" valign="top"><a id="ab2560c2e270385bc1876a3f3102255ba"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_free</b> (<a class="el" href="classprocessor__base.html">processor_base</a> *ptr)</td></tr>
 <tr class="separator:ab2560c2e270385bc1876a3f3102255ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab930851c3d031dac6b8d57199489bc5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab930851c3d031dac6b8d57199489bc5d"></a>
+<tr class="memitem:ab930851c3d031dac6b8d57199489bc5d"><td class="memItemLeft" align="right" valign="top"><a id="ab930851c3d031dac6b8d57199489bc5d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>boot_processor_start</b> ()</td></tr>
 <tr class="separator:ab930851c3d031dac6b8d57199489bc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55a0c8f1e956bbe04e8a50452b56467f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55a0c8f1e956bbe04e8a50452b56467f"></a>
+<tr class="memitem:a55a0c8f1e956bbe04e8a50452b56467f"><td class="memItemLeft" align="right" valign="top"><a id="a55a0c8f1e956bbe04e8a50452b56467f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>subsequent_processor_start</b> ()</td></tr>
 <tr class="separator:a55a0c8f1e956bbe04e8a50452b56467f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686ca7f9cae37665fdc891dd82b75d1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a686ca7f9cae37665fdc891dd82b75d1b"></a>
+<tr class="memitem:a686ca7f9cae37665fdc891dd82b75d1b"><td class="memItemLeft" align="right" valign="top"><a id="a686ca7f9cae37665fdc891dd82b75d1b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_start</b> ()</td></tr>
 <tr class="separator:a686ca7f9cae37665fdc891dd82b75d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3665288f90082fad6acfda528f925f35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3665288f90082fad6acfda528f925f35"></a>
+<tr class="memitem:a3665288f90082fad6acfda528f925f35"><td class="memItemLeft" align="right" valign="top"><a id="a3665288f90082fad6acfda528f925f35"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>enable_interrupt</b> ()</td></tr>
 <tr class="separator:a3665288f90082fad6acfda528f925f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa8cac971a125ca0d7cf62261336d550"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa8cac971a125ca0d7cf62261336d550"></a>
+<tr class="memitem:afa8cac971a125ca0d7cf62261336d550"><td class="memItemLeft" align="right" valign="top"><a id="afa8cac971a125ca0d7cf62261336d550"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disable_interrupt</b> ()</td></tr>
 <tr class="separator:afa8cac971a125ca0d7cf62261336d550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67d8aaca108c9704b43d3e97183821b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67d8aaca108c9704b43d3e97183821b8"></a>
+<tr class="memitem:a67d8aaca108c9704b43d3e97183821b8"><td class="memItemLeft" align="right" valign="top"><a id="a67d8aaca108c9704b43d3e97183821b8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>backup_interrupt</b> (uint64_t &amp;interrupt)</td></tr>
 <tr class="separator:a67d8aaca108c9704b43d3e97183821b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84bd00b7ac3028864c13ac4d0cc97f8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84bd00b7ac3028864c13ac4d0cc97f8f"></a>
+<tr class="memitem:a84bd00b7ac3028864c13ac4d0cc97f8f"><td class="memItemLeft" align="right" valign="top"><a id="a84bd00b7ac3028864c13ac4d0cc97f8f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>restore_interrupt</b> (uint64_t &amp;interrupt)</td></tr>
 <tr class="separator:a84bd00b7ac3028864c13ac4d0cc97f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83abbeda22fc5e6c2b35523b64199c1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83abbeda22fc5e6c2b35523b64199c1c"></a>
+<tr class="memitem:a83abbeda22fc5e6c2b35523b64199c1c"><td class="memItemLeft" align="right" valign="top"><a id="a83abbeda22fc5e6c2b35523b64199c1c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>idle</b> ()</td></tr>
 <tr class="separator:a83abbeda22fc5e6c2b35523b64199c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7305f4640351136ab7727cea0578f99a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7305f4640351136ab7727cea0578f99a"></a>
+<tr class="memitem:a7305f4640351136ab7727cea0578f99a"><td class="memItemLeft" align="right" valign="top"><a id="a7305f4640351136ab7727cea0578f99a"></a>
 <a class="el" href="classprocessor__state__base.html">processor_state_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>processor_state_alloc</b> ()</td></tr>
 <tr class="separator:a7305f4640351136ab7727cea0578f99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5740979ad51e4a8ab37cb0c72cb702ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5740979ad51e4a8ab37cb0c72cb702ec"></a>
+<tr class="memitem:a5740979ad51e4a8ab37cb0c72cb702ec"><td class="memItemLeft" align="right" valign="top"><a id="a5740979ad51e4a8ab37cb0c72cb702ec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_state_free</b> (<a class="el" href="classprocessor__state__base.html">processor_state_base</a> *ptr)</td></tr>
 <tr class="separator:a5740979ad51e4a8ab37cb0c72cb702ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af603a4dedff661779efb2b99da237a44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af603a4dedff661779efb2b99da237a44"></a>
+<tr class="memitem:af603a4dedff661779efb2b99da237a44"><td class="memItemLeft" align="right" valign="top"><a id="af603a4dedff661779efb2b99da237a44"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>processor_id</b> ()</td></tr>
 <tr class="separator:af603a4dedff661779efb2b99da237a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98dcbe17cdd5bb6bcc83760c5bbc694a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98dcbe17cdd5bb6bcc83760c5bbc694a"></a>
+<tr class="memitem:a98dcbe17cdd5bb6bcc83760c5bbc694a"><td class="memItemLeft" align="right" valign="top"><a id="a98dcbe17cdd5bb6bcc83760c5bbc694a"></a>
 <a class="el" href="classprocessor__base.html">processor_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>processor_current</b> ()</td></tr>
 <tr class="separator:a98dcbe17cdd5bb6bcc83760c5bbc694a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa984644750826cfbcac6bc0d491727c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa984644750826cfbcac6bc0d491727c3"></a>
+<tr class="memitem:aa984644750826cfbcac6bc0d491727c3"><td class="memItemLeft" align="right" valign="top"><a id="aa984644750826cfbcac6bc0d491727c3"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>processor_add_thread</b> (<a class="el" href="classthread.html">thread</a> &amp;<a class="el" href="classthread.html">thread</a>)</td></tr>
 <tr class="separator:aa984644750826cfbcac6bc0d491727c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec42837a53479a28985259a2ab9ea03d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec42837a53479a28985259a2ab9ea03d"></a>
+<tr class="memitem:aec42837a53479a28985259a2ab9ea03d"><td class="memItemLeft" align="right" valign="top"><a id="aec42837a53479a28985259a2ab9ea03d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_dump</b> ()</td></tr>
 <tr class="separator:aec42837a53479a28985259a2ab9ea03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -160,7 +138,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>processor_dump</b> ()
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

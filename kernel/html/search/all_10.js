@@ -11,6 +11,9 @@ var searchData=
   ['uefifb_5fwidth',['uefifb_width',['../classdisplay__console.html#af3e64f62827bab683e73c8c2937bd061',1,'display_console::uefifb_width(int uefifb_width)'],['../classdisplay__console.html#a9842b9adc744d7be6cb4beebc357ded4',1,'display_console::uefifb_width()']]],
   ['unicode_2ecpp',['unicode.cpp',['../unicode_8cpp.html',1,'']]],
   ['unicode_2eh',['unicode.h',['../unicode_8h.html',1,'']]],
+  ['utf8str',['utf8str',['../classutf8str.html',1,'utf8str'],['../classutf8str.html#ade0a006e67b96bbd32c609df76b26d2c',1,'utf8str::utf8str()'],['../classutf8str.html#aa91e798ecc3f4da99961ab204c35bcb9',1,'utf8str::utf8str(const utf8str &amp;src)'],['../classutf8str.html#abdde62e19811801c54236bb7d8322177',1,'utf8str::utf8str(const utf8str &amp;&amp;src)=delete'],['../classutf8str.html#a9fde6a70538271f4a9224155d31424c5',1,'utf8str::utf8str(const char *s)']]],
+  ['utf8str_2ecpp',['utf8str.cpp',['../utf8str_8cpp.html',1,'']]],
+  ['utf8str_2eh',['utf8str.h',['../utf8str_8h.html',1,'']]],
   ['util_2ecpp',['util.cpp',['../util_8cpp.html',1,'']]],
   ['util_2eh',['util.h',['../util_8h.html',1,'']]]
 ];

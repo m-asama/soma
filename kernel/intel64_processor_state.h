@@ -10,36 +10,39 @@
 #include "intel64_processor.h"
 #include "processor_state_base.h"
 
+/**
+ * Intel64 プロセッサーの状態を保持するためのクラス。
+ */
 class intel64_processor_state : public processor_state_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_processor_state();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_processor_state();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_processor_state(const intel64_processor_state &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_processor_state(const intel64_processor_state &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_processor_state &operator=(const intel64_processor_state &&src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_processor_state &operator=(const intel64_processor_state &src) = delete;
 

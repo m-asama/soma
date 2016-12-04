@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: hash_table&lt; V &gt; クラステンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,41 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
-      <li><a href="classes.html"><span>クラス索引</span></a></li>
-      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,29 +66,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">hash_table&lt; V &gt; クラステンプレート</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="hash__table_8h_source.html">hash_table.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a5e4a74748ecad78e798739a03be056cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e4a74748ecad78e798739a03be056cb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>hash_table</b> (uint64_t(*hash_fn)(const V &amp;v), bool(*equal_fn)(const V &amp;vl, const V &amp;vr))</td></tr>
+<tr class="memitem:a5e4a74748ecad78e798739a03be056cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a5e4a74748ecad78e798739a03be056cb">hash_table</a> (uint64_t(*hash_fn)(const V &amp;v), bool(*equal_fn)(const V &amp;vl, const V &amp;vr))</td></tr>
 <tr class="separator:a5e4a74748ecad78e798739a03be056cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e02312051be1517ad16ee8164af07dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e02312051be1517ad16ee8164af07dd"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (V &amp;v)</td></tr>
+<tr class="memitem:aa71d6ba6b69c0cc05713feeb39b25a30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#aa71d6ba6b69c0cc05713feeb39b25a30">hash_table</a> ()=delete</td></tr>
+<tr class="separator:aa71d6ba6b69c0cc05713feeb39b25a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4ba869398b6330ed4d8366cbad3659"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#ada4ba869398b6330ed4d8366cbad3659">~hash_table</a> ()</td></tr>
+<tr class="separator:ada4ba869398b6330ed4d8366cbad3659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a71ef67b26dc4ec16a56c003105c9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a30a71ef67b26dc4ec16a56c003105c9a">hash_table</a> (const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;src)=delete</td></tr>
+<tr class="separator:a30a71ef67b26dc4ec16a56c003105c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c397149a5b8e6766ada4b23ec7344de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a9c397149a5b8e6766ada4b23ec7344de">hash_table</a> (const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&amp;src)=delete</td></tr>
+<tr class="separator:a9c397149a5b8e6766ada4b23ec7344de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22982acf5d5ba36d8ed199b2f6b25bd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a22982acf5d5ba36d8ed199b2f6b25bd0">operator=</a> (const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;src)=delete</td></tr>
+<tr class="separator:a22982acf5d5ba36d8ed199b2f6b25bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770e1e703ae71c41f18ff727882ae4ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a770e1e703ae71c41f18ff727882ae4ed">operator=</a> (const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&amp;src)=delete</td></tr>
+<tr class="separator:a770e1e703ae71c41f18ff727882ae4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e02312051be1517ad16ee8164af07dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a9e02312051be1517ad16ee8164af07dd">insert</a> (V &amp;v)</td></tr>
 <tr class="separator:a9e02312051be1517ad16ee8164af07dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ac0d9136be9250f7059d07099a4393e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ac0d9136be9250f7059d07099a4393e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (const V &amp;v)</td></tr>
+<tr class="memitem:a8ac0d9136be9250f7059d07099a4393e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a8ac0d9136be9250f7059d07099a4393e">remove</a> (const V &amp;v)</td></tr>
 <tr class="separator:a8ac0d9136be9250f7059d07099a4393e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6968f84ffa245688a2fd8eebb86e7a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6968f84ffa245688a2fd8eebb86e7a6"></a>
-V *&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (const V &amp;v)</td></tr>
+<tr class="memitem:ae6968f84ffa245688a2fd8eebb86e7a6"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#ae6968f84ffa245688a2fd8eebb86e7a6">find</a> (const V &amp;v)</td></tr>
 <tr class="separator:ae6968f84ffa245688a2fd8eebb86e7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae018dc5310c3bf887dec199a445eeb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ae018dc5310c3bf887dec199a445eeb"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>table_size</b> ()</td></tr>
+<tr class="memitem:a2ae018dc5310c3bf887dec199a445eeb"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a2ae018dc5310c3bf887dec199a445eeb">table_size</a> ()</td></tr>
 <tr class="separator:a2ae018dc5310c3bf887dec199a445eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4fefe428377b31e479f516aad83e72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace4fefe428377b31e479f516aad83e72"></a>
-<a class="el" href="classbidir__node.html">bidir_node</a>&lt; V &gt; **&#160;</td><td class="memItemRight" valign="bottom"><b>table</b> ()</td></tr>
+<tr class="memitem:ace4fefe428377b31e479f516aad83e72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbidir__node.html">bidir_node</a>&lt; V &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#ace4fefe428377b31e479f516aad83e72">table</a> ()</td></tr>
 <tr class="separator:ace4fefe428377b31e479f516aad83e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accb6f8935ae8965655975426140d9447"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accb6f8935ae8965655975426140d9447"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>nodes</b> ()</td></tr>
+<tr class="memitem:accb6f8935ae8965655975426140d9447"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#accb6f8935ae8965655975426140d9447">nodes</a> ()</td></tr>
 <tr class="separator:accb6f8935ae8965655975426140d9447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -120,8 +103,367 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>nodes</b> ()</td>
 <tr class="memitem:a8840f01b46a3b9c43a461591a579c1bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhash__table.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a> (struct <a class="el" href="structloader__info.html">loader_info</a> *li)</td></tr>
 <tr class="separator:a8840f01b46a3b9c43a461591a579c1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><h3>template&lt;class V&gt;<br />
+class hash_table&lt; V &gt;</h3>
+
+<p>ハッシュテーブルのクラス。 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a5e4a74748ecad78e798739a03be056cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4a74748ecad78e798739a03be056cb">&sect;&nbsp;</a></span>hash_table() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::<a class="el" href="classhash__table.html">hash_table</a> </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t(*)(const V &amp;v)&#160;</td>
+          <td class="paramname"><em>hash_fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*)(const V &amp;vl, const V &amp;vr)&#160;</td>
+          <td class="paramname"><em>equal_fn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>コンストラクタ。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash_fn</td><td>値のハッシュ値を計算するための関数。 </td></tr>
+    <tr><td class="paramname">equal_fn</td><td>値が等しいかを調べるための関数。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa71d6ba6b69c0cc05713feeb39b25a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa71d6ba6b69c0cc05713feeb39b25a30">&sect;&nbsp;</a></span>hash_table() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::<a class="el" href="classhash__table.html">hash_table</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コンストラクタ。引数なしのコンストラクタは禁止。 </p>
+
+</div>
+</div>
+<a id="ada4ba869398b6330ed4d8366cbad3659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4ba869398b6330ed4d8366cbad3659">&sect;&nbsp;</a></span>~hash_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::~<a class="el" href="classhash__table.html">hash_table</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>デストラクタ。 </p>
+
+</div>
+</div>
+<a id="a30a71ef67b26dc4ec16a56c003105c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a71ef67b26dc4ec16a56c003105c9a">&sect;&nbsp;</a></span>hash_table() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::<a class="el" href="classhash__table.html">hash_table</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コピーコンストラクタ。コピーは禁止。 </p>
+
+</div>
+</div>
+<a id="a9c397149a5b8e6766ada4b23ec7344de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c397149a5b8e6766ada4b23ec7344de">&sect;&nbsp;</a></span>hash_table() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::<a class="el" href="classhash__table.html">hash_table</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ムーブコンストラクタ。ムーブは禁止。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ae6968f84ffa245688a2fd8eebb86e7a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6968f84ffa245688a2fd8eebb86e7a6">&sect;&nbsp;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">V * <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::find </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブルから引数に渡された値と同じオブジェクトへの参照を返す。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>検索したいオブジェクト。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>ハッシュテーブル内に格納されていた引数と等しいオブジェクトへの参照。 </dd></dl>
+
+</div>
+</div>
+<a id="a9e02312051be1517ad16ee8164af07dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e02312051be1517ad16ee8164af07dd">&sect;&nbsp;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブルに値を格納する。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>格納したい値。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>正常終了時に 0 を返す。 </dd></dl>
+
+</div>
+</div>
+<a id="accb6f8935ae8965655975426140d9447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb6f8935ae8965655975426140d9447">&sect;&nbsp;</a></span>nodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::nodes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブルに登録された値の数を返す。 </p><dl class="section return"><dt>戻り値</dt><dd>ハッシュテーブルに登録された値の数。 </dd></dl>
+
+</div>
+</div>
+<a id="a22982acf5d5ba36d8ed199b2f6b25bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22982acf5d5ba36d8ed199b2f6b25bd0">&sect;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コピー代入演算子。コピー代入は禁止。 </p>
+
+</div>
+</div>
+<a id="a770e1e703ae71c41f18ff727882ae4ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a770e1e703ae71c41f18ff727882ae4ed">&sect;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ムーブ代入演算子。ムーブ代入は禁止。 </p>
+
+</div>
+</div>
+<a id="a8ac0d9136be9250f7059d07099a4393e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac0d9136be9250f7059d07099a4393e">&sect;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブルから値を削除する。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>削除したい値。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>正常終了時に 0 を返す。 </dd></dl>
+
+</div>
+</div>
+<a id="ace4fefe428377b31e479f516aad83e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace4fefe428377b31e479f516aad83e72">&sect;&nbsp;</a></span>table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbidir__node.html">bidir_node</a>&lt; V &gt; ** <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブル(<a class="el" href="classbidir__node.html">bidir_node</a> の配列へのポインタ)を返す。 </p><dl class="section return"><dt>戻り値</dt><dd>ハッシュテーブル(<a class="el" href="classbidir__node.html">bidir_node</a> の配列へのポインタ)。 </dd></dl>
+
+</div>
+</div>
+<a id="a2ae018dc5310c3bf887dec199a445eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae018dc5310c3bf887dec199a445eeb">&sect;&nbsp;</a></span>table_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="classhash__table.html">hash_table</a>&lt; V &gt;::table_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ハッシュテーブルのサイズを返す。 </p><dl class="section return"><dt>戻り値</dt><dd>ハッシュテーブルのサイズ。 </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">フレンドと関連関数の詳解</h2>
-<a class="anchor" id="a8840f01b46a3b9c43a461591a579c1bd"></a>
+<a id="a8840f01b46a3b9c43a461591a579c1bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8840f01b46a3b9c43a461591a579c1bd">&sect;&nbsp;</a></span>memory_init</h2>
+
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -144,7 +486,13 @@ template&lt;class V&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>メモリ管理の初期化の際は private: な変数にアクセスするため、 memory_init を friend とする必要がある。 </p>
+<p>メモリ管理の初期化の際は private: な変数にアクセスするため、 memory_init を friend とする必要がある。</p>
+<p>メモリ管理の初期化を行う関数。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">li</td><td>ブートローダから渡される構造体へのポインタ。 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -157,7 +505,7 @@ template&lt;class V&gt; </div>
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

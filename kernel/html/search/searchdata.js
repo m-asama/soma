@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "abcdfghilmnoprstuv~",
-  1: "abcdfhilmpst",
+  0: "abcdfghilmnoprstuvwx~",
+  1: "abcdfhilmpstu",
   2: "abcdfhilmpstu",
-  3: "abcdghimnoprsuv~",
-  4: "m"
+  3: "abcdfghilmnoprstuvwx~",
+  4: "amt",
+  5: "m"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "related"
+  4: "enums",
+  5: "related"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "クラス",
   2: "ファイル",
   3: "関数",
-  4: "フレンド"
+  4: "列挙型",
+  5: "フレンド"
 };
 

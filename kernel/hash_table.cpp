@@ -145,22 +145,6 @@ hash_table<V>::nodes()
 }
 
 template<class V>
-hash_table<V>::hash_table()
-{
-}
-
-template<class V>
-hash_table<V>::hash_table(const hash_table<V> &src)
-{
-}
-
-template<class V>
-void
-hash_table<V>::operator=(const hash_table<V> &src)
-{
-}
-
-template<class V>
 void
 hash_table<V>::expand()
 {

@@ -9,38 +9,38 @@
 #include "type.h"
 
 /**
- *
+ * I/O PIC の基底クラス。
  */
 class irqchip_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	irqchip_base();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~irqchip_base();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	irqchip_base(const irqchip_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	irqchip_base(const irqchip_base &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	irqchip_base &operator=(const irqchip_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	irqchip_base &operator=(const irqchip_base &&src) = delete;
 

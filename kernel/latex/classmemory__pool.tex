@@ -1,16 +1,29 @@
 \hypertarget{classmemory__pool}{}\section{memory\+\_\+pool$<$ T $>$ クラステンプレート}
 \label{classmemory__pool}\index{memory\+\_\+pool$<$ T $>$@{memory\+\_\+pool$<$ T $>$}}
+
+
+{\ttfamily \#include $<$memory\+\_\+pool.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classmemory__pool_ab5d59f7eeb28c0c983bc68566a375a14}{}T $\ast$ {\bfseries alloc} ()\label{classmemory__pool_ab5d59f7eeb28c0c983bc68566a375a14}
-
+\hyperlink{classmemory__pool_aefcedeb50bbee5b4b55add4cff1dc1cd}{memory\+\_\+pool} ()
 \item 
-\hypertarget{classmemory__pool_a18de6da11b20cc568984d3e9fa98015f}{}void {\bfseries free} (T $\ast$ptr)\label{classmemory__pool_a18de6da11b20cc568984d3e9fa98015f}
-
+virtual \hyperlink{classmemory__pool_a3431323fb4ac4b685b0e7a6c1da2094d}{$\sim$memory\+\_\+pool} ()
 \item 
-\hypertarget{classmemory__pool_a601585beead8633f1253c976d75ce916}{}uint64\+\_\+t {\bfseries count} ()\label{classmemory__pool_a601585beead8633f1253c976d75ce916}
-
+\hyperlink{classmemory__pool_a38c023c3361ac0ee78d8e34ab7f8d668}{memory\+\_\+pool} (const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&src)=delete
+\item 
+\hyperlink{classmemory__pool_acff04411638a2a888d522194b2283b5d}{memory\+\_\+pool} (const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&\&src)=delete
+\item 
+void \hyperlink{classmemory__pool_a9ee94bfc4a06a78ed9b276c890b5d469}{operator=} (const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&src)=delete
+\item 
+void \hyperlink{classmemory__pool_afbde5b0e1d4ef84d03837e5dbb8bac47}{operator=} (const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&\&src)=delete
+\item 
+T $\ast$ \hyperlink{classmemory__pool_ab5d59f7eeb28c0c983bc68566a375a14}{alloc} ()
+\item 
+void \hyperlink{classmemory__pool_a18de6da11b20cc568984d3e9fa98015f}{free} (T $\ast$ptr)
+\item 
+uint64\+\_\+t \hyperlink{classmemory__pool_a601585beead8633f1253c976d75ce916}{count} ()
 \end{DoxyCompactItemize}
 \subsection*{フレンド}
 \begin{DoxyCompactItemize}
@@ -19,15 +32,108 @@ void \hyperlink{classmemory__pool_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\
 \end{DoxyCompactItemize}
 
 
+\subsection{詳解}
+\subsubsection*{template$<$class T$>$\newline
+class memory\+\_\+pool$<$ T $>$}
+
+ある型のメモリ領域をまとめて管理するプールを表すクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classmemory__pool_aefcedeb50bbee5b4b55add4cff1dc1cd}{}\label{classmemory__pool_aefcedeb50bbee5b4b55add4cff1dc1cd} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{memory\+\_\+pool()}{memory\_pool()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::\hyperlink{classmemory__pool}{memory\+\_\+pool} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classmemory__pool_a3431323fb4ac4b685b0e7a6c1da2094d}{}\label{classmemory__pool_a3431323fb4ac4b685b0e7a6c1da2094d} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!````~memory\+\_\+pool@{$\sim$memory\+\_\+pool}}
+\index{````~memory\+\_\+pool@{$\sim$memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{$\sim$memory\+\_\+pool()}{~memory\_pool()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::$\sim$\hyperlink{classmemory__pool}{memory\+\_\+pool} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classmemory__pool_a38c023c3361ac0ee78d8e34ab7f8d668}{}\label{classmemory__pool_a38c023c3361ac0ee78d8e34ab7f8d668} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{memory\+\_\+pool()}{memory\_pool()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::\hyperlink{classmemory__pool}{memory\+\_\+pool} (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classmemory__pool_acff04411638a2a888d522194b2283b5d}{}\label{classmemory__pool_acff04411638a2a888d522194b2283b5d} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{memory\+\_\+pool()}{memory\_pool()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+\hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::\hyperlink{classmemory__pool}{memory\+\_\+pool} (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classmemory__pool_ab5d59f7eeb28c0c983bc68566a375a14}{}\label{classmemory__pool_ab5d59f7eeb28c0c983bc68566a375a14} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!alloc@{alloc}}
+\index{alloc@{alloc}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::alloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+メモリブロックから未使用のものを見つけ出し割り当てる関数。 \begin{DoxyReturn}{戻り値}
+割り当てられたアドレスへのポインタ。 
+\end{DoxyReturn}
+\hypertarget{classmemory__pool_a601585beead8633f1253c976d75ce916}{}\label{classmemory__pool_a601585beead8633f1253c976d75ce916} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!count@{count}}
+\index{count@{count}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+uint64\+\_\+t \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+現在割り当てられている数を返す関数。 \begin{DoxyReturn}{戻り値}
+現在割り当てられている数。 
+\end{DoxyReturn}
+\hypertarget{classmemory__pool_a18de6da11b20cc568984d3e9fa98015f}{}\label{classmemory__pool_a18de6da11b20cc568984d3e9fa98015f} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!free@{free}}
+\index{free@{free}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::free (\begin{DoxyParamCaption}\item[{T $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+割り当てられたものを回収するための関数。 
+\begin{DoxyParams}{引数}
+{\em ptr} & 回収するアドレスへのポインタ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmemory__pool_a9ee94bfc4a06a78ed9b276c890b5d469}{}\label{classmemory__pool_a9ee94bfc4a06a78ed9b276c890b5d469} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!operator=@{operator=}}
+\index{operator=@{operator=}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classmemory__pool_afbde5b0e1d4ef84d03837e5dbb8bac47}{}\label{classmemory__pool_afbde5b0e1d4ef84d03837e5dbb8bac47} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!operator=@{operator=}}
+\index{operator=@{operator=}!memory\+\_\+pool@{memory\+\_\+pool}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__pool}{memory\+\_\+pool}$<$ T $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 
+
 \subsection{フレンドと関連関数の詳解}
-\hypertarget{classmemory__pool_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+init@{memory\+\_\+init}}
+\hypertarget{classmemory__pool_a8840f01b46a3b9c43a461591a579c1bd}{}\label{classmemory__pool_a8840f01b46a3b9c43a461591a579c1bd} 
+\index{memory\+\_\+pool@{memory\+\_\+pool}!memory\+\_\+init@{memory\+\_\+init}}
 \index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+pool@{memory\+\_\+pool}}
-\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void memory\+\_\+init (
-\begin{DoxyParamCaption}
-\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [friend]}}\label{classmemory__pool_a8840f01b46a3b9c43a461591a579c1bd}
-メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+\subsubsection{\texorpdfstring{memory\+\_\+init}{memory\_init}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void memory\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$}]{li }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。
+
+メモリ管理の初期化を行う関数。 
+\begin{DoxyParams}{引数}
+{\em li} & ブートローダから渡される構造体へのポインタ。 \\
+\hline
+\end{DoxyParams}
+
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

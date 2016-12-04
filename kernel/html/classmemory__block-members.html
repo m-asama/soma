@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: メンバ一覧</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,41 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
-      <li><a href="classes.html"><span>クラス索引</span></a></li>
-      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,24 +65,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 <p>継承メンバを含む <a class="el" href="classmemory__block.html">memory_block</a> の全メンバ一覧です。</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>base</b>(uint64_t base) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>base</b>() const  (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>count</b>() (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>memory_block</b>(uint64_t base, uint64_t size) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(struct loader_info *li)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator delete</b>(void *ptr) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator new</b>(size_t size) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator==</b>(const memory_block &amp;rhs) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;</b>(const memory_block &amp;rhs) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>size</b>(uint64_t size) (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>size</b>() const  (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~memory_block</b>() (定義場所: <a class="el" href="classmemory__block.html">memory_block</a>)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a739d675f86d7e2a9f0082b2e6e4d827f">base</a>(uint64_t base)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a4f2105c2b57c74998ad60cd973fb6a2d">base</a>() const</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a8573ce38e735adf5fbf8a04165308c74">count</a>()</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a5e72abe346014b328921130d6576ffaa">memory_block</a>(uint64_t base, uint64_t size)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a811ecbeacc0921a0ec8fd0f94a97682d">memory_block</a>()=delete</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#ab43debaedcdcacb2f269047bb3308d5e">memory_block</a>(const memory_block &amp;src)=delete</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#aeae2474076d174f3ea9279c180e8252c">memory_block</a>(const memory_block &amp;&amp;src)=delete</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(struct loader_info *li)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#ad053b85f1ebbd81d801dc7e492fd4264">operator delete</a>(void *ptr)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a649a913a12355b1e28e0338f64f346d8">operator new</a>(size_t size)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#ae6f96e210fcddb0390b69ebf544100dc">operator=</a>(const memory_block &amp;src)=delete</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a192afb96e0361d057f0933119d42dc6f">operator=</a>(const memory_block &amp;&amp;src)=delete</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a2622810f660307cb9d39516973abac9b">operator==</a>(const memory_block &amp;rhs)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#abba4d7c05d916aafc08b58187fd92fad">operator&gt;</a>(const memory_block &amp;rhs)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#adb448dde189fdedec8793fd3dcb4674a">size</a>(uint64_t size)</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classmemory__block.html#a61bb79beaeb712e3ea9896058af4eda4">size</a>() const</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classmemory__block.html#a88261ad8b59e2dcae15ba37a0e4f9c88">~memory_block</a>()</td><td class="entry"><a class="el" href="classmemory__block.html">memory_block</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

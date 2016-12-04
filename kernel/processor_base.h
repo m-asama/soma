@@ -11,38 +11,39 @@
 #include "thread.h"
 
 /**
- *
+ * CPU の基底クラス。
  */
 class processor_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
+	 * @param io_thread
 	 */
 	processor_base(thread &io_thread);
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~processor_base();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	processor_base(const processor_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	processor_base(const processor_base &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	processor_base &operator=(const processor_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	processor_base &operator=(const processor_base &&src) = delete;
 

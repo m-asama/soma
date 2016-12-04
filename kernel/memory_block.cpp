@@ -81,19 +81,6 @@ memory_block::count()
 	return s_mem_pool.count();
 }
 
-memory_block::memory_block()
-{
-}
-
-memory_block::memory_block(const memory_block &src)
-{
-}
-
-void
-memory_block::operator=(const memory_block &src)
-{
-}
-
 memory_pool<memory_block> memory_block::s_mem_pool;
 
 uint64_t memory_block_hash(const memory_block &mb)

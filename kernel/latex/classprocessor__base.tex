@@ -1,5 +1,9 @@
 \hypertarget{classprocessor__base}{}\section{processor\+\_\+base クラス}
 \label{classprocessor__base}\index{processor\+\_\+base@{processor\+\_\+base}}
+
+
+{\ttfamily \#include $<$processor\+\_\+base.\+h$>$}
+
 processor\+\_\+base の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,82 +13,129 @@ processor\+\_\+base の継承関係図\begin{figure}[H]
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classprocessor__base_a0fb3660589090640decbaef29e66a100}{}{\bfseries processor\+\_\+base} (\hyperlink{classthread}{thread} \&io\+\_\+thread)\label{classprocessor__base_a0fb3660589090640decbaef29e66a100}
-
+\hyperlink{classprocessor__base_a0fb3660589090640decbaef29e66a100}{processor\+\_\+base} (\hyperlink{classthread}{thread} \&io\+\_\+thread)
 \item 
-\hypertarget{classprocessor__base_aef9b4dfa6c564ad86d5b28210772be33}{}{\bfseries processor\+\_\+base} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&src)=delete\label{classprocessor__base_aef9b4dfa6c564ad86d5b28210772be33}
-
+virtual \hyperlink{classprocessor__base_a158d2b8a7cbfaff3b56de60c9ca00de2}{$\sim$processor\+\_\+base} ()
 \item 
-\hypertarget{classprocessor__base_a5d8c9251cdf1e4d522f16a0b605c7d6a}{}{\bfseries processor\+\_\+base} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&src)=delete\label{classprocessor__base_a5d8c9251cdf1e4d522f16a0b605c7d6a}
-
+\hyperlink{classprocessor__base_aef9b4dfa6c564ad86d5b28210772be33}{processor\+\_\+base} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&src)=delete
 \item 
-\hypertarget{classprocessor__base_a52553966ab699b15a1eb70a96211baac}{}\hyperlink{classprocessor__base}{processor\+\_\+base} \& {\bfseries operator=} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&src)=delete\label{classprocessor__base_a52553966ab699b15a1eb70a96211baac}
-
+\hyperlink{classprocessor__base_a5d8c9251cdf1e4d522f16a0b605c7d6a}{processor\+\_\+base} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&src)=delete
 \item 
-\hypertarget{classprocessor__base_a345a5ebd2dc94130c9a08f49fd82cb8d}{}\hyperlink{classprocessor__base}{processor\+\_\+base} \& {\bfseries operator=} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&src)=delete\label{classprocessor__base_a345a5ebd2dc94130c9a08f49fd82cb8d}
-
+\hyperlink{classprocessor__base}{processor\+\_\+base} \& \hyperlink{classprocessor__base_a52553966ab699b15a1eb70a96211baac}{operator=} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&src)=delete
 \item 
-\hypertarget{classprocessor__base_acb2a834439a018314170c0d851869ce1}{}bool {\bfseries operator==} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&rhs)\label{classprocessor__base_acb2a834439a018314170c0d851869ce1}
-
+\hyperlink{classprocessor__base}{processor\+\_\+base} \& \hyperlink{classprocessor__base_a345a5ebd2dc94130c9a08f49fd82cb8d}{operator=} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&src)=delete
 \item 
-\hypertarget{classprocessor__base_aacf4bb3a3a65821048dd6afa195fc99e}{}bool {\bfseries operator$>$} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&rhs)\label{classprocessor__base_aacf4bb3a3a65821048dd6afa195fc99e}
-
+\hypertarget{classprocessor__base_acb2a834439a018314170c0d851869ce1}{}\label{classprocessor__base_acb2a834439a018314170c0d851869ce1} 
+bool {\bfseries operator==} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&rhs)
 \item 
-\hypertarget{classprocessor__base_a52adfd77275b92eac46e21c15b339089}{}void {\bfseries id} (uint64\+\_\+t id)\label{classprocessor__base_a52adfd77275b92eac46e21c15b339089}
-
+\hypertarget{classprocessor__base_aacf4bb3a3a65821048dd6afa195fc99e}{}\label{classprocessor__base_aacf4bb3a3a65821048dd6afa195fc99e} 
+bool {\bfseries operator$>$} (const \hyperlink{classprocessor__base}{processor\+\_\+base} \&rhs)
 \item 
-\hypertarget{classprocessor__base_a40f5bc9fb90b7e23247635ce84fdf532}{}uint64\+\_\+t {\bfseries id} () const \label{classprocessor__base_a40f5bc9fb90b7e23247635ce84fdf532}
-
+\hypertarget{classprocessor__base_a52adfd77275b92eac46e21c15b339089}{}\label{classprocessor__base_a52adfd77275b92eac46e21c15b339089} 
+void {\bfseries id} (uint64\+\_\+t id)
 \item 
-\hypertarget{classprocessor__base_af3afa79b3619e41af6b78c4eecdbbd79}{}void {\bfseries apic\+\_\+address} (uint64\+\_\+t apic\+\_\+address)\label{classprocessor__base_af3afa79b3619e41af6b78c4eecdbbd79}
-
+\hypertarget{classprocessor__base_ae24f08a5885789e1ae198541ecb8cd04}{}\label{classprocessor__base_ae24f08a5885789e1ae198541ecb8cd04} 
+uint64\+\_\+t {\bfseries id} () const
 \item 
-\hypertarget{classprocessor__base_aba3e940b99ea5de6735ee14b2f7e84ff}{}uint64\+\_\+t {\bfseries apic\+\_\+address} () const \label{classprocessor__base_aba3e940b99ea5de6735ee14b2f7e84ff}
-
+\hypertarget{classprocessor__base_af3afa79b3619e41af6b78c4eecdbbd79}{}\label{classprocessor__base_af3afa79b3619e41af6b78c4eecdbbd79} 
+void {\bfseries apic\+\_\+address} (uint64\+\_\+t apic\+\_\+address)
 \item 
-\hypertarget{classprocessor__base_a7804c678898d2070c1aff039e531f2ee}{}void {\bfseries boot\+\_\+processor} (bool boot\+\_\+processor)\label{classprocessor__base_a7804c678898d2070c1aff039e531f2ee}
-
+\hypertarget{classprocessor__base_a7a18d5ab30ca6b262a4e97199f559650}{}\label{classprocessor__base_a7a18d5ab30ca6b262a4e97199f559650} 
+uint64\+\_\+t {\bfseries apic\+\_\+address} () const
 \item 
-\hypertarget{classprocessor__base_ad06fe0fea02e95026ef5990f9b7e7225}{}bool {\bfseries boot\+\_\+processor} ()\label{classprocessor__base_ad06fe0fea02e95026ef5990f9b7e7225}
-
+\hypertarget{classprocessor__base_a7804c678898d2070c1aff039e531f2ee}{}\label{classprocessor__base_a7804c678898d2070c1aff039e531f2ee} 
+void {\bfseries boot\+\_\+processor} (bool boot\+\_\+processor)
 \item 
-\hypertarget{classprocessor__base_a07fac7030fb43f4204c71ef6148c5716}{}\hyperlink{classsorted__list}{sorted\+\_\+list}$<$ \hyperlink{classthread}{thread} $>$ \& {\bfseries threads} ()\label{classprocessor__base_a07fac7030fb43f4204c71ef6148c5716}
-
+\hypertarget{classprocessor__base_ad06fe0fea02e95026ef5990f9b7e7225}{}\label{classprocessor__base_ad06fe0fea02e95026ef5990f9b7e7225} 
+bool {\bfseries boot\+\_\+processor} ()
 \item 
-\hypertarget{classprocessor__base_ae519ab5ed729eb6388417676f81a5cc4}{}\hyperlink{classthread}{thread} \& {\bfseries io\+\_\+thread} ()\label{classprocessor__base_ae519ab5ed729eb6388417676f81a5cc4}
-
+\hypertarget{classprocessor__base_a07fac7030fb43f4204c71ef6148c5716}{}\label{classprocessor__base_a07fac7030fb43f4204c71ef6148c5716} 
+\hyperlink{classsorted__list}{sorted\+\_\+list}$<$ \hyperlink{classthread}{thread} $>$ \& {\bfseries threads} ()
 \item 
-\hypertarget{classprocessor__base_a077987899bafaebc0e5905941f2eeaad}{}void {\bfseries running\+\_\+thread} (\hyperlink{classthread}{thread} $\ast$running\+\_\+thread)\label{classprocessor__base_a077987899bafaebc0e5905941f2eeaad}
-
+\hypertarget{classprocessor__base_ae519ab5ed729eb6388417676f81a5cc4}{}\label{classprocessor__base_ae519ab5ed729eb6388417676f81a5cc4} 
+\hyperlink{classthread}{thread} \& {\bfseries io\+\_\+thread} ()
 \item 
-\hypertarget{classprocessor__base_a7cf10dce7e5bd4669314602aa830eb2e}{}\hyperlink{classthread}{thread} $\ast$ {\bfseries running\+\_\+thread} ()\label{classprocessor__base_a7cf10dce7e5bd4669314602aa830eb2e}
-
+\hypertarget{classprocessor__base_a077987899bafaebc0e5905941f2eeaad}{}\label{classprocessor__base_a077987899bafaebc0e5905941f2eeaad} 
+void {\bfseries running\+\_\+thread} (\hyperlink{classthread}{thread} $\ast$running\+\_\+thread)
 \item 
-\hypertarget{classprocessor__base_a6291e61d54d216dc562aaddde308b3a0}{}virtual void {\bfseries dump} ()\label{classprocessor__base_a6291e61d54d216dc562aaddde308b3a0}
-
+\hypertarget{classprocessor__base_a7cf10dce7e5bd4669314602aa830eb2e}{}\label{classprocessor__base_a7cf10dce7e5bd4669314602aa830eb2e} 
+\hyperlink{classthread}{thread} $\ast$ {\bfseries running\+\_\+thread} ()
+\item 
+\hypertarget{classprocessor__base_a6291e61d54d216dc562aaddde308b3a0}{}\label{classprocessor__base_a6291e61d54d216dc562aaddde308b3a0} 
+virtual void {\bfseries dump} ()
 \end{DoxyCompactItemize}
 \subsection*{限定公開変数類}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classprocessor__base_ab445b3c1354265a31d97603fb40e0797}{}uint64\+\_\+t {\bfseries m\+\_\+id}\label{classprocessor__base_ab445b3c1354265a31d97603fb40e0797}
-
+\hypertarget{classprocessor__base_ab445b3c1354265a31d97603fb40e0797}{}\label{classprocessor__base_ab445b3c1354265a31d97603fb40e0797} 
+uint64\+\_\+t {\bfseries m\+\_\+id}
 \item 
-\hypertarget{classprocessor__base_a96a89dc7297e7c28c0548b786ce52c71}{}uint64\+\_\+t {\bfseries m\+\_\+apic\+\_\+address}\label{classprocessor__base_a96a89dc7297e7c28c0548b786ce52c71}
-
+\hypertarget{classprocessor__base_a96a89dc7297e7c28c0548b786ce52c71}{}\label{classprocessor__base_a96a89dc7297e7c28c0548b786ce52c71} 
+uint64\+\_\+t {\bfseries m\+\_\+apic\+\_\+address}
 \item 
-\hypertarget{classprocessor__base_a4d4563c5da59f6d620b22978dd7dcf78}{}bool {\bfseries m\+\_\+boot\+\_\+processor}\label{classprocessor__base_a4d4563c5da59f6d620b22978dd7dcf78}
-
+\hypertarget{classprocessor__base_a4d4563c5da59f6d620b22978dd7dcf78}{}\label{classprocessor__base_a4d4563c5da59f6d620b22978dd7dcf78} 
+bool {\bfseries m\+\_\+boot\+\_\+processor}
 \item 
-\hypertarget{classprocessor__base_a43e64f45f8cac6046cf1231e64509eca}{}\hyperlink{classsorted__list}{sorted\+\_\+list}$<$ \hyperlink{classthread}{thread} $>$ {\bfseries m\+\_\+threads}\label{classprocessor__base_a43e64f45f8cac6046cf1231e64509eca}
-
+\hypertarget{classprocessor__base_a43e64f45f8cac6046cf1231e64509eca}{}\label{classprocessor__base_a43e64f45f8cac6046cf1231e64509eca} 
+\hyperlink{classsorted__list}{sorted\+\_\+list}$<$ \hyperlink{classthread}{thread} $>$ {\bfseries m\+\_\+threads}
 \item 
-\hypertarget{classprocessor__base_a029809d46de2f1f24ca8c4fcdb2b549b}{}\hyperlink{classthread}{thread} \& {\bfseries m\+\_\+io\+\_\+thread}\label{classprocessor__base_a029809d46de2f1f24ca8c4fcdb2b549b}
-
+\hypertarget{classprocessor__base_a029809d46de2f1f24ca8c4fcdb2b549b}{}\label{classprocessor__base_a029809d46de2f1f24ca8c4fcdb2b549b} 
+\hyperlink{classthread}{thread} \& {\bfseries m\+\_\+io\+\_\+thread}
 \item 
-\hypertarget{classprocessor__base_af117224c5de5f3ff2db614c88708ae8b}{}\hyperlink{classthread}{thread} $\ast$ {\bfseries m\+\_\+running\+\_\+thread}\label{classprocessor__base_af117224c5de5f3ff2db614c88708ae8b}
-
+\hypertarget{classprocessor__base_af117224c5de5f3ff2db614c88708ae8b}{}\label{classprocessor__base_af117224c5de5f3ff2db614c88708ae8b} 
+\hyperlink{classthread}{thread} $\ast$ {\bfseries m\+\_\+running\+\_\+thread}
 \end{DoxyCompactItemize}
 
+
+\subsection{詳解}
+C\+PU の基底クラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classprocessor__base_a0fb3660589090640decbaef29e66a100}{}\label{classprocessor__base_a0fb3660589090640decbaef29e66a100} 
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{processor\+\_\+base()}{processor\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily processor\+\_\+base\+::processor\+\_\+base (\begin{DoxyParamCaption}\item[{\hyperlink{classthread}{thread} \&}]{io\+\_\+thread }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em io\+\_\+thread} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classprocessor__base_a158d2b8a7cbfaff3b56de60c9ca00de2}{}\label{classprocessor__base_a158d2b8a7cbfaff3b56de60c9ca00de2} 
+\index{processor\+\_\+base@{processor\+\_\+base}!````~processor\+\_\+base@{$\sim$processor\+\_\+base}}
+\index{````~processor\+\_\+base@{$\sim$processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{$\sim$processor\+\_\+base()}{~processor\_base()}}
+{\footnotesize\ttfamily processor\+\_\+base\+::$\sim$processor\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classprocessor__base_aef9b4dfa6c564ad86d5b28210772be33}{}\label{classprocessor__base_aef9b4dfa6c564ad86d5b28210772be33} 
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{processor\+\_\+base()}{processor\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily processor\+\_\+base\+::processor\+\_\+base (\begin{DoxyParamCaption}\item[{const \hyperlink{classprocessor__base}{processor\+\_\+base} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classprocessor__base_a5d8c9251cdf1e4d522f16a0b605c7d6a}{}\label{classprocessor__base_a5d8c9251cdf1e4d522f16a0b605c7d6a} 
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\index{processor\+\_\+base@{processor\+\_\+base}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{processor\+\_\+base()}{processor\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily processor\+\_\+base\+::processor\+\_\+base (\begin{DoxyParamCaption}\item[{const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classprocessor__base_a52553966ab699b15a1eb70a96211baac}{}\label{classprocessor__base_a52553966ab699b15a1eb70a96211baac} 
+\index{processor\+\_\+base@{processor\+\_\+base}!operator=@{operator=}}
+\index{operator=@{operator=}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classprocessor__base}{processor\+\_\+base}\& processor\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classprocessor__base}{processor\+\_\+base} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classprocessor__base_a345a5ebd2dc94130c9a08f49fd82cb8d}{}\label{classprocessor__base_a345a5ebd2dc94130c9a08f49fd82cb8d} 
+\index{processor\+\_\+base@{processor\+\_\+base}!operator=@{operator=}}
+\index{operator=@{operator=}!processor\+\_\+base@{processor\+\_\+base}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classprocessor__base}{processor\+\_\+base}\& processor\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classprocessor__base}{processor\+\_\+base} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

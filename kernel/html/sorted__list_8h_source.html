@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: sorted_list.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -84,100 +62,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">sorted_list.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="sorted__list_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bidir__node_8h.html">bidir_node.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classsorted__list.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsorted__list.html">sorted_list</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="classsorted__list.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(<span class="keyword">struct</span> <a class="code" href="structloader__info.html">loader_info</a> *li);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classsorted__list.html">sorted_list</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classsorted__list.html">sorted_list</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    insert(V &amp;v);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">remove</span>(V &amp;v);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> V *</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    find(<span class="keyword">const</span> V &amp;v);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    resort();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *head();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *tail();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> nodes();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classsorted__list.html">sorted_list</a>(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;src);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;src);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *m_head;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *m_tail;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> m_nodes;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sorted__list_8cpp.html">sorted_list.cpp</a>&quot;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="ttc" id="classsorted__list_html_a8840f01b46a3b9c43a461591a579c1bd"><div class="ttname"><a href="classsorted__list.html#a8840f01b46a3b9c43a461591a579c1bd">sorted_list::memory_init</a></div><div class="ttdeci">friend void memory_init(struct loader_info *li)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:208</div></div>
+<a href="sorted__list_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bidir__node_8h.html">bidir_node.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> V&gt;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classsorted__list.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsorted__list.html">sorted_list</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="classsorted__list.html#a8840f01b46a3b9c43a461591a579c1bd">memory_init</a>(<span class="keyword">struct</span> <a class="code" href="structloader__info.html">loader_info</a> *li);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classsorted__list.html#a615f6cbdcb90d6da6894c47e4ae02dfe">sorted_list</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classsorted__list.html#a8e3259e7d55bcbccffad17f9e5c7a241">~sorted_list</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classsorted__list.html#a615f6cbdcb90d6da6894c47e4ae02dfe">sorted_list</a>(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classsorted__list.html#a615f6cbdcb90d6da6894c47e4ae02dfe">sorted_list</a>(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsorted__list.html#a1cd2f040fc38f16be7dc5f92139f61d4">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classsorted__list.html#a1cd2f040fc38f16be7dc5f92139f61d4">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsorted__list.html">sorted_list&lt;V&gt;</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classsorted__list.html#a7a88d284cebe5f221de7bc45165e02e0">insert</a>(V &amp;v);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span></div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">remove</span>(V &amp;v);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> V *</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classsorted__list.html#a013a3060fad4b6f11507ad2d66fea59b">find</a>(<span class="keyword">const</span> V &amp;v);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">int</span></div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classsorted__list.html#a24c602fa9554ff65d4912d00ced7805b">resort</a>();</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *<a class="code" href="classsorted__list.html#a31980ee808541eebcf39ac0a1e0a5773">head</a>();</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *<a class="code" href="classsorted__list.html#ac89adea8f09aa4ee809e06f90c55b2b8">tail</a>();</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classsorted__list.html#a87bcb37ce7df9c4477eb1509601a8fea">nodes</a>();</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *m_head;</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classbidir__node.html">bidir_node&lt;V&gt;</a> *m_tail;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> m_nodes;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sorted__list_8cpp.html">sorted_list.cpp</a>&quot;</span></div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div><div class="ttc" id="classsorted__list_html_a8840f01b46a3b9c43a461591a579c1bd"><div class="ttname"><a href="classsorted__list.html#a8840f01b46a3b9c43a461591a579c1bd">sorted_list::memory_init</a></div><div class="ttdeci">friend void memory_init(struct loader_info *li)</div><div class="ttdef"><b>Definition:</b> memory_management.cpp:208</div></div>
+<div class="ttc" id="classsorted__list_html_a87bcb37ce7df9c4477eb1509601a8fea"><div class="ttname"><a href="classsorted__list.html#a87bcb37ce7df9c4477eb1509601a8fea">sorted_list::nodes</a></div><div class="ttdeci">int nodes()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:187</div></div>
+<div class="ttc" id="classsorted__list_html_ac89adea8f09aa4ee809e06f90c55b2b8"><div class="ttname"><a href="classsorted__list.html#ac89adea8f09aa4ee809e06f90c55b2b8">sorted_list::tail</a></div><div class="ttdeci">bidir_node&lt; V &gt; * tail()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:180</div></div>
+<div class="ttc" id="classsorted__list_html_a31980ee808541eebcf39ac0a1e0a5773"><div class="ttname"><a href="classsorted__list.html#a31980ee808541eebcf39ac0a1e0a5773">sorted_list::head</a></div><div class="ttdeci">bidir_node&lt; V &gt; * head()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:173</div></div>
+<div class="ttc" id="classsorted__list_html_a7a88d284cebe5f221de7bc45165e02e0"><div class="ttname"><a href="classsorted__list.html#a7a88d284cebe5f221de7bc45165e02e0">sorted_list::insert</a></div><div class="ttdeci">int insert(V &amp;v)</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:32</div></div>
+<div class="ttc" id="classsorted__list_html_a1cd2f040fc38f16be7dc5f92139f61d4"><div class="ttname"><a href="classsorted__list.html#a1cd2f040fc38f16be7dc5f92139f61d4">sorted_list::operator=</a></div><div class="ttdeci">void operator=(const sorted_list&lt; V &gt; &amp;src)=delete</div></div>
+<div class="ttc" id="classsorted__list_html_a615f6cbdcb90d6da6894c47e4ae02dfe"><div class="ttname"><a href="classsorted__list.html#a615f6cbdcb90d6da6894c47e4ae02dfe">sorted_list::sorted_list</a></div><div class="ttdeci">sorted_list()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:12</div></div>
 <div class="ttc" id="classbidir__node_html"><div class="ttname"><a href="classbidir__node.html">bidir_node</a></div><div class="ttdef"><b>Definition:</b> bidir_node.h:20</div></div>
+<div class="ttc" id="classsorted__list_html_a8e3259e7d55bcbccffad17f9e5c7a241"><div class="ttname"><a href="classsorted__list.html#a8e3259e7d55bcbccffad17f9e5c7a241">sorted_list::~sorted_list</a></div><div class="ttdeci">virtual ~sorted_list()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:19</div></div>
 <div class="ttc" id="structloader__info_html"><div class="ttname"><a href="structloader__info.html">loader_info</a></div><div class="ttdef"><b>Definition:</b> loader_info.h:17</div></div>
-<div class="ttc" id="classsorted__list_html"><div class="ttname"><a href="classsorted__list.html">sorted_list</a></div><div class="ttdef"><b>Definition:</b> sorted_list.h:12</div></div>
+<div class="ttc" id="classsorted__list_html_a24c602fa9554ff65d4912d00ced7805b"><div class="ttname"><a href="classsorted__list.html#a24c602fa9554ff65d4912d00ced7805b">sorted_list::resort</a></div><div class="ttdeci">int resort()</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:127</div></div>
+<div class="ttc" id="classsorted__list_html"><div class="ttname"><a href="classsorted__list.html">sorted_list</a></div><div class="ttdef"><b>Definition:</b> sorted_list.h:15</div></div>
+<div class="ttc" id="classsorted__list_html_a013a3060fad4b6f11507ad2d66fea59b"><div class="ttname"><a href="classsorted__list.html#a013a3060fad4b6f11507ad2d66fea59b">sorted_list::find</a></div><div class="ttdeci">const V * find(const V &amp;v)</div><div class="ttdef"><b>Definition:</b> sorted_list.cpp:113</div></div>
 <div class="ttc" id="bidir__node_8h_html"><div class="ttname"><a href="bidir__node_8h.html">bidir_node.h</a></div><div class="ttdoc">双方向リンクリストのノード。 </div></div>
 <div class="ttc" id="sorted__list_8cpp_html"><div class="ttname"><a href="sorted__list_8cpp.html">sorted_list.cpp</a></div><div class="ttdoc">整列されたリストのクラス。 </div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -185,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

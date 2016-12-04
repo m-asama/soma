@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: intel64_assembly.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -114,43 +92,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="separator:ab01b348114adde328cdb8db6c0daac91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab04248d48dfa95e7782aadee925da5e7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intel64__assembly_8cpp.html#ab04248d48dfa95e7782aadee925da5e7">rflags</a> ()</td></tr>
 <tr class="separator:ab04248d48dfa95e7782aadee925da5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51eaba7d35e64bfe5802aa2c10e1b1d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51eaba7d35e64bfe5802aa2c10e1b1d3"></a>
+<tr class="memitem:a51eaba7d35e64bfe5802aa2c10e1b1d3"><td class="memItemLeft" align="right" valign="top"><a id="a51eaba7d35e64bfe5802aa2c10e1b1d3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>cpuid</b> (uint32_t &amp;eax, uint32_t &amp;ebx, uint32_t &amp;ecx, uint32_t &amp;edx)</td></tr>
 <tr class="separator:a51eaba7d35e64bfe5802aa2c10e1b1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b80f76e4c1fc679b86b275dca6ac99f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b80f76e4c1fc679b86b275dca6ac99f"></a>
+<tr class="memitem:a2b80f76e4c1fc679b86b275dca6ac99f"><td class="memItemLeft" align="right" valign="top"><a id="a2b80f76e4c1fc679b86b275dca6ac99f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>rdmsr</b> (uint32_t msr, uint32_t *lo, uint32_t *hi)</td></tr>
 <tr class="separator:a2b80f76e4c1fc679b86b275dca6ac99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5ed3003eabf9d46dc052ed41d0d2b97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5ed3003eabf9d46dc052ed41d0d2b97"></a>
+<tr class="memitem:ae5ed3003eabf9d46dc052ed41d0d2b97"><td class="memItemLeft" align="right" valign="top"><a id="ae5ed3003eabf9d46dc052ed41d0d2b97"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>wrmsr</b> (uint32_t msr, uint32_t lo, uint32_t hi)</td></tr>
 <tr class="separator:ae5ed3003eabf9d46dc052ed41d0d2b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e214ff31346854eece09269fa68143"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58e214ff31346854eece09269fa68143"></a>
+<tr class="memitem:a58e214ff31346854eece09269fa68143"><td class="memItemLeft" align="right" valign="top"><a id="a58e214ff31346854eece09269fa68143"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_cs</b> ()</td></tr>
 <tr class="separator:a58e214ff31346854eece09269fa68143"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d9fe3c2cd4a180e40733fb9dcd51f12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d9fe3c2cd4a180e40733fb9dcd51f12"></a>
+<tr class="memitem:a7d9fe3c2cd4a180e40733fb9dcd51f12"><td class="memItemLeft" align="right" valign="top"><a id="a7d9fe3c2cd4a180e40733fb9dcd51f12"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_ds</b> ()</td></tr>
 <tr class="separator:a7d9fe3c2cd4a180e40733fb9dcd51f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0144410eb4e0bcafed428363bb9fc357"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0144410eb4e0bcafed428363bb9fc357"></a>
+<tr class="memitem:a0144410eb4e0bcafed428363bb9fc357"><td class="memItemLeft" align="right" valign="top"><a id="a0144410eb4e0bcafed428363bb9fc357"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_ss</b> ()</td></tr>
 <tr class="separator:a0144410eb4e0bcafed428363bb9fc357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71b50d8667fa78f1248d644cdaaf4af3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71b50d8667fa78f1248d644cdaaf4af3"></a>
+<tr class="memitem:a71b50d8667fa78f1248d644cdaaf4af3"><td class="memItemLeft" align="right" valign="top"><a id="a71b50d8667fa78f1248d644cdaaf4af3"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_es</b> ()</td></tr>
 <tr class="separator:a71b50d8667fa78f1248d644cdaaf4af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49fbe5352daed400c8cefe218e58c3d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49fbe5352daed400c8cefe218e58c3d2"></a>
+<tr class="memitem:a49fbe5352daed400c8cefe218e58c3d2"><td class="memItemLeft" align="right" valign="top"><a id="a49fbe5352daed400c8cefe218e58c3d2"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_fs</b> ()</td></tr>
 <tr class="separator:a49fbe5352daed400c8cefe218e58c3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b1e3e1fc5df7efc15195c1964a83e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29b1e3e1fc5df7efc15195c1964a83e9"></a>
+<tr class="memitem:a29b1e3e1fc5df7efc15195c1964a83e9"><td class="memItemLeft" align="right" valign="top"><a id="a29b1e3e1fc5df7efc15195c1964a83e9"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>segment_register_gs</b> ()</td></tr>
 <tr class="separator:a29b1e3e1fc5df7efc15195c1964a83e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad865e1ca48bc6d99d94ca7e90571e342"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad865e1ca48bc6d99d94ca7e90571e342"></a>
+<tr class="memitem:ad865e1ca48bc6d99d94ca7e90571e342"><td class="memItemLeft" align="right" valign="top"><a id="ad865e1ca48bc6d99d94ca7e90571e342"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lgdt</b> (void *ptr, uint16_t code_segment_selector, uint16_t data_segment_selector)</td></tr>
 <tr class="separator:ad865e1ca48bc6d99d94ca7e90571e342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f392759cb664297f8fe3cd8f91ab1a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f392759cb664297f8fe3cd8f91ab1a3"></a>
+<tr class="memitem:a8f392759cb664297f8fe3cd8f91ab1a3"><td class="memItemLeft" align="right" valign="top"><a id="a8f392759cb664297f8fe3cd8f91ab1a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sgdt</b> (void *ptr)</td></tr>
 <tr class="separator:a8f392759cb664297f8fe3cd8f91ab1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad69b097e0dc4f8dd059eb4e4d5cb4324"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad69b097e0dc4f8dd059eb4e4d5cb4324"></a>
+<tr class="memitem:ad69b097e0dc4f8dd059eb4e4d5cb4324"><td class="memItemLeft" align="right" valign="top"><a id="ad69b097e0dc4f8dd059eb4e4d5cb4324"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lidt</b> (void *ptr)</td></tr>
 <tr class="separator:ad69b097e0dc4f8dd059eb4e4d5cb4324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d3e904f859ef9417979457ae44b1ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49d3e904f859ef9417979457ae44b1ab"></a>
+<tr class="memitem:a49d3e904f859ef9417979457ae44b1ab"><td class="memItemLeft" align="right" valign="top"><a id="a49d3e904f859ef9417979457ae44b1ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)</td></tr>
 <tr class="separator:a49d3e904f859ef9417979457ae44b1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -158,7 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 <div class="textblock"><p>インラインアセンブリで書かれた関数実装。 </p>
 <dl class="section author"><dt>著者</dt><dd>Masakazu Asama <a href="#" onclick="location.href='mai'+'lto:'+'m-a'+'sa'+'ma@'+'gi'+'nza'+'do'+'.co'+'.j'+'p'; return false;">m-asa<span style="display: none;">.nosp@m.</span>ma@g<span style="display: none;">.nosp@m.</span>inzad<span style="display: none;">.nosp@m.</span>o.co<span style="display: none;">.nosp@m.</span>.jp</a> </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a4229a9b84f8b8673326f12bd41acd27c"></a>
+<a id="a4229a9b84f8b8673326f12bd41acd27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4229a9b84f8b8673326f12bd41acd27c">&sect;&nbsp;</a></span>cli()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -174,7 +154,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="ab01b348114adde328cdb8db6c0daac91"></a>
+<a id="ab01b348114adde328cdb8db6c0daac91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab01b348114adde328cdb8db6c0daac91">&sect;&nbsp;</a></span>hlt()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -190,7 +172,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="a2e1e8e2c5724c1e8fd2dff2eada06479"></a>
+<a id="a2e1e8e2c5724c1e8fd2dff2eada06479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e1e8e2c5724c1e8fd2dff2eada06479">&sect;&nbsp;</a></span>inb()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -213,7 +197,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="a952966e2341f9e573b4a002aca5bb21e"></a>
+<a id="a952966e2341f9e573b4a002aca5bb21e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a952966e2341f9e573b4a002aca5bb21e">&sect;&nbsp;</a></span>inl()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -236,7 +222,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="ad6e8f0e0260d783b7301e63933d4e490"></a>
+<a id="ad6e8f0e0260d783b7301e63933d4e490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6e8f0e0260d783b7301e63933d4e490">&sect;&nbsp;</a></span>inw()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -259,7 +247,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="a8bf7a9af91c08e6f876aaffeccd48ff3"></a>
+<a id="a8bf7a9af91c08e6f876aaffeccd48ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf7a9af91c08e6f876aaffeccd48ff3">&sect;&nbsp;</a></span>outb()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -292,7 +282,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="a9bbef83a73fb7194de515986382bbcfc"></a>
+<a id="a9bbef83a73fb7194de515986382bbcfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbef83a73fb7194de515986382bbcfc">&sect;&nbsp;</a></span>outl()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -325,7 +317,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="a3105e202829cfca8b5757df9351f96e1"></a>
+<a id="a3105e202829cfca8b5757df9351f96e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3105e202829cfca8b5757df9351f96e1">&sect;&nbsp;</a></span>outw()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -358,7 +352,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="ab04248d48dfa95e7782aadee925da5e7"></a>
+<a id="ab04248d48dfa95e7782aadee925da5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04248d48dfa95e7782aadee925da5e7">&sect;&nbsp;</a></span>rflags()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -374,7 +370,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 
 </div>
 </div>
-<a class="anchor" id="ad7f8963860eb077bb23363aeebb62f41"></a>
+<a id="ad7f8963860eb077bb23363aeebb62f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f8963860eb077bb23363aeebb62f41">&sect;&nbsp;</a></span>sti()</h2>
+
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -395,7 +393,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sidt</b> (void *ptr)<
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

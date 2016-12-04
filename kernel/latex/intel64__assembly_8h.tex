@@ -5,7 +5,7 @@
 インラインアセンブリで書かれた関数宣言。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
 \subsection*{関数}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,59 +29,59 @@ void \hyperlink{intel64__assembly_8h_ab01b348114adde328cdb8db6c0daac91}{hlt} ()
 \item 
 uint64\+\_\+t \hyperlink{intel64__assembly_8h_ab04248d48dfa95e7782aadee925da5e7}{rflags} ()
 \item 
-\hypertarget{intel64__assembly_8h_a51eaba7d35e64bfe5802aa2c10e1b1d3}{}void {\bfseries cpuid} (uint32\+\_\+t \&eax, uint32\+\_\+t \&ebx, uint32\+\_\+t \&ecx, uint32\+\_\+t \&edx)\label{intel64__assembly_8h_a51eaba7d35e64bfe5802aa2c10e1b1d3}
-
+\hypertarget{intel64__assembly_8h_a51eaba7d35e64bfe5802aa2c10e1b1d3}{}\label{intel64__assembly_8h_a51eaba7d35e64bfe5802aa2c10e1b1d3} 
+void {\bfseries cpuid} (uint32\+\_\+t \&eax, uint32\+\_\+t \&ebx, uint32\+\_\+t \&ecx, uint32\+\_\+t \&edx)
 \item 
-\hypertarget{intel64__assembly_8h_a2b80f76e4c1fc679b86b275dca6ac99f}{}void {\bfseries rdmsr} (uint32\+\_\+t msr, uint32\+\_\+t $\ast$lo, uint32\+\_\+t $\ast$hi)\label{intel64__assembly_8h_a2b80f76e4c1fc679b86b275dca6ac99f}
-
+\hypertarget{intel64__assembly_8h_a2b80f76e4c1fc679b86b275dca6ac99f}{}\label{intel64__assembly_8h_a2b80f76e4c1fc679b86b275dca6ac99f} 
+void {\bfseries rdmsr} (uint32\+\_\+t msr, uint32\+\_\+t $\ast$lo, uint32\+\_\+t $\ast$hi)
 \item 
-\hypertarget{intel64__assembly_8h_ae5ed3003eabf9d46dc052ed41d0d2b97}{}void {\bfseries wrmsr} (uint32\+\_\+t msr, uint32\+\_\+t lo, uint32\+\_\+t hi)\label{intel64__assembly_8h_ae5ed3003eabf9d46dc052ed41d0d2b97}
-
+\hypertarget{intel64__assembly_8h_ae5ed3003eabf9d46dc052ed41d0d2b97}{}\label{intel64__assembly_8h_ae5ed3003eabf9d46dc052ed41d0d2b97} 
+void {\bfseries wrmsr} (uint32\+\_\+t msr, uint32\+\_\+t lo, uint32\+\_\+t hi)
 \item 
-\hypertarget{intel64__assembly_8h_a7e6754f9c6c95eaeffb3a1a5e97f8f6b}{}void {\bfseries cr3} (uint64\+\_\+t cr3)\label{intel64__assembly_8h_a7e6754f9c6c95eaeffb3a1a5e97f8f6b}
-
+\hypertarget{intel64__assembly_8h_a7e6754f9c6c95eaeffb3a1a5e97f8f6b}{}\label{intel64__assembly_8h_a7e6754f9c6c95eaeffb3a1a5e97f8f6b} 
+void {\bfseries cr3} (uint64\+\_\+t cr3)
 \item 
-\hypertarget{intel64__assembly_8h_a31352a2ab14dcb04d5560298dd520651}{}uint64\+\_\+t {\bfseries cr3} ()\label{intel64__assembly_8h_a31352a2ab14dcb04d5560298dd520651}
-
+\hypertarget{intel64__assembly_8h_a31352a2ab14dcb04d5560298dd520651}{}\label{intel64__assembly_8h_a31352a2ab14dcb04d5560298dd520651} 
+uint64\+\_\+t {\bfseries cr3} ()
 \item 
-\hypertarget{intel64__assembly_8h_a10c6b94ff7e0b4630e6c55d5d79dd91f}{}void {\bfseries rsp} (uint64\+\_\+t rsp)\label{intel64__assembly_8h_a10c6b94ff7e0b4630e6c55d5d79dd91f}
-
+\hypertarget{intel64__assembly_8h_a10c6b94ff7e0b4630e6c55d5d79dd91f}{}\label{intel64__assembly_8h_a10c6b94ff7e0b4630e6c55d5d79dd91f} 
+void {\bfseries rsp} (uint64\+\_\+t rsp)
 \item 
-\hypertarget{intel64__assembly_8h_afa9d669a1f074c3c96786bd023e53343}{}uint64\+\_\+t {\bfseries rsp} ()\label{intel64__assembly_8h_afa9d669a1f074c3c96786bd023e53343}
-
+\hypertarget{intel64__assembly_8h_afa9d669a1f074c3c96786bd023e53343}{}\label{intel64__assembly_8h_afa9d669a1f074c3c96786bd023e53343} 
+uint64\+\_\+t {\bfseries rsp} ()
 \item 
-\hypertarget{intel64__assembly_8h_a58e214ff31346854eece09269fa68143}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+cs} ()\label{intel64__assembly_8h_a58e214ff31346854eece09269fa68143}
-
+\hypertarget{intel64__assembly_8h_a58e214ff31346854eece09269fa68143}{}\label{intel64__assembly_8h_a58e214ff31346854eece09269fa68143} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+cs} ()
 \item 
-\hypertarget{intel64__assembly_8h_a7d9fe3c2cd4a180e40733fb9dcd51f12}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+ds} ()\label{intel64__assembly_8h_a7d9fe3c2cd4a180e40733fb9dcd51f12}
-
+\hypertarget{intel64__assembly_8h_a7d9fe3c2cd4a180e40733fb9dcd51f12}{}\label{intel64__assembly_8h_a7d9fe3c2cd4a180e40733fb9dcd51f12} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+ds} ()
 \item 
-\hypertarget{intel64__assembly_8h_a0144410eb4e0bcafed428363bb9fc357}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+ss} ()\label{intel64__assembly_8h_a0144410eb4e0bcafed428363bb9fc357}
-
+\hypertarget{intel64__assembly_8h_a0144410eb4e0bcafed428363bb9fc357}{}\label{intel64__assembly_8h_a0144410eb4e0bcafed428363bb9fc357} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+ss} ()
 \item 
-\hypertarget{intel64__assembly_8h_a71b50d8667fa78f1248d644cdaaf4af3}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+es} ()\label{intel64__assembly_8h_a71b50d8667fa78f1248d644cdaaf4af3}
-
+\hypertarget{intel64__assembly_8h_a71b50d8667fa78f1248d644cdaaf4af3}{}\label{intel64__assembly_8h_a71b50d8667fa78f1248d644cdaaf4af3} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+es} ()
 \item 
-\hypertarget{intel64__assembly_8h_a49fbe5352daed400c8cefe218e58c3d2}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+fs} ()\label{intel64__assembly_8h_a49fbe5352daed400c8cefe218e58c3d2}
-
+\hypertarget{intel64__assembly_8h_a49fbe5352daed400c8cefe218e58c3d2}{}\label{intel64__assembly_8h_a49fbe5352daed400c8cefe218e58c3d2} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+fs} ()
 \item 
-\hypertarget{intel64__assembly_8h_a29b1e3e1fc5df7efc15195c1964a83e9}{}uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+gs} ()\label{intel64__assembly_8h_a29b1e3e1fc5df7efc15195c1964a83e9}
-
+\hypertarget{intel64__assembly_8h_a29b1e3e1fc5df7efc15195c1964a83e9}{}\label{intel64__assembly_8h_a29b1e3e1fc5df7efc15195c1964a83e9} 
+uint16\+\_\+t {\bfseries segment\+\_\+register\+\_\+gs} ()
 \item 
-\hypertarget{intel64__assembly_8h_aa4fe2ecbb3bb1e3943741982d27e3cd4}{}void {\bfseries lgdt} (void $\ast$ptr)\label{intel64__assembly_8h_aa4fe2ecbb3bb1e3943741982d27e3cd4}
-
+\hypertarget{intel64__assembly_8h_aa4fe2ecbb3bb1e3943741982d27e3cd4}{}\label{intel64__assembly_8h_aa4fe2ecbb3bb1e3943741982d27e3cd4} 
+void {\bfseries lgdt} (void $\ast$ptr)
 \item 
-\hypertarget{intel64__assembly_8h_ad865e1ca48bc6d99d94ca7e90571e342}{}void {\bfseries lgdt} (void $\ast$ptr, uint16\+\_\+t code\+\_\+segment\+\_\+selector, uint16\+\_\+t data\+\_\+segment\+\_\+selector)\label{intel64__assembly_8h_ad865e1ca48bc6d99d94ca7e90571e342}
-
+\hypertarget{intel64__assembly_8h_ad865e1ca48bc6d99d94ca7e90571e342}{}\label{intel64__assembly_8h_ad865e1ca48bc6d99d94ca7e90571e342} 
+void {\bfseries lgdt} (void $\ast$ptr, uint16\+\_\+t code\+\_\+segment\+\_\+selector, uint16\+\_\+t data\+\_\+segment\+\_\+selector)
 \item 
-\hypertarget{intel64__assembly_8h_a8f392759cb664297f8fe3cd8f91ab1a3}{}void {\bfseries sgdt} (void $\ast$ptr)\label{intel64__assembly_8h_a8f392759cb664297f8fe3cd8f91ab1a3}
-
+\hypertarget{intel64__assembly_8h_a8f392759cb664297f8fe3cd8f91ab1a3}{}\label{intel64__assembly_8h_a8f392759cb664297f8fe3cd8f91ab1a3} 
+void {\bfseries sgdt} (void $\ast$ptr)
 \item 
-\hypertarget{intel64__assembly_8h_ad69b097e0dc4f8dd059eb4e4d5cb4324}{}void {\bfseries lidt} (void $\ast$ptr)\label{intel64__assembly_8h_ad69b097e0dc4f8dd059eb4e4d5cb4324}
-
+\hypertarget{intel64__assembly_8h_ad69b097e0dc4f8dd059eb4e4d5cb4324}{}\label{intel64__assembly_8h_ad69b097e0dc4f8dd059eb4e4d5cb4324} 
+void {\bfseries lidt} (void $\ast$ptr)
 \item 
-\hypertarget{intel64__assembly_8h_a49d3e904f859ef9417979457ae44b1ab}{}void {\bfseries sidt} (void $\ast$ptr)\label{intel64__assembly_8h_a49d3e904f859ef9417979457ae44b1ab}
-
+\hypertarget{intel64__assembly_8h_a49d3e904f859ef9417979457ae44b1ab}{}\label{intel64__assembly_8h_a49d3e904f859ef9417979457ae44b1ab} 
+void {\bfseries sidt} (void $\ast$ptr)
 \end{DoxyCompactItemize}
 
 
@@ -94,125 +94,112 @@ Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+
 
 
 \subsection{関数詳解}
-\hypertarget{intel64__assembly_8h_a4229a9b84f8b8673326f12bd41acd27c}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!cli@{cli}}
+\hypertarget{intel64__assembly_8h_a4229a9b84f8b8673326f12bd41acd27c}{}\label{intel64__assembly_8h_a4229a9b84f8b8673326f12bd41acd27c} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!cli@{cli}}
 \index{cli@{cli}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{cli()}]{\setlength{\rightskip}{0pt plus 5cm}void cli (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a4229a9b84f8b8673326f12bd41acd27c}
-cli を実行し割り込みを無効化。 \hypertarget{intel64__assembly_8h_ab01b348114adde328cdb8db6c0daac91}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!hlt@{hlt}}
+\subsubsection{\texorpdfstring{cli()}{cli()}}
+{\footnotesize\ttfamily void cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+cli を実行し割り込みを無効化。 \hypertarget{intel64__assembly_8h_ab01b348114adde328cdb8db6c0daac91}{}\label{intel64__assembly_8h_ab01b348114adde328cdb8db6c0daac91} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!hlt@{hlt}}
 \index{hlt@{hlt}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{hlt()}]{\setlength{\rightskip}{0pt plus 5cm}void hlt (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_ab01b348114adde328cdb8db6c0daac91}
-hlt を実行。 \hypertarget{intel64__assembly_8h_a2e1e8e2c5724c1e8fd2dff2eada06479}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inb@{inb}}
+\subsubsection{\texorpdfstring{hlt()}{hlt()}}
+{\footnotesize\ttfamily void hlt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+hlt を実行。 \hypertarget{intel64__assembly_8h_a2e1e8e2c5724c1e8fd2dff2eada06479}{}\label{intel64__assembly_8h_a2e1e8e2c5724c1e8fd2dff2eada06479} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inb@{inb}}
 \index{inb@{inb}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{inb(uint16\+\_\+t port)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t inb (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a2e1e8e2c5724c1e8fd2dff2eada06479}
+\subsubsection{\texorpdfstring{inb()}{inb()}}
+{\footnotesize\ttfamily uint8\+\_\+t inb (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
 inb を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{戻り値}
 inb を実行した結果。 
 \end{DoxyReturn}
-\hypertarget{intel64__assembly_8h_a952966e2341f9e573b4a002aca5bb21e}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inl@{inl}}
+\hypertarget{intel64__assembly_8h_a952966e2341f9e573b4a002aca5bb21e}{}\label{intel64__assembly_8h_a952966e2341f9e573b4a002aca5bb21e} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inl@{inl}}
 \index{inl@{inl}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{inl(uint16\+\_\+t port)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t inl (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a952966e2341f9e573b4a002aca5bb21e}
+\subsubsection{\texorpdfstring{inl()}{inl()}}
+{\footnotesize\ttfamily uint32\+\_\+t inl (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
 inl を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{戻り値}
 inl を実行した結果。 
 \end{DoxyReturn}
-\hypertarget{intel64__assembly_8h_ad6e8f0e0260d783b7301e63933d4e490}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inw@{inw}}
+\hypertarget{intel64__assembly_8h_ad6e8f0e0260d783b7301e63933d4e490}{}\label{intel64__assembly_8h_ad6e8f0e0260d783b7301e63933d4e490} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!inw@{inw}}
 \index{inw@{inw}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{inw(uint16\+\_\+t port)}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t inw (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_ad6e8f0e0260d783b7301e63933d4e490}
+\subsubsection{\texorpdfstring{inw()}{inw()}}
+{\footnotesize\ttfamily uint16\+\_\+t inw (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
 inw を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{戻り値}
 inw を実行した結果。 
 \end{DoxyReturn}
-\hypertarget{intel64__assembly_8h_a8bf7a9af91c08e6f876aaffeccd48ff3}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outb@{outb}}
+\hypertarget{intel64__assembly_8h_a8bf7a9af91c08e6f876aaffeccd48ff3}{}\label{intel64__assembly_8h_a8bf7a9af91c08e6f876aaffeccd48ff3} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outb@{outb}}
 \index{outb@{outb}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{outb(uint16\+\_\+t port, uint8\+\_\+t val)}]{\setlength{\rightskip}{0pt plus 5cm}void outb (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port, }
-\item[{uint8\+\_\+t}]{val}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a8bf7a9af91c08e6f876aaffeccd48ff3}
+\subsubsection{\texorpdfstring{outb()}{outb()}}
+{\footnotesize\ttfamily void outb (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
 outb を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 {\em val} & outb への引数。 \\
 \hline
 \end{DoxyParams}
-\hypertarget{intel64__assembly_8h_a9bbef83a73fb7194de515986382bbcfc}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outl@{outl}}
+\hypertarget{intel64__assembly_8h_a9bbef83a73fb7194de515986382bbcfc}{}\label{intel64__assembly_8h_a9bbef83a73fb7194de515986382bbcfc} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outl@{outl}}
 \index{outl@{outl}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{outl(uint16\+\_\+t port, uint32\+\_\+t val)}]{\setlength{\rightskip}{0pt plus 5cm}void outl (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port, }
-\item[{uint32\+\_\+t}]{val}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a9bbef83a73fb7194de515986382bbcfc}
+\subsubsection{\texorpdfstring{outl()}{outl()}}
+{\footnotesize\ttfamily void outl (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
 outl を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 {\em val} & outl への引数。 \\
 \hline
 \end{DoxyParams}
-\hypertarget{intel64__assembly_8h_a3105e202829cfca8b5757df9351f96e1}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outw@{outw}}
+\hypertarget{intel64__assembly_8h_a3105e202829cfca8b5757df9351f96e1}{}\label{intel64__assembly_8h_a3105e202829cfca8b5757df9351f96e1} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!outw@{outw}}
 \index{outw@{outw}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{outw(uint16\+\_\+t port, uint16\+\_\+t val)}]{\setlength{\rightskip}{0pt plus 5cm}void outw (
-\begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{port, }
-\item[{uint16\+\_\+t}]{val}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_a3105e202829cfca8b5757df9351f96e1}
+\subsubsection{\texorpdfstring{outw()}{outw()}}
+{\footnotesize\ttfamily void outw (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{uint16\+\_\+t}]{val }\end{DoxyParamCaption})}
+
 outw を実行。 
 \begin{DoxyParams}{引数}
-{\em port} & I/\+O ポート番号。 \\
+{\em port} & I/O ポート番号。 \\
 \hline
 {\em val} & outw への引数。 \\
 \hline
 \end{DoxyParams}
-\hypertarget{intel64__assembly_8h_ab04248d48dfa95e7782aadee925da5e7}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!rflags@{rflags}}
+\hypertarget{intel64__assembly_8h_ab04248d48dfa95e7782aadee925da5e7}{}\label{intel64__assembly_8h_ab04248d48dfa95e7782aadee925da5e7} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!rflags@{rflags}}
 \index{rflags@{rflags}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{rflags()}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t rflags (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_ab04248d48dfa95e7782aadee925da5e7}
-R\+F\+L\+A\+G\+S を取得する関数。 \begin{DoxyReturn}{戻り値}
-R\+F\+L\+A\+G\+S の値。 
+\subsubsection{\texorpdfstring{rflags()}{rflags()}}
+{\footnotesize\ttfamily uint64\+\_\+t rflags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+R\+F\+L\+A\+GS を取得する関数。 \begin{DoxyReturn}{戻り値}
+R\+F\+L\+A\+GS の値。 
 \end{DoxyReturn}
-\hypertarget{intel64__assembly_8h_ad7f8963860eb077bb23363aeebb62f41}{}\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!sti@{sti}}
+\hypertarget{intel64__assembly_8h_ad7f8963860eb077bb23363aeebb62f41}{}\label{intel64__assembly_8h_ad7f8963860eb077bb23363aeebb62f41} 
+\index{intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}!sti@{sti}}
 \index{sti@{sti}!intel64\+\_\+assembly.\+h@{intel64\+\_\+assembly.\+h}}
-\subsubsection[{sti()}]{\setlength{\rightskip}{0pt plus 5cm}void sti (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{intel64__assembly_8h_ad7f8963860eb077bb23363aeebb62f41}
+\subsubsection{\texorpdfstring{sti()}{sti()}}
+{\footnotesize\ttfamily void sti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 sti を実行し割り込みを有効化。 

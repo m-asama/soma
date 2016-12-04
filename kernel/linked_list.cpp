@@ -150,14 +150,3 @@ linked_list<V>::nodes()
 	return m_nodes;
 }
 
-template<class V>
-linked_list<V>::linked_list(const linked_list<V> &src)
-{
-}
-
-template<class V>
-void
-linked_list<V>::operator=(const linked_list<V> &src)
-{
-}
-

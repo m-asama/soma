@@ -1,62 +1,245 @@
 \hypertarget{classthread}{}\section{thread クラス}
 \label{classthread}\index{thread@{thread}}
+
+
+{\ttfamily \#include $<$thread.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classthread_a1db10940bc1734720d5a562d046b2d41}{}{\bfseries thread} (main\+\_\+fn main)\label{classthread_a1db10940bc1734720d5a562d046b2d41}
-
+\hyperlink{classthread_a1db10940bc1734720d5a562d046b2d41}{thread} (main\+\_\+fn \hyperlink{classthread_aa4a8c5526714238ea8890badce737c08}{main})
 \item 
-\hypertarget{classthread_a2debe550e8c36b7c7bafde6861527b6a}{}{\bfseries thread} (const \hyperlink{classthread}{thread} \&src)=delete\label{classthread_a2debe550e8c36b7c7bafde6861527b6a}
-
+\hyperlink{classthread_a210d87437e34573c32fc8d3f93963bfe}{thread} ()=delete
 \item 
-\hypertarget{classthread_af2d2b9d1eb276e3d8911694c84cb5f33}{}{\bfseries thread} (const \hyperlink{classthread}{thread} \&\&src)=delete\label{classthread_af2d2b9d1eb276e3d8911694c84cb5f33}
-
+virtual \hyperlink{classthread_a117e0892c1d1a90bece03424311676f6}{$\sim$thread} ()
 \item 
-\hypertarget{classthread_a4d7ef0a71785e85bbed76e1a983e41c0}{}\hyperlink{classthread}{thread} \& {\bfseries operator=} (const \hyperlink{classthread}{thread} \&src)=delete\label{classthread_a4d7ef0a71785e85bbed76e1a983e41c0}
-
+\hyperlink{classthread_a2debe550e8c36b7c7bafde6861527b6a}{thread} (const \hyperlink{classthread}{thread} \&src)=delete
 \item 
-\hypertarget{classthread_aa248d01f65405fe1f03c1526c54d038f}{}\hyperlink{classthread}{thread} \& {\bfseries operator=} (const \hyperlink{classthread}{thread} \&\&src)=delete\label{classthread_aa248d01f65405fe1f03c1526c54d038f}
-
+\hyperlink{classthread_af2d2b9d1eb276e3d8911694c84cb5f33}{thread} (const \hyperlink{classthread}{thread} \&\&src)=delete
 \item 
-\hypertarget{classthread_accfc6460fe7c41635f41d9ad56554eb5}{}bool {\bfseries operator==} (const \hyperlink{classthread}{thread} \&rhs)\label{classthread_accfc6460fe7c41635f41d9ad56554eb5}
-
+\hyperlink{classthread}{thread} \& \hyperlink{classthread_a4d7ef0a71785e85bbed76e1a983e41c0}{operator=} (const \hyperlink{classthread}{thread} \&src)=delete
 \item 
-\hypertarget{classthread_a8ac74ad7dd695e6c9b46a17ade8a4c12}{}bool {\bfseries operator$>$} (const \hyperlink{classthread}{thread} \&rhs)\label{classthread_a8ac74ad7dd695e6c9b46a17ade8a4c12}
-
+\hyperlink{classthread}{thread} \& \hyperlink{classthread_aa248d01f65405fe1f03c1526c54d038f}{operator=} (const \hyperlink{classthread}{thread} \&\&src)=delete
 \item 
-\hypertarget{classthread_a4e75aa7159fa67144629709c31ccf229}{}int {\bfseries init} (uint64\+\_\+t id, const \hyperlink{classstring}{string} \&name)\label{classthread_a4e75aa7159fa67144629709c31ccf229}
-
+bool \hyperlink{classthread_accfc6460fe7c41635f41d9ad56554eb5}{operator==} (const \hyperlink{classthread}{thread} \&rhs)
 \item 
-\hypertarget{classthread_a72727217c70fb64523bf4d367eae1761}{}void {\bfseries id} (uint64\+\_\+t id)\label{classthread_a72727217c70fb64523bf4d367eae1761}
-
+bool \hyperlink{classthread_a8ac74ad7dd695e6c9b46a17ade8a4c12}{operator$>$} (const \hyperlink{classthread}{thread} \&rhs)
 \item 
-\hypertarget{classthread_ae9adf5b21b7271d8db735b79e6fdd1d4}{}uint64\+\_\+t {\bfseries id} () const \label{classthread_ae9adf5b21b7271d8db735b79e6fdd1d4}
-
+int \hyperlink{classthread_a615945e7f24c83b235a8f4ac166ad70e}{init} (uint64\+\_\+t \hyperlink{classthread_a72727217c70fb64523bf4d367eae1761}{id}, const \hyperlink{classutf8str}{utf8str} \&\hyperlink{classthread_a1edac2ded94641cdef9dacb04efb5c85}{name})
 \item 
-\hypertarget{classthread_ab816aaeb5b728e5d15eb4e064ece25b0}{}void {\bfseries name} (const \hyperlink{classstring}{string} \&name)\label{classthread_ab816aaeb5b728e5d15eb4e064ece25b0}
-
+void \hyperlink{classthread_a72727217c70fb64523bf4d367eae1761}{id} (uint64\+\_\+t id)
 \item 
-\hypertarget{classthread_ab04013e3e679efdebb762afd77edf10e}{}const \hyperlink{classstring}{string} \& {\bfseries name} ()\label{classthread_ab04013e3e679efdebb762afd77edf10e}
-
+uint64\+\_\+t \hyperlink{classthread_a490d6ffc5beccdf584f49fa85cc12d9d}{id} () const
 \item 
-\hypertarget{classthread_a75bf27fd88692ce8a30ca04e3c397681}{}void {\bfseries state} (thread\+\_\+state state)\label{classthread_a75bf27fd88692ce8a30ca04e3c397681}
-
+void \hyperlink{classthread_a1edac2ded94641cdef9dacb04efb5c85}{name} (const \hyperlink{classutf8str}{utf8str} \&name)
 \item 
-\hypertarget{classthread_a3bbc0f9939912ffb6d31439e36d09e94}{}thread\+\_\+state {\bfseries state} ()\label{classthread_a3bbc0f9939912ffb6d31439e36d09e94}
-
+const \hyperlink{classutf8str}{utf8str} \& \hyperlink{classthread_a7e52f57766d1d11b6dbda15955c4a8ad}{name} ()
 \item 
-\hypertarget{classthread_a2c10391e5b23ac4ff0ff99765bd5728d}{}uint64\+\_\+t {\bfseries page\+\_\+table} ()\label{classthread_a2c10391e5b23ac4ff0ff99765bd5728d}
-
+void \hyperlink{classthread_a75bf27fd88692ce8a30ca04e3c397681}{state} (\hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state} state)
 \item 
-\hypertarget{classthread_a813caa9cffcc7c21008e62235de71b54}{}uint64\+\_\+t {\bfseries stack\+\_\+pointer} ()\label{classthread_a813caa9cffcc7c21008e62235de71b54}
-
+\hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state} \hyperlink{classthread_a3bbc0f9939912ffb6d31439e36d09e94}{state} ()
 \item 
-\hypertarget{classthread_aa4a8c5526714238ea8890badce737c08}{}main\+\_\+fn {\bfseries main} ()\label{classthread_aa4a8c5526714238ea8890badce737c08}
-
+uint64\+\_\+t \hyperlink{classthread_a2c10391e5b23ac4ff0ff99765bd5728d}{page\+\_\+table} ()
 \item 
-\hypertarget{classthread_a4b78d34fbeff62ace13a4e9a6d4515f4}{}void {\bfseries dump} ()\label{classthread_a4b78d34fbeff62ace13a4e9a6d4515f4}
-
+uint64\+\_\+t \hyperlink{classthread_a813caa9cffcc7c21008e62235de71b54}{stack\+\_\+pointer} ()
+\item 
+main\+\_\+fn \hyperlink{classthread_aa4a8c5526714238ea8890badce737c08}{main} ()
+\item 
+void \hyperlink{classthread_a4b78d34fbeff62ace13a4e9a6d4515f4}{dump} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+スレッドを表現するクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classthread_a1db10940bc1734720d5a562d046b2d41}{}\label{classthread_a1db10940bc1734720d5a562d046b2d41} 
+\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily thread\+::thread (\begin{DoxyParamCaption}\item[{main\+\_\+fn}]{main }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em main} & スレッドのメイン関数。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classthread_a210d87437e34573c32fc8d3f93963bfe}{}\label{classthread_a210d87437e34573c32fc8d3f93963bfe} 
+\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily thread\+::thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コンストラクタ。引数なしのコンストラクタは禁止。 \hypertarget{classthread_a117e0892c1d1a90bece03424311676f6}{}\label{classthread_a117e0892c1d1a90bece03424311676f6} 
+\index{thread@{thread}!````~thread@{$\sim$thread}}
+\index{````~thread@{$\sim$thread}!thread@{thread}}
+\subsubsection{\texorpdfstring{$\sim$thread()}{~thread()}}
+{\footnotesize\ttfamily thread\+::$\sim$thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classthread_a2debe550e8c36b7c7bafde6861527b6a}{}\label{classthread_a2debe550e8c36b7c7bafde6861527b6a} 
+\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily thread\+::thread (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classthread_af2d2b9d1eb276e3d8911694c84cb5f33}{}\label{classthread_af2d2b9d1eb276e3d8911694c84cb5f33} 
+\index{thread@{thread}!thread@{thread}}
+\index{thread@{thread}!thread@{thread}}
+\subsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily thread\+::thread (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classthread_a4b78d34fbeff62ace13a4e9a6d4515f4}{}\label{classthread_a4b78d34fbeff62ace13a4e9a6d4515f4} 
+\index{thread@{thread}!dump@{dump}}
+\index{dump@{dump}!thread@{thread}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void thread\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スレッドの情報を表示する関数。 \hypertarget{classthread_a72727217c70fb64523bf4d367eae1761}{}\label{classthread_a72727217c70fb64523bf4d367eae1761} 
+\index{thread@{thread}!id@{id}}
+\index{id@{id}!thread@{thread}}
+\subsubsection{\texorpdfstring{id()}{id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void thread\+::id (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+スレッド ID を設定する関数。 
+\begin{DoxyParams}{引数}
+{\em id} & スレッド I\+D。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classthread_a490d6ffc5beccdf584f49fa85cc12d9d}{}\label{classthread_a490d6ffc5beccdf584f49fa85cc12d9d} 
+\index{thread@{thread}!id@{id}}
+\index{id@{id}!thread@{thread}}
+\subsubsection{\texorpdfstring{id()}{id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint64\+\_\+t thread\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+スレッド ID を返す関数。 \begin{DoxyReturn}{戻り値}
+スレッド I\+D。 
+\end{DoxyReturn}
+\hypertarget{classthread_a615945e7f24c83b235a8f4ac166ad70e}{}\label{classthread_a615945e7f24c83b235a8f4ac166ad70e} 
+\index{thread@{thread}!init@{init}}
+\index{init@{init}!thread@{thread}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int thread\+::init (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{id,  }\item[{const \hyperlink{classutf8str}{utf8str} \&}]{name }\end{DoxyParamCaption})}
+
+スレッドの初期化関数。 
+\begin{DoxyParams}{引数}
+{\em id} & スレッド I\+D。 \\
+\hline
+{\em name} & スレッド名。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常終了で 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classthread_aa4a8c5526714238ea8890badce737c08}{}\label{classthread_aa4a8c5526714238ea8890badce737c08} 
+\index{thread@{thread}!main@{main}}
+\index{main@{main}!thread@{thread}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily main\+\_\+fn thread\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スレッドのメイン関数を返す関数。 \begin{DoxyReturn}{戻り値}
+スレッドのメイン関数。 
+\end{DoxyReturn}
+\hypertarget{classthread_a1edac2ded94641cdef9dacb04efb5c85}{}\label{classthread_a1edac2ded94641cdef9dacb04efb5c85} 
+\index{thread@{thread}!name@{name}}
+\index{name@{name}!thread@{thread}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void thread\+::name (\begin{DoxyParamCaption}\item[{const \hyperlink{classutf8str}{utf8str} \&}]{name }\end{DoxyParamCaption})}
+
+スレッド名を設定する関数。 
+\begin{DoxyParams}{引数}
+{\em name} & スレッド名。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classthread_a7e52f57766d1d11b6dbda15955c4a8ad}{}\label{classthread_a7e52f57766d1d11b6dbda15955c4a8ad} 
+\index{thread@{thread}!name@{name}}
+\index{name@{name}!thread@{thread}}
+\subsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{classutf8str}{utf8str} \& thread\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スレッド名を返す関数。 \begin{DoxyReturn}{戻り値}
+スレッド名。 
+\end{DoxyReturn}
+\hypertarget{classthread_a4d7ef0a71785e85bbed76e1a983e41c0}{}\label{classthread_a4d7ef0a71785e85bbed76e1a983e41c0} 
+\index{thread@{thread}!operator=@{operator=}}
+\index{operator=@{operator=}!thread@{thread}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classthread}{thread}\& thread\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classthread_aa248d01f65405fe1f03c1526c54d038f}{}\label{classthread_aa248d01f65405fe1f03c1526c54d038f} 
+\index{thread@{thread}!operator=@{operator=}}
+\index{operator=@{operator=}!thread@{thread}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classthread}{thread}\& thread\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classthread_accfc6460fe7c41635f41d9ad56554eb5}{}\label{classthread_accfc6460fe7c41635f41d9ad56554eb5} 
+\index{thread@{thread}!operator==@{operator==}}
+\index{operator==@{operator==}!thread@{thread}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool thread\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&}]{rhs }\end{DoxyParamCaption})}
+
+スレッドを比較するための等価演算子。 
+\begin{DoxyParams}{引数}
+{\em rhs} & 比較対象のスレッド。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+スレッド ID が等しい時に true を返す。 
+\end{DoxyReturn}
+\hypertarget{classthread_a8ac74ad7dd695e6c9b46a17ade8a4c12}{}\label{classthread_a8ac74ad7dd695e6c9b46a17ade8a4c12} 
+\index{thread@{thread}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!thread@{thread}}
+\subsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool thread\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classthread}{thread} \&}]{rhs }\end{DoxyParamCaption})}
+
+スレッドを比較するための比較演算子。 
+\begin{DoxyParams}{引数}
+{\em rhs} & 比較致傷のスレッド。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+スレッド ID が引数よりも大きい時に true を返す。 
+\end{DoxyReturn}
+\hypertarget{classthread_a2c10391e5b23ac4ff0ff99765bd5728d}{}\label{classthread_a2c10391e5b23ac4ff0ff99765bd5728d} 
+\index{thread@{thread}!page\+\_\+table@{page\+\_\+table}}
+\index{page\+\_\+table@{page\+\_\+table}!thread@{thread}}
+\subsubsection{\texorpdfstring{page\+\_\+table()}{page\_table()}}
+{\footnotesize\ttfamily uint64\+\_\+t thread\+::page\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ページテーブルを返す関数。 \begin{DoxyReturn}{戻り値}
+ページテーブル。 
+\end{DoxyReturn}
+\hypertarget{classthread_a813caa9cffcc7c21008e62235de71b54}{}\label{classthread_a813caa9cffcc7c21008e62235de71b54} 
+\index{thread@{thread}!stack\+\_\+pointer@{stack\+\_\+pointer}}
+\index{stack\+\_\+pointer@{stack\+\_\+pointer}!thread@{thread}}
+\subsubsection{\texorpdfstring{stack\+\_\+pointer()}{stack\_pointer()}}
+{\footnotesize\ttfamily uint64\+\_\+t thread\+::stack\+\_\+pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スタックポインタを返す関数。 \begin{DoxyReturn}{戻り値}
+スタックポインタ。 
+\end{DoxyReturn}
+\hypertarget{classthread_a75bf27fd88692ce8a30ca04e3c397681}{}\label{classthread_a75bf27fd88692ce8a30ca04e3c397681} 
+\index{thread@{thread}!state@{state}}
+\index{state@{state}!thread@{thread}}
+\subsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void thread\+::state (\begin{DoxyParamCaption}\item[{\hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state}}]{state }\end{DoxyParamCaption})}
+
+スレッドの状態を設定する関数。 
+\begin{DoxyParams}{引数}
+{\em state} & スレッドの状態。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classthread_a3bbc0f9939912ffb6d31439e36d09e94}{}\label{classthread_a3bbc0f9939912ffb6d31439e36d09e94} 
+\index{thread@{thread}!state@{state}}
+\index{state@{state}!thread@{thread}}
+\subsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{thread_8h_a4b1b32c1fc744438f665f0f1932dd207}{thread\+\_\+state} thread\+::state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スレッドの状態を返す関数。 \begin{DoxyReturn}{戻り値}
+スレッドの状態。 
+\end{DoxyReturn}
 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}

@@ -28,13 +28,39 @@ class bidir_node {
 public:
 	/**
 	 * コンストラクタ。
+	 * @param v ノードで保持する値。
 	 */
 	bidir_node(V &v);
+
+	/**
+	 * コンストラクタ。引数なしのコンストラクタは禁止。
+	 */
+	bidir_node() = delete;
 
 	/**
 	 * デストラクタ。
 	 */
 	virtual ~bidir_node();
+
+	/**
+	 * コピーコンストラクタ。コピーは禁止。
+	 */
+	bidir_node(const bidir_node<V> &src) = delete;
+
+	/**
+	 * ムーブコンストラクタ。ムーブは禁止。
+	 */
+	bidir_node(const bidir_node<V> &&src) = delete;
+
+	/**
+	 * コピー代入演算子。コピー代入は禁止。
+	 */
+	void operator=(const bidir_node<V> &src) = delete;
+
+	/**
+	 * ムーブ代入演算子。ムーブ代入は禁止。
+	 */
+	void operator=(const bidir_node<V> &&src) = delete;
 
 	/**
 	 * メモリ割当演算子。 memory_pool から割り当てる。
@@ -45,7 +71,7 @@ public:
 
 	/**
 	 * メモリ削除演算子。メモリプールに返す。
-	 * @param 解放するメモリへのポインタ。
+	 * @param ptr 解放するメモリへのポインタ。
 	 */
 	static void operator delete(void *ptr);
 
@@ -57,46 +83,35 @@ public:
 
 	/**
 	 * このノードの次のノードへのポインタを設定する。
-	 * @param next 
+	 * @param next 次のノードへのポインタ。
 	 */
 	void next(bidir_node<V> *next);
 
 	/**
 	 * このノードの次のノードへのポインタを返す。
+	 * @return 次のノードへのポインタ。
 	 */
 	bidir_node<V> *next();
 
 	/**
 	 * このノードの前のノードへのポインタを設定する。
+	 * @param prev 前のノードへのポインタ。
 	 */
 	void prev(bidir_node<V> *prev);
 
 	/**
 	 * このノードの前のノードへのポインタを返す。
+	 * @return 前のノードへのポインタ。
 	 */
 	bidir_node<V> *prev();
 
 	/**
 	 * 現在割り当てられているノードの数を返す。
+	 * @return 現在割り当てられているノードの数。
 	 */
 	static uint64_t count();
 
 private:
-	/**
-	 * コンストラクタ。引数なしのコンストラクタは禁止。
-	 */
-	bidir_node();
-
-	/**
-	 * コピーコンストラクタ。コピーは禁止。
-	 */
-	bidir_node(const bidir_node<V> &src);
-
-	/**
-	 * 代入演算子。代入は禁止。
-	 */
-	void operator=(const bidir_node<V> &src);
-
 	/**
 	 * bidir_node を管理するメモリプール。
 	 */

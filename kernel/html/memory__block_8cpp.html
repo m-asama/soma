@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: memory_block.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -95,22 +73,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a5e31ffa04384c18c055393c57db6cfa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e31ffa04384c18c055393c57db6cfa3"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>memory_block_hash</b> (const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mb)</td></tr>
+<tr class="memitem:a5e31ffa04384c18c055393c57db6cfa3"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory__block_8cpp.html#a5e31ffa04384c18c055393c57db6cfa3">memory_block_hash</a> (const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mb)</td></tr>
 <tr class="separator:a5e31ffa04384c18c055393c57db6cfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1f0fbe21c3dab646f5059d1b97a5d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d1f0fbe21c3dab646f5059d1b97a5d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>memory_block_equal</b> (const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mbl, const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mbr)</td></tr>
+<tr class="memitem:a4d1f0fbe21c3dab646f5059d1b97a5d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory__block_8cpp.html#a4d1f0fbe21c3dab646f5059d1b97a5d0">memory_block_equal</a> (const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mbl, const <a class="el" href="classmemory__block.html">memory_block</a> &amp;mbr)</td></tr>
 <tr class="separator:a4d1f0fbe21c3dab646f5059d1b97a5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>メモリ内の位置と大きさを表すブロックを表現するクラス。 </p>
 <dl class="section author"><dt>著者</dt><dd>Masakazu Asama <a href="#" onclick="location.href='mai'+'lto:'+'m-a'+'sa'+'ma@'+'gi'+'nza'+'do'+'.co'+'.j'+'p'; return false;">m-asa<span style="display: none;">.nosp@m.</span>ma@g<span style="display: none;">.nosp@m.</span>inzad<span style="display: none;">.nosp@m.</span>o.co<span style="display: none;">.nosp@m.</span>.jp</a> </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a4d1f0fbe21c3dab646f5059d1b97a5d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1f0fbe21c3dab646f5059d1b97a5d0">&sect;&nbsp;</a></span>memory_block_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool memory_block_equal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmemory__block.html">memory_block</a> &amp;&#160;</td>
+          <td class="paramname"><em>mbl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmemory__block.html">memory_block</a> &amp;&#160;</td>
+          <td class="paramname"><em>mbr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>メモリブロックが等しいかどうか比較するための関数。 </p>
+
+</div>
+</div>
+<a id="a5e31ffa04384c18c055393c57db6cfa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e31ffa04384c18c055393c57db6cfa3">&sect;&nbsp;</a></span>memory_block_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t memory_block_hash </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmemory__block.html">memory_block</a> &amp;&#160;</td>
+          <td class="paramname"><em>mb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>メモリブロックからハッシュ値を計算するための関数。 </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

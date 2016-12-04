@@ -1,5 +1,9 @@
 \hypertarget{classirqchip__base}{}\section{irqchip\+\_\+base クラス}
 \label{classirqchip__base}\index{irqchip\+\_\+base@{irqchip\+\_\+base}}
+
+
+{\ttfamily \#include $<$irqchip\+\_\+base.\+h$>$}
+
 irqchip\+\_\+base の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,58 +13,103 @@ irqchip\+\_\+base の継承関係図\begin{figure}[H]
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classirqchip__base_ab07d75a71ef13af774fd71b176c375e8}{}{\bfseries irqchip\+\_\+base} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&src)=delete\label{classirqchip__base_ab07d75a71ef13af774fd71b176c375e8}
-
+\hyperlink{classirqchip__base_aaf201d6819b5452b5706bab0a54a4078}{irqchip\+\_\+base} ()
 \item 
-\hypertarget{classirqchip__base_a903392a762dd05199663effcb6b88512}{}{\bfseries irqchip\+\_\+base} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&src)=delete\label{classirqchip__base_a903392a762dd05199663effcb6b88512}
-
+virtual \hyperlink{classirqchip__base_a7ec681fa10454a099ec56bd41f6e2f43}{$\sim$irqchip\+\_\+base} ()
 \item 
-\hypertarget{classirqchip__base_ae8f56c199cebbea51ec901f316e29670}{}\hyperlink{classirqchip__base}{irqchip\+\_\+base} \& {\bfseries operator=} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&src)=delete\label{classirqchip__base_ae8f56c199cebbea51ec901f316e29670}
-
+\hyperlink{classirqchip__base_ab07d75a71ef13af774fd71b176c375e8}{irqchip\+\_\+base} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&src)=delete
 \item 
-\hypertarget{classirqchip__base_aa16599b249ba6e54427abca666d66c00}{}\hyperlink{classirqchip__base}{irqchip\+\_\+base} \& {\bfseries operator=} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&src)=delete\label{classirqchip__base_aa16599b249ba6e54427abca666d66c00}
-
+\hyperlink{classirqchip__base_a903392a762dd05199663effcb6b88512}{irqchip\+\_\+base} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&src)=delete
 \item 
-\hypertarget{classirqchip__base_a30b803034241c5e00db81157705a28e0}{}bool {\bfseries operator==} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&rhs)\label{classirqchip__base_a30b803034241c5e00db81157705a28e0}
-
+\hyperlink{classirqchip__base}{irqchip\+\_\+base} \& \hyperlink{classirqchip__base_ae8f56c199cebbea51ec901f316e29670}{operator=} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&src)=delete
 \item 
-\hypertarget{classirqchip__base_a07aeae532b54aef12b340ad13fa61efb}{}bool {\bfseries operator$>$} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&rhs)\label{classirqchip__base_a07aeae532b54aef12b340ad13fa61efb}
-
+\hyperlink{classirqchip__base}{irqchip\+\_\+base} \& \hyperlink{classirqchip__base_aa16599b249ba6e54427abca666d66c00}{operator=} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&src)=delete
 \item 
-\hypertarget{classirqchip__base_add853bf0c0f98ccf5b927daf5cf7dfc9}{}void {\bfseries id} (uint64\+\_\+t id)\label{classirqchip__base_add853bf0c0f98ccf5b927daf5cf7dfc9}
-
+\hypertarget{classirqchip__base_a30b803034241c5e00db81157705a28e0}{}\label{classirqchip__base_a30b803034241c5e00db81157705a28e0} 
+bool {\bfseries operator==} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&rhs)
 \item 
-\hypertarget{classirqchip__base_a11d35ccdb49e1c1dd4abd774a62975d1}{}uint64\+\_\+t {\bfseries id} () const \label{classirqchip__base_a11d35ccdb49e1c1dd4abd774a62975d1}
-
+\hypertarget{classirqchip__base_a07aeae532b54aef12b340ad13fa61efb}{}\label{classirqchip__base_a07aeae532b54aef12b340ad13fa61efb} 
+bool {\bfseries operator$>$} (const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&rhs)
 \item 
-\hypertarget{classirqchip__base_a34f72690465fc4c6bd43acdb5d899cb9}{}void {\bfseries apic\+\_\+address} (uint64\+\_\+t apic\+\_\+address)\label{classirqchip__base_a34f72690465fc4c6bd43acdb5d899cb9}
-
+\hypertarget{classirqchip__base_add853bf0c0f98ccf5b927daf5cf7dfc9}{}\label{classirqchip__base_add853bf0c0f98ccf5b927daf5cf7dfc9} 
+void {\bfseries id} (uint64\+\_\+t id)
 \item 
-\hypertarget{classirqchip__base_a0824428ab8367abd49432da27ae6fa2e}{}uint64\+\_\+t {\bfseries apic\+\_\+address} () const \label{classirqchip__base_a0824428ab8367abd49432da27ae6fa2e}
-
+\hypertarget{classirqchip__base_a4da814e0789dfb1d243f1600212ea55f}{}\label{classirqchip__base_a4da814e0789dfb1d243f1600212ea55f} 
+uint64\+\_\+t {\bfseries id} () const
 \item 
-\hypertarget{classirqchip__base_a1984063ac11bd29816cc7a76039b37cc}{}void {\bfseries gsi\+\_\+base} (uint64\+\_\+t gsi\+\_\+base)\label{classirqchip__base_a1984063ac11bd29816cc7a76039b37cc}
-
+\hypertarget{classirqchip__base_a34f72690465fc4c6bd43acdb5d899cb9}{}\label{classirqchip__base_a34f72690465fc4c6bd43acdb5d899cb9} 
+void {\bfseries apic\+\_\+address} (uint64\+\_\+t apic\+\_\+address)
 \item 
-\hypertarget{classirqchip__base_ab22239fa08a58c083872f5248ccc377a}{}uint64\+\_\+t {\bfseries gsi\+\_\+base} () const \label{classirqchip__base_ab22239fa08a58c083872f5248ccc377a}
-
+\hypertarget{classirqchip__base_a8ca9afec2195c80dd49e7f735f3cd6f5}{}\label{classirqchip__base_a8ca9afec2195c80dd49e7f735f3cd6f5} 
+uint64\+\_\+t {\bfseries apic\+\_\+address} () const
 \item 
-\hypertarget{classirqchip__base_a544e712c7734cbed1f518b522e995940}{}virtual void {\bfseries dump} ()\label{classirqchip__base_a544e712c7734cbed1f518b522e995940}
-
+\hypertarget{classirqchip__base_a1984063ac11bd29816cc7a76039b37cc}{}\label{classirqchip__base_a1984063ac11bd29816cc7a76039b37cc} 
+void {\bfseries gsi\+\_\+base} (uint64\+\_\+t gsi\+\_\+base)
+\item 
+\hypertarget{classirqchip__base_adee0f954333e81fa50265e7277da0c64}{}\label{classirqchip__base_adee0f954333e81fa50265e7277da0c64} 
+uint64\+\_\+t {\bfseries gsi\+\_\+base} () const
+\item 
+\hypertarget{classirqchip__base_a544e712c7734cbed1f518b522e995940}{}\label{classirqchip__base_a544e712c7734cbed1f518b522e995940} 
+virtual void {\bfseries dump} ()
 \end{DoxyCompactItemize}
 \subsection*{限定公開変数類}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classirqchip__base_ae7255e86f77a25d9f726e453c6d7b5d9}{}uint64\+\_\+t {\bfseries m\+\_\+id}\label{classirqchip__base_ae7255e86f77a25d9f726e453c6d7b5d9}
-
+\hypertarget{classirqchip__base_ae7255e86f77a25d9f726e453c6d7b5d9}{}\label{classirqchip__base_ae7255e86f77a25d9f726e453c6d7b5d9} 
+uint64\+\_\+t {\bfseries m\+\_\+id}
 \item 
-\hypertarget{classirqchip__base_a5339ea4fc664a0d9f2d097ad898501da}{}uint64\+\_\+t {\bfseries m\+\_\+apic\+\_\+address}\label{classirqchip__base_a5339ea4fc664a0d9f2d097ad898501da}
-
+\hypertarget{classirqchip__base_a5339ea4fc664a0d9f2d097ad898501da}{}\label{classirqchip__base_a5339ea4fc664a0d9f2d097ad898501da} 
+uint64\+\_\+t {\bfseries m\+\_\+apic\+\_\+address}
 \item 
-\hypertarget{classirqchip__base_a31e091987d979c393448c2395d762831}{}uint64\+\_\+t {\bfseries m\+\_\+gsi\+\_\+base}\label{classirqchip__base_a31e091987d979c393448c2395d762831}
-
+\hypertarget{classirqchip__base_a31e091987d979c393448c2395d762831}{}\label{classirqchip__base_a31e091987d979c393448c2395d762831} 
+uint64\+\_\+t {\bfseries m\+\_\+gsi\+\_\+base}
 \end{DoxyCompactItemize}
 
+
+\subsection{詳解}
+I/O P\+IC の基底クラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classirqchip__base_aaf201d6819b5452b5706bab0a54a4078}{}\label{classirqchip__base_aaf201d6819b5452b5706bab0a54a4078} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{irqchip\+\_\+base()}{irqchip\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily irqchip\+\_\+base\+::irqchip\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classirqchip__base_a7ec681fa10454a099ec56bd41f6e2f43}{}\label{classirqchip__base_a7ec681fa10454a099ec56bd41f6e2f43} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!````~irqchip\+\_\+base@{$\sim$irqchip\+\_\+base}}
+\index{````~irqchip\+\_\+base@{$\sim$irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{$\sim$irqchip\+\_\+base()}{~irqchip\_base()}}
+{\footnotesize\ttfamily irqchip\+\_\+base\+::$\sim$irqchip\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classirqchip__base_ab07d75a71ef13af774fd71b176c375e8}{}\label{classirqchip__base_ab07d75a71ef13af774fd71b176c375e8} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{irqchip\+\_\+base()}{irqchip\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily irqchip\+\_\+base\+::irqchip\+\_\+base (\begin{DoxyParamCaption}\item[{const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classirqchip__base_a903392a762dd05199663effcb6b88512}{}\label{classirqchip__base_a903392a762dd05199663effcb6b88512} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{irqchip\+\_\+base()}{irqchip\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily irqchip\+\_\+base\+::irqchip\+\_\+base (\begin{DoxyParamCaption}\item[{const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classirqchip__base_ae8f56c199cebbea51ec901f316e29670}{}\label{classirqchip__base_ae8f56c199cebbea51ec901f316e29670} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!operator=@{operator=}}
+\index{operator=@{operator=}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classirqchip__base}{irqchip\+\_\+base}\& irqchip\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classirqchip__base_aa16599b249ba6e54427abca666d66c00}{}\label{classirqchip__base_aa16599b249ba6e54427abca666d66c00} 
+\index{irqchip\+\_\+base@{irqchip\+\_\+base}!operator=@{operator=}}
+\index{operator=@{operator=}!irqchip\+\_\+base@{irqchip\+\_\+base}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classirqchip__base}{irqchip\+\_\+base}\& irqchip\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classirqchip__base}{irqchip\+\_\+base} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

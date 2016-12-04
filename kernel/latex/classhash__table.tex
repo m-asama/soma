@@ -1,28 +1,37 @@
 \hypertarget{classhash__table}{}\section{hash\+\_\+table$<$ V $>$ クラステンプレート}
 \label{classhash__table}\index{hash\+\_\+table$<$ V $>$@{hash\+\_\+table$<$ V $>$}}
+
+
+{\ttfamily \#include $<$hash\+\_\+table.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classhash__table_a5e4a74748ecad78e798739a03be056cb}{}{\bfseries hash\+\_\+table} (uint64\+\_\+t($\ast$hash\+\_\+fn)(const V \&v), bool($\ast$equal\+\_\+fn)(const V \&vl, const V \&vr))\label{classhash__table_a5e4a74748ecad78e798739a03be056cb}
-
+\hyperlink{classhash__table_a5e4a74748ecad78e798739a03be056cb}{hash\+\_\+table} (uint64\+\_\+t($\ast$hash\+\_\+fn)(const V \&v), bool($\ast$equal\+\_\+fn)(const V \&vl, const V \&vr))
 \item 
-\hypertarget{classhash__table_a9e02312051be1517ad16ee8164af07dd}{}int {\bfseries insert} (V \&v)\label{classhash__table_a9e02312051be1517ad16ee8164af07dd}
-
+\hyperlink{classhash__table_aa71d6ba6b69c0cc05713feeb39b25a30}{hash\+\_\+table} ()=delete
 \item 
-\hypertarget{classhash__table_a8ac0d9136be9250f7059d07099a4393e}{}int {\bfseries remove} (const V \&v)\label{classhash__table_a8ac0d9136be9250f7059d07099a4393e}
-
+virtual \hyperlink{classhash__table_ada4ba869398b6330ed4d8366cbad3659}{$\sim$hash\+\_\+table} ()
 \item 
-\hypertarget{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}{}V $\ast$ {\bfseries find} (const V \&v)\label{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}
-
+\hyperlink{classhash__table_a30a71ef67b26dc4ec16a56c003105c9a}{hash\+\_\+table} (const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&src)=delete
 \item 
-\hypertarget{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}{}uint64\+\_\+t {\bfseries table\+\_\+size} ()\label{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}
-
+\hyperlink{classhash__table_a9c397149a5b8e6766ada4b23ec7344de}{hash\+\_\+table} (const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&\&src)=delete
 \item 
-\hypertarget{classhash__table_ace4fefe428377b31e479f516aad83e72}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$$\ast$ {\bfseries table} ()\label{classhash__table_ace4fefe428377b31e479f516aad83e72}
-
+void \hyperlink{classhash__table_a22982acf5d5ba36d8ed199b2f6b25bd0}{operator=} (const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&src)=delete
 \item 
-\hypertarget{classhash__table_accb6f8935ae8965655975426140d9447}{}uint64\+\_\+t {\bfseries nodes} ()\label{classhash__table_accb6f8935ae8965655975426140d9447}
-
+void \hyperlink{classhash__table_a770e1e703ae71c41f18ff727882ae4ed}{operator=} (const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&\&src)=delete
+\item 
+int \hyperlink{classhash__table_a9e02312051be1517ad16ee8164af07dd}{insert} (V \&v)
+\item 
+int \hyperlink{classhash__table_a8ac0d9136be9250f7059d07099a4393e}{remove} (const V \&v)
+\item 
+V $\ast$ \hyperlink{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}{find} (const V \&v)
+\item 
+uint64\+\_\+t \hyperlink{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}{table\+\_\+size} ()
+\item 
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$$\ast$ \hyperlink{classhash__table_ace4fefe428377b31e479f516aad83e72}{table} ()
+\item 
+uint64\+\_\+t \hyperlink{classhash__table_accb6f8935ae8965655975426140d9447}{nodes} ()
 \end{DoxyCompactItemize}
 \subsection*{フレンド}
 \begin{DoxyCompactItemize}
@@ -31,15 +40,165 @@ void \hyperlink{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_\+
 \end{DoxyCompactItemize}
 
 
+\subsection{詳解}
+\subsubsection*{template$<$class V$>$\newline
+class hash\+\_\+table$<$ V $>$}
+
+ハッシュテーブルのクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classhash__table_a5e4a74748ecad78e798739a03be056cb}{}\label{classhash__table_a5e4a74748ecad78e798739a03be056cb} 
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{hash\+\_\+table()}{hash\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::\hyperlink{classhash__table}{hash\+\_\+table} (\begin{DoxyParamCaption}\item[{uint64\+\_\+t($\ast$)(const V \&v)}]{hash\+\_\+fn,  }\item[{bool($\ast$)(const V \&vl, const V \&vr)}]{equal\+\_\+fn }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em hash\+\_\+fn} & 値のハッシュ値を計算するための関数。 \\
+\hline
+{\em equal\+\_\+fn} & 値が等しいかを調べるための関数。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classhash__table_aa71d6ba6b69c0cc05713feeb39b25a30}{}\label{classhash__table_aa71d6ba6b69c0cc05713feeb39b25a30} 
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{hash\+\_\+table()}{hash\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+\hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::\hyperlink{classhash__table}{hash\+\_\+table} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コンストラクタ。引数なしのコンストラクタは禁止。 \hypertarget{classhash__table_ada4ba869398b6330ed4d8366cbad3659}{}\label{classhash__table_ada4ba869398b6330ed4d8366cbad3659} 
+\index{hash\+\_\+table@{hash\+\_\+table}!````~hash\+\_\+table@{$\sim$hash\+\_\+table}}
+\index{````~hash\+\_\+table@{$\sim$hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{$\sim$hash\+\_\+table()}{~hash\_table()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::$\sim$\hyperlink{classhash__table}{hash\+\_\+table} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classhash__table_a30a71ef67b26dc4ec16a56c003105c9a}{}\label{classhash__table_a30a71ef67b26dc4ec16a56c003105c9a} 
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{hash\+\_\+table()}{hash\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+\hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::\hyperlink{classhash__table}{hash\+\_\+table} (\begin{DoxyParamCaption}\item[{const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classhash__table_a9c397149a5b8e6766ada4b23ec7344de}{}\label{classhash__table_a9c397149a5b8e6766ada4b23ec7344de} 
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\index{hash\+\_\+table@{hash\+\_\+table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{hash\+\_\+table()}{hash\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+\hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::\hyperlink{classhash__table}{hash\+\_\+table} (\begin{DoxyParamCaption}\item[{const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6}{}\label{classhash__table_ae6968f84ffa245688a2fd8eebb86e7a6} 
+\index{hash\+\_\+table@{hash\+\_\+table}!find@{find}}
+\index{find@{find}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+V $\ast$ \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::find (\begin{DoxyParamCaption}\item[{const V \&}]{v }\end{DoxyParamCaption})}
+
+ハッシュテーブルから引数に渡された値と同じオブジェクトへの参照を返す。 
+\begin{DoxyParams}{引数}
+{\em v} & 検索したいオブジェクト。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ハッシュテーブル内に格納されていた引数と等しいオブジェクトへの参照。 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a9e02312051be1517ad16ee8164af07dd}{}\label{classhash__table_a9e02312051be1517ad16ee8164af07dd} 
+\index{hash\+\_\+table@{hash\+\_\+table}!insert@{insert}}
+\index{insert@{insert}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::insert (\begin{DoxyParamCaption}\item[{V \&}]{v }\end{DoxyParamCaption})}
+
+ハッシュテーブルに値を格納する。 
+\begin{DoxyParams}{引数}
+{\em v} & 格納したい値。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常終了時に 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classhash__table_accb6f8935ae8965655975426140d9447}{}\label{classhash__table_accb6f8935ae8965655975426140d9447} 
+\index{hash\+\_\+table@{hash\+\_\+table}!nodes@{nodes}}
+\index{nodes@{nodes}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{nodes()}{nodes()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+uint64\+\_\+t \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ハッシュテーブルに登録された値の数を返す。 \begin{DoxyReturn}{戻り値}
+ハッシュテーブルに登録された値の数。 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a22982acf5d5ba36d8ed199b2f6b25bd0}{}\label{classhash__table_a22982acf5d5ba36d8ed199b2f6b25bd0} 
+\index{hash\+\_\+table@{hash\+\_\+table}!operator=@{operator=}}
+\index{operator=@{operator=}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+void \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classhash__table_a770e1e703ae71c41f18ff727882ae4ed}{}\label{classhash__table_a770e1e703ae71c41f18ff727882ae4ed} 
+\index{hash\+\_\+table@{hash\+\_\+table}!operator=@{operator=}}
+\index{operator=@{operator=}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+void \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classhash__table_a8ac0d9136be9250f7059d07099a4393e}{}\label{classhash__table_a8ac0d9136be9250f7059d07099a4393e} 
+\index{hash\+\_\+table@{hash\+\_\+table}!remove@{remove}}
+\index{remove@{remove}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::remove (\begin{DoxyParamCaption}\item[{const V \&}]{v }\end{DoxyParamCaption})}
+
+ハッシュテーブルから値を削除する。 
+\begin{DoxyParams}{引数}
+{\em v} & 削除したい値。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常終了時に 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classhash__table_ace4fefe428377b31e479f516aad83e72}{}\label{classhash__table_ace4fefe428377b31e479f516aad83e72} 
+\index{hash\+\_\+table@{hash\+\_\+table}!table@{table}}
+\index{table@{table}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{table()}{table()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$$\ast$ \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ハッシュテーブル(\hyperlink{classbidir__node}{bidir\+\_\+node} の配列へのポインタ)を返す。 \begin{DoxyReturn}{戻り値}
+ハッシュテーブル(\hyperlink{classbidir__node}{bidir\+\_\+node} の配列へのポインタ)。 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a2ae018dc5310c3bf887dec199a445eeb}{}\label{classhash__table_a2ae018dc5310c3bf887dec199a445eeb} 
+\index{hash\+\_\+table@{hash\+\_\+table}!table\+\_\+size@{table\+\_\+size}}
+\index{table\+\_\+size@{table\+\_\+size}!hash\+\_\+table@{hash\+\_\+table}}
+\subsubsection{\texorpdfstring{table\+\_\+size()}{table\_size()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+uint64\+\_\+t \hyperlink{classhash__table}{hash\+\_\+table}$<$ V $>$\+::table\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ハッシュテーブルのサイズを返す。 \begin{DoxyReturn}{戻り値}
+ハッシュテーブルのサイズ。 
+\end{DoxyReturn}
+
+
 \subsection{フレンドと関連関数の詳解}
-\hypertarget{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}{}\index{hash\+\_\+table@{hash\+\_\+table}!memory\+\_\+init@{memory\+\_\+init}}
+\hypertarget{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}{}\label{classhash__table_a8840f01b46a3b9c43a461591a579c1bd} 
+\index{hash\+\_\+table@{hash\+\_\+table}!memory\+\_\+init@{memory\+\_\+init}}
 \index{memory\+\_\+init@{memory\+\_\+init}!hash\+\_\+table@{hash\+\_\+table}}
-\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class V$>$ void memory\+\_\+init (
-\begin{DoxyParamCaption}
-\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [friend]}}\label{classhash__table_a8840f01b46a3b9c43a461591a579c1bd}
-メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+\subsubsection{\texorpdfstring{memory\+\_\+init}{memory\_init}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+void memory\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$}]{li }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。
+
+メモリ管理の初期化を行う関数。 
+\begin{DoxyParams}{引数}
+{\em li} & ブートローダから渡される構造体へのポインタ。 \\
+\hline
+\end{DoxyParams}
+
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

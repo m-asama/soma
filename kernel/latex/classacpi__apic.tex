@@ -1,38 +1,144 @@
 \hypertarget{classacpi__apic}{}\section{acpi\+\_\+apic クラス}
 \label{classacpi__apic}\index{acpi\+\_\+apic@{acpi\+\_\+apic}}
+
+
+{\ttfamily \#include $<$acpi.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classacpi__apic_aaa636a85e07fb4355d12635280edf517}{}{\bfseries acpi\+\_\+apic} (uint8\+\_\+t $\ast$apic\+\_\+address)\label{classacpi__apic_aaa636a85e07fb4355d12635280edf517}
-
+\hyperlink{classacpi__apic_aaa636a85e07fb4355d12635280edf517}{acpi\+\_\+apic} (uint8\+\_\+t $\ast$apic\+\_\+address)
 \item 
-\hypertarget{classacpi__apic_a8f68e76b4b3f8e39c475e26954a81a2e}{}{\bfseries acpi\+\_\+apic} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&src)=delete\label{classacpi__apic_a8f68e76b4b3f8e39c475e26954a81a2e}
-
+\hyperlink{classacpi__apic_a3f8164e9adb40eb5c2c27f126a397715}{acpi\+\_\+apic} ()=delete
 \item 
-\hypertarget{classacpi__apic_a7c75e8b9a5b87493fbde26a86ffa5df0}{}{\bfseries acpi\+\_\+apic} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&src)=delete\label{classacpi__apic_a7c75e8b9a5b87493fbde26a86ffa5df0}
-
+virtual \hyperlink{classacpi__apic_a81f721dc4a7e4e5d765e3a0c453a3e79}{$\sim$acpi\+\_\+apic} ()
 \item 
-\hypertarget{classacpi__apic_a476b0daaeec3225c9a4f68114d276bd3}{}\hyperlink{classacpi__apic}{acpi\+\_\+apic} \& {\bfseries operator=} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&src)=delete\label{classacpi__apic_a476b0daaeec3225c9a4f68114d276bd3}
-
+\hyperlink{classacpi__apic_a8f68e76b4b3f8e39c475e26954a81a2e}{acpi\+\_\+apic} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&src)=delete
 \item 
-\hypertarget{classacpi__apic_acd939e20b14be73b59876556548c3ff5}{}\hyperlink{classacpi__apic}{acpi\+\_\+apic} \& {\bfseries operator=} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&src)=delete\label{classacpi__apic_acd939e20b14be73b59876556548c3ff5}
-
+\hyperlink{classacpi__apic_a7c75e8b9a5b87493fbde26a86ffa5df0}{acpi\+\_\+apic} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&src)=delete
 \item 
-\hypertarget{classacpi__apic_a7b763605f2e261a30200bdabd26a022c}{}char $\ast$ {\bfseries signature} ()\label{classacpi__apic_a7b763605f2e261a30200bdabd26a022c}
-
+\hyperlink{classacpi__apic}{acpi\+\_\+apic} \& \hyperlink{classacpi__apic_a476b0daaeec3225c9a4f68114d276bd3}{operator=} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&src)=delete
 \item 
-\hypertarget{classacpi__apic_a2a84d72623015c66cc7aae8b154f6dd8}{}uint32\+\_\+t {\bfseries length} ()\label{classacpi__apic_a2a84d72623015c66cc7aae8b154f6dd8}
-
+\hyperlink{classacpi__apic}{acpi\+\_\+apic} \& \hyperlink{classacpi__apic_acd939e20b14be73b59876556548c3ff5}{operator=} (const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&src)=delete
 \item 
-\hypertarget{classacpi__apic_a54cec0a38788cb5df1544ad5ed412e8c}{}int {\bfseries foreach\+\_\+processor\+\_\+apic} (int($\ast$function)(uint64\+\_\+t))\label{classacpi__apic_a54cec0a38788cb5df1544ad5ed412e8c}
-
+char $\ast$ \hyperlink{classacpi__apic_a7b763605f2e261a30200bdabd26a022c}{signature} ()
 \item 
-\hypertarget{classacpi__apic_a5790b7de6edd98af4e499e048dda62a4}{}int {\bfseries foreach\+\_\+irqchip\+\_\+apic} (int($\ast$function)(uint64\+\_\+t, uint64\+\_\+t, uint64\+\_\+t))\label{classacpi__apic_a5790b7de6edd98af4e499e048dda62a4}
-
+uint32\+\_\+t \hyperlink{classacpi__apic_a2a84d72623015c66cc7aae8b154f6dd8}{length} ()
 \item 
-\hypertarget{classacpi__apic_a91ad1b58ee35b7efaee43b00c1816877}{}void {\bfseries dump} ()\label{classacpi__apic_a91ad1b58ee35b7efaee43b00c1816877}
-
+int \hyperlink{classacpi__apic_a54cec0a38788cb5df1544ad5ed412e8c}{foreach\+\_\+processor\+\_\+apic} (int($\ast$function)(uint64\+\_\+t))
+\item 
+int \hyperlink{classacpi__apic_a5790b7de6edd98af4e499e048dda62a4}{foreach\+\_\+irqchip\+\_\+apic} (int($\ast$function)(uint64\+\_\+t, uint64\+\_\+t, uint64\+\_\+t))
+\item 
+void \hyperlink{classacpi__apic_a91ad1b58ee35b7efaee43b00c1816877}{dump} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+A\+C\+PI A\+P\+IC テーブル。 
+
+\subsection{構築子と解体子}
+\hypertarget{classacpi__apic_aaa636a85e07fb4355d12635280edf517}{}\label{classacpi__apic_aaa636a85e07fb4355d12635280edf517} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{acpi\+\_\+apic()}{acpi\_apic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily acpi\+\_\+apic\+::acpi\+\_\+apic (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{apic\+\_\+address }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em apic\+\_\+address} & A\+C\+PI A\+P\+IC テーブルへのポインタ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classacpi__apic_a3f8164e9adb40eb5c2c27f126a397715}{}\label{classacpi__apic_a3f8164e9adb40eb5c2c27f126a397715} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{acpi\+\_\+apic()}{acpi\_apic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily acpi\+\_\+apic\+::acpi\+\_\+apic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コンストラクタ。引数なしのコンストラクタは禁止。 \hypertarget{classacpi__apic_a81f721dc4a7e4e5d765e3a0c453a3e79}{}\label{classacpi__apic_a81f721dc4a7e4e5d765e3a0c453a3e79} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!````~acpi\+\_\+apic@{$\sim$acpi\+\_\+apic}}
+\index{````~acpi\+\_\+apic@{$\sim$acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{$\sim$acpi\+\_\+apic()}{~acpi\_apic()}}
+{\footnotesize\ttfamily acpi\+\_\+apic\+::$\sim$acpi\+\_\+apic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classacpi__apic_a8f68e76b4b3f8e39c475e26954a81a2e}{}\label{classacpi__apic_a8f68e76b4b3f8e39c475e26954a81a2e} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{acpi\+\_\+apic()}{acpi\_apic()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily acpi\+\_\+apic\+::acpi\+\_\+apic (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classacpi__apic_a7c75e8b9a5b87493fbde26a86ffa5df0}{}\label{classacpi__apic_a7c75e8b9a5b87493fbde26a86ffa5df0} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{acpi\+\_\+apic()}{acpi\_apic()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily acpi\+\_\+apic\+::acpi\+\_\+apic (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classacpi__apic_a91ad1b58ee35b7efaee43b00c1816877}{}\label{classacpi__apic_a91ad1b58ee35b7efaee43b00c1816877} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!dump@{dump}}
+\index{dump@{dump}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily void acpi\+\_\+apic\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A\+C\+PI A\+P\+IC テーブルの内容を表示する。 \hypertarget{classacpi__apic_a5790b7de6edd98af4e499e048dda62a4}{}\label{classacpi__apic_a5790b7de6edd98af4e499e048dda62a4} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!foreach\+\_\+irqchip\+\_\+apic@{foreach\+\_\+irqchip\+\_\+apic}}
+\index{foreach\+\_\+irqchip\+\_\+apic@{foreach\+\_\+irqchip\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{foreach\+\_\+irqchip\+\_\+apic()}{foreach\_irqchip\_apic()}}
+{\footnotesize\ttfamily int acpi\+\_\+apic\+::foreach\+\_\+irqchip\+\_\+apic (\begin{DoxyParamCaption}\item[{int($\ast$)(uint64\+\_\+t, uint64\+\_\+t, uint64\+\_\+t)}]{function }\end{DoxyParamCaption})}
+
+全ての I\+RQ チップのエントリに関数を実行する。 
+\begin{DoxyParams}{引数}
+{\em function} & コールバック関数。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+結果。 
+\end{DoxyReturn}
+\hypertarget{classacpi__apic_a54cec0a38788cb5df1544ad5ed412e8c}{}\label{classacpi__apic_a54cec0a38788cb5df1544ad5ed412e8c} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!foreach\+\_\+processor\+\_\+apic@{foreach\+\_\+processor\+\_\+apic}}
+\index{foreach\+\_\+processor\+\_\+apic@{foreach\+\_\+processor\+\_\+apic}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{foreach\+\_\+processor\+\_\+apic()}{foreach\_processor\_apic()}}
+{\footnotesize\ttfamily int acpi\+\_\+apic\+::foreach\+\_\+processor\+\_\+apic (\begin{DoxyParamCaption}\item[{int($\ast$)(uint64\+\_\+t)}]{function }\end{DoxyParamCaption})}
+
+全てのプロセッサのエントリに関数を実行する。 
+\begin{DoxyParams}{引数}
+{\em function} & コールバック関数。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+結果。 
+\end{DoxyReturn}
+\hypertarget{classacpi__apic_a2a84d72623015c66cc7aae8b154f6dd8}{}\label{classacpi__apic_a2a84d72623015c66cc7aae8b154f6dd8} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!length@{length}}
+\index{length@{length}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily uint32\+\_\+t acpi\+\_\+apic\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A\+C\+PI A\+P\+IC テーブルの長さを返す。 \begin{DoxyReturn}{戻り値}
+長さ。 
+\end{DoxyReturn}
+\hypertarget{classacpi__apic_a476b0daaeec3225c9a4f68114d276bd3}{}\label{classacpi__apic_a476b0daaeec3225c9a4f68114d276bd3} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!operator=@{operator=}}
+\index{operator=@{operator=}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classacpi__apic}{acpi\+\_\+apic}\& acpi\+\_\+apic\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classacpi__apic_acd939e20b14be73b59876556548c3ff5}{}\label{classacpi__apic_acd939e20b14be73b59876556548c3ff5} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!operator=@{operator=}}
+\index{operator=@{operator=}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classacpi__apic}{acpi\+\_\+apic}\& acpi\+\_\+apic\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classacpi__apic}{acpi\+\_\+apic} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classacpi__apic_a7b763605f2e261a30200bdabd26a022c}{}\label{classacpi__apic_a7b763605f2e261a30200bdabd26a022c} 
+\index{acpi\+\_\+apic@{acpi\+\_\+apic}!signature@{signature}}
+\index{signature@{signature}!acpi\+\_\+apic@{acpi\+\_\+apic}}
+\subsubsection{\texorpdfstring{signature()}{signature()}}
+{\footnotesize\ttfamily char $\ast$ acpi\+\_\+apic\+::signature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A\+C\+PI A\+P\+IC テーブルのシグネチャへのポインタを返す。 \begin{DoxyReturn}{戻り値}
+A\+C\+PI A\+P\+IC テーブルのシグネチャへのポインタ。 
+\end{DoxyReturn}
 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}

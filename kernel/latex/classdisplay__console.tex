@@ -1,5 +1,9 @@
 \hypertarget{classdisplay__console}{}\section{display\+\_\+console クラス}
 \label{classdisplay__console}\index{display\+\_\+console@{display\+\_\+console}}
+
+
+{\ttfamily \#include $<$display\+\_\+console.\+h$>$}
+
 display\+\_\+console の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,6 +16,14 @@ display\+\_\+console の継承関係図\begin{figure}[H]
 \hyperlink{classdisplay__console_a6448ae90752aa1b07fd8ae741313ab7c}{display\+\_\+console} ()
 \item 
 virtual \hyperlink{classdisplay__console_a3e71de8ef36ebf5a251f27bfa86f90c6}{$\sim$display\+\_\+console} ()
+\item 
+\hyperlink{classdisplay__console_ab1499fd27e83677c4988265c2f33b011}{display\+\_\+console} (const \hyperlink{classdisplay__console}{display\+\_\+console} \&src)=delete
+\item 
+\hyperlink{classdisplay__console_aa8f5d62e558d0dc35877361174040e7c}{display\+\_\+console} (const \hyperlink{classdisplay__console}{display\+\_\+console} \&\&src)=delete
+\item 
+void \hyperlink{classdisplay__console_a516b0f989779241982595e288edab4e1}{operator=} (const \hyperlink{classdisplay__console}{display\+\_\+console} \&src)=delete
+\item 
+void \hyperlink{classdisplay__console_ae51c3d467acb46d3a9b715e5d362cc23}{operator=} (const \hyperlink{classdisplay__console}{display\+\_\+console} \&\&src)=delete
 \item 
 virtual void \hyperlink{classdisplay__console_af24f8d041c5ffb3b19ecec5521daad4a}{reset} ()
 \item 
@@ -59,216 +71,278 @@ uint32\+\_\+t \hyperlink{classdisplay__console_a0b8ca02c6a0ea909732ec813bcc8b8a7
 \end{DoxyCompactItemize}
 
 
+\subsection{詳解}
+ディスプレイコンソールのクラス。 
+
 \subsection{構築子と解体子}
-\hypertarget{classdisplay__console_a6448ae90752aa1b07fd8ae741313ab7c}{}\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\hypertarget{classdisplay__console_a6448ae90752aa1b07fd8ae741313ab7c}{}\label{classdisplay__console_a6448ae90752aa1b07fd8ae741313ab7c} 
 \index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{display\+\_\+console()}]{\setlength{\rightskip}{0pt plus 5cm}display\+\_\+console\+::display\+\_\+console (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a6448ae90752aa1b07fd8ae741313ab7c}
-コンストラクタ。 \hypertarget{classdisplay__console_a3e71de8ef36ebf5a251f27bfa86f90c6}{}\index{display\+\_\+console@{display\+\_\+console}!````~display\+\_\+console@{$\sim$display\+\_\+console}}
+\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{display\+\_\+console()}{display\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily display\+\_\+console\+::display\+\_\+console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classdisplay__console_a3e71de8ef36ebf5a251f27bfa86f90c6}{}\label{classdisplay__console_a3e71de8ef36ebf5a251f27bfa86f90c6} 
+\index{display\+\_\+console@{display\+\_\+console}!````~display\+\_\+console@{$\sim$display\+\_\+console}}
 \index{````~display\+\_\+console@{$\sim$display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{$\sim$display\+\_\+console()}]{\setlength{\rightskip}{0pt plus 5cm}display\+\_\+console\+::$\sim$display\+\_\+console (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdisplay__console_a3e71de8ef36ebf5a251f27bfa86f90c6}
-デストラクタ。 
+\subsubsection{\texorpdfstring{$\sim$display\+\_\+console()}{~display\_console()}}
+{\footnotesize\ttfamily display\+\_\+console\+::$\sim$display\+\_\+console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classdisplay__console_ab1499fd27e83677c4988265c2f33b011}{}\label{classdisplay__console_ab1499fd27e83677c4988265c2f33b011} 
+\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{display\+\_\+console()}{display\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily display\+\_\+console\+::display\+\_\+console (\begin{DoxyParamCaption}\item[{const \hyperlink{classdisplay__console}{display\+\_\+console} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classdisplay__console_aa8f5d62e558d0dc35877361174040e7c}{}\label{classdisplay__console_aa8f5d62e558d0dc35877361174040e7c} 
+\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\index{display\+\_\+console@{display\+\_\+console}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{display\+\_\+console()}{display\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily display\+\_\+console\+::display\+\_\+console (\begin{DoxyParamCaption}\item[{const \hyperlink{classdisplay__console}{display\+\_\+console} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
 
 \subsection{関数詳解}
-\hypertarget{classdisplay__console_aca457aab1c95f8fe79b428f9e5b43a51}{}\index{display\+\_\+console@{display\+\_\+console}!getchar@{getchar}}
+\hypertarget{classdisplay__console_aca457aab1c95f8fe79b428f9e5b43a51}{}\label{classdisplay__console_aca457aab1c95f8fe79b428f9e5b43a51} 
+\index{display\+\_\+console@{display\+\_\+console}!getchar@{getchar}}
 \index{getchar@{getchar}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{getchar()}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t display\+\_\+console\+::getchar (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdisplay__console_aca457aab1c95f8fe79b428f9e5b43a51}
-コンソールから一文字入力するための関数。 
+\subsubsection{\texorpdfstring{getchar()}{getchar()}}
+{\footnotesize\ttfamily uint32\+\_\+t display\+\_\+console\+::getchar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\hyperlink{classconsole__base}{console\+\_\+base}を実装しています。
+コンソールから一文字入力するための関数。 \begin{DoxyReturn}{戻り値}
+コンソールから得られた文字。 
+\end{DoxyReturn}
 
-\hypertarget{classdisplay__console_a06e4aae84b14832a690bb915a33f54f0}{}\index{display\+\_\+console@{display\+\_\+console}!putchar@{putchar}}
+
+\hyperlink{classconsole__base_ab06fe008a39c09c60e427946f486833e}{console\+\_\+base}を実装しています。
+
+\hypertarget{classdisplay__console_a516b0f989779241982595e288edab4e1}{}\label{classdisplay__console_a516b0f989779241982595e288edab4e1} 
+\index{display\+\_\+console@{display\+\_\+console}!operator=@{operator=}}
+\index{operator=@{operator=}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classdisplay__console}{display\+\_\+console} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classdisplay__console_ae51c3d467acb46d3a9b715e5d362cc23}{}\label{classdisplay__console_ae51c3d467acb46d3a9b715e5d362cc23} 
+\index{display\+\_\+console@{display\+\_\+console}!operator=@{operator=}}
+\index{operator=@{operator=}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classdisplay__console}{display\+\_\+console} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classdisplay__console_a06e4aae84b14832a690bb915a33f54f0}{}\label{classdisplay__console_a06e4aae84b14832a690bb915a33f54f0} 
+\index{display\+\_\+console@{display\+\_\+console}!putchar@{putchar}}
 \index{putchar@{putchar}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{putchar(uint32\+\_\+t c)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::putchar (
-\begin{DoxyParamCaption}
-\item[{uint32\+\_\+t}]{c}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdisplay__console_a06e4aae84b14832a690bb915a33f54f0}
+\subsubsection{\texorpdfstring{putchar()}{putchar()}}
+{\footnotesize\ttfamily void display\+\_\+console\+::putchar (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
 コンソールへ一文字出力するための関数。 
 \begin{DoxyParams}{引数}
-{\em c} & U\+N\+I\+C\+O\+D\+E で表現された一文字。 \\
+{\em c} & U\+N\+I\+C\+O\+DE で表現された一文字。 \\
 \hline
 \end{DoxyParams}
 
 
-\hyperlink{classconsole__base}{console\+\_\+base}を実装しています。
+\hyperlink{classconsole__base_a584c38d4ca34363f399895e30133b814}{console\+\_\+base}を実装しています。
 
-\hypertarget{classdisplay__console_a94dcd0e51a5227c807c59c99c6a739c9}{}\index{display\+\_\+console@{display\+\_\+console}!refresh@{refresh}}
+\hypertarget{classdisplay__console_a94dcd0e51a5227c807c59c99c6a739c9}{}\label{classdisplay__console_a94dcd0e51a5227c807c59c99c6a739c9} 
+\index{display\+\_\+console@{display\+\_\+console}!refresh@{refresh}}
 \index{refresh@{refresh}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{refresh()}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::refresh (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdisplay__console_a94dcd0e51a5227c807c59c99c6a739c9}
+\subsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void display\+\_\+console\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
 コンソールを再描画するための関数。 
 
-\hyperlink{classconsole__base}{console\+\_\+base}を再実装しています。
+\hyperlink{classconsole__base_abd597aeba24dbc8552479b58db052980}{console\+\_\+base}を再実装しています。
 
-\hypertarget{classdisplay__console_af24f8d041c5ffb3b19ecec5521daad4a}{}\index{display\+\_\+console@{display\+\_\+console}!reset@{reset}}
+\hypertarget{classdisplay__console_af24f8d041c5ffb3b19ecec5521daad4a}{}\label{classdisplay__console_af24f8d041c5ffb3b19ecec5521daad4a} 
+\index{display\+\_\+console@{display\+\_\+console}!reset@{reset}}
 \index{reset@{reset}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{reset()}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::reset (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdisplay__console_af24f8d041c5ffb3b19ecec5521daad4a}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void display\+\_\+console\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
 コンソールをリセットするための関数。 
 
-\hyperlink{classconsole__base}{console\+\_\+base}を再実装しています。
+\hyperlink{classconsole__base_a79693833fdcd6b83c6b9a18919355bb3}{console\+\_\+base}を再実装しています。
 
-\hypertarget{classdisplay__console_a0f34879169e6cc12e03071575c87dd83}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+addr@{uefifb\+\_\+addr}}
+\hypertarget{classdisplay__console_a0f34879169e6cc12e03071575c87dd83}{}\label{classdisplay__console_a0f34879169e6cc12e03071575c87dd83} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+addr@{uefifb\+\_\+addr}}
 \index{uefifb\+\_\+addr@{uefifb\+\_\+addr}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+addr(uint64\+\_\+t uefifb\+\_\+addr)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+addr (
-\begin{DoxyParamCaption}
-\item[{uint64\+\_\+t}]{uefifb\+\_\+addr}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a0f34879169e6cc12e03071575c87dd83}
-U\+E\+F\+I フレームバッファのベースアドレスを設定するための関数。 
+\subsubsection{\texorpdfstring{uefifb\+\_\+addr()}{uefifb\_addr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+addr (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{uefifb\+\_\+addr }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのベースアドレスを設定するための関数。 
 \begin{DoxyParams}{引数}
-{\em uefifb\+\_\+addr} & U\+E\+F\+I フレームバッファのベースアドレス。 \\
+{\em uefifb\+\_\+addr} & U\+E\+FI フレームバッファのベースアドレス。 \\
 \hline
 \end{DoxyParams}
-\hypertarget{classdisplay__console_a857a888bad7b9174a3b1310762718433}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+addr@{uefifb\+\_\+addr}}
+\hypertarget{classdisplay__console_a857a888bad7b9174a3b1310762718433}{}\label{classdisplay__console_a857a888bad7b9174a3b1310762718433} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+addr@{uefifb\+\_\+addr}}
 \index{uefifb\+\_\+addr@{uefifb\+\_\+addr}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+addr()}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t display\+\_\+console\+::uefifb\+\_\+addr (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a857a888bad7b9174a3b1310762718433}
-U\+E\+F\+I フレームバッファのベースアドレスを返す関数。 \begin{DoxyReturn}{戻り値}
-U\+E\+F\+I フレームバッファのベースアドレス。 
+\subsubsection{\texorpdfstring{uefifb\+\_\+addr()}{uefifb\_addr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint64\+\_\+t display\+\_\+console\+::uefifb\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのベースアドレスを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファのベースアドレス。 
 \end{DoxyReturn}
-\hypertarget{classdisplay__console_aabd6aa8ac978e0f9e3c6f6b3c9b9d806}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+height@{uefifb\+\_\+height}}
+\hypertarget{classdisplay__console_aabd6aa8ac978e0f9e3c6f6b3c9b9d806}{}\label{classdisplay__console_aabd6aa8ac978e0f9e3c6f6b3c9b9d806} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+height@{uefifb\+\_\+height}}
 \index{uefifb\+\_\+height@{uefifb\+\_\+height}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+height(int uefifb\+\_\+height)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+height (
-\begin{DoxyParamCaption}
-\item[{int}]{uefifb\+\_\+height}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_aabd6aa8ac978e0f9e3c6f6b3c9b9d806}
-U\+E\+F\+I フレームバッファの縦ピクセル数を設定するための関数。 \hypertarget{classdisplay__console_afec1cad7f92d03a020a4a2140bcd3ee9}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+height@{uefifb\+\_\+height}}
-\index{uefifb\+\_\+height@{uefifb\+\_\+height}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+height()}]{\setlength{\rightskip}{0pt plus 5cm}int display\+\_\+console\+::uefifb\+\_\+height (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_afec1cad7f92d03a020a4a2140bcd3ee9}
-U\+E\+F\+I フレームバッファの縦ピクセル数を返す関数。 \hypertarget{classdisplay__console_a64a0fe72df84541a22009e5abc2619bc}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}}
-\index{uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+blue(uint32\+\_\+t uefifb\+\_\+mask\+\_\+blue)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+blue (
-\begin{DoxyParamCaption}
-\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+blue}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a64a0fe72df84541a22009e5abc2619bc}
-U\+E\+F\+I フレームバッファの青を表すビットのマスクを設定するための関数。 \hypertarget{classdisplay__console_a0a8c7d6ade4cf363f29f404ab3749290}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}}
-\index{uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+blue()}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+blue (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a0a8c7d6ade4cf363f29f404ab3749290}
-U\+E\+F\+I フレームバッファの青を表すビットのマスクを返す関数。 \hypertarget{classdisplay__console_af343b289cbb2c9dfd4ab3851ab0586a3}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}}
-\index{uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+green(uint32\+\_\+t uefifb\+\_\+mask\+\_\+green)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+green (
-\begin{DoxyParamCaption}
-\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+green}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_af343b289cbb2c9dfd4ab3851ab0586a3}
-U\+E\+F\+I フレームバッファの緑を表すビットのマスクを設定するための関数。 \hypertarget{classdisplay__console_a8ca8cb1d5dd1f15a000cd8a6be9c80f5}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}}
-\index{uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+green()}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+green (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a8ca8cb1d5dd1f15a000cd8a6be9c80f5}
-U\+E\+F\+I フレームバッファの緑を表すビットのマスクを返す関数。 \hypertarget{classdisplay__console_ae9aa4a1e7451bf5714123631010bf32c}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}}
-\index{uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+red(uint32\+\_\+t uefifb\+\_\+mask\+\_\+red)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+red (
-\begin{DoxyParamCaption}
-\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+red}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_ae9aa4a1e7451bf5714123631010bf32c}
-U\+E\+F\+I フレームバッファの赤を表すビットのマスクを設定するための関数。 \hypertarget{classdisplay__console_af31bb334255868e64ecffb392057216f}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}}
-\index{uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+red()}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+red (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_af31bb334255868e64ecffb392057216f}
-U\+E\+F\+I フレームバッファの赤を表すビットのマスクを返す関数。 \hypertarget{classdisplay__console_adc561d3a6e6a32d27407dd94b3e9173b}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}}
-\index{uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+reserved(uint32\+\_\+t uefifb\+\_\+mask\+\_\+reserved)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+reserved (
-\begin{DoxyParamCaption}
-\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+reserved}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_adc561d3a6e6a32d27407dd94b3e9173b}
-U\+E\+F\+I フレームバッファの予約領域ビットのマスクを設定するための関数。 \hypertarget{classdisplay__console_a0b8ca02c6a0ea909732ec813bcc8b8a7}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}}
-\index{uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+mask\+\_\+reserved()}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+reserved (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a0b8ca02c6a0ea909732ec813bcc8b8a7}
-U\+E\+F\+I フレームバッファの予約領域ビットのマスクを返す関数。 \hypertarget{classdisplay__console_afb29b425b4809708e4d1c89a2717847b}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+size@{uefifb\+\_\+size}}
-\index{uefifb\+\_\+size@{uefifb\+\_\+size}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+size(uint64\+\_\+t uefifb\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+size (
-\begin{DoxyParamCaption}
-\item[{uint64\+\_\+t}]{uefifb\+\_\+size}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_afb29b425b4809708e4d1c89a2717847b}
-U\+E\+F\+I フレームバッファのサイズを設定するための関数。 
+\subsubsection{\texorpdfstring{uefifb\+\_\+height()}{uefifb\_height()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+height (\begin{DoxyParamCaption}\item[{int}]{uefifb\+\_\+height }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの縦ピクセル数を設定するための関数。 
 \begin{DoxyParams}{引数}
-{\em uefifb\+\_\+size} & U\+E\+F\+I フレームバッファのサイズ。 \\
+{\em uefifb\+\_\+height} & U\+E\+FI フレームバッファの縦ピクセル数。 \\
 \hline
 \end{DoxyParams}
-\hypertarget{classdisplay__console_a1163663484e3dc414a3f0891137fc590}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+size@{uefifb\+\_\+size}}
-\index{uefifb\+\_\+size@{uefifb\+\_\+size}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+size()}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t display\+\_\+console\+::uefifb\+\_\+size (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a1163663484e3dc414a3f0891137fc590}
-U\+E\+F\+I フレームバッファのサイズを返す関数。 \begin{DoxyReturn}{戻り値}
-U\+E\+F\+I フレームバッファのサイズ。 
+\hypertarget{classdisplay__console_afec1cad7f92d03a020a4a2140bcd3ee9}{}\label{classdisplay__console_afec1cad7f92d03a020a4a2140bcd3ee9} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+height@{uefifb\+\_\+height}}
+\index{uefifb\+\_\+height@{uefifb\+\_\+height}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+height()}{uefifb\_height()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int display\+\_\+console\+::uefifb\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの縦ピクセル数を返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの縦ピクセル数。 
 \end{DoxyReturn}
-\hypertarget{classdisplay__console_ab2c385da00eaa8481fc5f0ea1160783b}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+stride@{uefifb\+\_\+stride}}
+\hypertarget{classdisplay__console_a64a0fe72df84541a22009e5abc2619bc}{}\label{classdisplay__console_a64a0fe72df84541a22009e5abc2619bc} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}}
+\index{uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+blue()}{uefifb\_mask\_blue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+blue (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+blue }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの青を表すビットのマスクを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+mask\+\_\+blue} & U\+E\+FI フレームバッファの青を表すビットのマスク。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_a0a8c7d6ade4cf363f29f404ab3749290}{}\label{classdisplay__console_a0a8c7d6ade4cf363f29f404ab3749290} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}}
+\index{uefifb\+\_\+mask\+\_\+blue@{uefifb\+\_\+mask\+\_\+blue}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+blue()}{uefifb\_mask\_blue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+blue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの青を表すビットのマスクを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの青を表すビットのマスク。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_af343b289cbb2c9dfd4ab3851ab0586a3}{}\label{classdisplay__console_af343b289cbb2c9dfd4ab3851ab0586a3} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}}
+\index{uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+green()}{uefifb\_mask\_green()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+green (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+green }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの緑を表すビットのマスクを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+mask\+\_\+green} & U\+E\+FI フレームバッファの緑を表すビットのマスク。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_a8ca8cb1d5dd1f15a000cd8a6be9c80f5}{}\label{classdisplay__console_a8ca8cb1d5dd1f15a000cd8a6be9c80f5} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}}
+\index{uefifb\+\_\+mask\+\_\+green@{uefifb\+\_\+mask\+\_\+green}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+green()}{uefifb\_mask\_green()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+green (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの緑を表すビットのマスクを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの緑を表すビットのマスク。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_ae9aa4a1e7451bf5714123631010bf32c}{}\label{classdisplay__console_ae9aa4a1e7451bf5714123631010bf32c} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}}
+\index{uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+red()}{uefifb\_mask\_red()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+red (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+red }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの赤を表すビットのマスクを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+mask\+\_\+red} & U\+E\+FI フレームバッファの赤を表すビットのマスク。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_af31bb334255868e64ecffb392057216f}{}\label{classdisplay__console_af31bb334255868e64ecffb392057216f} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}}
+\index{uefifb\+\_\+mask\+\_\+red@{uefifb\+\_\+mask\+\_\+red}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+red()}{uefifb\_mask\_red()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+red (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの赤を表すビットのマスクを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの赤を表すビットのマスク。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_adc561d3a6e6a32d27407dd94b3e9173b}{}\label{classdisplay__console_adc561d3a6e6a32d27407dd94b3e9173b} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}}
+\index{uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+reserved()}{uefifb\_mask\_reserved()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+mask\+\_\+reserved (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{uefifb\+\_\+mask\+\_\+reserved }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの予約領域ビットのマスクを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+mask\+\_\+reserved} & U\+E\+FI フレームバッファの予約領域ビットのマスク。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_a0b8ca02c6a0ea909732ec813bcc8b8a7}{}\label{classdisplay__console_a0b8ca02c6a0ea909732ec813bcc8b8a7} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}}
+\index{uefifb\+\_\+mask\+\_\+reserved@{uefifb\+\_\+mask\+\_\+reserved}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+mask\+\_\+reserved()}{uefifb\_mask\_reserved()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t display\+\_\+console\+::uefifb\+\_\+mask\+\_\+reserved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの予約領域ビットのマスクを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの予約領域ビットのマスク。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_afb29b425b4809708e4d1c89a2717847b}{}\label{classdisplay__console_afb29b425b4809708e4d1c89a2717847b} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+size@{uefifb\+\_\+size}}
+\index{uefifb\+\_\+size@{uefifb\+\_\+size}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+size()}{uefifb\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+size (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{uefifb\+\_\+size }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのサイズを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+size} & U\+E\+FI フレームバッファのサイズ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_a1163663484e3dc414a3f0891137fc590}{}\label{classdisplay__console_a1163663484e3dc414a3f0891137fc590} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+size@{uefifb\+\_\+size}}
+\index{uefifb\+\_\+size@{uefifb\+\_\+size}!display\+\_\+console@{display\+\_\+console}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+size()}{uefifb\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint64\+\_\+t display\+\_\+console\+::uefifb\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのサイズを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファのサイズ。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_ab2c385da00eaa8481fc5f0ea1160783b}{}\label{classdisplay__console_ab2c385da00eaa8481fc5f0ea1160783b} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+stride@{uefifb\+\_\+stride}}
 \index{uefifb\+\_\+stride@{uefifb\+\_\+stride}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+stride(int uefifb\+\_\+stride)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+stride (
-\begin{DoxyParamCaption}
-\item[{int}]{uefifb\+\_\+stride}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_ab2c385da00eaa8481fc5f0ea1160783b}
-U\+E\+F\+I フレームバッファのストライドを設定するための関数。 \hypertarget{classdisplay__console_aacd72b116774e3d9cb02a364cda9b1b9}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+stride@{uefifb\+\_\+stride}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+stride()}{uefifb\_stride()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+stride (\begin{DoxyParamCaption}\item[{int}]{uefifb\+\_\+stride }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのストライドを設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+stride} & U\+E\+FI フレームバッファのストライド。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_aacd72b116774e3d9cb02a364cda9b1b9}{}\label{classdisplay__console_aacd72b116774e3d9cb02a364cda9b1b9} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+stride@{uefifb\+\_\+stride}}
 \index{uefifb\+\_\+stride@{uefifb\+\_\+stride}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+stride()}]{\setlength{\rightskip}{0pt plus 5cm}int display\+\_\+console\+::uefifb\+\_\+stride (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_aacd72b116774e3d9cb02a364cda9b1b9}
-U\+E\+F\+I フレームバッファのストライドを返す関数。 \hypertarget{classdisplay__console_af3e64f62827bab683e73c8c2937bd061}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+width@{uefifb\+\_\+width}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+stride()}{uefifb\_stride()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int display\+\_\+console\+::uefifb\+\_\+stride (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファのストライドを返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファのストライド。 
+\end{DoxyReturn}
+\hypertarget{classdisplay__console_af3e64f62827bab683e73c8c2937bd061}{}\label{classdisplay__console_af3e64f62827bab683e73c8c2937bd061} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+width@{uefifb\+\_\+width}}
 \index{uefifb\+\_\+width@{uefifb\+\_\+width}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+width(int uefifb\+\_\+width)}]{\setlength{\rightskip}{0pt plus 5cm}void display\+\_\+console\+::uefifb\+\_\+width (
-\begin{DoxyParamCaption}
-\item[{int}]{uefifb\+\_\+width}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_af3e64f62827bab683e73c8c2937bd061}
-U\+E\+F\+I フレームバッファの横ピクセル数を設定するための関数。 \hypertarget{classdisplay__console_a9842b9adc744d7be6cb4beebc357ded4}{}\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+width@{uefifb\+\_\+width}}
+\subsubsection{\texorpdfstring{uefifb\+\_\+width()}{uefifb\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void display\+\_\+console\+::uefifb\+\_\+width (\begin{DoxyParamCaption}\item[{int}]{uefifb\+\_\+width }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの横ピクセル数を設定するための関数。 
+\begin{DoxyParams}{引数}
+{\em uefifb\+\_\+width} & U\+E\+FI フレームバッファの横ピクセル数。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdisplay__console_a9842b9adc744d7be6cb4beebc357ded4}{}\label{classdisplay__console_a9842b9adc744d7be6cb4beebc357ded4} 
+\index{display\+\_\+console@{display\+\_\+console}!uefifb\+\_\+width@{uefifb\+\_\+width}}
 \index{uefifb\+\_\+width@{uefifb\+\_\+width}!display\+\_\+console@{display\+\_\+console}}
-\subsubsection[{uefifb\+\_\+width()}]{\setlength{\rightskip}{0pt plus 5cm}int display\+\_\+console\+::uefifb\+\_\+width (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classdisplay__console_a9842b9adc744d7be6cb4beebc357ded4}
-U\+E\+F\+I フレームバッファの横ピクセル数を返す関数。 
+\subsubsection{\texorpdfstring{uefifb\+\_\+width()}{uefifb\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int display\+\_\+console\+::uefifb\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+U\+E\+FI フレームバッファの横ピクセル数を返す関数。 \begin{DoxyReturn}{戻り値}
+U\+E\+FI フレームバッファの横ピクセル数。 
+\end{DoxyReturn}
+
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

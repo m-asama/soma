@@ -1,40 +1,46 @@
 \hypertarget{classmemory__block}{}\section{memory\+\_\+block クラス}
 \label{classmemory__block}\index{memory\+\_\+block@{memory\+\_\+block}}
+
+
+{\ttfamily \#include $<$memory\+\_\+block.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classmemory__block_a5e72abe346014b328921130d6576ffaa}{}{\bfseries memory\+\_\+block} (uint64\+\_\+t base, uint64\+\_\+t size)\label{classmemory__block_a5e72abe346014b328921130d6576ffaa}
-
+\hyperlink{classmemory__block_a5e72abe346014b328921130d6576ffaa}{memory\+\_\+block} (uint64\+\_\+t \hyperlink{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}{base}, uint64\+\_\+t \hyperlink{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{size})
 \item 
-\hypertarget{classmemory__block_a2622810f660307cb9d39516973abac9b}{}bool {\bfseries operator==} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)\label{classmemory__block_a2622810f660307cb9d39516973abac9b}
-
+\hyperlink{classmemory__block_a811ecbeacc0921a0ec8fd0f94a97682d}{memory\+\_\+block} ()=delete
 \item 
-\hypertarget{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}{}bool {\bfseries operator$>$} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)\label{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}
-
+virtual \hyperlink{classmemory__block_a88261ad8b59e2dcae15ba37a0e4f9c88}{$\sim$memory\+\_\+block} ()
 \item 
-\hypertarget{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}{}void {\bfseries base} (uint64\+\_\+t base)\label{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}
-
+\hyperlink{classmemory__block_ab43debaedcdcacb2f269047bb3308d5e}{memory\+\_\+block} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&src)=delete
 \item 
-\hypertarget{classmemory__block_a4529412870636277c2bc5589ba841839}{}uint64\+\_\+t {\bfseries base} () const \label{classmemory__block_a4529412870636277c2bc5589ba841839}
-
+\hyperlink{classmemory__block_aeae2474076d174f3ea9279c180e8252c}{memory\+\_\+block} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&\&src)=delete
 \item 
-\hypertarget{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{}void {\bfseries size} (uint64\+\_\+t size)\label{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}
-
+void \hyperlink{classmemory__block_ae6f96e210fcddb0390b69ebf544100dc}{operator=} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&src)=delete
 \item 
-\hypertarget{classmemory__block_a2c603c159e4652aec8af10818682d8f4}{}uint64\+\_\+t {\bfseries size} () const \label{classmemory__block_a2c603c159e4652aec8af10818682d8f4}
-
+void \hyperlink{classmemory__block_a192afb96e0361d057f0933119d42dc6f}{operator=} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&\&src)=delete
+\item 
+bool \hyperlink{classmemory__block_a2622810f660307cb9d39516973abac9b}{operator==} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)
+\item 
+bool \hyperlink{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}{operator$>$} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&rhs)
+\item 
+void \hyperlink{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}{base} (uint64\+\_\+t base)
+\item 
+uint64\+\_\+t \hyperlink{classmemory__block_a4f2105c2b57c74998ad60cd973fb6a2d}{base} () const
+\item 
+void \hyperlink{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{size} (uint64\+\_\+t size)
+\item 
+uint64\+\_\+t \hyperlink{classmemory__block_a61bb79beaeb712e3ea9896058af4eda4}{size} () const
 \end{DoxyCompactItemize}
 \subsection*{静的公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classmemory__block_a649a913a12355b1e28e0338f64f346d8}{}static void $\ast$ {\bfseries operator new} (size\+\_\+t size)\label{classmemory__block_a649a913a12355b1e28e0338f64f346d8}
-
+static void $\ast$ \hyperlink{classmemory__block_a649a913a12355b1e28e0338f64f346d8}{operator new} (size\+\_\+t \hyperlink{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{size})
 \item 
-\hypertarget{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}{}static void {\bfseries operator delete} (void $\ast$ptr)\label{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}
-
+static void \hyperlink{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}{operator delete} (void $\ast$ptr)
 \item 
-\hypertarget{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}{}static uint64\+\_\+t {\bfseries count} ()\label{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}
-
+static uint64\+\_\+t \hyperlink{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}{count} ()
 \end{DoxyCompactItemize}
 \subsection*{フレンド}
 \begin{DoxyCompactItemize}
@@ -43,15 +49,168 @@ void \hyperlink{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}{memory\+\_
 \end{DoxyCompactItemize}
 
 
+\subsection{詳解}
+メモリ内の位置と大きさを表すブロックを表現するクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classmemory__block_a5e72abe346014b328921130d6576ffaa}{}\label{classmemory__block_a5e72abe346014b328921130d6576ffaa} 
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{memory\+\_\+block()}{memory\_block()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily memory\+\_\+block\+::memory\+\_\+block (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{base,  }\item[{uint64\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+コンストラクタ。 
+\begin{DoxyParams}{引数}
+{\em base} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmemory__block_a811ecbeacc0921a0ec8fd0f94a97682d}{}\label{classmemory__block_a811ecbeacc0921a0ec8fd0f94a97682d} 
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{memory\+\_\+block()}{memory\_block()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily memory\+\_\+block\+::memory\+\_\+block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コンストラクタ。引数なしのコンストラクタは禁止。 \hypertarget{classmemory__block_a88261ad8b59e2dcae15ba37a0e4f9c88}{}\label{classmemory__block_a88261ad8b59e2dcae15ba37a0e4f9c88} 
+\index{memory\+\_\+block@{memory\+\_\+block}!````~memory\+\_\+block@{$\sim$memory\+\_\+block}}
+\index{````~memory\+\_\+block@{$\sim$memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{$\sim$memory\+\_\+block()}{~memory\_block()}}
+{\footnotesize\ttfamily memory\+\_\+block\+::$\sim$memory\+\_\+block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classmemory__block_ab43debaedcdcacb2f269047bb3308d5e}{}\label{classmemory__block_ab43debaedcdcacb2f269047bb3308d5e} 
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{memory\+\_\+block()}{memory\_block()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily memory\+\_\+block\+::memory\+\_\+block (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classmemory__block_aeae2474076d174f3ea9279c180e8252c}{}\label{classmemory__block_aeae2474076d174f3ea9279c180e8252c} 
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{memory\+\_\+block()}{memory\_block()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily memory\+\_\+block\+::memory\+\_\+block (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f}{}\label{classmemory__block_a739d675f86d7e2a9f0082b2e6e4d827f} 
+\index{memory\+\_\+block@{memory\+\_\+block}!base@{base}}
+\index{base@{base}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{base()}{base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void memory\+\_\+block\+::base (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{base }\end{DoxyParamCaption})}
+
+メモリブロックのベースアドレスを設定する。 
+\begin{DoxyParams}{引数}
+{\em base} & メモリブロックのベースアドレス。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmemory__block_a4f2105c2b57c74998ad60cd973fb6a2d}{}\label{classmemory__block_a4f2105c2b57c74998ad60cd973fb6a2d} 
+\index{memory\+\_\+block@{memory\+\_\+block}!base@{base}}
+\index{base@{base}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{base()}{base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint64\+\_\+t memory\+\_\+block\+::base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+メモリブロックのベースアドレスを返す。 \begin{DoxyReturn}{戻り値}
+メモリブロックのベースアドレス。 
+\end{DoxyReturn}
+\hypertarget{classmemory__block_a8573ce38e735adf5fbf8a04165308c74}{}\label{classmemory__block_a8573ce38e735adf5fbf8a04165308c74} 
+\index{memory\+\_\+block@{memory\+\_\+block}!count@{count}}
+\index{count@{count}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily uint64\+\_\+t memory\+\_\+block\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+メモリブロックの数を返す。 \begin{DoxyReturn}{戻り値}
+メモリブロックの数。 
+\end{DoxyReturn}
+\hypertarget{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264}{}\label{classmemory__block_ad053b85f1ebbd81d801dc7e492fd4264} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator delete()}{operator delete()}}
+{\footnotesize\ttfamily void memory\+\_\+block\+::operator delete (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+delete 演算子。 \hypertarget{classmemory__block_a649a913a12355b1e28e0338f64f346d8}{}\label{classmemory__block_a649a913a12355b1e28e0338f64f346d8} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator new@{operator new}}
+\index{operator new@{operator new}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator new()}{operator new()}}
+{\footnotesize\ttfamily void $\ast$ memory\+\_\+block\+::operator new (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+new 演算子。 \hypertarget{classmemory__block_ae6f96e210fcddb0390b69ebf544100dc}{}\label{classmemory__block_ae6f96e210fcddb0390b69ebf544100dc} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator=@{operator=}}
+\index{operator=@{operator=}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void memory\+\_\+block\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classmemory__block_a192afb96e0361d057f0933119d42dc6f}{}\label{classmemory__block_a192afb96e0361d057f0933119d42dc6f} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator=@{operator=}}
+\index{operator=@{operator=}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void memory\+\_\+block\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classmemory__block_a2622810f660307cb9d39516973abac9b}{}\label{classmemory__block_a2622810f660307cb9d39516973abac9b} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator==@{operator==}}
+\index{operator==@{operator==}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool memory\+\_\+block\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{rhs }\end{DoxyParamCaption})}
+
+メモリブロック同士を比較するための等価演算子。 
+\begin{DoxyParams}{引数}
+{\em rhs} & 比較対象のオブジェクト。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+メモリブロックが等しい時に true を返す。 
+\end{DoxyReturn}
+\hypertarget{classmemory__block_abba4d7c05d916aafc08b58187fd92fad}{}\label{classmemory__block_abba4d7c05d916aafc08b58187fd92fad} 
+\index{memory\+\_\+block@{memory\+\_\+block}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool memory\+\_\+block\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{rhs }\end{DoxyParamCaption})}
+
+メモリブロック同士を比較するための比較演算子。 
+\begin{DoxyParams}{引数}
+{\em rhs} & 比較対象のオブジェクト。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+メモリブロックが引数よりも大きい時に true を返す。 
+\end{DoxyReturn}
+\hypertarget{classmemory__block_adb448dde189fdedec8793fd3dcb4674a}{}\label{classmemory__block_adb448dde189fdedec8793fd3dcb4674a} 
+\index{memory\+\_\+block@{memory\+\_\+block}!size@{size}}
+\index{size@{size}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void memory\+\_\+block\+::size (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+メモリブロックのサイズを設定する。 
+\begin{DoxyParams}{引数}
+{\em size} & メモリブロックのサイズ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmemory__block_a61bb79beaeb712e3ea9896058af4eda4}{}\label{classmemory__block_a61bb79beaeb712e3ea9896058af4eda4} 
+\index{memory\+\_\+block@{memory\+\_\+block}!size@{size}}
+\index{size@{size}!memory\+\_\+block@{memory\+\_\+block}}
+\subsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint64\+\_\+t memory\+\_\+block\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+メモリブロックのサイズを返す。 \begin{DoxyReturn}{戻り値}
+メモリブロックのサイズ。 
+\end{DoxyReturn}
+
+
 \subsection{フレンドと関連関数の詳解}
-\hypertarget{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}{}\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+init@{memory\+\_\+init}}
+\hypertarget{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}{}\label{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd} 
+\index{memory\+\_\+block@{memory\+\_\+block}!memory\+\_\+init@{memory\+\_\+init}}
 \index{memory\+\_\+init@{memory\+\_\+init}!memory\+\_\+block@{memory\+\_\+block}}
-\subsubsection[{memory\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void memory\+\_\+init (
-\begin{DoxyParamCaption}
-\item[{struct {\bf loader\+\_\+info} $\ast$}]{li}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [friend]}}\label{classmemory__block_a8840f01b46a3b9c43a461591a579c1bd}
-メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。 
+\subsubsection{\texorpdfstring{memory\+\_\+init}{memory\_init}}
+{\footnotesize\ttfamily void memory\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structloader__info}{loader\+\_\+info} $\ast$}]{li }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+メモリ管理の初期化の際は private\+: な変数にアクセスするため、 memory\+\_\+init を friend とする必要がある。
+
+メモリ管理の初期化を行う関数。 
+\begin{DoxyParams}{引数}
+{\em li} & ブートローダから渡される構造体へのポインタ。 \\
+\hline
+\end{DoxyParams}
+
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 

@@ -393,7 +393,7 @@ utf8str::is_equal(const char *s)
 }
 
 const char *
-utf8str::ptr(void) const
+utf8str::ptr() const
 {
 	return m_buffer;
 }

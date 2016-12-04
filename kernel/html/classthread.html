@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: thread クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,41 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
-      <li><a href="classes.html"><span>クラス索引</span></a></li>
-      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,64 +65,524 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">thread クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="thread_8h_source.html">thread.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a1db10940bc1734720d5a562d046b2d41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1db10940bc1734720d5a562d046b2d41"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>thread</b> (main_fn main)</td></tr>
+<tr class="memitem:a1db10940bc1734720d5a562d046b2d41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a1db10940bc1734720d5a562d046b2d41">thread</a> (main_fn <a class="el" href="classthread.html#aa4a8c5526714238ea8890badce737c08">main</a>)</td></tr>
 <tr class="separator:a1db10940bc1734720d5a562d046b2d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2debe550e8c36b7c7bafde6861527b6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2debe550e8c36b7c7bafde6861527b6a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>thread</b> (const <a class="el" href="classthread.html">thread</a> &amp;src)=delete</td></tr>
+<tr class="memitem:a210d87437e34573c32fc8d3f93963bfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a210d87437e34573c32fc8d3f93963bfe">thread</a> ()=delete</td></tr>
+<tr class="separator:a210d87437e34573c32fc8d3f93963bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117e0892c1d1a90bece03424311676f6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a117e0892c1d1a90bece03424311676f6">~thread</a> ()</td></tr>
+<tr class="separator:a117e0892c1d1a90bece03424311676f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2debe550e8c36b7c7bafde6861527b6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a2debe550e8c36b7c7bafde6861527b6a">thread</a> (const <a class="el" href="classthread.html">thread</a> &amp;src)=delete</td></tr>
 <tr class="separator:a2debe550e8c36b7c7bafde6861527b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d2b9d1eb276e3d8911694c84cb5f33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2d2b9d1eb276e3d8911694c84cb5f33"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>thread</b> (const <a class="el" href="classthread.html">thread</a> &amp;&amp;src)=delete</td></tr>
+<tr class="memitem:af2d2b9d1eb276e3d8911694c84cb5f33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#af2d2b9d1eb276e3d8911694c84cb5f33">thread</a> (const <a class="el" href="classthread.html">thread</a> &amp;&amp;src)=delete</td></tr>
 <tr class="separator:af2d2b9d1eb276e3d8911694c84cb5f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d7ef0a71785e85bbed76e1a983e41c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d7ef0a71785e85bbed76e1a983e41c0"></a>
-<a class="el" href="classthread.html">thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classthread.html">thread</a> &amp;src)=delete</td></tr>
+<tr class="memitem:a4d7ef0a71785e85bbed76e1a983e41c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classthread.html">thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a4d7ef0a71785e85bbed76e1a983e41c0">operator=</a> (const <a class="el" href="classthread.html">thread</a> &amp;src)=delete</td></tr>
 <tr class="separator:a4d7ef0a71785e85bbed76e1a983e41c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa248d01f65405fe1f03c1526c54d038f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa248d01f65405fe1f03c1526c54d038f"></a>
-<a class="el" href="classthread.html">thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classthread.html">thread</a> &amp;&amp;src)=delete</td></tr>
+<tr class="memitem:aa248d01f65405fe1f03c1526c54d038f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classthread.html">thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#aa248d01f65405fe1f03c1526c54d038f">operator=</a> (const <a class="el" href="classthread.html">thread</a> &amp;&amp;src)=delete</td></tr>
 <tr class="separator:aa248d01f65405fe1f03c1526c54d038f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accfc6460fe7c41635f41d9ad56554eb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accfc6460fe7c41635f41d9ad56554eb5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classthread.html">thread</a> &amp;rhs)</td></tr>
+<tr class="memitem:accfc6460fe7c41635f41d9ad56554eb5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#accfc6460fe7c41635f41d9ad56554eb5">operator==</a> (const <a class="el" href="classthread.html">thread</a> &amp;rhs)</td></tr>
 <tr class="separator:accfc6460fe7c41635f41d9ad56554eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ac74ad7dd695e6c9b46a17ade8a4c12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ac74ad7dd695e6c9b46a17ade8a4c12"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classthread.html">thread</a> &amp;rhs)</td></tr>
+<tr class="memitem:a8ac74ad7dd695e6c9b46a17ade8a4c12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a8ac74ad7dd695e6c9b46a17ade8a4c12">operator&gt;</a> (const <a class="el" href="classthread.html">thread</a> &amp;rhs)</td></tr>
 <tr class="separator:a8ac74ad7dd695e6c9b46a17ade8a4c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e75aa7159fa67144629709c31ccf229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e75aa7159fa67144629709c31ccf229"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint64_t id, const <a class="el" href="classstring.html">string</a> &amp;name)</td></tr>
-<tr class="separator:a4e75aa7159fa67144629709c31ccf229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72727217c70fb64523bf4d367eae1761"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72727217c70fb64523bf4d367eae1761"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> (uint64_t id)</td></tr>
+<tr class="memitem:a615945e7f24c83b235a8f4ac166ad70e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a615945e7f24c83b235a8f4ac166ad70e">init</a> (uint64_t <a class="el" href="classthread.html#a72727217c70fb64523bf4d367eae1761">id</a>, const <a class="el" href="classutf8str.html">utf8str</a> &amp;<a class="el" href="classthread.html#a1edac2ded94641cdef9dacb04efb5c85">name</a>)</td></tr>
+<tr class="separator:a615945e7f24c83b235a8f4ac166ad70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72727217c70fb64523bf4d367eae1761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a72727217c70fb64523bf4d367eae1761">id</a> (uint64_t id)</td></tr>
 <tr class="separator:a72727217c70fb64523bf4d367eae1761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9adf5b21b7271d8db735b79e6fdd1d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9adf5b21b7271d8db735b79e6fdd1d4"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> () const </td></tr>
-<tr class="separator:ae9adf5b21b7271d8db735b79e6fdd1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab816aaeb5b728e5d15eb4e064ece25b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab816aaeb5b728e5d15eb4e064ece25b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> (const <a class="el" href="classstring.html">string</a> &amp;name)</td></tr>
-<tr class="separator:ab816aaeb5b728e5d15eb4e064ece25b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab04013e3e679efdebb762afd77edf10e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab04013e3e679efdebb762afd77edf10e"></a>
-const <a class="el" href="classstring.html">string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> ()</td></tr>
-<tr class="separator:ab04013e3e679efdebb762afd77edf10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75bf27fd88692ce8a30ca04e3c397681"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75bf27fd88692ce8a30ca04e3c397681"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> (thread_state state)</td></tr>
+<tr class="memitem:a490d6ffc5beccdf584f49fa85cc12d9d"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a490d6ffc5beccdf584f49fa85cc12d9d">id</a> () const</td></tr>
+<tr class="separator:a490d6ffc5beccdf584f49fa85cc12d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1edac2ded94641cdef9dacb04efb5c85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a1edac2ded94641cdef9dacb04efb5c85">name</a> (const <a class="el" href="classutf8str.html">utf8str</a> &amp;name)</td></tr>
+<tr class="separator:a1edac2ded94641cdef9dacb04efb5c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e52f57766d1d11b6dbda15955c4a8ad"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classutf8str.html">utf8str</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a7e52f57766d1d11b6dbda15955c4a8ad">name</a> ()</td></tr>
+<tr class="separator:a7e52f57766d1d11b6dbda15955c4a8ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75bf27fd88692ce8a30ca04e3c397681"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a75bf27fd88692ce8a30ca04e3c397681">state</a> (<a class="el" href="thread_8h.html#a4b1b32c1fc744438f665f0f1932dd207">thread_state</a> state)</td></tr>
 <tr class="separator:a75bf27fd88692ce8a30ca04e3c397681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bbc0f9939912ffb6d31439e36d09e94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bbc0f9939912ffb6d31439e36d09e94"></a>
-thread_state&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> ()</td></tr>
+<tr class="memitem:a3bbc0f9939912ffb6d31439e36d09e94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="thread_8h.html#a4b1b32c1fc744438f665f0f1932dd207">thread_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a3bbc0f9939912ffb6d31439e36d09e94">state</a> ()</td></tr>
 <tr class="separator:a3bbc0f9939912ffb6d31439e36d09e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c10391e5b23ac4ff0ff99765bd5728d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c10391e5b23ac4ff0ff99765bd5728d"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>page_table</b> ()</td></tr>
+<tr class="memitem:a2c10391e5b23ac4ff0ff99765bd5728d"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a2c10391e5b23ac4ff0ff99765bd5728d">page_table</a> ()</td></tr>
 <tr class="separator:a2c10391e5b23ac4ff0ff99765bd5728d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a813caa9cffcc7c21008e62235de71b54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a813caa9cffcc7c21008e62235de71b54"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>stack_pointer</b> ()</td></tr>
+<tr class="memitem:a813caa9cffcc7c21008e62235de71b54"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a813caa9cffcc7c21008e62235de71b54">stack_pointer</a> ()</td></tr>
 <tr class="separator:a813caa9cffcc7c21008e62235de71b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4a8c5526714238ea8890badce737c08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4a8c5526714238ea8890badce737c08"></a>
-main_fn&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
+<tr class="memitem:aa4a8c5526714238ea8890badce737c08"><td class="memItemLeft" align="right" valign="top">main_fn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#aa4a8c5526714238ea8890badce737c08">main</a> ()</td></tr>
 <tr class="separator:aa4a8c5526714238ea8890badce737c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b78d34fbeff62ace13a4e9a6d4515f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b78d34fbeff62ace13a4e9a6d4515f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
+<tr class="memitem:a4b78d34fbeff62ace13a4e9a6d4515f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classthread.html#a4b78d34fbeff62ace13a4e9a6d4515f4">dump</a> ()</td></tr>
 <tr class="separator:a4b78d34fbeff62ace13a4e9a6d4515f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>スレッドを表現するクラス。 </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a1db10940bc1734720d5a562d046b2d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db10940bc1734720d5a562d046b2d41">&sect;&nbsp;</a></span>thread() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread::thread </td>
+          <td>(</td>
+          <td class="paramtype">main_fn&#160;</td>
+          <td class="paramname"><em>main</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>コンストラクタ。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">main</td><td>スレッドのメイン関数。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a210d87437e34573c32fc8d3f93963bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210d87437e34573c32fc8d3f93963bfe">&sect;&nbsp;</a></span>thread() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread::thread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コンストラクタ。引数なしのコンストラクタは禁止。 </p>
+
+</div>
+</div>
+<a id="a117e0892c1d1a90bece03424311676f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117e0892c1d1a90bece03424311676f6">&sect;&nbsp;</a></span>~thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread::~thread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>デストラクタ。 </p>
+
+</div>
+</div>
+<a id="a2debe550e8c36b7c7bafde6861527b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2debe550e8c36b7c7bafde6861527b6a">&sect;&nbsp;</a></span>thread() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread::thread </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コピーコンストラクタ。コピーは禁止。 </p>
+
+</div>
+</div>
+<a id="af2d2b9d1eb276e3d8911694c84cb5f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d2b9d1eb276e3d8911694c84cb5f33">&sect;&nbsp;</a></span>thread() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread::thread </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ムーブコンストラクタ。ムーブは禁止。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a4b78d34fbeff62ace13a4e9a6d4515f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b78d34fbeff62ace13a4e9a6d4515f4">&sect;&nbsp;</a></span>dump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void thread::dump </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドの情報を表示する関数。 </p>
+
+</div>
+</div>
+<a id="a72727217c70fb64523bf4d367eae1761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72727217c70fb64523bf4d367eae1761">&sect;&nbsp;</a></span>id() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void thread::id </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッド ID を設定する関数。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>スレッド ID。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a490d6ffc5beccdf584f49fa85cc12d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a490d6ffc5beccdf584f49fa85cc12d9d">&sect;&nbsp;</a></span>id() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t thread::id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッド ID を返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>スレッド ID。 </dd></dl>
+
+</div>
+</div>
+<a id="a615945e7f24c83b235a8f4ac166ad70e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615945e7f24c83b235a8f4ac166ad70e">&sect;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int thread::init </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classutf8str.html">utf8str</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドの初期化関数。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>スレッド ID。 </td></tr>
+    <tr><td class="paramname">name</td><td>スレッド名。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>正常終了で 0 を返す。 </dd></dl>
+
+</div>
+</div>
+<a id="aa4a8c5526714238ea8890badce737c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a8c5526714238ea8890badce737c08">&sect;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main_fn thread::main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドのメイン関数を返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>スレッドのメイン関数。 </dd></dl>
+
+</div>
+</div>
+<a id="a1edac2ded94641cdef9dacb04efb5c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1edac2ded94641cdef9dacb04efb5c85">&sect;&nbsp;</a></span>name() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void thread::name </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classutf8str.html">utf8str</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッド名を設定する関数。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>スレッド名。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e52f57766d1d11b6dbda15955c4a8ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e52f57766d1d11b6dbda15955c4a8ad">&sect;&nbsp;</a></span>name() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classutf8str.html">utf8str</a> &amp; thread::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッド名を返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>スレッド名。 </dd></dl>
+
+</div>
+</div>
+<a id="a4d7ef0a71785e85bbed76e1a983e41c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7ef0a71785e85bbed76e1a983e41c0">&sect;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classthread.html">thread</a>&amp; thread::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>コピー代入演算子。コピー代入は禁止。 </p>
+
+</div>
+</div>
+<a id="aa248d01f65405fe1f03c1526c54d038f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa248d01f65405fe1f03c1526c54d038f">&sect;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classthread.html">thread</a>&amp; thread::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ムーブ代入演算子。ムーブ代入は禁止。 </p>
+
+</div>
+</div>
+<a id="accfc6460fe7c41635f41d9ad56554eb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfc6460fe7c41635f41d9ad56554eb5">&sect;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool thread::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドを比較するための等価演算子。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>比較対象のスレッド。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>スレッド ID が等しい時に true を返す。 </dd></dl>
+
+</div>
+</div>
+<a id="a8ac74ad7dd695e6c9b46a17ade8a4c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac74ad7dd695e6c9b46a17ade8a4c12">&sect;&nbsp;</a></span>operator>()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool thread::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classthread.html">thread</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドを比較するための比較演算子。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>比較致傷のスレッド。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>スレッド ID が引数よりも大きい時に true を返す。 </dd></dl>
+
+</div>
+</div>
+<a id="a2c10391e5b23ac4ff0ff99765bd5728d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c10391e5b23ac4ff0ff99765bd5728d">&sect;&nbsp;</a></span>page_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t thread::page_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ページテーブルを返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>ページテーブル。 </dd></dl>
+
+</div>
+</div>
+<a id="a813caa9cffcc7c21008e62235de71b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813caa9cffcc7c21008e62235de71b54">&sect;&nbsp;</a></span>stack_pointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t thread::stack_pointer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スタックポインタを返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>スタックポインタ。 </dd></dl>
+
+</div>
+</div>
+<a id="a75bf27fd88692ce8a30ca04e3c397681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75bf27fd88692ce8a30ca04e3c397681">&sect;&nbsp;</a></span>state() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void thread::state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="thread_8h.html#a4b1b32c1fc744438f665f0f1932dd207">thread_state</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドの状態を設定する関数。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>スレッドの状態。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3bbc0f9939912ffb6d31439e36d09e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bbc0f9939912ffb6d31439e36d09e94">&sect;&nbsp;</a></span>state() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="thread_8h.html#a4b1b32c1fc744438f665f0f1932dd207">thread_state</a> thread::state </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>スレッドの状態を返す関数。 </p><dl class="section return"><dt>戻り値</dt><dd>スレッドの状態。 </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li><a class="el" href="thread_8h_source.html">thread.h</a></li>
 <li><a class="el" href="thread_8cpp.html">thread.cpp</a></li>
@@ -156,7 +592,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>dump</b> ()</td></tr>
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

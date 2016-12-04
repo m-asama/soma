@@ -1,5 +1,9 @@
 \hypertarget{classserial__console}{}\section{serial\+\_\+console クラス}
 \label{classserial__console}\index{serial\+\_\+console@{serial\+\_\+console}}
+
+
+{\ttfamily \#include $<$serial\+\_\+console.\+h$>$}
+
 serial\+\_\+console の継承関係図\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,54 +13,263 @@ serial\+\_\+console の継承関係図\begin{figure}[H]
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classserial__console_a86f0ff28692c55debc2f39d3175fc52e}{}virtual void {\bfseries reset} ()\label{classserial__console_a86f0ff28692c55debc2f39d3175fc52e}
-
+\hyperlink{classserial__console_a5cbd8276bd1ca301c3d148a141d3b72a}{serial\+\_\+console} ()
 \item 
-\hypertarget{classserial__console_ab652d9c5c8122739dfa377625f457333}{}virtual void {\bfseries refresh} ()\label{classserial__console_ab652d9c5c8122739dfa377625f457333}
-
+virtual \hyperlink{classserial__console_ad3a4f9f197191a6fa40f2098087d9ed3}{$\sim$serial\+\_\+console} ()
 \item 
-\hypertarget{classserial__console_a63393073ee917b8d5ecd04922e8b0219}{}virtual uint32\+\_\+t {\bfseries getchar} ()\label{classserial__console_a63393073ee917b8d5ecd04922e8b0219}
-
+\hyperlink{classserial__console_ab4ff2b180736394d4f90b8165ce5277b}{serial\+\_\+console} (const \hyperlink{classserial__console}{serial\+\_\+console} \&src)=delete
 \item 
-\hypertarget{classserial__console_aa75329918015828987a4327d183e82fc}{}virtual void {\bfseries putchar} (uint32\+\_\+t c)\label{classserial__console_aa75329918015828987a4327d183e82fc}
-
+\hyperlink{classserial__console_a3882a2706380db177d22d44cef4db227}{serial\+\_\+console} (const \hyperlink{classserial__console}{serial\+\_\+console} \&\&src)=delete
 \item 
-\hypertarget{classserial__console_a7997c59282c7c6646453496b32b62f71}{}void {\bfseries io\+\_\+port\+\_\+base} (uint16\+\_\+t io\+\_\+port\+\_\+base)\label{classserial__console_a7997c59282c7c6646453496b32b62f71}
-
+void \hyperlink{classserial__console_a3c252fd567fb159b89225b86215da61f}{operator=} (const \hyperlink{classserial__console}{serial\+\_\+console} \&src)=delete
 \item 
-\hypertarget{classserial__console_a8f5ba5b33eeb7b126c23f48300949ae6}{}uint16\+\_\+t {\bfseries io\+\_\+port\+\_\+base} ()\label{classserial__console_a8f5ba5b33eeb7b126c23f48300949ae6}
-
+void \hyperlink{classserial__console_acc5cf17db660a0ff98f3e96f6ef23ca1}{operator=} (const \hyperlink{classserial__console}{serial\+\_\+console} \&\&src)=delete
 \item 
-\hypertarget{classserial__console_a649deaac8973408643de56bbe1438890}{}void {\bfseries irq} (uint8\+\_\+t irq)\label{classserial__console_a649deaac8973408643de56bbe1438890}
-
+virtual void \hyperlink{classserial__console_a86f0ff28692c55debc2f39d3175fc52e}{reset} ()
 \item 
-\hypertarget{classserial__console_a286ec03d4c3b6d35c29ac65c237741cd}{}uint8\+\_\+t {\bfseries irq} ()\label{classserial__console_a286ec03d4c3b6d35c29ac65c237741cd}
-
+virtual void \hyperlink{classserial__console_ab652d9c5c8122739dfa377625f457333}{refresh} ()
 \item 
-\hypertarget{classserial__console_a55aea672eefcfeadd7630531dc925613}{}void {\bfseries baud\+\_\+rate} (uint16\+\_\+t baud\+\_\+rate)\label{classserial__console_a55aea672eefcfeadd7630531dc925613}
-
+virtual uint32\+\_\+t \hyperlink{classserial__console_a63393073ee917b8d5ecd04922e8b0219}{getchar} ()
 \item 
-\hypertarget{classserial__console_ad090c8b90b07fc6ef25d816aa662b3a4}{}uint16\+\_\+t {\bfseries baud\+\_\+rate} ()\label{classserial__console_ad090c8b90b07fc6ef25d816aa662b3a4}
-
+virtual void \hyperlink{classserial__console_aa75329918015828987a4327d183e82fc}{putchar} (uint32\+\_\+t c)
 \item 
-\hypertarget{classserial__console_acf0e666a73fcdbe99580e263a8c2c155}{}void {\bfseries data\+\_\+bits} (uint8\+\_\+t data\+\_\+bits)\label{classserial__console_acf0e666a73fcdbe99580e263a8c2c155}
-
+void \hyperlink{classserial__console_a7997c59282c7c6646453496b32b62f71}{io\+\_\+port\+\_\+base} (uint16\+\_\+t io\+\_\+port\+\_\+base)
 \item 
-\hypertarget{classserial__console_ac80a35d0277fe55a5fc1dd1b81d062c0}{}uint8\+\_\+t {\bfseries data\+\_\+bits} ()\label{classserial__console_ac80a35d0277fe55a5fc1dd1b81d062c0}
-
+uint16\+\_\+t \hyperlink{classserial__console_a8f5ba5b33eeb7b126c23f48300949ae6}{io\+\_\+port\+\_\+base} ()
 \item 
-\hypertarget{classserial__console_a556085cc185db329b9fb2c1637c17268}{}void {\bfseries stop\+\_\+bits} (uint8\+\_\+t stop\+\_\+bits)\label{classserial__console_a556085cc185db329b9fb2c1637c17268}
-
+void \hyperlink{classserial__console_a649deaac8973408643de56bbe1438890}{irq} (uint8\+\_\+t irq)
 \item 
-\hypertarget{classserial__console_a43039f134f5b5b666b3a42a8fdad1484}{}uint8\+\_\+t {\bfseries stop\+\_\+bits} ()\label{classserial__console_a43039f134f5b5b666b3a42a8fdad1484}
-
+uint8\+\_\+t \hyperlink{classserial__console_a286ec03d4c3b6d35c29ac65c237741cd}{irq} ()
 \item 
-\hypertarget{classserial__console_a8a6f476df2b731175674a571af2ad1bd}{}void {\bfseries parity} (uint8\+\_\+t parity)\label{classserial__console_a8a6f476df2b731175674a571af2ad1bd}
-
+void \hyperlink{classserial__console_a55aea672eefcfeadd7630531dc925613}{baud\+\_\+rate} (uint16\+\_\+t baud\+\_\+rate)
 \item 
-\hypertarget{classserial__console_ad98e06cb51a6b41fbc4ee5e3b6cfd309}{}uint8\+\_\+t {\bfseries parity} ()\label{classserial__console_ad98e06cb51a6b41fbc4ee5e3b6cfd309}
-
+uint16\+\_\+t \hyperlink{classserial__console_ad090c8b90b07fc6ef25d816aa662b3a4}{baud\+\_\+rate} ()
+\item 
+void \hyperlink{classserial__console_acf0e666a73fcdbe99580e263a8c2c155}{data\+\_\+bits} (uint8\+\_\+t data\+\_\+bits)
+\item 
+uint8\+\_\+t \hyperlink{classserial__console_ac80a35d0277fe55a5fc1dd1b81d062c0}{data\+\_\+bits} ()
+\item 
+void \hyperlink{classserial__console_a556085cc185db329b9fb2c1637c17268}{stop\+\_\+bits} (uint8\+\_\+t stop\+\_\+bits)
+\item 
+uint8\+\_\+t \hyperlink{classserial__console_a43039f134f5b5b666b3a42a8fdad1484}{stop\+\_\+bits} ()
+\item 
+void \hyperlink{classserial__console_a8a6f476df2b731175674a571af2ad1bd}{parity} (uint8\+\_\+t parity)
+\item 
+uint8\+\_\+t \hyperlink{classserial__console_ad98e06cb51a6b41fbc4ee5e3b6cfd309}{parity} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+シリアル・コンソールのクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classserial__console_a5cbd8276bd1ca301c3d148a141d3b72a}{}\label{classserial__console_a5cbd8276bd1ca301c3d148a141d3b72a} 
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{serial\+\_\+console()}{serial\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily serial\+\_\+console\+::serial\+\_\+console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classserial__console_ad3a4f9f197191a6fa40f2098087d9ed3}{}\label{classserial__console_ad3a4f9f197191a6fa40f2098087d9ed3} 
+\index{serial\+\_\+console@{serial\+\_\+console}!````~serial\+\_\+console@{$\sim$serial\+\_\+console}}
+\index{````~serial\+\_\+console@{$\sim$serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{$\sim$serial\+\_\+console()}{~serial\_console()}}
+{\footnotesize\ttfamily serial\+\_\+console\+::$\sim$serial\+\_\+console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classserial__console_ab4ff2b180736394d4f90b8165ce5277b}{}\label{classserial__console_ab4ff2b180736394d4f90b8165ce5277b} 
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{serial\+\_\+console()}{serial\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily serial\+\_\+console\+::serial\+\_\+console (\begin{DoxyParamCaption}\item[{const \hyperlink{classserial__console}{serial\+\_\+console} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classserial__console_a3882a2706380db177d22d44cef4db227}{}\label{classserial__console_a3882a2706380db177d22d44cef4db227} 
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\index{serial\+\_\+console@{serial\+\_\+console}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{serial\+\_\+console()}{serial\_console()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily serial\+\_\+console\+::serial\+\_\+console (\begin{DoxyParamCaption}\item[{const \hyperlink{classserial__console}{serial\+\_\+console} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classserial__console_a55aea672eefcfeadd7630531dc925613}{}\label{classserial__console_a55aea672eefcfeadd7630531dc925613} 
+\index{serial\+\_\+console@{serial\+\_\+console}!baud\+\_\+rate@{baud\+\_\+rate}}
+\index{baud\+\_\+rate@{baud\+\_\+rate}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{baud\+\_\+rate()}{baud\_rate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::baud\+\_\+rate (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+通信速度を設定する関数。 
+\begin{DoxyParams}{引数}
+{\em baud\+\_\+rate} & 通信速度。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_ad090c8b90b07fc6ef25d816aa662b3a4}{}\label{classserial__console_ad090c8b90b07fc6ef25d816aa662b3a4} 
+\index{serial\+\_\+console@{serial\+\_\+console}!baud\+\_\+rate@{baud\+\_\+rate}}
+\index{baud\+\_\+rate@{baud\+\_\+rate}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{baud\+\_\+rate()}{baud\_rate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t serial\+\_\+console\+::baud\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+通信速度を返す関数。 \begin{DoxyReturn}{戻り値}
+通信速度。 
+\end{DoxyReturn}
+\hypertarget{classserial__console_acf0e666a73fcdbe99580e263a8c2c155}{}\label{classserial__console_acf0e666a73fcdbe99580e263a8c2c155} 
+\index{serial\+\_\+console@{serial\+\_\+console}!data\+\_\+bits@{data\+\_\+bits}}
+\index{data\+\_\+bits@{data\+\_\+bits}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{data\+\_\+bits()}{data\_bits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::data\+\_\+bits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data\+\_\+bits }\end{DoxyParamCaption})}
+
+データビットを設定する関数。 
+\begin{DoxyParams}{引数}
+{\em data\+\_\+bits} & データビット。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_ac80a35d0277fe55a5fc1dd1b81d062c0}{}\label{classserial__console_ac80a35d0277fe55a5fc1dd1b81d062c0} 
+\index{serial\+\_\+console@{serial\+\_\+console}!data\+\_\+bits@{data\+\_\+bits}}
+\index{data\+\_\+bits@{data\+\_\+bits}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{data\+\_\+bits()}{data\_bits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t serial\+\_\+console\+::data\+\_\+bits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+データビットを返す関数。 \begin{DoxyReturn}{戻り値}
+データビット。 
+\end{DoxyReturn}
+\hypertarget{classserial__console_a63393073ee917b8d5ecd04922e8b0219}{}\label{classserial__console_a63393073ee917b8d5ecd04922e8b0219} 
+\index{serial\+\_\+console@{serial\+\_\+console}!getchar@{getchar}}
+\index{getchar@{getchar}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{getchar()}{getchar()}}
+{\footnotesize\ttfamily uint32\+\_\+t serial\+\_\+console\+::getchar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+コンソールから一文字入力するための関数。 \begin{DoxyReturn}{戻り値}
+コンソールから得られた文字。 
+\end{DoxyReturn}
+
+
+\hyperlink{classconsole__base_ab06fe008a39c09c60e427946f486833e}{console\+\_\+base}を実装しています。
+
+\hypertarget{classserial__console_a7997c59282c7c6646453496b32b62f71}{}\label{classserial__console_a7997c59282c7c6646453496b32b62f71} 
+\index{serial\+\_\+console@{serial\+\_\+console}!io\+\_\+port\+\_\+base@{io\+\_\+port\+\_\+base}}
+\index{io\+\_\+port\+\_\+base@{io\+\_\+port\+\_\+base}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{io\+\_\+port\+\_\+base()}{io\_port\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::io\+\_\+port\+\_\+base (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{io\+\_\+port\+\_\+base }\end{DoxyParamCaption})}
+
+I/O ポート番号のベースを設定する関数。 
+\begin{DoxyParams}{引数}
+{\em io\+\_\+port\+\_\+base} & I/O ポート番号のベース。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_a8f5ba5b33eeb7b126c23f48300949ae6}{}\label{classserial__console_a8f5ba5b33eeb7b126c23f48300949ae6} 
+\index{serial\+\_\+console@{serial\+\_\+console}!io\+\_\+port\+\_\+base@{io\+\_\+port\+\_\+base}}
+\index{io\+\_\+port\+\_\+base@{io\+\_\+port\+\_\+base}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{io\+\_\+port\+\_\+base()}{io\_port\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t serial\+\_\+console\+::io\+\_\+port\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+I/O ポート番号のベースを返す関数。 \begin{DoxyReturn}{戻り値}
+I/O ポート番号のベース。 
+\end{DoxyReturn}
+\hypertarget{classserial__console_a649deaac8973408643de56bbe1438890}{}\label{classserial__console_a649deaac8973408643de56bbe1438890} 
+\index{serial\+\_\+console@{serial\+\_\+console}!irq@{irq}}
+\index{irq@{irq}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{irq()}{irq()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::irq (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{irq }\end{DoxyParamCaption})}
+
+I\+RQ 番号を設定する関数。 
+\begin{DoxyParams}{引数}
+{\em irq} & I\+RQ 番号。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_a286ec03d4c3b6d35c29ac65c237741cd}{}\label{classserial__console_a286ec03d4c3b6d35c29ac65c237741cd} 
+\index{serial\+\_\+console@{serial\+\_\+console}!irq@{irq}}
+\index{irq@{irq}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{irq()}{irq()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t serial\+\_\+console\+::irq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+I\+RQ 番号を返す関数。 \begin{DoxyReturn}{戻り値}
+I\+RQ 番号。 
+\end{DoxyReturn}
+\hypertarget{classserial__console_a3c252fd567fb159b89225b86215da61f}{}\label{classserial__console_a3c252fd567fb159b89225b86215da61f} 
+\index{serial\+\_\+console@{serial\+\_\+console}!operator=@{operator=}}
+\index{operator=@{operator=}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classserial__console}{serial\+\_\+console} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classserial__console_acc5cf17db660a0ff98f3e96f6ef23ca1}{}\label{classserial__console_acc5cf17db660a0ff98f3e96f6ef23ca1} 
+\index{serial\+\_\+console@{serial\+\_\+console}!operator=@{operator=}}
+\index{operator=@{operator=}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classserial__console}{serial\+\_\+console} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classserial__console_a8a6f476df2b731175674a571af2ad1bd}{}\label{classserial__console_a8a6f476df2b731175674a571af2ad1bd} 
+\index{serial\+\_\+console@{serial\+\_\+console}!parity@{parity}}
+\index{parity@{parity}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{parity()}{parity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::parity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{parity }\end{DoxyParamCaption})}
+
+パリティを設定する関数。 
+\begin{DoxyParams}{引数}
+{\em parity} & パリティ。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_ad98e06cb51a6b41fbc4ee5e3b6cfd309}{}\label{classserial__console_ad98e06cb51a6b41fbc4ee5e3b6cfd309} 
+\index{serial\+\_\+console@{serial\+\_\+console}!parity@{parity}}
+\index{parity@{parity}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{parity()}{parity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t serial\+\_\+console\+::parity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+パリティを返す関数。 \begin{DoxyReturn}{戻り値}
+パリティ。 
+\end{DoxyReturn}
+\hypertarget{classserial__console_aa75329918015828987a4327d183e82fc}{}\label{classserial__console_aa75329918015828987a4327d183e82fc} 
+\index{serial\+\_\+console@{serial\+\_\+console}!putchar@{putchar}}
+\index{putchar@{putchar}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{putchar()}{putchar()}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::putchar (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+コンソールへ一文字出力するための関数。 
+\begin{DoxyParams}{引数}
+{\em c} & U\+N\+I\+C\+O\+DE で表現された一文字。 \\
+\hline
+\end{DoxyParams}
+
+
+\hyperlink{classconsole__base_a584c38d4ca34363f399895e30133b814}{console\+\_\+base}を実装しています。
+
+\hypertarget{classserial__console_ab652d9c5c8122739dfa377625f457333}{}\label{classserial__console_ab652d9c5c8122739dfa377625f457333} 
+\index{serial\+\_\+console@{serial\+\_\+console}!refresh@{refresh}}
+\index{refresh@{refresh}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+コンソールを再描画するための関数。 
+
+\hyperlink{classconsole__base_abd597aeba24dbc8552479b58db052980}{console\+\_\+base}を再実装しています。
+
+\hypertarget{classserial__console_a86f0ff28692c55debc2f39d3175fc52e}{}\label{classserial__console_a86f0ff28692c55debc2f39d3175fc52e} 
+\index{serial\+\_\+console@{serial\+\_\+console}!reset@{reset}}
+\index{reset@{reset}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+コンソールをリセットするための関数。 
+
+\hyperlink{classconsole__base_a79693833fdcd6b83c6b9a18919355bb3}{console\+\_\+base}を再実装しています。
+
+\hypertarget{classserial__console_a556085cc185db329b9fb2c1637c17268}{}\label{classserial__console_a556085cc185db329b9fb2c1637c17268} 
+\index{serial\+\_\+console@{serial\+\_\+console}!stop\+\_\+bits@{stop\+\_\+bits}}
+\index{stop\+\_\+bits@{stop\+\_\+bits}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{stop\+\_\+bits()}{stop\_bits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void serial\+\_\+console\+::stop\+\_\+bits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{stop\+\_\+bits }\end{DoxyParamCaption})}
+
+ストップビットを設定する関数。 
+\begin{DoxyParams}{引数}
+{\em stop\+\_\+bits} & ストップビット。 \\
+\hline
+\end{DoxyParams}
+\hypertarget{classserial__console_a43039f134f5b5b666b3a42a8fdad1484}{}\label{classserial__console_a43039f134f5b5b666b3a42a8fdad1484} 
+\index{serial\+\_\+console@{serial\+\_\+console}!stop\+\_\+bits@{stop\+\_\+bits}}
+\index{stop\+\_\+bits@{stop\+\_\+bits}!serial\+\_\+console@{serial\+\_\+console}}
+\subsubsection{\texorpdfstring{stop\+\_\+bits()}{stop\_bits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t serial\+\_\+console\+::stop\+\_\+bits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ストップビットを返す関数。 \begin{DoxyReturn}{戻り値}
+ストップビット。 
+\end{DoxyReturn}
 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}

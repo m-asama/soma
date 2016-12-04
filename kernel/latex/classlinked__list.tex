@@ -1,29 +1,179 @@
 \hypertarget{classlinked__list}{}\section{linked\+\_\+list$<$ V $>$ クラステンプレート}
 \label{classlinked__list}\index{linked\+\_\+list$<$ V $>$@{linked\+\_\+list$<$ V $>$}}
+
+
+{\ttfamily \#include $<$linked\+\_\+list.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlinked__list_aa87b1801b0701151561b449df924a1f6}{}int {\bfseries insert\+\_\+head} (V \&v)\label{classlinked__list_aa87b1801b0701151561b449df924a1f6}
-
+\hyperlink{classlinked__list_af003adae8c8ad169c0836a178da51431}{linked\+\_\+list} ()
 \item 
-\hypertarget{classlinked__list_a97ae2482ebf484475b017dfd104b4860}{}int {\bfseries insert\+\_\+tail} (V \&v)\label{classlinked__list_a97ae2482ebf484475b017dfd104b4860}
-
+virtual \hyperlink{classlinked__list_adae66055eedccbf29e7efd3692ad60e9}{$\sim$linked\+\_\+list} ()
 \item 
-\hypertarget{classlinked__list_a449bb389d8a0562078effe8a5cbce4ed}{}int {\bfseries remove} (const V \&v)\label{classlinked__list_a449bb389d8a0562078effe8a5cbce4ed}
-
+\hyperlink{classlinked__list_aaf6d89a06323148a3bfa85f98e73ec34}{linked\+\_\+list} (const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&src)=delete
 \item 
-\hypertarget{classlinked__list_aed6c01e534aab66ece6429d836f39f8f}{}V $\ast$ {\bfseries find} (const V \&v)\label{classlinked__list_aed6c01e534aab66ece6429d836f39f8f}
-
+\hyperlink{classlinked__list_a627932cc8618cd1bae44935116702d29}{linked\+\_\+list} (const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&\&src)=delete
 \item 
-\hypertarget{classlinked__list_a5ec6ef95a6d392bb7389637d9e5d87b5}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ {\bfseries head} ()\label{classlinked__list_a5ec6ef95a6d392bb7389637d9e5d87b5}
-
+void \hyperlink{classlinked__list_a32097a2dcd6f5f0f20c9b3e29a3f631e}{operator=} (const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&src)=delete
 \item 
-\hypertarget{classlinked__list_aefd6410f20630d227f0d4d4ed895d15b}{}\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ {\bfseries tail} ()\label{classlinked__list_aefd6410f20630d227f0d4d4ed895d15b}
-
+void \hyperlink{classlinked__list_a76ecccef113b75399c1243a6dc1763c4}{operator=} (const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&\&src)=delete
 \item 
-\hypertarget{classlinked__list_aa79d43937baecb85adc0731c3c078129}{}int {\bfseries nodes} ()\label{classlinked__list_aa79d43937baecb85adc0731c3c078129}
-
+int \hyperlink{classlinked__list_aa87b1801b0701151561b449df924a1f6}{insert\+\_\+head} (V \&v)
+\item 
+int \hyperlink{classlinked__list_a97ae2482ebf484475b017dfd104b4860}{insert\+\_\+tail} (V \&v)
+\item 
+int \hyperlink{classlinked__list_a449bb389d8a0562078effe8a5cbce4ed}{remove} (const V \&v)
+\item 
+V $\ast$ \hyperlink{classlinked__list_aed6c01e534aab66ece6429d836f39f8f}{find} (const V \&v)
+\item 
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classlinked__list_a5ec6ef95a6d392bb7389637d9e5d87b5}{head} ()
+\item 
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classlinked__list_aefd6410f20630d227f0d4d4ed895d15b}{tail} ()
+\item 
+int \hyperlink{classlinked__list_aa79d43937baecb85adc0731c3c078129}{nodes} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+\subsubsection*{template$<$class V$>$\newline
+class linked\+\_\+list$<$ V $>$}
+
+リンクリストのクラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classlinked__list_af003adae8c8ad169c0836a178da51431}{}\label{classlinked__list_af003adae8c8ad169c0836a178da51431} 
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{linked\+\_\+list()}{linked\_list()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::\hyperlink{classlinked__list}{linked\+\_\+list} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classlinked__list_adae66055eedccbf29e7efd3692ad60e9}{}\label{classlinked__list_adae66055eedccbf29e7efd3692ad60e9} 
+\index{linked\+\_\+list@{linked\+\_\+list}!````~linked\+\_\+list@{$\sim$linked\+\_\+list}}
+\index{````~linked\+\_\+list@{$\sim$linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{$\sim$linked\+\_\+list()}{~linked\_list()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::$\sim$\hyperlink{classlinked__list}{linked\+\_\+list} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classlinked__list_aaf6d89a06323148a3bfa85f98e73ec34}{}\label{classlinked__list_aaf6d89a06323148a3bfa85f98e73ec34} 
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{linked\+\_\+list()}{linked\_list()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+\hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::\hyperlink{classlinked__list}{linked\+\_\+list} (\begin{DoxyParamCaption}\item[{const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classlinked__list_a627932cc8618cd1bae44935116702d29}{}\label{classlinked__list_a627932cc8618cd1bae44935116702d29} 
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\index{linked\+\_\+list@{linked\+\_\+list}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{linked\+\_\+list()}{linked\_list()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+\hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::\hyperlink{classlinked__list}{linked\+\_\+list} (\begin{DoxyParamCaption}\item[{const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classlinked__list_aed6c01e534aab66ece6429d836f39f8f}{}\label{classlinked__list_aed6c01e534aab66ece6429d836f39f8f} 
+\index{linked\+\_\+list@{linked\+\_\+list}!find@{find}}
+\index{find@{find}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+V $\ast$ \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::find (\begin{DoxyParamCaption}\item[{const V \&}]{v }\end{DoxyParamCaption})}
+
+リンクリストから引数に渡された値と同じオブジェクトへの参照を返す。 
+\begin{DoxyParams}{引数}
+{\em v} & 検索したいオブジェクト。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+リンクリスト内に格納されていた引数と等しいオブジェクトへの参照。 
+\end{DoxyReturn}
+\hypertarget{classlinked__list_a5ec6ef95a6d392bb7389637d9e5d87b5}{}\label{classlinked__list_a5ec6ef95a6d392bb7389637d9e5d87b5} 
+\index{linked\+\_\+list@{linked\+\_\+list}!head@{head}}
+\index{head@{head}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+リンクリストの先頭の \hyperlink{classbidir__node}{bidir\+\_\+node} へのポインタを返す。 \begin{DoxyReturn}{戻り値}
+リンクリストの先頭の \hyperlink{classbidir__node}{bidir\+\_\+node} へのポインタ。 
+\end{DoxyReturn}
+\hypertarget{classlinked__list_aa87b1801b0701151561b449df924a1f6}{}\label{classlinked__list_aa87b1801b0701151561b449df924a1f6} 
+\index{linked\+\_\+list@{linked\+\_\+list}!insert\+\_\+head@{insert\+\_\+head}}
+\index{insert\+\_\+head@{insert\+\_\+head}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{insert\+\_\+head()}{insert\_head()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::insert\+\_\+head (\begin{DoxyParamCaption}\item[{V \&}]{v }\end{DoxyParamCaption})}
+
+リンクリストの先頭に値を格納する。 
+\begin{DoxyParams}{引数}
+{\em v} & 格納したい値。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常時に 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classlinked__list_a97ae2482ebf484475b017dfd104b4860}{}\label{classlinked__list_a97ae2482ebf484475b017dfd104b4860} 
+\index{linked\+\_\+list@{linked\+\_\+list}!insert\+\_\+tail@{insert\+\_\+tail}}
+\index{insert\+\_\+tail@{insert\+\_\+tail}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{insert\+\_\+tail()}{insert\_tail()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::insert\+\_\+tail (\begin{DoxyParamCaption}\item[{V \&}]{v }\end{DoxyParamCaption})}
+
+リンクリストの末尾に値を格納する。 
+\begin{DoxyParams}{引数}
+{\em v} & 格納したい値。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常時に 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classlinked__list_aa79d43937baecb85adc0731c3c078129}{}\label{classlinked__list_aa79d43937baecb85adc0731c3c078129} 
+\index{linked\+\_\+list@{linked\+\_\+list}!nodes@{nodes}}
+\index{nodes@{nodes}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{nodes()}{nodes()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+リンクリストに登録された値の数。 \hypertarget{classlinked__list_a32097a2dcd6f5f0f20c9b3e29a3f631e}{}\label{classlinked__list_a32097a2dcd6f5f0f20c9b3e29a3f631e} 
+\index{linked\+\_\+list@{linked\+\_\+list}!operator=@{operator=}}
+\index{operator=@{operator=}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+void \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classlinked__list_a76ecccef113b75399c1243a6dc1763c4}{}\label{classlinked__list_a76ecccef113b75399c1243a6dc1763c4} 
+\index{linked\+\_\+list@{linked\+\_\+list}!operator=@{operator=}}
+\index{operator=@{operator=}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class V$>$ \\
+void \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$ \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classlinked__list_a449bb389d8a0562078effe8a5cbce4ed}{}\label{classlinked__list_a449bb389d8a0562078effe8a5cbce4ed} 
+\index{linked\+\_\+list@{linked\+\_\+list}!remove@{remove}}
+\index{remove@{remove}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+int \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::remove (\begin{DoxyParamCaption}\item[{const V \&}]{v }\end{DoxyParamCaption})}
+
+リンクリストから値を削除する。 
+\begin{DoxyParams}{引数}
+{\em v} & 削除したい値。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+正常終了時に 0 を返す。 
+\end{DoxyReturn}
+\hypertarget{classlinked__list_aefd6410f20630d227f0d4d4ed895d15b}{}\label{classlinked__list_aefd6410f20630d227f0d4d4ed895d15b} 
+\index{linked\+\_\+list@{linked\+\_\+list}!tail@{tail}}
+\index{tail@{tail}!linked\+\_\+list@{linked\+\_\+list}}
+\subsubsection{\texorpdfstring{tail()}{tail()}}
+{\footnotesize\ttfamily template$<$class V $>$ \\
+\hyperlink{classbidir__node}{bidir\+\_\+node}$<$ V $>$ $\ast$ \hyperlink{classlinked__list}{linked\+\_\+list}$<$ V $>$\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+リンクリストの末尾の \hyperlink{classbidir__node}{bidir\+\_\+node} へのポインタを返す \begin{DoxyReturn}{戻り値}
+リンクリストの末尾の \hyperlink{classbidir__node}{bidir\+\_\+node} へのポインタ。 
+\end{DoxyReturn}
 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}

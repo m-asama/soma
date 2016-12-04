@@ -81,21 +81,5 @@ bidir_node<V>::count()
 }
 
 template<class V>
-bidir_node<V>::bidir_node()
-{
-}
-
-template<class V>
-bidir_node<V>::bidir_node(const bidir_node<V> &src)
-{
-}
-
-template<class V>
-void
-bidir_node<V>::operator=(const bidir_node<V> &src)
-{
-}
-
-template<class V>
 memory_pool<bidir_node<V>> bidir_node<V>::s_mem_pool;
 

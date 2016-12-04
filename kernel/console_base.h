@@ -26,6 +26,26 @@ public:
 	virtual ~console_base();
 
 	/**
+	 * コピーコンストラクタ。コピーは禁止。
+	 */
+	console_base(const console_base &src) = delete;
+
+	/**
+	 * ムーブコンストラクタ。ムーブは禁止。
+	 */
+	console_base(const console_base &&src) = delete;
+
+	/**
+	 * コピー代入演算子。コピー代入は禁止。
+	 */
+	void operator=(const console_base &src) = delete;
+
+	/**
+	 * ムーブ代入演算子。ムーブ代入は禁止。
+	 */
+	void operator=(const console_base &&src) = delete;
+
+	/**
 	 * コンソール同士を比較するための等価演算子。
 	 * @param rhs 比較対象のオブジェクト。
 	 * @return メモリ上のアドレスが等しい時に true を返す。
@@ -64,79 +84,84 @@ public:
 	 */
 	void buffer(uint32_t *buffer);
 	
-	/*
-	 *
+	/**
+	 * コンソールバッファへのポインタを返す。
+	 * @return コンソールバッファへのポインタ。
 	 */
 	uint32_t *buffer();
 	
-	/*
-	 *
+	/**
+	 * カーソルの横方向の位置を設定する。
+	 * @param cursor_x カーソルの横方向の位置。
 	 */
 	void cursor_x(uint32_t cursor_x);
 	
-	/*
-	 *
+	/**
+	 * カーソルの横方向の位置を返す。
+	 * @return カーソルの横方向の位置。
 	 */
 	uint32_t cursor_x();
 	
-	/*
-	 *
+	/**
+	 * カーソルの縦方向の位置を設定する。
+	 * @param cursor_y カーソルの縦方向の位置。
 	 */
 	void cursor_y(uint32_t cursor_y);
 	
-	/*
-	 *
+	/**
+	 * カーソルの縦方向の位置を返す。
+	 * @return カーソルの縦方向の位置。
 	 */
 	uint32_t cursor_y();
 
-	/*
-	 *
+	/**
+	 * コンソールをリセットする。
 	 */
 	virtual void reset();
 
-	/*
-	 *
+	/**
+	 * コンソールを再描画する。
 	 */
 	virtual void refresh();
 
-	/*
-	 *
+	/**
+	 * コンソールから一文字取得する。
 	 */
 	virtual uint32_t getchar() = 0;
 
-	/*
-	 *
+	/**
+	 * コンソールへ一文字表示する。
 	 */
 	virtual void putchar(uint32_t c) = 0;
 
-	/*
-	 *
+	/**
+	 * コンソールを一行送る。
 	 */
 	void line_shift();
 
 private:
-	/*
-	 *
+	/**
+	 * コンソールの列数。
 	 */
 	uint32_t m_cols;
 
-	/*
-	 *
+	/**
+	 * コンソールの行数。
 	 */
 	uint32_t m_rows;
 
-	/*
-	 *
+	/**
+	 * コンソールバッファ。
 	 */
 	uint32_t *m_buffer;
 
-	/*
-	 *
+	/**
+	 * カーソルの横方向の位置。
 	 */
 	uint32_t m_cursor_x;
 
-	/*
-	 *
+	/**
+	 * カーソルの縦方向の位置。
 	 */
 	uint32_t m_cursor_y;
 

@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: intel64_ioapic.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -84,31 +62,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">intel64_ioapic.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="intel64__ioapic_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type_8h.html">type.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="irqchip__base_8h.html">irqchip_base.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classintel64__ioapic.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> : <span class="keyword">public</span> <a class="code" href="classirqchip__base.html">irqchip_base</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classintel64__ioapic.html">intel64_ioapic</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;src) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;src) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<a href="intel64__ioapic_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type_8h.html">type.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="irqchip__base_8h.html">irqchip_base.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classintel64__ioapic.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> : <span class="keyword">public</span> <a class="code" href="classirqchip__base.html">irqchip_base</a> {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classintel64__ioapic.html#a3306f184d7c81a1e2a8762cb7aac9e6d">intel64_ioapic</a>();</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classintel64__ioapic.html#a08463ca362fd28f4db43173fd08754df">~intel64_ioapic</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classintel64__ioapic.html#a3306f184d7c81a1e2a8762cb7aac9e6d">intel64_ioapic</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classintel64__ioapic.html#a3306f184d7c81a1e2a8762cb7aac9e6d">intel64_ioapic</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;<a class="code" href="classintel64__ioapic.html#a503e60731936974a4260a78a5a6766a1">operator=</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;<a class="code" href="classintel64__ioapic.html#a503e60731936974a4260a78a5a6766a1">operator=</a>(<span class="keyword">const</span> <a class="code" href="classintel64__ioapic.html">intel64_ioapic</a> &amp;&amp;src) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="ttc" id="classintel64__ioapic_html_a08463ca362fd28f4db43173fd08754df"><div class="ttname"><a href="classintel64__ioapic.html#a08463ca362fd28f4db43173fd08754df">intel64_ioapic::~intel64_ioapic</a></div><div class="ttdeci">virtual ~intel64_ioapic()</div><div class="ttdef"><b>Definition:</b> intel64_ioapic.cpp:15</div></div>
+<div class="ttc" id="classintel64__ioapic_html_a3306f184d7c81a1e2a8762cb7aac9e6d"><div class="ttname"><a href="classintel64__ioapic.html#a3306f184d7c81a1e2a8762cb7aac9e6d">intel64_ioapic::intel64_ioapic</a></div><div class="ttdeci">intel64_ioapic()</div><div class="ttdef"><b>Definition:</b> intel64_ioapic.cpp:11</div></div>
 <div class="ttc" id="irqchip__base_8h_html"><div class="ttname"><a href="irqchip__base_8h.html">irqchip_base.h</a></div><div class="ttdoc">I/O PIC の基底クラス。 </div></div>
+<div class="ttc" id="classintel64__ioapic_html_a503e60731936974a4260a78a5a6766a1"><div class="ttname"><a href="classintel64__ioapic.html#a503e60731936974a4260a78a5a6766a1">intel64_ioapic::operator=</a></div><div class="ttdeci">intel64_ioapic &amp; operator=(const intel64_ioapic &amp;src)=delete</div></div>
 <div class="ttc" id="classirqchip__base_html"><div class="ttname"><a href="classirqchip__base.html">irqchip_base</a></div><div class="ttdef"><b>Definition:</b> irqchip_base.h:14</div></div>
 <div class="ttc" id="classintel64__ioapic_html"><div class="ttname"><a href="classintel64__ioapic.html">intel64_ioapic</a></div><div class="ttdef"><b>Definition:</b> intel64_ioapic.h:15</div></div>
 <div class="ttc" id="type_8h_html"><div class="ttname"><a href="type_8h.html">type.h</a></div><div class="ttdoc">型定義。 </div></div>
@@ -117,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

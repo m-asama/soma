@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: font.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,39 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li><a href="annotated.html"><span>クラス</span></a></li>
-      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>ファイル一覧</span></a></li>
-      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -96,16 +74,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a887ae02ef72fadc1cf7c2c7343386dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a887ae02ef72fadc1cf7c2c7343386dea"></a>
+<tr class="memitem:a887ae02ef72fadc1cf7c2c7343386dea"><td class="memItemLeft" align="right" valign="top"><a id="a887ae02ef72fadc1cf7c2c7343386dea"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>font_data_hash</b> (const struct <a class="el" href="structfont__data.html">font_data</a> &amp;fd)</td></tr>
 <tr class="separator:a887ae02ef72fadc1cf7c2c7343386dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a8c382dc5667a8174302f0cae6b0076"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a8c382dc5667a8174302f0cae6b0076"></a>
+<tr class="memitem:a5a8c382dc5667a8174302f0cae6b0076"><td class="memItemLeft" align="right" valign="top"><a id="a5a8c382dc5667a8174302f0cae6b0076"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>font_data_equal</b> (const struct <a class="el" href="structfont__data.html">font_data</a> &amp;fdl, const struct <a class="el" href="structfont__data.html">font_data</a> &amp;fdr)</td></tr>
 <tr class="separator:a5a8c382dc5667a8174302f0cae6b0076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb3f4babfe71c6b3f9f92e9ed314473f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb3f4babfe71c6b3f9f92e9ed314473f"></a>
+<tr class="memitem:afb3f4babfe71c6b3f9f92e9ed314473f"><td class="memItemLeft" align="right" valign="top"><a id="afb3f4babfe71c6b3f9f92e9ed314473f"></a>
 struct <a class="el" href="structfont__data.html">font_data</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>font_find</b> (uint64_t unicode)</td></tr>
 <tr class="separator:afb3f4babfe71c6b3f9f92e9ed314473f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b0459241994d549ae90776cdacede2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b0459241994d549ae90776cdacede2d"></a>
+<tr class="memitem:a6b0459241994d549ae90776cdacede2d"><td class="memItemLeft" align="right" valign="top"><a id="a6b0459241994d549ae90776cdacede2d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>font_init</b> ()</td></tr>
 <tr class="separator:a6b0459241994d549ae90776cdacede2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -117,7 +95,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>font_init</b> ()</td>
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

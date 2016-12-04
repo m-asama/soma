@@ -16,32 +16,32 @@ class intel64_ioapic : public irqchip_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_ioapic();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_ioapic();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_ioapic(const intel64_ioapic &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_ioapic(const intel64_ioapic &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_ioapic &operator=(const intel64_ioapic &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_ioapic &operator=(const intel64_ioapic &&src) = delete;
 

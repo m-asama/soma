@@ -181,14 +181,3 @@ memory_pool<T>::count()
 	return count;
 }
 
-template<class T>
-memory_pool<T>::memory_pool(const memory_pool<T> &src)
-{
-}
-
-template<class T>
-void
-memory_pool<T>::operator=(const memory_pool<T> &src)
-{
-}
-

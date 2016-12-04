@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.10"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ソーマ・カーネル・プロジェクト: メンバ一覧</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -11,9 +12,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() { init_search(); });
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,41 +29,19 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.8.10 -->
+<!-- 構築: Doxygen 1.8.12 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </script>
-  <div id="navrow1" class="tabs">
-    <ul class="tablist">
-      <li><a href="index.html"><span>総合概要</span></a></li>
-      <li class="current"><a href="annotated.html"><span>クラス</span></a></li>
-      <li><a href="files.html"><span>ファイル</span></a></li>
-      <li>
-        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.png"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="検索" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
-          </span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>クラス一覧</span></a></li>
-      <li><a href="classes.html"><span>クラス索引</span></a></li>
-      <li><a href="hierarchy.html"><span>クラス階層</span></a></li>
-      <li><a href="functions.html"><span>クラスメンバ</span></a></li>
-    </ul>
-  </div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,32 +65,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 
 <p>継承メンバを含む <a class="el" href="classthread.html">thread</a> の全メンバ一覧です。</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dump</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>id</b>(uint64_t id) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>id</b>() const  (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>init</b>(uint64_t id, const string &amp;name) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>main</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>name</b>(const string &amp;name) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>name</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator=</b>(const thread &amp;src)=delete (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator=</b>(const thread &amp;&amp;src)=delete (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator==</b>(const thread &amp;rhs) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;</b>(const thread &amp;rhs) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>page_table</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>stack_pointer</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>state</b>(thread_state state) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>state</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>thread</b>(main_fn main) (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>thread</b>()=delete (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>thread</b>(const thread &amp;src)=delete (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>thread</b>(const thread &amp;&amp;src)=delete (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~thread</b>() (定義場所: <a class="el" href="classthread.html">thread</a>)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a4b78d34fbeff62ace13a4e9a6d4515f4">dump</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a72727217c70fb64523bf4d367eae1761">id</a>(uint64_t id)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a490d6ffc5beccdf584f49fa85cc12d9d">id</a>() const</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a615945e7f24c83b235a8f4ac166ad70e">init</a>(uint64_t id, const utf8str &amp;name)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#aa4a8c5526714238ea8890badce737c08">main</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a1edac2ded94641cdef9dacb04efb5c85">name</a>(const utf8str &amp;name)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a7e52f57766d1d11b6dbda15955c4a8ad">name</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a4d7ef0a71785e85bbed76e1a983e41c0">operator=</a>(const thread &amp;src)=delete</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#aa248d01f65405fe1f03c1526c54d038f">operator=</a>(const thread &amp;&amp;src)=delete</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#accfc6460fe7c41635f41d9ad56554eb5">operator==</a>(const thread &amp;rhs)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a8ac74ad7dd695e6c9b46a17ade8a4c12">operator&gt;</a>(const thread &amp;rhs)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a2c10391e5b23ac4ff0ff99765bd5728d">page_table</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a813caa9cffcc7c21008e62235de71b54">stack_pointer</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a75bf27fd88692ce8a30ca04e3c397681">state</a>(thread_state state)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a3bbc0f9939912ffb6d31439e36d09e94">state</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a1db10940bc1734720d5a562d046b2d41">thread</a>(main_fn main)</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#a210d87437e34573c32fc8d3f93963bfe">thread</a>()=delete</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a2debe550e8c36b7c7bafde6861527b6a">thread</a>(const thread &amp;src)=delete</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classthread.html#af2d2b9d1eb276e3d8911694c84cb5f33">thread</a>(const thread &amp;&amp;src)=delete</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classthread.html#a117e0892c1d1a90bece03424311676f6">~thread</a>()</td><td class="entry"><a class="el" href="classthread.html">thread</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築: &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.10
+</a> 1.8.12
 </small></address>
 </body>
 </html>

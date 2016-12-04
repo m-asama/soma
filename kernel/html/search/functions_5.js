@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hlt',['hlt',['../intel64__assembly_8cpp.html#ab01b348114adde328cdb8db6c0daac91',1,'hlt():&#160;intel64_assembly.cpp'],['../intel64__assembly_8h.html#ab01b348114adde328cdb8db6c0daac91',1,'hlt():&#160;intel64_assembly.cpp']]]
+  ['getchar',['getchar',['../classconsole__base.html#ab06fe008a39c09c60e427946f486833e',1,'console_base::getchar()'],['../classdisplay__console.html#aca457aab1c95f8fe79b428f9e5b43a51',1,'display_console::getchar()'],['../classserial__console.html#a63393073ee917b8d5ecd04922e8b0219',1,'serial_console::getchar()']]]
 ];

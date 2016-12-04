@@ -5,8 +5,8 @@
 メモリ内の位置と大きさを表すブロックを表現するクラス。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}memory\+\_\+pool.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory\+\_\+pool.\+h\char`\"{}}\newline
 \subsection*{クラス}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,11 +15,9 @@ class \hyperlink{classmemory__block}{memory\+\_\+block}
 \subsection*{関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{memory__block_8h_a5e31ffa04384c18c055393c57db6cfa3}{}uint64\+\_\+t {\bfseries memory\+\_\+block\+\_\+hash} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&mb)\label{memory__block_8h_a5e31ffa04384c18c055393c57db6cfa3}
-
+uint64\+\_\+t \hyperlink{memory__block_8h_a5e31ffa04384c18c055393c57db6cfa3}{memory\+\_\+block\+\_\+hash} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&mb)
 \item 
-\hypertarget{memory__block_8h_a4d1f0fbe21c3dab646f5059d1b97a5d0}{}bool {\bfseries memory\+\_\+block\+\_\+equal} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&mbl, const \hyperlink{classmemory__block}{memory\+\_\+block} \&mbr)\label{memory__block_8h_a4d1f0fbe21c3dab646f5059d1b97a5d0}
-
+bool \hyperlink{memory__block_8h_a4d1f0fbe21c3dab646f5059d1b97a5d0}{memory\+\_\+block\+\_\+equal} (const \hyperlink{classmemory__block}{memory\+\_\+block} \&mbl, const \hyperlink{classmemory__block}{memory\+\_\+block} \&mbr)
 \end{DoxyCompactItemize}
 
 
@@ -29,3 +27,19 @@ class \hyperlink{classmemory__block}{memory\+\_\+block}
 \begin{DoxyAuthor}{著者}
 Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
 \end{DoxyAuthor}
+
+
+\subsection{関数詳解}
+\hypertarget{memory__block_8h_a4d1f0fbe21c3dab646f5059d1b97a5d0}{}\label{memory__block_8h_a4d1f0fbe21c3dab646f5059d1b97a5d0} 
+\index{memory\+\_\+block.\+h@{memory\+\_\+block.\+h}!memory\+\_\+block\+\_\+equal@{memory\+\_\+block\+\_\+equal}}
+\index{memory\+\_\+block\+\_\+equal@{memory\+\_\+block\+\_\+equal}!memory\+\_\+block.\+h@{memory\+\_\+block.\+h}}
+\subsubsection{\texorpdfstring{memory\+\_\+block\+\_\+equal()}{memory\_block\_equal()}}
+{\footnotesize\ttfamily bool memory\+\_\+block\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{mbl,  }\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{mbr }\end{DoxyParamCaption})}
+
+メモリブロックが等しいかどうか比較するための関数。 \hypertarget{memory__block_8h_a5e31ffa04384c18c055393c57db6cfa3}{}\label{memory__block_8h_a5e31ffa04384c18c055393c57db6cfa3} 
+\index{memory\+\_\+block.\+h@{memory\+\_\+block.\+h}!memory\+\_\+block\+\_\+hash@{memory\+\_\+block\+\_\+hash}}
+\index{memory\+\_\+block\+\_\+hash@{memory\+\_\+block\+\_\+hash}!memory\+\_\+block.\+h@{memory\+\_\+block.\+h}}
+\subsubsection{\texorpdfstring{memory\+\_\+block\+\_\+hash()}{memory\_block\_hash()}}
+{\footnotesize\ttfamily uint64\+\_\+t memory\+\_\+block\+\_\+hash (\begin{DoxyParamCaption}\item[{const \hyperlink{classmemory__block}{memory\+\_\+block} \&}]{mb }\end{DoxyParamCaption})}
+
+メモリブロックからハッシュ値を計算するための関数。 

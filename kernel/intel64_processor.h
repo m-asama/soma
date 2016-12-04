@@ -16,7 +16,7 @@ class intel64_gdt_entry {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_gdt_entry();
 
@@ -27,22 +27,22 @@ public:
 	//virtual ~intel64_gdt_entry();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_gdt_entry(const intel64_gdt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_gdt_entry(const intel64_gdt_entry &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_gdt_entry &operator=(const intel64_gdt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_gdt_entry &operator=(const intel64_gdt_entry &&src) = delete;
 
@@ -171,32 +171,32 @@ class intel64_gdtr {
 
 public:
 	/**
-	 * 
+	 * コンストラクタ。
 	 */
 	intel64_gdtr();
 
 	/**
-	 * 
+	 * デストラクタ。
 	 */
 	virtual ~intel64_gdtr();
 
 	/**
-	 * 
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_gdtr(const intel64_gdtr &src) = delete;
 
 	/**
-	 * 
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_gdtr(const intel64_gdtr &&src) = delete;
 
 	/**
-	 * 
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_gdtr &operator=(const intel64_gdtr &src) = delete;
 
 	/**
-	 * 
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_gdtr &operator=(const intel64_gdtr &&src) = delete;
 
@@ -295,7 +295,7 @@ class intel64_idt_entry {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_idt_entry();
 
@@ -306,22 +306,22 @@ public:
 	//virtual ~intel64_idt_entry();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_idt_entry(const intel64_idt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_idt_entry(const intel64_idt_entry &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_idt_entry &operator=(const intel64_idt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_idt_entry &operator=(const intel64_idt_entry &&src) = delete;
 
@@ -420,32 +420,32 @@ class intel64_idtr {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_idtr();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_idtr();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_idtr(const intel64_idtr &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_idtr(const intel64_idtr &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_idtr &operator=(const intel64_idtr &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_idtr &operator=(const intel64_idtr &&src) = delete;
 
@@ -514,32 +514,32 @@ class intel64_page_entry_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_page_entry_base();
 
 	/*
-	 *
+	 * デストラクタ。
 	 */
 	//virtual ~intel64_page_entry_base();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_page_entry_base(const intel64_page_entry_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_page_entry_base(const intel64_page_entry_base &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_page_entry_base &operator=(const intel64_page_entry_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_page_entry_base &operator=(const intel64_page_entry_base &&src) = delete;
 
@@ -628,32 +628,32 @@ class intel64_page_table_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_page_table_base();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_page_table_base();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_page_table_base(const intel64_page_table_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_page_table_base(const intel64_page_table_base &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_page_table_base &operator=(const intel64_page_table_base &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_page_table_base &operator=(const intel64_page_table_base &&src) = delete;
 
@@ -677,32 +677,32 @@ class intel64_pd_entry : public intel64_page_entry_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pd_entry();
 
 	/*
-	 *
+	 * デストラクタ。
 	 */
 	//virtual ~intel64_pd_entry();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pd_entry(const intel64_pd_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pd_entry(const intel64_pd_entry &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pd_entry operator=(const intel64_pd_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pd_entry operator=(const intel64_pd_entry &&src) = delete;
 
@@ -765,32 +765,32 @@ class intel64_pd_table : public intel64_page_table_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pd_table();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_pd_table();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pd_table(const intel64_pd_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pd_table(const intel64_pd_table &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pd_table &operator=(const intel64_pd_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pd_table &operator=(const intel64_pd_table &&src) = delete;
 
@@ -808,32 +808,32 @@ class intel64_pdpt_entry : public intel64_page_entry_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pdpt_entry();
 
 	/*
-	 *
+	 * デストラクタ。
 	 */
 	//virtual ~intel64_pdpt_entry();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pdpt_entry(const intel64_pdpt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pdpt_entry(const intel64_pdpt_entry &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pdpt_entry &operator=(const intel64_pdpt_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pdpt_entry &operator=(const intel64_pdpt_entry &&src) = delete;
 
@@ -866,32 +866,32 @@ class intel64_pdpt_table : public intel64_page_table_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pdpt_table();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_pdpt_table();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pdpt_table(const intel64_pdpt_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pdpt_table(const intel64_pdpt_table &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pdpt_table &operator=(const intel64_pdpt_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pdpt_table &operator=(const intel64_pdpt_table &&src) = delete;
 
@@ -925,32 +925,32 @@ class intel64_pml4_entry : public intel64_page_entry_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pml4_entry();
 
 	/*
-	 *
+	 * デストラクタ。
 	 */
 	//virtual ~intel64_pml4_entry();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pml4_entry(const intel64_pml4_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pml4_entry(const intel64_pml4_entry &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pml4_entry &operator=(const intel64_pml4_entry &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pml4_entry &operator=(const intel64_pml4_entry &&src) = delete;
 
@@ -973,32 +973,32 @@ class intel64_pml4_table : public intel64_page_table_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
 	 */
 	intel64_pml4_table();
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_pml4_table();
 
 	/**
-	 *
+	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	intel64_pml4_table(const intel64_pml4_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	intel64_pml4_table(const intel64_pml4_table &&src) = delete;
 
 	/**
-	 *
+	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	intel64_pml4_table &operator=(const intel64_pml4_table &src) = delete;
 
 	/**
-	 *
+	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
 	intel64_pml4_table &operator=(const intel64_pml4_table &&src) = delete;
 
@@ -1032,12 +1032,13 @@ class intel64_processor : public processor_base {
 
 public:
 	/**
-	 *
+	 * コンストラクタ。
+	 * @param io_thread 
 	 */
 	intel64_processor(thread &io_thread);
 
 	/**
-	 *
+	 * デストラクタ。
 	 */
 	virtual ~intel64_processor();
 

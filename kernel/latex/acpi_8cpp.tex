@@ -2,28 +2,28 @@
 \label{acpi_8cpp}\index{acpi.\+cpp@{acpi.\+cpp}}
 
 
-A\+C\+P\+I 関連のクラス定義。  
+A\+C\+PI 関連のクラス定義。  
 
 
-{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}acpi\+\_\+management.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}acpi.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8str.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}loader\+\_\+info.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acpi\+\_\+management.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acpi.\+h\char`\"{}}\newline
 \subsection*{変数}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structacpi__table__signature}{acpi\+\_\+table\+\_\+signature} {\bfseries acpi\+\_\+table\+\_\+signatures} \mbox{[}$\,$\mbox{]}
 \item 
-\hypertarget{acpi_8cpp_abcc71973efafac1131c4b8758374ebeb}{}const size\+\_\+t {\bfseries acpi\+\_\+table\+\_\+signatures\+\_\+size} = sizeof(acpi\+\_\+table\+\_\+signatures) / sizeof(struct \hyperlink{structacpi__table__signature}{acpi\+\_\+table\+\_\+signature})\label{acpi_8cpp_abcc71973efafac1131c4b8758374ebeb}
-
+\hypertarget{acpi_8cpp_abcc71973efafac1131c4b8758374ebeb}{}\label{acpi_8cpp_abcc71973efafac1131c4b8758374ebeb} 
+const size\+\_\+t {\bfseries acpi\+\_\+table\+\_\+signatures\+\_\+size} = sizeof(acpi\+\_\+table\+\_\+signatures) / sizeof(struct \hyperlink{structacpi__table__signature}{acpi\+\_\+table\+\_\+signature})
 \end{DoxyCompactItemize}
 
 
 \subsection{詳解}
-A\+C\+P\+I 関連のクラス定義。 
+A\+C\+PI 関連のクラス定義。 
 
 \begin{DoxyAuthor}{著者}
 Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+jp} 
@@ -31,9 +31,12 @@ Masakazu Asama \href{mailto:m-asama@ginzado.co.jp}{\tt m-\/asama@ginzado.\+co.\+
 
 
 \subsection{変数詳解}
-\hypertarget{acpi_8cpp_a09fd431fc900f42d6b017e3580f342ce}{}\index{acpi.\+cpp@{acpi.\+cpp}!acpi\+\_\+table\+\_\+signatures@{acpi\+\_\+table\+\_\+signatures}}
+\hypertarget{acpi_8cpp_a09fd431fc900f42d6b017e3580f342ce}{}\label{acpi_8cpp_a09fd431fc900f42d6b017e3580f342ce} 
+\index{acpi.\+cpp@{acpi.\+cpp}!acpi\+\_\+table\+\_\+signatures@{acpi\+\_\+table\+\_\+signatures}}
 \index{acpi\+\_\+table\+\_\+signatures@{acpi\+\_\+table\+\_\+signatures}!acpi.\+cpp@{acpi.\+cpp}}
-\subsubsection[{acpi\+\_\+table\+\_\+signatures}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf acpi\+\_\+table\+\_\+signature} acpi\+\_\+table\+\_\+signatures\mbox{[}$\,$\mbox{]}}\label{acpi_8cpp_a09fd431fc900f42d6b017e3580f342ce}
+\subsubsection{\texorpdfstring{acpi\+\_\+table\+\_\+signatures}{acpi\_table\_signatures}}
+{\footnotesize\ttfamily struct \hyperlink{structacpi__table__signature}{acpi\+\_\+table\+\_\+signature} acpi\+\_\+table\+\_\+signatures\mbox{[}$\,$\mbox{]}}
+
 {\bfseries 初期値\+:}
 \begin{DoxyCode}
 = \{

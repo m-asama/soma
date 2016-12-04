@@ -1,27 +1,86 @@
 \hypertarget{classspinlock}{}\section{spinlock クラス}
 \label{classspinlock}\index{spinlock@{spinlock}}
+
+
+{\ttfamily \#include $<$spinlock.\+h$>$}
+
 \subsection*{公開メンバ関数}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classspinlock_a26da24b614df2de117fcdd14d5c2d85e}{}{\bfseries spinlock} (const \hyperlink{classspinlock}{spinlock} \&src)=delete\label{classspinlock_a26da24b614df2de117fcdd14d5c2d85e}
-
+\hyperlink{classspinlock_a2398277bfffe2e811ccc5af30e8d557b}{spinlock} ()
 \item 
-\hypertarget{classspinlock_acadc56246fd003d5baf7ffe8f9b1ed23}{}{\bfseries spinlock} (const \hyperlink{classspinlock}{spinlock} \&\&src)=delete\label{classspinlock_acadc56246fd003d5baf7ffe8f9b1ed23}
-
+virtual \hyperlink{classspinlock_a76cb389d388f3298ac71d72182391d0d}{$\sim$spinlock} ()
 \item 
-\hypertarget{classspinlock_a0770087a012a62147ee94e1d0c6fb083}{}\hyperlink{classspinlock}{spinlock} \& {\bfseries operator=} (const \hyperlink{classspinlock}{spinlock} \&src)=delete\label{classspinlock_a0770087a012a62147ee94e1d0c6fb083}
-
+\hyperlink{classspinlock_a26da24b614df2de117fcdd14d5c2d85e}{spinlock} (const \hyperlink{classspinlock}{spinlock} \&src)=delete
 \item 
-\hypertarget{classspinlock_a4a67e0a1797db0dfe37af2ce158a17d0}{}\hyperlink{classspinlock}{spinlock} \& {\bfseries operator=} (const \hyperlink{classspinlock}{spinlock} \&\&src)=delete\label{classspinlock_a4a67e0a1797db0dfe37af2ce158a17d0}
-
+\hyperlink{classspinlock_acadc56246fd003d5baf7ffe8f9b1ed23}{spinlock} (const \hyperlink{classspinlock}{spinlock} \&\&src)=delete
 \item 
-\hypertarget{classspinlock_af5978d97d07ae5f9e8a4cdc91739cf57}{}void {\bfseries acquire} ()\label{classspinlock_af5978d97d07ae5f9e8a4cdc91739cf57}
-
+\hyperlink{classspinlock}{spinlock} \& \hyperlink{classspinlock_a0770087a012a62147ee94e1d0c6fb083}{operator=} (const \hyperlink{classspinlock}{spinlock} \&src)=delete
 \item 
-\hypertarget{classspinlock_af1f2e2a0713952b445c8a0754e318c6e}{}void {\bfseries release} ()\label{classspinlock_af1f2e2a0713952b445c8a0754e318c6e}
-
+\hyperlink{classspinlock}{spinlock} \& \hyperlink{classspinlock_a4a67e0a1797db0dfe37af2ce158a17d0}{operator=} (const \hyperlink{classspinlock}{spinlock} \&\&src)=delete
+\item 
+void \hyperlink{classspinlock_af5978d97d07ae5f9e8a4cdc91739cf57}{acquire} ()
+\item 
+void \hyperlink{classspinlock_af1f2e2a0713952b445c8a0754e318c6e}{release} ()
 \end{DoxyCompactItemize}
 
+
+\subsection{詳解}
+スピンロッククラス。 
+
+\subsection{構築子と解体子}
+\hypertarget{classspinlock_a2398277bfffe2e811ccc5af30e8d557b}{}\label{classspinlock_a2398277bfffe2e811ccc5af30e8d557b} 
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{spinlock()}{spinlock()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily spinlock\+::spinlock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+コンストラクタ。 \hypertarget{classspinlock_a76cb389d388f3298ac71d72182391d0d}{}\label{classspinlock_a76cb389d388f3298ac71d72182391d0d} 
+\index{spinlock@{spinlock}!````~spinlock@{$\sim$spinlock}}
+\index{````~spinlock@{$\sim$spinlock}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{$\sim$spinlock()}{~spinlock()}}
+{\footnotesize\ttfamily spinlock\+::$\sim$spinlock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+デストラクタ。 \hypertarget{classspinlock_a26da24b614df2de117fcdd14d5c2d85e}{}\label{classspinlock_a26da24b614df2de117fcdd14d5c2d85e} 
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{spinlock()}{spinlock()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily spinlock\+::spinlock (\begin{DoxyParamCaption}\item[{const \hyperlink{classspinlock}{spinlock} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピーコンストラクタ。コピーは禁止。 \hypertarget{classspinlock_acadc56246fd003d5baf7ffe8f9b1ed23}{}\label{classspinlock_acadc56246fd003d5baf7ffe8f9b1ed23} 
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\index{spinlock@{spinlock}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{spinlock()}{spinlock()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily spinlock\+::spinlock (\begin{DoxyParamCaption}\item[{const \hyperlink{classspinlock}{spinlock} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブコンストラクタ。ムーブは禁止。 
+
+\subsection{関数詳解}
+\hypertarget{classspinlock_af5978d97d07ae5f9e8a4cdc91739cf57}{}\label{classspinlock_af5978d97d07ae5f9e8a4cdc91739cf57} 
+\index{spinlock@{spinlock}!acquire@{acquire}}
+\index{acquire@{acquire}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{acquire()}{acquire()}}
+{\footnotesize\ttfamily void spinlock\+::acquire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スピンロックを取得する。 \hypertarget{classspinlock_a0770087a012a62147ee94e1d0c6fb083}{}\label{classspinlock_a0770087a012a62147ee94e1d0c6fb083} 
+\index{spinlock@{spinlock}!operator=@{operator=}}
+\index{operator=@{operator=}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classspinlock}{spinlock}\& spinlock\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classspinlock}{spinlock} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+コピー代入演算子。コピー代入は禁止。 \hypertarget{classspinlock_a4a67e0a1797db0dfe37af2ce158a17d0}{}\label{classspinlock_a4a67e0a1797db0dfe37af2ce158a17d0} 
+\index{spinlock@{spinlock}!operator=@{operator=}}
+\index{operator=@{operator=}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classspinlock}{spinlock}\& spinlock\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classspinlock}{spinlock} \&\&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+ムーブ代入演算子。ムーブ代入は禁止。 \hypertarget{classspinlock_af1f2e2a0713952b445c8a0754e318c6e}{}\label{classspinlock_af1f2e2a0713952b445c8a0754e318c6e} 
+\index{spinlock@{spinlock}!release@{release}}
+\index{release@{release}!spinlock@{spinlock}}
+\subsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void spinlock\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+スピンロックを解放する。 
 
 このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
 \item 
