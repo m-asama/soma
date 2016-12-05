@@ -13,13 +13,20 @@ loader/loader.efi:
 kernel/kernel.bin:
 	make -C kernel kernel.bin
 
+tests/main:
+	make -C tests
+
 clean:
 	make -C loader clean
 	make -C kernel clean
+	make -C tests clean
 
 run: loader/loader.efi kernel/kernel.bin
 	cp loader/loader.efi ./hda/efi/boot/BOOTx64.efi
 	cp kernel/kernel.bin ./hdb/somakern.bin
 	touch ./hdb/somaconf.txt
 	qemu-system-x86_64 -smp 2 -m 1024 -serial stdio -bios OVMF.fd -hda fat:./hda -hdb fat:./hdb
+
+test: tests/main
+	make -C tests test
 

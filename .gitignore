@@ -43,3 +43,4 @@
 /kernel/kernel
 /kernel/kernel.bin
 /kernel/font_data.cpp
+/tests/main
