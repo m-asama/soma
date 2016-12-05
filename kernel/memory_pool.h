@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "type.h"
+
 const int memory_pool_free_bits_size = 8;
 
 /**

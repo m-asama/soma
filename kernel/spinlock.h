@@ -4,6 +4,8 @@
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
 
+#pragma once
+
 #include "type.h"
 
 /**
