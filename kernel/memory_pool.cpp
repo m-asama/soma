@@ -11,28 +11,34 @@
 
 template<class T>
 memory_pool<T>::memory_pool()
-	: m_table(nullptr), m_next(nullptr)
+	: m_table(nullptr), m_next(nullptr), m_prev(nullptr)
 {
 	//printstr("memory_pool<T>::memory_pool()\n");
+
+	for (int i = 0; i < memory_pool_free_bits_size; ++i) {
+		m_free_bits[i] = 0xfffffffffffffffful;
+	}
 }
 
 template<class T>
 memory_pool<T>::~memory_pool()
 {
-	int i;
-
 	//printstr("memory_pool<T>::~memory_pool()\n");
 
 	if (m_next != nullptr) {
 		delete m_next;
 		m_next = nullptr;
+		m_prev = nullptr;
 	}
 
-	for (i = 0; i < memory_pool_free_bits_size; ++i) {
-		m_free_bits[i] = 0x0000000000000000ul;
+	for (int i = 0; i < memory_pool_free_bits_size; ++i) {
+		m_free_bits[i] = 0xfffffffffffffffful;
 	}
-	memory_free(m_table);
-	m_table = nullptr;
+
+	if (m_table != nullptr) {
+		memory_free(m_table);
+		m_table = nullptr;
+	}
 }
 
 template<class T>
@@ -71,8 +77,10 @@ memory_pool<T>::alloc()
 	}
 
 	if (index < 0) {
-		if (m_next == nullptr)
+		if (m_next == nullptr) {
 			m_next = new memory_pool<T>();
+			m_next->m_prev = this;
+		}
 		return m_next->alloc();
 	}
 /*
@@ -120,9 +128,11 @@ memory_pool<T>::free(T *ptr)
 	j = index & 0x3ful;
 
 	if (index < 0 || index >= (64 * memory_pool_free_bits_size)) {
+		/*
 		printstr("index out of range index = ");
 		printhex8(index);
 		printstr("\n");
+		*/
 		if (m_next != nullptr)
 			m_next->free(ptr);
 		return;
@@ -162,6 +172,24 @@ memory_pool<T>::free(T *ptr)
 		printstr("\n");
 	}
 */
+
+	uint64_t count = 0;
+	for (i = 0; i < memory_pool_free_bits_size; ++i) {
+		count += count_population_64(~m_free_bits[i]);
+	}
+	if (count == 0 && m_table != nullptr) {
+		memory_free(m_table);
+		m_table = nullptr;
+	}
+	if (count == 0 && m_prev != nullptr) {
+		m_prev->m_next = m_next;
+		if (m_next != nullptr) {
+			m_next->m_prev = m_prev;
+		}
+		m_next = nullptr;
+		m_prev = nullptr;
+		delete this;
+	}
 }
 
 template<class T>

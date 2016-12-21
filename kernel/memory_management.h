@@ -50,6 +50,30 @@ void *memory_alloc_page_lo(memory_page_size page_size);
 void memory_init(struct loader_info *li);
 
 /**
+ * 割当済みメモリ容量を返す関数。
+ * @return 割当済みメモリ容量。
+ */
+uint64_t memory_alloc_size();
+
+/**
+ * 空きメモリ容量を返す関数。
+ * @return 空きメモリ容量。
+ */
+uint64_t memory_free_size();
+
+/**
+ * メモリブロックの割り当て数を返す関数。
+ * @return メモリブロックの割り当て数。
+ */
+uint64_t memory_block_count();
+
+/**
+ * メモリブロックの bidir_node の割り当て数を返す関数。
+ * @return メモリブロックの bidir_node の割り当て数。
+ */
+uint64_t memory_block_bidir_node_count();
+
+/**
  * メモリ割り当てで管理している情報を表示する関数。
  */
 void memory_dump();

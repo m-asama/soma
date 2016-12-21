@@ -22,6 +22,11 @@ class memory_pool {
 	 */
 	friend void memory_init(struct loader_info *li);
 
+	/**
+	 * テスト関数は friend に設定する必要がある。
+	 */
+	friend void memory_pool_test();
+
 public:
 	/**
 	 * コンストラクタ。
@@ -86,6 +91,11 @@ private:
 	 * 次のメモリプールのアドレスを指すポインタ。
 	 */
 	memory_pool<T> *m_next;
+
+	/**
+	 * 前のメモリプールのアドレスを指すポインタ。
+	 */
+	memory_pool<T> *m_prev;
 
 };
 

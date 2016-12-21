@@ -255,6 +255,7 @@ memory_init(struct loader_info *li)
 	first_base += mb_size;
 	first_size -= mb_size;
 	memory_block::s_mem_pool.m_next = nullptr;
+	memory_block::s_mem_pool.m_prev = nullptr;
 
 	// bidir_node<memory_block> 用メモリプールの初期化
 	for (i = 0; i < memory_pool_free_bits_size; ++i) {
@@ -264,6 +265,7 @@ memory_init(struct loader_info *li)
 	first_base += bn_size;
 	first_size -= bn_size;
 	bidir_node<memory_block>::s_mem_pool.m_next = nullptr;
+	bidir_node<memory_block>::s_mem_pool.m_prev = nullptr;
 
 	// free_block の初期化
 	free_block.m_head = nullptr;
@@ -322,6 +324,63 @@ memory_init(struct loader_info *li)
 	alloc_block.insert(*mb);
 
 	//memory_dump();
+}
+
+uint64_t
+memory_alloc_size()
+{
+	uint64_t alloc_size = 0;
+	bidir_node<memory_block> *bn;
+
+	for (int i = 0; i < alloc_block.table_size(); ++i) {
+		if (alloc_block.table()[i] == nullptr)
+			continue;
+		for (bn = alloc_block.table()[i]; bn != nullptr; bn = bn->next()) {
+			alloc_size += bn->v().size();
+		}
+	}
+
+	return alloc_size;
+}
+
+uint64_t
+memory_free_size()
+{
+	uint64_t free_size = 0;
+	bidir_node<memory_block> *bn;
+
+	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
+		free_size += bn->v().size();
+	}
+
+	return free_size;
+}
+
+uint64_t
+memory_block_count()
+{
+	uint64_t block_count = 0;
+	bidir_node<memory_block> *bn;
+
+	for (int i = 0; i < alloc_block.table_size(); ++i) {
+		if (alloc_block.table()[i] == nullptr)
+			continue;
+		for (bn = alloc_block.table()[i]; bn != nullptr; bn = bn->next()) {
+			++block_count;
+		}
+	}
+
+	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
+		++block_count;
+	}
+
+	return block_count;
+}
+
+uint64_t
+memory_block_bidir_node_count()
+{
+	return bidir_node<memory_block>::count();
 }
 
 void
