@@ -153,6 +153,9 @@ utf8str::init_utf8str(const char *s)
 {
 	size_t buffer_size = 0;
 
+	m_buffer = nullptr;
+	m_buffer_size = 0;
+
 	if (s == nullptr) {
 		return;
 	}

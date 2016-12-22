@@ -13,6 +13,11 @@
  */
 class utf8str {
 
+	/**
+	 * テスト関数は friend に設定する必要がある。
+	 */
+	friend void utf8str_test_one(utf8str &s, char const *teststr, char const *title);
+
 public:
 	/**
 	 * コンストラクタ。
