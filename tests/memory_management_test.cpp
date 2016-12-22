@@ -1,5 +1,5 @@
 /**
- * @file	memory_block_test.cpp
+ * @file	memory_management_test.cpp
  * @brief	メモリブロックのテスト。
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
@@ -9,7 +9,7 @@
 #include "memory_block.h"
 
 void
-memory_block_test()
+memory_management_test()
 {
 }
 

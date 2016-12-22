@@ -22,11 +22,12 @@ KERNEL_OBJS   = ../kernel/memory_management.o \
 
 KERNEL_SRCS   = ${KERNEL_OBJS:=.cpp}
 
-OBJS	      = linked_list_test.o \
+OBJS	      = utf8str_test.o \
+		linked_list_test.o \
 		sorted_list_test.o \
 		hash_table_test.o \
 		memory_pool_test.o \
-		memory_block_test.o \
+		memory_management_test.o \
 		main.o
 
 all: main
@@ -46,7 +47,4 @@ main.o: main.cpp
 
 clean:
 	rm -f *.o main.core main
-
-doxygen:
-	doxygen doxygen.conf
 

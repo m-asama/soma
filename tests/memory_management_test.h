@@ -1,5 +1,5 @@
 /**
- * @file	memory_block_test.h
+ * @file	memory_management_test.h
  * @brief	メモリブロックのテスト。
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
@@ -9,5 +9,5 @@
 /**
  * メモリブロックのテスト関数。
  */
-void memory_block_test();
+void memory_management_test();
 
