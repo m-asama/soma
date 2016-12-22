@@ -5,6 +5,7 @@
  */
 
 #include "type.h"
+#include "memory_management.h"
 #include "font_data.h"
 #include "font.h"
 
@@ -23,6 +24,7 @@ display_console::display_console()
 	m_uefifb_mask_green = 0;
 	m_uefifb_mask_blue = 0;
 	m_uefifb_mask_reserved = 0;
+	m_uefifb_cache = nullptr;
 }
 
 display_console::~display_console()
@@ -36,6 +38,8 @@ display_console::~display_console()
 	m_uefifb_mask_green = 0;
 	m_uefifb_mask_blue = 0;
 	m_uefifb_mask_reserved = 0;
+	if (m_uefifb_cache != nullptr)
+		memory_free(m_uefifb_cache);
 }
 
 void
@@ -149,8 +153,7 @@ display_console::uefifb_mask_reserved()
 void
 display_console::reset()
 {
-	int x, y;
-	struct font_data *font;
+	uint32_t *base = (uint32_t *)m_uefifb_addr;
 
 	cols(m_uefifb_width / 8);
 	rows(m_uefifb_height / 16);
@@ -162,23 +165,23 @@ display_console::reset()
 		base[i] = 0x00000000;
 	*/
 
-	font = font_find(' ');
-	if (font == nullptr)
-		font = font_find(0x00);
-	if (font == nullptr)
-		return;
-
-	for (y = 0; y < rows(); ++y) {
-		for (x = 0; x < cols(); ++x) {
-			plot_char(x * 8, y * 16, font);
+	for (int y = 0; y < m_uefifb_height; ++y) {
+		for (int x = 0; x < m_uefifb_width; ++x) {
+			base[m_uefifb_width * y + x] = 0x00000000;
 		}
+	}
+
+	if (m_uefifb_cache != nullptr)
+		memory_free(m_uefifb_cache);
+	m_uefifb_cache = (uint32_t *)memory_alloc(m_uefifb_size);
+	for (int i = 0; i < m_uefifb_size; ++i) {
+		m_uefifb_cache[i] = 0x00000000;
 	}
 }
 
 void
 display_console::refresh()
 {
-	int x, y;
 	uint32_t *base = (uint32_t *)m_uefifb_addr;
 
 	/* XXX: 遅いのでこの方法はやめる。 */
@@ -199,15 +202,21 @@ display_console::refresh()
 	}
 	*/
 
-	for (y = 0; y < (rows() - 1) * 16; ++y) {
-		for (x = 0; x < cols() * 8; ++x) {
-			//base[(y + yy) * m_uefifb_width + (x + xx)] = dot;
-			base[m_uefifb_width * y + x] = base[m_uefifb_width * (y + 16) + x];
+	for (int y = 0; y < (rows() - 1) * 16; ++y) {
+		for (int x = 0; x < cols() * 8; ++x) {
+			int src = m_uefifb_width * (y + 16) + x;
+			int dst = m_uefifb_width * y + x;
+			if (m_uefifb_cache[dst] != m_uefifb_cache[src])
+				base[dst] = m_uefifb_cache[src];
+			m_uefifb_cache[dst] = m_uefifb_cache[src];
 		}
 	}
-	for (y = (rows() - 1) * 16; y < rows() * 16; ++y) {
-		for (x = 0; x < cols() * 8; ++x) {
-			base[m_uefifb_width * y + x] = 0x00000000;
+	for (int y = (rows() - 1) * 16; y < rows() * 16; ++y) {
+		for (int x = 0; x < cols() * 8; ++x) {
+			int dst = m_uefifb_width * y + x;
+			if (m_uefifb_cache[dst] != 0x00000000)
+				base[dst] = 0x00000000;
+			m_uefifb_cache[dst] = 0x00000000;
 		}
 	}
 }
@@ -274,18 +283,19 @@ void
 display_console::plot_char(uint32_t x, uint32_t y, struct font_data *font)
 {
 	uint32_t *base = (uint32_t *)m_uefifb_addr;
-	uint32_t xx, yy;
-	uint32_t dot;
 
 	if (font == nullptr)
 		return;
 
-	for (xx = 0; xx < font->width; ++xx) {
-		for (yy = 0; yy < font->height; ++yy) {
-			dot = 0x00000000;
+	for (uint32_t xx = 0; xx < font->width; ++xx) {
+		for (uint32_t yy = 0; yy < font->height; ++yy) {
+			uint32_t dot = 0x00000000;
 			if (font->data[yy] & (1 << (15-xx)))
 				dot = 0xffffffff & ~m_uefifb_mask_reserved;
-			base[(y + yy) * m_uefifb_width + (x + xx)] = dot;
+			int dst = (y + yy) * m_uefifb_width + (x + xx);
+			if (m_uefifb_cache[dst] != dot)
+				base[dst] = dot;
+			m_uefifb_cache[dst] = dot;
 		}
 	}
 }

@@ -232,5 +232,10 @@ private:
 	 */
 	uint32_t m_uefifb_mask_reserved;
 
+	/**
+	 * UEFI フレームバッファのキャッシュ。
+	 */
+	uint32_t *m_uefifb_cache;
+
 };
 
