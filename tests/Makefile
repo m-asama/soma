@@ -28,6 +28,7 @@ OBJS	      = utf8str_test.o \
 		hash_table_test.o \
 		memory_pool_test.o \
 		memory_management_test.o \
+		ring_buffer_test.o \
 		main.o
 
 all: main

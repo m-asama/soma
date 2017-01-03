@@ -12,11 +12,6 @@
 /**
  *
  */
-extern "C" void io_thread_main();
-
-/**
- *
- */
 void thread_init();
 
 /**

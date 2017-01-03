@@ -14,26 +14,6 @@
 
 static sorted_list<thread> *threads = nullptr;
 
-extern "C" void io_thread_main();
-
-void
-io_thread_main()
-{
-	while (1) {
-//		printhex8(processor_id()); printstr(": ");
-//		printhex64(cr3()); printstr(": ");
-//		printhex64(rsp()); printstr(":\n");
-
-		processor_base *processor = processor_current();
-		if (processor == nullptr) {
-			printstr("processor() が取得できませんでした。\n");
-			panic();
-		}
-		
-		idle();
-	}
-}
-
 void
 thread_init()
 {

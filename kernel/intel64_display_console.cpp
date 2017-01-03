@@ -6,6 +6,7 @@
 
 #include "type.h"
 #include "memory_management.h"
+#include "intel64_assembly.h"
 #include "font_data.h"
 #include "font.h"
 
@@ -177,6 +178,24 @@ display_console::reset()
 	for (int i = 0; i < m_uefifb_size; ++i) {
 		m_uefifb_cache[i] = 0x00000000;
 	}
+
+
+	outb(0x64, 0xad);
+	outb(0x64, 0xa7);
+
+	inb(0x60);
+
+	int8_t c;
+	outb(0x64, 0x20);
+	c = inb(0x60);
+//	c |= 0x45;
+	c |= 0x01;
+	c &= ~0x02;
+	outb(0x64, 0x60);
+	outb(0x60, c);
+
+	outb(0x64, 0xae);
+
 }
 
 void
@@ -224,6 +243,9 @@ display_console::refresh()
 uint32_t
 display_console::getchar()
 {
+	//return 0;
+	if (inb(0x64) & 0x01 )
+		return inb(0x60);
 	return 0;
 }
 

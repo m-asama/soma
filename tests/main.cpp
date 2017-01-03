@@ -19,6 +19,7 @@
 #include "hash_table_test.h"
 #include "memory_pool_test.h"
 #include "memory_management_test.h"
+#include "ring_buffer_test.h"
 
 #include "main.h"
 
@@ -65,6 +66,10 @@ struct test_module {
 	{
 		.name	= "メモリブロック",
 		.func	= memory_management_test,
+	},
+	{
+		.name	= "リングバッファ",
+		.func	= ring_buffer_test,
 	},
 	{
 		.func	= nullptr,

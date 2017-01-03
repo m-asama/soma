@@ -5,6 +5,7 @@
  */
 
 #include "type.h"
+#include "linked_list.h"
 #include "sorted_list.h"
 #include "intel64_assembly.h"
 #include "memory_management.h"
@@ -18,7 +19,9 @@
 #include "processor_management.h"
 #include "thread.h"
 #include "thread_management.h"
-#include "intel64_processor_interrupt_handler.h"
+#include "io_thread_management.h"
+#include "intel64_processor_interrupt_handler_init.h"
+#include "spinlock.h"
 
 #include "console_management.h"
 
@@ -47,50 +50,98 @@ uint64_t subsequent_processor_status;
 
 void *subsequent_processor_boot_code = nullptr;
 
+extern "C" intel64_processor_state_storage *processor_state_storage[256];
+intel64_processor_state_storage *processor_state_storage[256];
+
+static spinlock *thread_lock = nullptr;
+
+static linked_list<struct interrupt_handler> *interrupt_handlers[256];
+static spinlock *interrupt_handlers_lock = nullptr;
+
 static void assert_sizeof_entry_classes();
 
+extern "C" void interrupt_handler_dispatcher();
+
 void
-interrupt_handler(uint64_t gsi, uint64_t sp)
+interrupt_handler_dispatcher()
 {
-	uint64_t *error_code, *rip, *cs, *rflags, *rsp, *ss;
+	uint64_t *gsi, *ssp;
+//	uint64_t *error_code, *rip, *cs, *rflags, *rsp, *ss;
+//	uint64_t *rax, *rbx, *rcx, *rdx, *rdi, *rsi, *rbp, *cr3;
 
-	uint64_t *ui64p = (uint64_t *)sp;
-	if (
-		(gsi == 0x08) // Double Fault
-	     || (gsi == 0x0a) // Invalid TSS
-	     || (gsi == 0x0b) // Segment Not Present
-	     || (gsi == 0x0c) // Stack-Segment Fault
-	     || (gsi == 0x0d) // General Protection
-	     || (gsi == 0x0e) // Page Fault
-	     || (gsi == 0x11) // Alignment Check
-	) {
-		error_code = &ui64p[0x01];
-		++ui64p;
-	} else {
-		error_code = nullptr;
-	}
-	rip    = &ui64p[0x01];
-	cs     = &ui64p[0x02];
-	rflags = &ui64p[0x03];
-	rsp    = &ui64p[0x04];
-	ss     = &ui64p[0x05];
+	intel64_processor_state_storage *curps;
+	curps = processor_state_storage[processor_id()];
 
-	if ((gsi == 0x24) || (gsi == 0x23) || (gsi == 0x21)) {
-		console_getchar();
-//		console_putchar(c);
-		printstr("I");
-		printhex64(processor_id());
-		printhex64(gsi);
-		printstr("\n");
+	if (curps == nullptr) {
+		printstr("interrupt_handler: curps == nullptr\n");
 	}
 
-	if (gsi == 0x20) {
-		printstr("T");
-		printhex64(processor_id());
-		printhex64(gsi);
-		printstr("\n");
+	ssp = &curps->stacked_size;
+	gsi = &curps->gsi;
+
+	{
+		utf8str x;
+		x += "IH GSI = 0x";
+		x.append_hex64(*gsi, 2);
+		x += "\n";
+		printstr(x);
 	}
 
+	interrupt_handlers_lock->acquire();
+	bidir_node<struct interrupt_handler> *bnh;
+	for (bnh = interrupt_handlers[*gsi]->head(); bnh != nullptr; bnh = bnh->next()) {
+		struct interrupt_handler &ih = bnh->v();
+		ih.ih(ih.gsi);
+	}
+	interrupt_handlers_lock->release();
+
+	thread_lock->acquire();
+
+	bidir_node<thread> *bnt;
+	for (bnt = processor_current()->threads().head(); bnt != nullptr; bnt = bnt->next()) {
+		if (bnt->v().state() == thread_state::pending) {
+			break;
+		}
+	}
+
+	thread &oldt = *processor_current()->running_thread();
+	thread &newt = (bnt != nullptr) ? bnt->v() : processor_current()->io_thread();
+
+	{
+		utf8str x;
+		x.append_hex64(processor_id(), 2);
+		x += " ";
+		x += oldt.name();
+		x += " => ";
+		x += newt.name();
+		x += "\n";
+		printstr(x);
+	}
+
+	oldt.state(thread_state::pending);
+	newt.state(thread_state::running);
+
+	thread_lock->release();
+
+	intel64_processor_state_storage *newps;
+	newps = (intel64_processor_state_storage *)newt.processor_state()->processor_state_address();
+	newps->gsi = curps->gsi;
+	newps->stacked_size = curps->stacked_size;
+/*
+	newps->cr3 = curps->cr3;
+	newps->ss = curps->ss;
+//	newps->rsp = curps->rsp;
+	newps->rflags = curps->rflags;
+	newps->cs = curps->cs;
+//	newps->rip = curps->rip;
+	newps->error_code = curps->error_code;
+*/
+	processor_state_storage[processor_id()] = newps;
+
+	processor_current()->running_thread(&newt);
+
+	/* IPI のテスト */
+/*
 	if (processor_id() == 0) {
 		uint32_t *hi, *lo;
 		lo = (uint32_t *)0xfee00300ul;
@@ -98,10 +149,74 @@ interrupt_handler(uint64_t gsi, uint64_t sp)
 		*hi = 1 << 24;
 		*lo = 0x00000021;
 	}
+*/
+
+/*
+	if (&oldt != &newt) {
+		utf8str x;
+		x += "GSI: ";
+		x.append_hex64(curps->gsi, 16);
+		x += " => ";
+		x.append_hex64(newps->gsi, 16);
+		x += "\n";
+		x += "SSZ: ";
+		x.append_hex64(curps->stacked_size, 16);
+		x += " => ";
+		x.append_hex64(newps->stacked_size, 16);
+		x += "\n";
+		x += "CR3: ";
+		x.append_hex64(curps->cr3, 16);
+		x += " => ";
+		x.append_hex64(newps->cr3, 16);
+		x += "\n";
+		x += "SS : ";
+		x.append_hex64(curps->ss, 16);
+		x += " => ";
+		x.append_hex64(newps->ss, 16);
+		x += "\n";
+		x += "RSP: ";
+		x.append_hex64(curps->rsp, 16);
+		x += " => ";
+		x.append_hex64(newps->rsp, 16);
+		x += "\n";
+		x += "RFG: ";
+		x.append_hex64(curps->rflags, 16);
+		x += " => ";
+		x.append_hex64(newps->rflags, 16);
+		x += "\n";
+		x += "CS : ";
+		x.append_hex64(curps->cs, 16);
+		x += " => ";
+		x.append_hex64(newps->cs, 16);
+		x += "\n";
+		x += "RIP: ";
+		x.append_hex64(curps->rip, 16);
+		x += " => ";
+		x.append_hex64(newps->rip, 16);
+		x += "\n";
+		printstr(x);
+	}
+*/
 
 	volatile uint32_t *ioapic = (uint32_t *)0x00000000fec00000ul;
-	volatile uint32_t eoi = gsi;
+	volatile uint32_t eoi = *gsi;
 	ioapic[16] = eoi;
+}
+
+void
+interrupt_handler_register(struct interrupt_handler &ih)
+{
+	interrupt_handlers_lock->acquire();
+	interrupt_handlers[ih.gsi]->insert_tail(ih);
+	interrupt_handlers_lock->release();
+}
+
+void
+interrupt_handler_unregister(struct interrupt_handler &ih)
+{
+	interrupt_handlers_lock->acquire();
+	interrupt_handlers[ih.gsi]->remove(ih);
+	interrupt_handlers_lock->release();
 }
 
 void
@@ -211,10 +326,39 @@ processor_init_one(uint64_t id)
 	return 0;
 }
 
+extern "C" void timer_interrupt_handler(uint8_t gsi);
+
+void
+timer_interrupt_handler_fn(uint8_t gsi)
+{
+	utf8str x;
+	x += "TMIH 0x";
+	x.append_hex64(processor_id(), 2);
+	x += " 0x";
+	x.append_hex64(gsi, 2);
+	x += "\n";
+	printstr(x);
+}
+
+struct interrupt_handler timer_ih = {
+	.gsi	= 0x20,
+	.ih	= timer_interrupt_handler_fn,
+};
+
 void
 processor_init(struct loader_info *li)
 {
 	assert_sizeof_entry_classes();
+
+	thread_lock = new spinlock;
+
+	interrupt_handlers_lock = new spinlock;
+	interrupt_handlers_lock->acquire();
+	for (int i = 0; i < 256; ++i) {
+		interrupt_handlers[i] = new linked_list<struct interrupt_handler>;
+	}
+	interrupt_handlers_lock->release();
+	interrupt_handler_register(timer_ih);
 
 	processors = new sorted_list<processor_base>;
 
@@ -350,6 +494,9 @@ processor_start()
 	for (bn = processors->head(); bn != nullptr; bn = bn->next()) {
 		processor_base &processor = bn->v();
 		thread &io_thread = processor.io_thread();
+		processor.running_thread(&io_thread);
+		void *psa = io_thread.processor_state()->processor_state_address();
+		processor_state_storage[processor.id()] = (intel64_processor_state_storage *)psa;
 		if (processor.boot_processor()) {
 			boot_processor_pml4_table_address = io_thread.page_table();
 			boot_processor_stack_pointer = io_thread.stack_pointer();
@@ -378,17 +525,20 @@ processor_start()
 	asm volatile ("jmp boot_processor_start");
 }
 
-void enable_interrupt()
+void
+enable_interrupt()
 {
 	sti();
 }
 
-void disable_interrupt()
+void
+disable_interrupt()
 {
 	cli();
 }
 
-void backup_interrupt(uint64_t &interrupt)
+void
+backup_interrupt(uint64_t &interrupt)
 {
 	interrupt = rflags() & 0x0000000000000200ul;
 	if (interrupt) {
@@ -396,16 +546,26 @@ void backup_interrupt(uint64_t &interrupt)
 	}
 }
 
-void restore_interrupt(uint64_t &interrupt)
+void
+restore_interrupt(uint64_t &interrupt)
 {
 	if (interrupt) {
 		sti();
 	}
 }
 
-void idle()
+void
+idle()
 {
+	processor_current()->running_thread()->state(thread_state::idle);
 	hlt();
+}
+
+void
+reschedule()
+{
+	processor_current()->running_thread()->state(thread_state::idle);
+	int_0x20();
 }
 
 processor_state_base *
@@ -466,9 +626,11 @@ processor_id()
 processor_base *
 processor_current()
 {
+	uint64_t pid = processor_id();
 	bidir_node<processor_base> *bn;
 	for (bn = processors->head(); bn != nullptr; bn = bn->next()) {
-		return &bn->v();
+		if (bn->v().id() == pid)
+			return &bn->v();
 	}
 	return nullptr;
 }

@@ -52,13 +52,13 @@ main(void *ptr)
 
 	pci_init();
 
-	printstr("日本語のテスト\n");
-
-	printstr("End of main...\n");
-
 	processor_dump();
 	irqchip_dump();
 	thread_dump();
+
+	printstr("日本語のテスト\n");
+
+	printstr("End of main...\n");
 
 	processor_start();
 }

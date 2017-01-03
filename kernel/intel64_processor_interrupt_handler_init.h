@@ -1,5 +1,5 @@
 /**
- * @file	intel64_processor_interrupt_handler.h
+ * @file	intel64_processor_interrupt_handler_init.h
  * @brief	Intel64 CPU の割り込みハンドラ関連の関数実装。
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */

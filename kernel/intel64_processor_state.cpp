@@ -24,11 +24,12 @@ intel64_processor_state::~intel64_processor_state()
 }
 
 int
-intel64_processor_state::init()
+intel64_processor_state::init(uint64_t ip)
 {
 	intel64_pd_table *pdt = nullptr;
 	intel64_pdpt_table *pdptt = nullptr;
 	void *page = nullptr;
+	uint64_t pt;
 
 	pdt = new intel64_pd_table;
 	if (pdt == nullptr) {
@@ -47,6 +48,7 @@ intel64_processor_state::init()
 		memory_free(page);
 		return -1;
 	}
+	pt = (uint64_t)m_pml4_table->get_page_table();
 
 	(*pdt)[511].page_frame_address((uint64_t)page);
 	(*pdt)[511].present(true);
@@ -60,18 +62,29 @@ intel64_processor_state::init()
 	pdptt->pd_table_at(511, pdt);
 	m_stack_pointer = 0x0000007ffffffff8ul;
 
+	m_processor_state.cr3 = (uint64_t)m_pml4_table->get_page_table();
+	m_processor_state.ss = 0x0000000000000010;
+	m_processor_state.rsp = m_stack_pointer;
+	m_processor_state.rflags = 0x0000000000000202;
+	m_processor_state.cs = 0x0000000000000008;
+	m_processor_state.rip = ip;
+
 	return 0;
 }
 
+/*
 void
-intel64_processor_state::backup()
+intel64_processor_state::backup(uint64_t *processor_state)
 {
 }
+*/
 
+/*
 void
-intel64_processor_state::restore()
+intel64_processor_state::restore(uint64_t *processor_state)
 {
 }
+*/
 
 void
 intel64_processor_state::dump()
@@ -141,3 +154,8 @@ intel64_processor_state::stack_pointer()
 	return m_stack_pointer;
 }
 
+void *
+intel64_processor_state::processor_state_address()
+{
+	return (void *)&m_processor_state;
+}

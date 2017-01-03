@@ -26,6 +26,7 @@ OBJS	      = main.o \
 		acpi.o \
 		memory_management.o \
 		memory_block.o \
+		io_thread_management.o \
 		thread_management.o \
 		thread.o \
 		console_management.o \
@@ -43,7 +44,9 @@ OBJS	     += intel64_subsequent_processor.o \
 		intel64_processor_management.o \
 		intel64_processor.o \
 		intel64_processor_state.o \
-		intel64_processor_interrupt_handler.o \
+		intel64_processor_interrupt_handler_entry.o \
+		intel64_processor_interrupt_handler_common.o \
+		intel64_processor_interrupt_handler_init.o \
 		intel64_assembly.o \
 		intel64_irqchip_management.o \
 		intel64_ioapic.o \

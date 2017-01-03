@@ -133,7 +133,7 @@ pci_init()
 	ioapic[4] = 0x00000000;
 */
 
-
+/*
 	int8_t c;
 	outb(0x64, 0x20);
 	c = inb(0x60);
@@ -143,7 +143,7 @@ pci_init()
 	outb(0x60, c);
 
 	outb(0x64, 0xae);
-
+*/
 /*
 	uint8_t a1 = inb(0x21);
 	uint8_t a2 = inb(0xa1);

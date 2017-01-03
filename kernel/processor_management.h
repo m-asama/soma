@@ -10,7 +10,26 @@
 #include "processor_base.h"
 #include "processor_state_base.h"
 
-void interrupt_handler(uint64_t gsi, uint64_t sp);
+extern "C" void interrupt_handler_dispatcher();
+
+struct interrupt_handler {
+	uint8_t gsi;
+	void (*ih)(uint8_t);
+};
+
+inline bool operator==(const struct interrupt_handler &lhs, const struct interrupt_handler &rhs)
+{
+	if ((lhs.gsi == rhs.gsi)
+	 && (lhs.ih == rhs.ih)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void interrupt_handler_register(interrupt_handler &ih);
+
+void interrupt_handler_unregister(interrupt_handler &ih);
 
 void processor_init(struct loader_info *li);
 
@@ -29,6 +48,7 @@ void backup_interrupt(uint64_t &interrupt);
 void restore_interrupt(uint64_t &interrupt);
 
 void idle();
+void reschedule();
 
 processor_state_base *processor_state_alloc();
 void processor_state_free(processor_state_base *ptr);

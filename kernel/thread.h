@@ -16,6 +16,7 @@
 enum class thread_state {
 	idle,
 	running,
+	pending,
 };
 
 typedef void (*main_fn)();
@@ -119,6 +120,12 @@ public:
 	 * @return スレッドの状態。
 	 */
 	thread_state state();
+
+	/**
+	 * スレッドのプロセッサ状態。
+	 * @return スレッドのプロセッサ状態への参照。
+	 */
+	processor_state_base *processor_state();
 
 	/**
 	 * ページテーブルを返す関数。

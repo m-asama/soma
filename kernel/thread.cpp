@@ -10,7 +10,7 @@
 #include "thread.h"
 
 thread::thread(main_fn main)
-	: m_main(main), m_processor_state(nullptr)
+	: m_main(main), m_processor_state(nullptr), m_state(thread_state::idle)
 {
 }
 
@@ -41,7 +41,7 @@ thread::init(uint64_t id, const utf8str &name)
 	if (m_processor_state == nullptr) {
 		return -1;
 	}
-	m_processor_state->init();
+	m_processor_state->init((uint64_t)m_main);
 	m_id = id;
 	m_name = name;
 	return 0;
@@ -81,6 +81,12 @@ thread_state
 thread::state()
 {
 	return m_state;
+}
+
+processor_state_base *
+thread::processor_state()
+{
+	return m_processor_state;
 }
 
 uint64_t

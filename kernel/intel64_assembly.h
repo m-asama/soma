@@ -66,6 +66,11 @@ void cli();
 void hlt();
 
 /**
+ * int $0x20 を実行。
+ */
+void int_0x20();
+
+/**
  * RFLAGS を取得する関数。
  * @return RFLAGS の値。
  */

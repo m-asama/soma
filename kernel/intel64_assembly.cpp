@@ -67,6 +67,12 @@ hlt()
 	asm volatile ("hlt");
 }
 
+void
+int_0x20()
+{
+	asm volatile ("int $0x20");
+}
+
 uint64_t
 rflags()
 {
