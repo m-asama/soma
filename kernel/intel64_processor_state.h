@@ -79,7 +79,7 @@ public:
 	/**
 	 *
 	 */
-	virtual int init(uint64_t ip);
+	virtual int init(uint64_t thread_main, uint64_t thread_arg);
 
 	/**
 	 *

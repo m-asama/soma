@@ -112,7 +112,7 @@ utf8_to_unicode(const char *utf8, uint32_t *unicode)
 		*unicode |= (utf8[2] & 0x3f) << 18;
 		*unicode |= (utf8[1] & 0x3f) << 24;
 		*unicode |= (utf8[0] & 0x01) << 30;
-		return 5;
+		return 6;
 	}
 	return 0;
 }

@@ -256,7 +256,7 @@ utf8str::append_utf8str(const char *s, size_t width)
 }
 
 utf8str &
-utf8str::append_sint64(int64_t val, size_t width)
+utf8str::append_sint64(sint64_t val, size_t width)
 {
 	char buf[max_width + 1];
 	bool pos = true;

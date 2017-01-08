@@ -78,7 +78,7 @@ interrupt_handler_dispatcher()
 
 	ssp = &curps->stacked_size;
 	gsi = &curps->gsi;
-
+/*
 	{
 		utf8str x;
 		x += "IH GSI = 0x";
@@ -86,7 +86,7 @@ interrupt_handler_dispatcher()
 		x += "\n";
 		printstr(x);
 	}
-
+*/
 	interrupt_handlers_lock->acquire();
 	bidir_node<struct interrupt_handler> *bnh;
 	for (bnh = interrupt_handlers[*gsi]->head(); bnh != nullptr; bnh = bnh->next()) {
@@ -99,14 +99,16 @@ interrupt_handler_dispatcher()
 
 	bidir_node<thread> *bnt;
 	for (bnt = processor_current()->threads().head(); bnt != nullptr; bnt = bnt->next()) {
-		if (bnt->v().state() == thread_state::pending) {
+		if ((bnt->v().state() == thread_state::pending)
+		 || ((bnt->v().state() == thread_state::running)
+		      && (&bnt->v() == processor_current()->running_thread()))) {
 			break;
 		}
 	}
 
 	thread &oldt = *processor_current()->running_thread();
 	thread &newt = (bnt != nullptr) ? bnt->v() : processor_current()->io_thread();
-
+/*
 	{
 		utf8str x;
 		x.append_hex64(processor_id(), 2);
@@ -117,9 +119,27 @@ interrupt_handler_dispatcher()
 		x += "\n";
 		printstr(x);
 	}
-
-	oldt.state(thread_state::pending);
-	newt.state(thread_state::running);
+*/
+	if (oldt.state() != thread_state::idle) {
+/*
+		utf8str str(oldt.name());
+		str += ": ";
+		thread_state_append(oldt.state(), str);
+		str += " => pending\n";
+		printstr(str);
+*/
+		oldt.state(thread_state::pending);
+	}
+	{
+/*
+		utf8str str(newt.name());
+		str += ": ";
+		thread_state_append(newt.state(), str);
+		str += " => running\n";
+		printstr(str);
+*/
+		newt.state(thread_state::running);
+	}
 
 	thread_lock->release();
 
@@ -331,6 +351,7 @@ extern "C" void timer_interrupt_handler(uint8_t gsi);
 void
 timer_interrupt_handler_fn(uint8_t gsi)
 {
+/*
 	utf8str x;
 	x += "TMIH 0x";
 	x.append_hex64(processor_id(), 2);
@@ -338,6 +359,7 @@ timer_interrupt_handler_fn(uint8_t gsi)
 	x.append_hex64(gsi, 2);
 	x += "\n";
 	printstr(x);
+*/
 }
 
 struct interrupt_handler timer_ih = {
@@ -458,14 +480,19 @@ extern "C" void boot_processor_start();
 void
 boot_processor_start()
 {
+	uint64_t thread_arg;
+
 	gdtrp->load();
 	idtrp->load();
 
 	local_apic_init();
 
+	thread_arg = (uint64_t)&(processor_current()->io_thread());
+
 	sti();
 
 	asm volatile ("pop %rbp");
+	asm volatile ("movq %0, %%rdi" : : "r"(thread_arg) :);
 	asm volatile ("jmp io_thread_main");
 }
 
@@ -474,16 +501,21 @@ extern "C" void subsequent_processor_start();
 void
 subsequent_processor_start()
 {
+	uint64_t thread_arg;
+
 	gdtrp->load();
 	idtrp->load();
 
 	local_apic_init();
+
+	thread_arg = (uint64_t)&(processor_current()->io_thread());
 
 	sti();
 
 	subsequent_processor_status = 1;
 
 	asm volatile ("pop %rbp");
+	asm volatile ("movq %0, %%rdi" : : "r"(thread_arg) :);
 	asm volatile ("jmp io_thread_main");
 }
 
@@ -557,14 +589,32 @@ restore_interrupt(uint64_t &interrupt)
 void
 idle()
 {
-	processor_current()->running_thread()->state(thread_state::idle);
+	//processor_current()->running_thread()->state(thread_state::idle);
+	thread &t = *processor_current()->running_thread();
+/*
+	utf8str str(t.name());
+	str += ": ";
+	thread_state_append(t.state(), str);
+	str += " => idle\n";
+	printstr(str);
+*/
+	t.state(thread_state::idle);
 	hlt();
 }
 
 void
 reschedule()
 {
-	processor_current()->running_thread()->state(thread_state::idle);
+	//processor_current()->running_thread()->state(thread_state::idle);
+	thread &t = *processor_current()->running_thread();
+/*
+	utf8str str(t.name());
+	str += ": ";
+	thread_state_append(t.state(), str);
+	str += " => idle\n";
+	printstr(str);
+*/
+	t.state(thread_state::idle);
 	int_0x20();
 }
 

@@ -9,7 +9,7 @@
 
 #include "thread.h"
 
-thread::thread(main_fn main)
+thread::thread(thread_main_fn main)
 	: m_main(main), m_processor_state(nullptr), m_state(thread_state::idle)
 {
 }
@@ -41,7 +41,7 @@ thread::init(uint64_t id, const utf8str &name)
 	if (m_processor_state == nullptr) {
 		return -1;
 	}
-	m_processor_state->init((uint64_t)m_main);
+	m_processor_state->init((uint64_t)m_main, (uint64_t)this);
 	m_id = id;
 	m_name = name;
 	return 0;
@@ -83,6 +83,18 @@ thread::state()
 	return m_state;
 }
 
+void
+thread::private_data(void *private_data)
+{
+	m_private_data = private_data;
+}
+
+void *
+thread::private_data()
+{
+	return m_private_data;
+}
+
 processor_state_base *
 thread::processor_state()
 {
@@ -109,7 +121,7 @@ thread::stack_pointer()
 	return stack_pointer;
 }
 
-main_fn
+thread_main_fn
 thread::main()
 {
 	return m_main;
@@ -121,7 +133,9 @@ thread::dump()
 	utf8str s;
 	s += "thread";
 	s.append_uint64(m_id, 0);
-	s += ": NAME = ";
+	s += " 0x";
+	s.append_hex64((uint64_t)this, 16);
+	s += " NAME = ";
 	s += m_name;
 	s += "\n";
 	printstr(s);

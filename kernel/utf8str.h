@@ -132,7 +132,7 @@ public:
 	 * @param width 追加したい幅数。
 	 * @return 追加後の文字列。
 	 */
-	utf8str &append_sint64(int64_t val, size_t width);
+	utf8str &append_sint64(sint64_t val, size_t width);
 
 	/**
 	 * 文字列の末尾に符合なし整数を追加する関数。

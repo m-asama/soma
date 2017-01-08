@@ -30,6 +30,12 @@ int round_down_32(uint32_t &target, uint32_t align);
 int round_up_64(uint64_t &target, uint64_t align);
 int round_down_64(uint64_t &target, uint64_t align);
 
+/*
+ * 
+ */
+uint64_t parse_uint64(char const *str);
+sint64_t parse_sint64(char const *str);
+
 void panic();
 
 void sleep(uint64_t n);

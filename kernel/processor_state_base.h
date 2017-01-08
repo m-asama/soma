@@ -47,7 +47,7 @@ public:
 	/**
 	 *
 	 */
-	virtual int init(uint64_t ip) = 0;
+	virtual int init(uint64_t thread_main, uint64_t thread_arg) = 0;
 
 	/**
 	 *

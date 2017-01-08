@@ -7,6 +7,8 @@
 #pragma once
 
 #include "type.h"
+#include "utf8str.h"
+#include "thread.h"
 
 /**
  * コンソールの基底クラス。
@@ -51,7 +53,19 @@ public:
 	 * @return メモリ上のアドレスが等しい時に true を返す。
 	 */
 	bool operator==(const console_base &rhs);
-	
+
+	/**
+	 * コンソール名を設定する。
+	 * @param name コンソール名。
+	 */
+	void name(utf8str name);
+
+	/**
+	 * コンソール名を返す。
+	 * @return コンソール名。
+	 */
+	utf8str name();
+
 	/**
 	 * コンソールの列数を設定する。
 	 * @param cols 新しいコンソールの列数。
@@ -115,6 +129,18 @@ public:
 	uint32_t cursor_y();
 
 	/**
+	 * コンソールスレッドへのポインタを設定。
+	 * @param console_thread コンソールスレッドへのポインタ。
+	 */
+	void console_thread(thread *console_thread);
+
+	/**
+	 * コンソールスレッドへのポインタを返す。
+	 * @return コンソールスレッドへのポインタ。
+	 */
+	thread *console_thread();
+
+	/**
 	 * コンソールをリセットする。
 	 */
 	virtual void reset();
@@ -135,11 +161,26 @@ public:
 	virtual void putchar(uint32_t c) = 0;
 
 	/**
+	 * 文字列を表示する。
+	 */
+	int print(const char *str);
+
+	/**
+	 * 文字列を表示する。
+	 */
+	int print(utf8str &str);
+
+	/**
 	 * コンソールを一行送る。
 	 */
 	void line_shift();
 
 private:
+	/**
+	 * コンソール名。
+	 */
+	utf8str m_name;
+
 	/**
 	 * コンソールの列数。
 	 */
@@ -164,6 +205,11 @@ private:
 	 * カーソルの縦方向の位置。
 	 */
 	uint32_t m_cursor_y;
+
+	/**
+	 * コンソールスレッド。
+	 */
+	thread *m_console_thread;
 
 };
 

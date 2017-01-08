@@ -28,6 +28,9 @@ foreach my $line (<MAPPING>) {
 }
 close(MAPPING);
 
+# 円記号
+$j2u{92} = 92;
+
 print "/**\n";
 print " * \@file\tfont_data.cpp\n";
 print " * \@brief\tフォントデータの配列。\n";

@@ -14,7 +14,57 @@
 
 #include "display_console.h"
 
+static struct keymap keymaps[] = {
+	{
+		.name	= "jp",
+		.table	= {
+		/* 0    1    2    3    4    5    6    7    8    9    a    b    c    d    e    f */
+	 /* 0 */   0,   0, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '^',0x7f,   0,
+	 /* 1 */ 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '@', '[',0x0d,   0, 'a', 's',
+	 /* 2 */ 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', ':',   0,   0, ']', 'z', 'x', 'c', 'v',
+	 /* 3 */ 'b', 'n', 'm', ',', '.', '/',   0,   0,   0,0x20,   0,   0,   0,   0,   0,   0,
+	 /* 4 */   0,   0,   0,   0,   0,   0,   0, '7', '8', '9', '-', '4', '5', '6', '+', '1',
+	 /* 5 */ '2', '3', '0', '.',   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* 6 */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* 7 */   0,   0,   0, '_',   0,   0,   0,   0,   0,   0,   0,   0,   0,'\\',   0,   0,
+	 /* 8 */   0,   0, '!', '"', '#', '$', '%', '&','\'', '(', ')', '0', '=', '~',0x7f,   0,
+	 /* 9 */ 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '`', '{',0x0d,   0, 'A', 'S',
+	 /* a */ 'D', 'F', 'G', 'H', 'J', 'K', 'L', '+', '*',   0,   0, '}', 'Z', 'X', 'C', 'V',
+	 /* b */ 'B', 'N', 'M', '<', '>', '?',   0,   0,   0,0x20,   0,   0,   0,   0,   0,   0,
+	 /* c */   0,   0,   0,   0,   0,   0,   0, '7', '8', '9', '-', '4', '5', '6', '+', '1',
+	 /* d */ '2', '3', '0', '.',   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* e */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* f */   0,   0,   0, '_',   0,   0,   0,   0,   0,   0,   0,   0,   0, '|',   0,   0,
+		},
+	},
+	{
+		.name	= "us",
+		.table	= {
+		/* 0    1    2    3    4    5    6    7    8    9    a    b    c    d    e    f */
+	 /* 0 */   0,   0, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=',0x7f,   0,
+	 /* 1 */ 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']',0x0d,   0, 'a', 's',
+	 /* 2 */ 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',   0, '`',   0,'\\', 'z', 'x', 'c', 'v',
+	 /* 3 */ 'b', 'n', 'm', ',', '.', '/',   0, '*',   0,0x20,   0,   0,   0,   0,   0,   0,
+	 /* 4 */   0,   0,   0,   0,   0,   0,   0, '7', '8', '9', '-', '4', '5', '6', '+', '1',
+	 /* 5 */ '2', '3', '0', '.',   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* 6 */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* 7 */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* 8 */   0,   0, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=',0x7f,   0,
+	 /* 9 */ 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']',0x0d,   0, 'A', 'S',
+	 /* a */ 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';',   0, '`',   0,'\\', 'Z', 'X', 'C', 'V',
+	 /* b */ 'B', 'N', 'M', ',', '.', '/',   0, '*',   0,0x20,   0,   0,   0,   0,   0,   0,
+	 /* c */   0,   0,   0,   0,   0,   0,   0, '7', '8', '9', '-', '4', '5', '6', '+', '1',
+	 /* d */ '2', '3', '0', '.',   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* e */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+	 /* f */   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+		},
+	},
+};
+
+static struct keymap *default_keymap = &keymaps[0];
+
 display_console::display_console()
+	: m_keymap(default_keymap), m_ibuf(256), m_obuf(256)
 {
 	m_uefifb_addr = 0;
 	m_uefifb_size = 0;
@@ -26,6 +76,8 @@ display_console::display_console()
 	m_uefifb_mask_blue = 0;
 	m_uefifb_mask_reserved = 0;
 	m_uefifb_cache = nullptr;
+	m_shift_pressed = false;
+	m_ctrl_pressed = false;
 }
 
 display_console::~display_console()
@@ -41,6 +93,8 @@ display_console::~display_console()
 	m_uefifb_mask_reserved = 0;
 	if (m_uefifb_cache != nullptr)
 		memory_free(m_uefifb_cache);
+	m_shift_pressed = false;
+	m_ctrl_pressed = false;
 }
 
 void
@@ -151,6 +205,19 @@ display_console::uefifb_mask_reserved()
 	return m_uefifb_mask_reserved;
 }
 
+uint64_t
+display_console::read_from_keyboard()
+{
+	uint64_t readed = 0;
+	uint8_t c;
+	while ((inb(0x64) & 0x01) && (m_ibuf.writeable() > 0)) {
+		c = inb(0x60);
+		m_ibuf.write(c);
+		++readed;
+	}
+	return readed;
+}
+
 void
 display_console::reset()
 {
@@ -179,22 +246,22 @@ display_console::reset()
 		m_uefifb_cache[i] = 0x00000000;
 	}
 
-
 	outb(0x64, 0xad);
 	outb(0x64, 0xa7);
 
 	inb(0x60);
 
-	int8_t c;
+	sint8_t c;
 	outb(0x64, 0x20);
 	c = inb(0x60);
-//	c |= 0x45;
-	c |= 0x01;
-	c &= ~0x02;
+	c |= 0x45;
+//	c |= 0x01;
+	c &= ~0x22;
 	outb(0x64, 0x60);
 	outb(0x60, c);
 
 	outb(0x64, 0xae);
+//	outb(0x64, 0xa8);
 
 }
 
@@ -243,10 +310,90 @@ display_console::refresh()
 uint32_t
 display_console::getchar()
 {
-	//return 0;
-	if (inb(0x64) & 0x01 )
-		return inb(0x60);
-	return 0;
+	uint8_t c = 0;
+
+	if (m_ibuf.readable() == 0)
+		return 0;
+
+	while (m_ibuf.readable() > 0) {
+
+		if (m_ibuf[0] == 0xe0) {
+			if (m_ibuf.readable() < 2)
+				return 0;
+			switch (m_ibuf[1]) {
+			case 0x1d:
+			case 0x38:
+				m_ibuf.read(c);
+				break;
+			default:
+				m_ibuf.read(c);
+				m_ibuf.read(c);
+				c = 0;
+				continue;
+			}
+		}
+
+		if (m_ibuf[0] == 0xe1) {
+			if (m_ibuf.readable() < 3)
+				return 0;
+			m_ibuf.read(c);
+			m_ibuf.read(c);
+			m_ibuf.read(c);
+			c = 0;
+			continue;
+		}
+
+		if ((m_ibuf[0] == 0x08) && (m_ibuf.readable() >= 3)
+		 && (m_ibuf[1] == 0x00) && (m_ibuf[2] == 0x00)) {
+			m_ibuf.read(c);
+			m_ibuf.read(c);
+			m_ibuf.read(c);
+			c = 0;
+			continue;
+		}
+
+		m_ibuf.read(c);
+
+		if ((c == 0x2a) || (c == 0x36)) {
+			m_shift_pressed = true;
+			c = 0;
+			continue;
+		}
+
+		if ((c == 0xaa) || (c == 0xb6)) {
+			m_shift_pressed = false;
+			c = 0;
+			continue;
+		}
+
+		if (c == 0x1d) {
+			m_ctrl_pressed = true;
+			c = 0;
+			continue;
+		}
+
+		if (c == 0x9d) {
+			m_ctrl_pressed = false;
+			c = 0;
+			continue;
+		}
+
+		if (c & 0x80) {
+			c = 0;
+			continue;
+		}
+
+		if (m_shift_pressed)
+			c |= 0x80;
+
+		c = m_keymap->table[c];
+
+		if (c > 0)
+			break;
+
+	}
+
+	return c;
 }
 
 void
@@ -256,13 +403,26 @@ display_console::putchar(uint32_t c)
 	struct font_data *font;
 	bool wchar;
 
+	if ((c == 0x08) || (c == 0x7f)) {
+		font = font_find(' ');
+		if (cursor_x() > 0) {
+			cursor_x(cursor_x() - 1);
+			plot_char(cursor_x() * 8, cursor_y() * 16, font);
+		}
+		if ((cursor_x() > 0) && (buffer()[cols() * cursor_y() + cursor_x()] == 0xff)) {
+			cursor_x(cursor_x() - 1);
+			plot_char(cursor_x() * 8, cursor_y() * 16, font);
+		}
+		return;
+	}
+
 	font = font_find(c);
 	if (font == nullptr)
 		font = font_find(0x00);
 	if (font == nullptr)
 		return;
 
-	if (c == '\n') {
+	if ((c == '\r') || (c == '\n')) {
 		cursor_x(0);
 		cursor_y(cursor_y() + 1);
 		if (cursor_y() == rows()) {
@@ -287,7 +447,7 @@ display_console::putchar(uint32_t c)
 	plot_char(x * 8, y * 16, font);
 	buffer()[cols() * y + x] = c;
 	if (wchar) {
-		buffer()[cols() * y + (x + 1)] = ' ';
+		buffer()[cols() * y + (x + 1)] = 0xff;
 	}
 
 	cursor_x(cursor_x() + (wchar ? 2 : 1));

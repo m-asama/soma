@@ -440,3 +440,15 @@ memory_dump()
 	printstr("\n");
 }
 
+extern "C" void *memset(void *b, int c, size_t len);
+
+__attribute__((unused))
+void *
+memset(void *b, int c, size_t len)
+{
+	unsigned char *ptr = (unsigned char *)b;
+	while (len--)
+		*ptr++ = c;
+	return b;
+}
+

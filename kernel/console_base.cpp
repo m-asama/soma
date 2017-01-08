@@ -4,6 +4,8 @@
  * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
 
+#include "unicode.h"
+
 #include "console_base.h"
 
 console_base::console_base()
@@ -13,6 +15,7 @@ console_base::console_base()
 	m_buffer = nullptr;
 	m_cursor_x = 0;
 	m_cursor_y = 0;
+	m_console_thread = nullptr;
 }
 
 console_base::~console_base()
@@ -23,12 +26,26 @@ console_base::~console_base()
 		delete[] m_buffer;
 	m_cursor_x = 0;
 	m_cursor_y = 0;
+	if (m_console_thread != nullptr)
+		delete m_console_thread;
 }
 
 bool
 console_base::operator==(const console_base &rhs)
 {
 	return (this == &rhs);
+}
+
+void
+console_base::name(utf8str name)
+{
+	m_name = name;
+}
+
+utf8str
+console_base::name()
+{
+	return m_name;
 }
 
 void
@@ -92,6 +109,18 @@ console_base::cursor_y()
 }
 
 void
+console_base::console_thread(thread *console_thread)
+{
+	m_console_thread = console_thread;
+}
+
+thread *
+console_base::console_thread()
+{
+	return m_console_thread;
+}
+
+void
 console_base::reset()
 {
 	int x, y;
@@ -133,6 +162,27 @@ console_base::putchar(uint32_t c)
 		return;
 }
 */
+
+int
+console_base::print(const char *str)
+{
+	int b = 0;
+	uint32_t c;
+
+	while (*str != '\0') {
+		b = utf8_to_unicode(str, &c);
+		putchar(c);
+		str += b;
+	}
+
+	return b;
+}
+
+int
+console_base::print(utf8str &str)
+{
+	return print(str.ptr());
+}
 
 void
 console_base::line_shift()

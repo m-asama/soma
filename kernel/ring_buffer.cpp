@@ -8,7 +8,7 @@ template<class V>
 ring_buffer<V>::ring_buffer(uint64_t size)
 	: m_buffer(nullptr), m_size(0), m_next_read(0), m_next_write(0)
 {
-	uint64_t t = 1;
+	uint64_t t = 8;
 	while (t < size) {
 		t <<= 1;
 	}

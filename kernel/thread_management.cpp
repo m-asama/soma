@@ -10,8 +10,6 @@
 #include "utf8str.h"
 #include "processor_management.h"
 
-#include "intel64_assembly.h"
-
 static sorted_list<thread> *threads = nullptr;
 
 void
@@ -26,7 +24,7 @@ thread_init()
 }
 
 thread *
-thread_alloc(void (*main)())
+thread_alloc(void (*main)(thread *))
 {
 	thread *new_thread = nullptr;
 	utf8str new_thread_name;
@@ -57,6 +55,24 @@ thread_free(thread *ptr)
 {
 	threads->remove(*ptr);
 	delete ptr;
+}
+
+void
+thread_state_append(thread_state state, utf8str &str)
+{
+	switch (state) {
+	case thread_state::idle:
+		str += "idle";
+		break;
+	case thread_state::running:
+		str += "running";
+		break;
+	case thread_state::pending:
+		str += "pending";
+		break;
+	default:
+		str += "???";
+	}
 }
 
 void

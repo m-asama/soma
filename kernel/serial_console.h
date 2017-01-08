@@ -7,6 +7,7 @@
 #pragma once
 
 #include "type.h"
+#include "ring_buffer.h"
 
 #include "console_base.h"
 
@@ -140,6 +141,12 @@ public:
 	 */
 	uint8_t parity();
 
+	/**
+	 * シリアルからデータを読み込みバッファ(ibuf)に格納。
+	 * @return 読み込んだバイト数。
+	 */
+	uint64_t read_from_serial();
+
 private:
 	/**
 	 * I/O ポートのベース。
@@ -170,6 +177,16 @@ private:
 	 * パリティ。
 	 */
 	uint8_t m_parity;
+
+	/**
+	 * シリアルコンソールからの入力用バッファ。
+	 */
+	ring_buffer<uint8_t> m_ibuf;
+
+	/**
+	 * シリアルコンソールへの出力用バッファ。
+	 */
+	ring_buffer<uint8_t> m_obuf;
 
 };
 

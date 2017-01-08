@@ -7,24 +7,24 @@
 #include "processor_management.h"
 #include "utf8str.h"
 
-#include "intel64_assembly.h"
-
-extern "C" void io_thread_main();
+extern "C" void io_thread_main(thread *t);
 
 void
-io_thread_main()
+io_thread_main(thread *t)
 {
 	while (true) {
-
+/*
 		utf8str x("I I: 0x");
 		x.append_hex64(processor_id(), 2);
+		x += " ";
+		x.append_hex64((uint64_t)t, 16);
 		x += " CR3:0x";
 		x.append_hex64((uint64_t)cr3(), 16);
 		x += " RSP:0x";
 		x.append_hex64((uint64_t)rsp(), 16);
 		x += "\n";
 		printstr(x);
-
+*/
 		idle();
 	}
 }

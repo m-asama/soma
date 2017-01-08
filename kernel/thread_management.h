@@ -7,6 +7,7 @@
 #pragma once
 
 #include "type.h"
+#include "utf8str.h"
 #include "thread.h"
 
 /**
@@ -17,12 +18,17 @@ void thread_init();
 /**
  *
  */
-thread *thread_alloc(void (*main)());
+thread *thread_alloc(void (*main)(thread *));
 
 /**
  *
  */
 void thread_free(thread *ptr);
+
+/**
+ *
+ */
+void thread_state_append(thread_state state, utf8str &str);
 
 /**
  *

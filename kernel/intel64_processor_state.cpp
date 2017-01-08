@@ -24,7 +24,7 @@ intel64_processor_state::~intel64_processor_state()
 }
 
 int
-intel64_processor_state::init(uint64_t ip)
+intel64_processor_state::init(uint64_t thread_main, uint64_t thread_arg)
 {
 	intel64_pd_table *pdt = nullptr;
 	intel64_pdpt_table *pdptt = nullptr;
@@ -67,7 +67,8 @@ intel64_processor_state::init(uint64_t ip)
 	m_processor_state.rsp = m_stack_pointer;
 	m_processor_state.rflags = 0x0000000000000202;
 	m_processor_state.cs = 0x0000000000000008;
-	m_processor_state.rip = ip;
+	m_processor_state.rip = thread_main;
+	m_processor_state.rdi = thread_arg;
 
 	return 0;
 }

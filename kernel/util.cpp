@@ -114,6 +114,35 @@ round_down_64(uint64_t &target, uint64_t align)
 	return 0;
 }
 
+uint64_t
+parse_uint64(char const *str)
+{
+	uint64_t val = 0;
+
+	for (int i = 0; i < 20; ++i) {
+		if ((str[i] < '0') || (str[i] > '9'))
+			break;
+		val *= 10;
+		val += (str[i] - '0');
+	}
+
+	return val;
+}
+
+sint64_t
+parse_sint64(char const *str)
+{
+	sint64_t val = 0;
+	sint64_t sign = 1;
+
+	if (str[0] == '-')
+		sign = -1;
+
+	val = sign * parse_uint64(&str[1]);
+
+	return val;
+}
+
 void
 panic()
 {

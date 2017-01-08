@@ -19,7 +19,8 @@ enum class thread_state {
 	pending,
 };
 
-typedef void (*main_fn)();
+class thread;
+typedef void (*thread_main_fn)(thread *);
 
 /**
  * スレッドを表現するクラス。
@@ -31,7 +32,7 @@ public:
 	 * コンストラクタ。
 	 * @param main スレッドのメイン関数。
 	 */
-	thread(main_fn main);
+	thread(thread_main_fn main);
 
 	/**
 	 * コンストラクタ。引数なしのコンストラクタは禁止。
@@ -122,6 +123,18 @@ public:
 	thread_state state();
 
 	/**
+	 * スレッドのプライベートデータへのポインタを設定する関数。
+	 * @params private_data スレッドのプライベートデータへのポインタ。
+	 */
+	void private_data(void *private_data);
+
+	/**
+	 * スレッドのプライベートデータへのポインタを返す関数。
+	 * @return スレッドのプライベートデータへのポインタ。
+	 */
+	void *private_data();
+
+	/**
 	 * スレッドのプロセッサ状態。
 	 * @return スレッドのプロセッサ状態への参照。
 	 */
@@ -143,7 +156,7 @@ public:
 	 * スレッドのメイン関数を返す関数。
 	 * @return スレッドのメイン関数。
 	 */
-	main_fn main();
+	thread_main_fn main();
 
 	/**
 	 * スレッドの情報を表示する関数。
@@ -164,7 +177,7 @@ private:
 	/**
 	 * スレッドのメイン関数。
 	 */
-	main_fn m_main;
+	thread_main_fn m_main;
 
 	/**
 	 * プロセッサ状態。
@@ -175,6 +188,11 @@ private:
 	 * スレッドの状態。
 	 */
 	thread_state m_state;
+
+	/**
+	 * スレッドのプライベートデータへのポインタ。
+	 */
+	void *m_private_data;
 
 };
 

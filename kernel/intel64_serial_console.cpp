@@ -6,10 +6,13 @@
 
 #include "intel64_assembly.h"
 #include "unicode.h"
+#include "print.h"
+#include "util.h"
 
 #include "serial_console.h"
 
 serial_console::serial_console()
+	: m_ibuf(256), m_obuf(256)
 {
 	m_io_port_base = 0x3f8;	// COM1
 	m_irq = 0x4;		// IRQ4
@@ -95,6 +98,19 @@ serial_console::parity()
 	return m_parity;
 }
 
+uint64_t
+serial_console::read_from_serial()
+{
+	uint64_t readed = 0;
+	uint8_t c;
+	while (((inb(m_io_port_base+5)&1) != 0) && (m_ibuf.writeable() > 0)) {
+		c = inb(m_io_port_base);
+		m_ibuf.write(c);
+		++readed;
+	}
+	return readed;
+}
+
 void
 serial_console::reset()
 {
@@ -110,6 +126,58 @@ serial_console::reset()
 	//outb(m_io_port_base+2, 0xc7);
 	//outb(m_io_port_base+4, 0x0b);
 	outb(m_io_port_base+1, 0x01);
+
+	char buf[16] = "\x1b[18t";
+	// \033[18t
+	for (int i = 0; buf[i] != '\0'; ++i) {
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, buf[i]);
+	}
+	// \033[8;55;100t
+	for (int i = 0; i < 16; ++i) {
+		buf[i] = '\0';
+	}
+	for (int i = 0; i < 15; ++i) {
+		while ((inb(m_io_port_base+5) & 0x01) == 0);
+		buf[i] = inb(m_io_port_base);
+		if (buf[i] == 't') {
+			break;
+		}
+	}
+	uint64_t colst = 0;
+	uint64_t rowst = 0;
+	char *ptr;
+	int index = 2;
+	ptr = nullptr;
+	for (int i = index; i < 15; ++i) {
+		if (buf[i] == ';') {
+			ptr = &buf[i + 1];
+			index = i + 1;
+			break;
+		}
+	}
+	if (ptr != nullptr)
+		rowst = parse_uint64(ptr);
+	ptr = nullptr;
+	for (int i = index; i < 15; ++i) {
+		if (buf[i] == ';') {
+			ptr = &buf[i + 1];
+			break;
+		}
+	}
+	if (ptr != nullptr)
+		colst = parse_uint64(ptr);
+	cols(colst);
+	rows(rowst);
+	console_base::reset();
+
+	putchar('\n');
+	for (int y = 0; y < rows(); ++y) {
+		for (int x = 0; x < cols(); ++x) {
+			putchar(' ');
+		}
+		putchar('\n');
+	}
 }
 
 void
@@ -120,10 +188,21 @@ serial_console::refresh()
 uint32_t
 serial_console::getchar()
 {
-	if ((inb(m_io_port_base+5)&1) == 0) {
-		return 0;
+	uint32_t c = 0;
+	char buf[6];
+
+	for (int i = 0; i < 6; ++i) {
+		buf[i] = m_ibuf[i];
 	}
-	return inb(m_io_port_base);
+
+	int utf8len = utf8_to_unicode(buf, &c);
+	if (utf8len <= m_ibuf.readable()) {
+		for (int i = 0; i < utf8len; ++i) {
+			uint8_t dummy;
+			m_ibuf.read(dummy);
+		}
+	}
+	return c;
 }
 
 void
@@ -131,6 +210,17 @@ serial_console::putchar(uint32_t c)
 {
 	char cc[8];
 	int b, i;
+
+	if (c == 0x7f) {
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, 0x08);
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, ' ');
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, 0x08);
+		return;
+	}
+
 	if (c == '\n') {
 		while ((inb(m_io_port_base+5) & 0x20) == 0);
 		outb(m_io_port_base, '\r');
@@ -139,6 +229,10 @@ serial_console::putchar(uint32_t c)
 	for (i = 0; i < b; ++i) {
 		while ((inb(m_io_port_base+5) & 0x20) == 0);
 		outb(m_io_port_base, cc[i]);
+	}
+	if (c == '\r') {
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, '\n');
 	}
 }
 

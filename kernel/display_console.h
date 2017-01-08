@@ -8,6 +8,13 @@
 
 #include "type.h"
 #include "font_data.h"
+#include "ring_buffer.h"
+
+struct keymap
+{
+	char const *name;
+	uint8_t table[256];
+};
 
 #include "console_base.h"
 
@@ -178,6 +185,12 @@ public:
 	 */
 	uint32_t uefifb_mask_reserved();
 
+	/**
+	 * キーボードからデータを読み込みバッファ(ibuf)に格納。
+	 * @return 読み込んだバイト数。
+	 */
+	uint64_t read_from_keyboard();
+
 private:
 	/**
 	 * 指定した位置に指定したフォントを表示する関数。
@@ -236,6 +249,31 @@ private:
 	 * UEFI フレームバッファのキャッシュ。
 	 */
 	uint32_t *m_uefifb_cache;
+
+	/**
+	 * キーマップ。
+	 */
+	struct keymap *m_keymap;
+
+	/**
+	 * シフトキーが押された状態か否か。
+	 */
+	bool m_shift_pressed;
+
+	/**
+	 * コントロールキーが押された状態か否か。
+	 */
+	bool m_ctrl_pressed;
+
+	/**
+	 * キーボードからの入力用バッファ。
+	 */
+	ring_buffer<uint8_t> m_ibuf;
+
+	/**
+	 * キーボードへの出力バッファ。
+	 */
+	ring_buffer<uint8_t> m_obuf;
 
 };
 

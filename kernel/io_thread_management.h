@@ -6,8 +6,10 @@
 
 #pragma once
 
+#include "thread.h"
+
 /**
  * I/O スレッドのメイン関数。
  */
-extern "C" void io_thread_main();
+extern "C" void io_thread_main(thread *t);
 
