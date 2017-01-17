@@ -106,6 +106,34 @@ public:
 	bool operator!=(const char *s);
 
 	/**
+	 * 文字列を比較する演算子。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が引数より大きい時に true を返す。
+	 */
+	bool operator>(const utf8str &s);
+
+	/**
+	 * 文字列を比較する演算子。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が引数より大きい時に true を返す。
+	 */
+	bool operator>(const char *s);
+
+	/**
+	 * 文字列を比較する演算子。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が引数より小さい時に true を返す。
+	 */
+	bool operator<(const utf8str &s);
+
+	/**
+	 * 文字列を比較する演算子。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が引数より小さい時に true を返す。
+	 */
+	bool operator<(const char *s);
+
+	/**
 	 * 文字列を初期化する関数。
 	 * @param s 初期化したい文字列。
 	 */
@@ -156,6 +184,20 @@ public:
 	 * @return 文字列が等しい時に true を返す。
 	 */
 	bool is_equal(const char *s);
+
+	/**
+	 * 文字列を比較する関数。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が大きい時に true を返す。
+	 */
+	bool is_large(const char *s);
+
+	/**
+	 * 文字列を比較する関数。
+	 * @param s 比較対象の文字列。
+	 * @return 文字列が小さい時に true を返す。
+	 */
+	bool is_small(const char *s);
 
 	/**
 	 * 文字列へのポインタを返す関数。

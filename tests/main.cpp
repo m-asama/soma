@@ -20,6 +20,7 @@
 #include "memory_pool_test.h"
 #include "memory_management_test.h"
 #include "ring_buffer_test.h"
+#include "config_model_test.h"
 
 #include "main.h"
 
@@ -43,6 +44,7 @@ struct test_module {
 	char const *name;
 	void (*func)();
 } test_modules[] = {
+/*
 	{
 		.name	= "文字列",
 		.func	= utf8str_test,
@@ -71,6 +73,11 @@ struct test_module {
 		.name	= "リングバッファ",
 		.func	= ring_buffer_test,
 	},
+	{
+		.name	= "設定モデル",
+		.func	= config_model_test,
+	},
+*/
 	{
 		.func	= nullptr,
 	},

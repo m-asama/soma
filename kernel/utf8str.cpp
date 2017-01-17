@@ -10,6 +10,9 @@
 #include "font.h"
 #include "font_data.h"
 
+#include "print.h"
+#include "debug.h"
+
 #include "utf8str.h"
 
 const static size_t buffer_block_size = 256;
@@ -148,6 +151,30 @@ utf8str::operator!=(const char *s)
 	return !is_equal(s);
 }
 
+bool
+utf8str::operator>(const utf8str &s)
+{
+	return is_large(s.ptr());
+}
+
+bool
+utf8str::operator>(const char *s)
+{
+	return is_large(s);
+}
+
+bool
+utf8str::operator<(const utf8str &s)
+{
+	return is_small(s.ptr());
+}
+
+bool
+utf8str::operator<(const char *s)
+{
+	return is_small(s);
+}
+
 void
 utf8str::init_utf8str(const char *s)
 {
@@ -191,7 +218,6 @@ utf8str::assign_utf8str(const char *s)
 	while (buffer_size <= ::length(s)) {
 		buffer_size += buffer_block_size;
 	}
-
 	m_buffer = (char *)memory_alloc(buffer_size);
 	m_buffer_size = 0;
 	if (m_buffer == nullptr) {
@@ -393,6 +419,72 @@ utf8str::is_equal(const char *s)
 	}
 
 	return true;
+}
+
+bool
+utf8str::is_large(const char *s)
+{
+	int i = 0;
+
+	if ((m_buffer == nullptr) && (s == nullptr)) {
+		return false;
+	}
+
+	if (m_buffer == nullptr) {
+		return false;
+	}
+
+	if (s == nullptr) {
+		return true;
+	}
+
+	while ((m_buffer[i] != '\0') && (s[i] != '\0')) {
+		if (m_buffer[i] > s[i]) {
+			return true;
+		} else if (m_buffer[i] < s[i]) {
+			return false;
+		}
+		++i;
+	}
+
+	if (m_buffer[i] != '\0') {
+		return true;
+	}
+
+	return false;
+}
+
+bool
+utf8str::is_small(const char *s)
+{
+	int i = 0;
+
+	if ((m_buffer == nullptr) && (s == nullptr)) {
+		return false;
+	}
+
+	if (m_buffer == nullptr) {
+		return true;
+	}
+
+	if (s == nullptr) {
+		return false;
+	}
+
+	while ((m_buffer[i] != '\0') && (s[i] != '\0')) {
+		if (m_buffer[i] > s[i]) {
+			return false;
+		} else if (m_buffer[i] < s[i]) {
+			return true;
+		}
+		++i;
+	}
+
+	if (m_buffer[i] != '\0') {
+		return false;
+	}
+
+	return false;
 }
 
 const char *

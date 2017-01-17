@@ -11,7 +11,7 @@
 
 #include "loader_info.h"
 
-const int hash_table_init_size = 0x100;
+const int hash_table_init_size = 0x400;
 
 /**
  * ハッシュテーブルのクラス。

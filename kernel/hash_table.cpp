@@ -5,6 +5,7 @@
  */
 
 #include "print.h"
+#include "debug.h"
 
 #include "bidir_node.h"
 

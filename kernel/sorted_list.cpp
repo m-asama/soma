@@ -170,14 +170,14 @@ sorted_list<V>::resort()
 
 template<class V>
 bidir_node<V> *
-sorted_list<V>::head()
+sorted_list<V>::head() const
 {
 	return m_head;
 }
 
 template<class V>
 bidir_node<V> *
-sorted_list<V>::tail()
+sorted_list<V>::tail() const
 {
 	return m_tail;
 }

@@ -19,6 +19,7 @@ OBJCOPYFLAGS  = -S \
 		-O binary
 
 OBJS	      = main.o \
+		debug.o \
 		processor_base.o \
 		processor_state_base.o \
 		irqchip_base.o \
@@ -37,6 +38,15 @@ OBJS	      = main.o \
 		print.o \
 		utf8str.o \
 		spinlock.o \
+		config_model_node.o \
+		config_model_build.o \
+		config_model_build_description.o \
+		config_model_functions.o \
+		config_model_nodes.o \
+		config_data_node.o \
+		config_management.o \
+		command_node.o \
+		command_management.o \
 		util.o
 
 .if "${SOMA_TARGET}" == "x86_64"

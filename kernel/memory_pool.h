@@ -9,6 +9,8 @@
 #include "type.h"
 
 const int memory_pool_free_bits_size = 8;
+const int memory_pool_vacancy_threshold1 = 16;
+const int memory_pool_vacancy_threshold2 = 512 + 64;
 
 /**
  * ある型のメモリ領域をまとめて管理するプールを表すクラス。
@@ -76,6 +78,12 @@ public:
 	 */
 	uint64_t count();
 
+	/**
+	 * 現在割り当てられているうち空きの数を返す関数。
+	 * @return 現在割り当てられているうち空きの数。
+	 */
+	uint64_t vacancy();
+
 private:
 	/**
 	 * 割り当てを管理するためのビット列。
@@ -96,6 +104,11 @@ private:
 	 * 前のメモリプールのアドレスを指すポインタ。
 	 */
 	memory_pool<T> *m_prev;
+
+	/**
+	 * 呼び割り当てフラグ。
+	 */
+	bool m_allocating;
 
 };
 

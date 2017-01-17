@@ -86,13 +86,13 @@ public:
 	 * 整列リストの先頭の bidir_node へのポインタを返す。
 	 * @return 整列リストの先頭の bidir_node へのポインタ。
 	 */
-	bidir_node<V> *head();
+	bidir_node<V> *head() const;
 
 	/**
 	 * 整列リストの末尾の bidir_node へのポインタを返す。
 	 * @return 整列リストの末尾の bidir_node へのポインタ。
 	 */
-	bidir_node<V> *tail();
+	bidir_node<V> *tail() const;
 
 	/**
 	 * 整列リストに登録された値の数。
