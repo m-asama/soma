@@ -62,7 +62,7 @@ memory_pool_test()
 	}
 	print_test_result("初期状態の m_free_bits", res);
 
-	if (mp->m_table == nullptr) {
+	if (mp->m_table != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -122,7 +122,7 @@ memory_pool_test()
 	}
 	print_test_result("m_table x 1 の m_table", res);
 
-	if (mp->m_next == nullptr) {
+	if (mp->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -204,7 +204,7 @@ memory_pool_test()
 	}
 	print_test_result("m_table x 2 の一つ目の m_next", res);
 
-	if (mp->m_next != nullptr && mp->m_next->m_next == nullptr) {
+	if (mp->m_next != nullptr && mp->m_next->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -324,7 +324,7 @@ memory_pool_test()
 	print_test_result("m_table x 3 の二つ目の m_next", res);
 
 	if (mp->m_next != nullptr && mp->m_next->m_next != nullptr
-	    && mp->m_next->m_next->m_next == nullptr) {
+	    && mp->m_next->m_next->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -392,7 +392,7 @@ memory_pool_test()
 	}
 	print_test_result("m_table x 2 の一つ目の m_next", res);
 
-	if (mp->m_next != nullptr && mp->m_next->m_next == nullptr) {
+	if (mp->m_next != nullptr && mp->m_next->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -431,7 +431,7 @@ memory_pool_test()
 	}
 	print_test_result("m_table x 1 の count", res);
 
-	if (mp->m_table == nullptr) {
+	if (mp->m_table != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -452,7 +452,7 @@ memory_pool_test()
 	}
 	print_test_result("m_table x 1 の一つ目の m_next", res);
 
-	if (mp->m_next != nullptr && mp->m_next->m_next == nullptr) {
+	if (mp->m_next != nullptr && mp->m_next->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -491,14 +491,14 @@ memory_pool_test()
 	}
 	print_test_result("最終状態の count", res);
 
-	if (mp->m_table == nullptr) {
+	if (mp->m_table != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
 	}
 	print_test_result("最終状態の m_table", res);
 
-	if (mp->m_next == nullptr) {
+	if (mp->m_next != nullptr) {
 		res = test_result::pass;
 	} else {
 		res = test_result::fail;
@@ -511,6 +511,21 @@ memory_pool_test()
 		res = test_result::fail;
 	}
 	print_test_result("最終状態の m_prev", res);
+
+
+
+	utf8str x;
+	x = "mp->count() ";
+	x.append_uint64(mp->count(), 10);
+	print_test_result(x.ptr(), res);
+	x = "mp->m_next->count() ";
+	x.append_uint64(mp->m_next->count(), 10);
+	print_test_result(x.ptr(), res);
+	if (mp->m_next->m_next != nullptr) {
+		print_test_result("3 個", res);
+	}
+	
+
 
 	/*
 	 * mp の削除

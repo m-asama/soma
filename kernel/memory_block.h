@@ -113,6 +113,12 @@ public:
 	 */
 	static uint64_t count();
 
+	/**
+	 * メモリブロックの空きを返す。
+	 * @return メモリブロックの空き。
+	 */
+	static uint64_t vacancy();
+
 private:
 	/**
 	 * メモリブロックのメモリプール。

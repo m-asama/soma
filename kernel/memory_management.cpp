@@ -6,10 +6,13 @@
 
 #include "type.h"
 #include "print.h"
+#include "debug.h"
 #include "memory_management.h"
 #include "sorted_list.h"
 #include "hash_table.h"
 #include "memory_block.h"
+
+#include "intel64_assembly.h"
 
 #include "loader_info.h"
 
@@ -35,8 +38,9 @@ memory_alloc(size_t size)
 			break;
 	}
 
-	if (bn == nullptr)
+	if (bn == nullptr) {
 		return nullptr;
+	}
 
 	ptr = (void *)bn->v().base();
 	bn->v().base(bn->v().base() + size);
@@ -438,6 +442,59 @@ memory_dump()
 	printstr("FREE BYTES: ");
 	printhex64(free);
 	printstr("\n");
+}
+
+void
+memory_free_dump()
+{
+	int i;
+	uint64_t free = 0;
+	bidir_node<memory_block> *bn;
+	i = 0;
+	printstr("FREE BLOCKS:\n");
+	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
+		printstr("   0x");
+		printhex8(i);
+		printstr(" 0x");
+		printhex64(bn->v().base());
+		printstr(" 0x");
+		printhex64(bn->v().size());
+		printstr(" 0x");
+		printhex64((uint64_t)&bn->v());
+		printstr("\n");
+		++i;
+		free += bn->v().size();
+	}
+}
+
+void
+memory_stats()
+{
+	int i;
+	uint64_t alloc = 0;
+	uint64_t free = 0;
+	bidir_node<memory_block> *bn;
+	for (i = 0; i < alloc_block.table_size(); ++i) {
+		if (alloc_block.table()[i] == nullptr)
+			continue;
+		for (bn = alloc_block.table()[i]; bn != nullptr; bn = bn->next()) {
+			alloc += bn->v().size();
+		}
+	}
+	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
+		free += bn->v().size();
+	}
+	utf8str s;
+	s += "ALLOC ";
+	s.append_uint64(alloc, 12);
+	s += "\n";
+	s += "FREE  ";
+	s.append_uint64(free, 12);
+	s += "\n";
+	s += "TOTAL ";
+	s.append_uint64(alloc + free, 12);
+	s += "\n";
+	printstr(s);
 }
 
 extern "C" void *memset(void *b, int c, size_t len);

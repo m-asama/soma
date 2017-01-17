@@ -40,7 +40,5 @@ void
 config_init()
 {
 	config_model_build();
-
-	config_model_dump();
 }
 

@@ -11,7 +11,7 @@
 
 template<class V>
 hash_table<V>::hash_table(uint64_t (*hash_fn)(const V &v), bool (*equal_fn)(const V &vl, const V &vr))
-	: m_hash_fn(hash_fn), m_equal_fn(equal_fn), m_table_size(0), m_table(nullptr), m_nodes(0)
+	: m_hash_fn(hash_fn), m_equal_fn(equal_fn), m_table_size(0), m_table(nullptr), m_nodes(0), m_expanding(false)
 {
 	//printstr("hash_table<V>::hash_table()\n");
 }
@@ -49,7 +49,11 @@ hash_table<V>::insert(V &v)
 			m_table[i] = nullptr;
 		}
 	} else if (m_nodes >= m_table_size * 2) {
-		expand();
+		if (m_expanding == false) {
+			m_expanding = true;
+			expand();
+			m_expanding = false;
+		}
 	}
 
 	hash = m_hash_fn(v) & (m_table_size - 1);

@@ -77,4 +77,7 @@ uint64_t memory_block_bidir_node_count();
  * メモリ割り当てで管理している情報を表示する関数。
  */
 void memory_dump();
+void memory_free_dump();
+void memory_stats();
+
 

@@ -6,6 +6,7 @@
 
 #include "type.h"
 #include "print.h"
+#include "debug.h"
 
 #include "memory_block.h"
 
@@ -79,6 +80,12 @@ uint64_t
 memory_block::count()
 {
 	return s_mem_pool.count();
+}
+
+uint64_t
+memory_block::vacancy()
+{
+	return s_mem_pool.vacancy();
 }
 
 memory_pool<memory_block> memory_block::s_mem_pool;

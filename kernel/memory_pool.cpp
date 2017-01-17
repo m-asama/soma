@@ -14,8 +14,9 @@ template<class T>
 memory_pool<T>::memory_pool()
 	: m_table(nullptr), m_next(nullptr), m_prev(nullptr), m_allocating(false)
 {
-	//printstr("memory_pool<T>::memory_pool()\n");
-
+	if (m_table == nullptr) {
+		m_table = (T *)memory_alloc(sizeof(T) * 64 * memory_pool_free_bits_size);
+	}
 	for (int i = 0; i < memory_pool_free_bits_size; ++i) {
 		m_free_bits[i] = 0xfffffffffffffffful;
 	}
@@ -24,18 +25,14 @@ memory_pool<T>::memory_pool()
 template<class T>
 memory_pool<T>::~memory_pool()
 {
-	//printstr("memory_pool<T>::~memory_pool()\n");
-
 	if (m_next != nullptr) {
 		delete m_next;
 		m_next = nullptr;
 		m_prev = nullptr;
 	}
-
 	for (int i = 0; i < memory_pool_free_bits_size; ++i) {
 		m_free_bits[i] = 0xfffffffffffffffful;
 	}
-
 	if (m_table != nullptr) {
 		memory_free(m_table);
 		m_table = nullptr;
@@ -48,14 +45,24 @@ memory_pool<T>::alloc()
 {
 	int i, j, index;
 
-	//printstr("memory_pool<T>::alloc()\n");
+	memory_pool<T> *head = this->head();
+	memory_pool<T> *tail = this->tail();
 
 	if (m_table == nullptr) {
 		for (i = 0; i < memory_pool_free_bits_size; ++i) {
 			m_free_bits[i] = 0xfffffffffffffffful;
 		}
-		//m_table = new T[64 * memory_pool_free_bits_size];
 		m_table = (T *)memory_alloc(sizeof(T) * 64 * memory_pool_free_bits_size);
+	}
+
+	if ((head->m_allocating == false)
+	 && (head->vacancy() < memory_pool_vacancy_threshold1)) {
+		head->m_allocating = true;
+		if (tail->m_next == nullptr) {
+			tail->m_next = new memory_pool<T>();
+			tail->m_next->m_prev = tail;
+		}
+		head->m_allocating = false;
 	}
 
 	index = -1;
@@ -86,9 +93,9 @@ memory_pool<T>::free(T *ptr)
 	int i, j, index;
 	char *cp;
 
-	//printstr("memory_pool<T>::free(T *ptr)\n");
+	memory_pool<T> *head = this->head();
+	//memory_pool<T> *tail = this->tail();
 
-	//index = (((uint64_t)ptr) - ((uint64_t)m_table)) / sizeof(T);
 	index = (int)(ptr - m_table);
 	i = index >> 6;
 	j = index & 0x3ful;
@@ -125,11 +132,14 @@ memory_pool<T>::free(T *ptr)
 	for (i = 0; i < memory_pool_free_bits_size; ++i) {
 		count += count_population_64(~m_free_bits[i]);
 	}
+/*
 	if (count == 0 && m_table != nullptr) {
 		memory_free(m_table);
 		m_table = nullptr;
 	}
-	if (count == 0 && m_prev != nullptr) {
+*/
+	if ((count == 0 && m_prev != nullptr)
+	 && (head->vacancy() > memory_pool_vacancy_threshold2)) {
 		m_prev->m_next = m_next;
 		if (m_next != nullptr) {
 			m_next->m_prev = m_prev;
@@ -138,6 +148,28 @@ memory_pool<T>::free(T *ptr)
 		m_prev = nullptr;
 		delete this;
 	}
+}
+
+template<class T>
+memory_pool<T> *
+memory_pool<T>::head()
+{
+	memory_pool<T> *head = this;
+	while (head->m_prev != nullptr) {
+		head = head->m_prev;
+	}
+	return head;
+}
+
+template<class T>
+memory_pool<T> *
+memory_pool<T>::tail()
+{
+	memory_pool<T> *tail = this;
+	while (tail->m_next != nullptr) {
+		tail = tail->m_next;
+	}
+	return tail;
 }
 
 template<class T>

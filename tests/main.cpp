@@ -20,7 +20,7 @@
 #include "memory_pool_test.h"
 #include "memory_management_test.h"
 #include "ring_buffer_test.h"
-#include "config_model_test.h"
+#include "config_test.h"
 
 #include "main.h"
 
@@ -44,7 +44,6 @@ struct test_module {
 	char const *name;
 	void (*func)();
 } test_modules[] = {
-/*
 	{
 		.name	= "文字列",
 		.func	= utf8str_test,
@@ -74,10 +73,9 @@ struct test_module {
 		.func	= ring_buffer_test,
 	},
 	{
-		.name	= "設定モデル",
-		.func	= config_model_test,
+		.name	= "設定",
+		.func	= config_test,
 	},
-*/
 	{
 		.func	= nullptr,
 	},
@@ -175,7 +173,7 @@ memory_leak_test_end(char const *title)
 	} else {
 		res4 = test_result::fail;
 	}
-
+/*
 	utf8str s1(title);
 	s1 += "(alloc_size)";
 	print_test_result(s1.ptr(), res1);
@@ -183,7 +181,7 @@ memory_leak_test_end(char const *title)
 	utf8str s2(title);
 	s2 += "(free_size)";
 	print_test_result(s2.ptr(), res2);
-
+*/
 	utf8str s3(title);
 	s3 += "(bidir_node_int_count)";
 	print_test_result(s3.ptr(), res3);

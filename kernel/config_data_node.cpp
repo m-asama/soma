@@ -15,6 +15,15 @@ config_data_node::config_data_node()
 
 config_data_node::~config_data_node()
 {
+	linked_list<config_data_node> dellist;
+	bidir_node<config_data_node> *bn;
+	for (bn = m_children.head(); bn != nullptr; bn = bn->next()) {
+		dellist.insert_tail(bn->v());
+	}
+	for (bn = dellist.head(); bn != nullptr; bn = bn->next()) {
+		m_children.remove(bn->v());
+		delete &bn->v();
+	}
 }
 
 config_data_node::config_data_node(const config_data_node &src)
@@ -150,6 +159,12 @@ sorted_list<config_data_node> &
 config_data_node::children()
 {
 	return m_children;
+}
+
+uint64_t
+config_data_node::count()
+{
+	return s_mem_pool.count();
 }
 
 memory_pool<config_data_node> config_data_node::s_mem_pool;

@@ -15,6 +15,8 @@
 #include "irqchip_management.h"
 #include "pci_management.h"
 #include "thread_management.h"
+#include "config_management.h"
+#include "command_management.h"
 
 #include "loader_info.h"
 
@@ -48,13 +50,17 @@ main(void *ptr)
 
 	console_init2();
 
-//	memory_dump();
-
 	pci_init();
+
+	config_init();
+	command_init();
 
 	processor_dump();
 	irqchip_dump();
 	thread_dump();
+
+//	memory_dump();
+	memory_stats();
 
 	printstr("日本語のテスト\n");
 

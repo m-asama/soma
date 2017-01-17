@@ -23,6 +23,8 @@
 #include "intel64_processor_interrupt_handler_init.h"
 #include "spinlock.h"
 
+#include "debug.h"
+
 #include "console_management.h"
 
 #include "intel64_processor.h"

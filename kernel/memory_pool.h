@@ -73,6 +73,18 @@ public:
 	void free(T *ptr);
 
 	/**
+	 * 割当済みプールの先頭を返す。
+	 * @return 先頭のメモリプール。
+	 */
+	memory_pool<T> *head();
+
+	/**
+	 * 割当済みプールの末尾を返す。
+	 * @return 末尾のメモリプール。
+	 */
+	memory_pool<T> *tail();
+
+	/**
 	 * 現在割り当てられている数を返す関数。
 	 * @return 現在割り当てられている数。
 	 */

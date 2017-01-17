@@ -133,6 +133,11 @@ public:
 	 */
 	sorted_list<config_data_node> &children();
 
+	/**
+	 *
+	 */
+	static uint64_t count();
+
 private:
 	/**
 	 *
