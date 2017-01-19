@@ -9,6 +9,7 @@
 #include "type.h"
 #include "font_data.h"
 #include "ring_buffer.h"
+#include "spinlock.h"
 
 struct keymap
 {

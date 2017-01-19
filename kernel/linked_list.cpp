@@ -131,14 +131,14 @@ linked_list<V>::find(const V &v)
 
 template<class V>
 bidir_node<V> *
-linked_list<V>::head()
+linked_list<V>::head() const
 {
 	return m_head;
 }
 
 template<class V>
 bidir_node<V> *
-linked_list<V>::tail()
+linked_list<V>::tail() const
 {
 	return m_tail;
 }

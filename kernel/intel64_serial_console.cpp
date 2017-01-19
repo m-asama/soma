@@ -107,6 +107,9 @@ serial_console::read_from_serial()
 		c = inb(m_io_port_base);
 		m_ibuf.write(c);
 		++readed;
+		/* XXX: 後で見直す。 */
+		volatile int i = 100000;
+		while (--i > 0);
 	}
 	return readed;
 }
@@ -127,6 +130,7 @@ serial_console::reset()
 	//outb(m_io_port_base+4, 0x0b);
 	outb(m_io_port_base+1, 0x01);
 
+	/* コンソールの大きさを取得。 */
 	char buf[16] = "\x1b[18t";
 	// \033[18t
 	for (int i = 0; buf[i] != '\0'; ++i) {
@@ -169,15 +173,22 @@ serial_console::reset()
 		colst = parse_uint64(ptr);
 	cols(colst);
 	rows(rowst);
-	console_base::reset();
 
-	putchar('\n');
-	for (int y = 0; y < rows(); ++y) {
-		for (int x = 0; x < cols(); ++x) {
-			putchar(' ');
-		}
-		putchar('\n');
+	/* コンソールのクリア。 */
+	char buf2[16] = "\x1b[2J";
+	for (int i = 0; buf2[i] != '\0'; ++i) {
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, buf2[i]);
 	}
+
+	/* カーソルを [1:1] へ移動。 */
+	char buf3[16] = "\x1b[1;1H";
+	for (int i = 0; buf3[i] != '\0'; ++i) {
+		while ((inb(m_io_port_base+5) & 0x20) == 0);
+		outb(m_io_port_base, buf3[i]);
+	}
+
+	console_base::reset();
 }
 
 void
@@ -185,16 +196,58 @@ serial_console::refresh()
 {
 }
 
+void
+serial_console::handle_osc(char const *buf, const char c)
+{
+	switch (c) {
+	case 'A':
+		handle_arrow(console_arrow::arrow_up);
+		break;
+	case 'B':
+		handle_arrow(console_arrow::arrow_down);
+		break;
+	case 'C':
+		handle_arrow(console_arrow::arrow_right);
+		break;
+	case 'D':
+		handle_arrow(console_arrow::arrow_left);
+		break;
+	}
+}
+
 uint32_t
 serial_console::getchar()
 {
-	uint32_t c = 0;
-	char buf[6];
+	uint32_t c;
+	char buf[16];
 
 	for (int i = 0; i < 6; ++i) {
 		buf[i] = m_ibuf[i];
 	}
 
+	if ((m_ibuf.readable() > 2)
+	 && (m_ibuf[0] == 0x1b)
+	 && (m_ibuf[1] == 0x5b)) {
+		for (int i = 2; i < m_ibuf.readable(); ++i) {
+			if ((m_ibuf[i] >= 0x40) && (m_ibuf[i] <= 0x7e)) {
+				for (int j = 0; j <= i; ++j) {
+					buf[j] = m_ibuf[j];
+				}
+				for (int j = 0; j <= i; ++j) {
+					uint8_t dummy;
+					m_ibuf.read(dummy);
+				}
+				handle_osc(buf, buf[i]);
+				break;
+			}
+		}
+	}
+
+	for (int i = 0; i < 6; ++i) {
+		buf[i] = m_ibuf[i];
+	}
+
+	c = 0;
 	int utf8len = utf8_to_unicode(buf, &c);
 	if (utf8len <= m_ibuf.readable()) {
 		for (int i = 0; i < utf8len; ++i) {

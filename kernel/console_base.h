@@ -8,7 +8,35 @@
 
 #include "type.h"
 #include "utf8str.h"
+#include "linked_list.h"
 #include "thread.h"
+
+/**
+ * コンソールの権限。
+ */
+enum class console_role {
+	role_administrator,
+	role_operator,
+};
+
+/**
+ * コンソールのモード。
+ */
+enum class console_mode {
+	mode_prompt,
+	mode_password,
+	mode_pager,
+};
+
+/**
+ * 矢印キー。
+ */
+enum class console_arrow {
+	arrow_up,
+	arrow_down,
+	arrow_right,
+	arrow_left,
+};
 
 /**
  * コンソールの基底クラス。
@@ -141,6 +169,35 @@ public:
 	thread *console_thread();
 
 	/**
+	 * 現在の権限を設定。
+	 * @param current_role 現在の権限。
+	 */
+	void current_role(console_role current_role);
+
+	/**
+	 * 現在の権限を返す。
+	 * @return 現在の権限。
+	 */
+	console_role current_role();
+
+	/**
+	 * 現在のモードを設定。
+	 * @param current_mode 現在のモード。
+	 */
+	void current_mode(console_mode current_mode);
+
+	/**
+	 * 現在のモードを返す。
+	 * @return 現在のモード。
+	 */
+	console_mode current_mode();
+
+	/**
+	 * プロンプトを表示する。
+	 */
+	void print_prompt();
+
+	/**
 	 * コンソールをリセットする。
 	 */
 	virtual void reset();
@@ -174,6 +231,11 @@ public:
 	 * コンソールを一行送る。
 	 */
 	void line_shift();
+
+	/**
+	 * 矢印キーの処理。
+	 */
+	void handle_arrow(console_arrow arrow);
 
 private:
 	/**
@@ -210,6 +272,31 @@ private:
 	 * コンソールスレッド。
 	 */
 	thread *m_console_thread;
+
+	/**
+	 * 現在の権限。
+	 */
+	console_role m_current_role;
+
+	/**
+	 * 現在のモード。
+	 */
+	console_mode m_current_mode;
+
+	/**
+	 * 編集中の設定のパス。
+	 */
+	utf8str m_edit_path;
+
+	/**
+	 * コマンドライン上の文字列。
+	 */
+	utf8str m_command_line;
+
+	/**
+	 * 実行したコマンドの履歴。
+	 */
+	linked_list<utf8str> m_command_history;
 
 };
 

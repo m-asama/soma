@@ -147,6 +147,11 @@ public:
 	 */
 	uint64_t read_from_serial();
 
+	/**
+	 * Control Sequence Introducer を処理。
+	 */
+	void handle_osc(char const *buf, const char c);
+
 private:
 	/**
 	 * I/O ポートのベース。

@@ -16,10 +16,13 @@ console_base::console_base()
 	m_cursor_x = 0;
 	m_cursor_y = 0;
 	m_console_thread = nullptr;
+	m_current_role = console_role::role_operator;
+	m_current_mode = console_mode::mode_prompt;
 }
 
 console_base::~console_base()
 {
+	bidir_node<utf8str> *bn;
 	m_cols = 0;
 	m_rows = 0;
 	if (m_buffer != nullptr)
@@ -28,6 +31,10 @@ console_base::~console_base()
 	m_cursor_y = 0;
 	if (m_console_thread != nullptr)
 		delete m_console_thread;
+	while ((bn = m_command_history.head()) != nullptr) {
+		m_command_history.remove(bn->v());
+		delete &bn->v();
+	}
 }
 
 bool
@@ -121,6 +128,53 @@ console_base::console_thread()
 }
 
 void
+console_base::current_role(console_role current_role)
+{
+	m_current_role = current_role;
+}
+
+console_role
+console_base::current_role()
+{
+	return m_current_role;
+}
+
+void
+console_base::current_mode(console_mode current_mode)
+{
+	m_current_mode = current_mode;
+}
+
+console_mode
+console_base::current_mode()
+{
+	return m_current_mode;
+}
+
+void
+console_base::print_prompt()
+{
+	utf8str prompt;
+	prompt += "[edit";
+	if (m_edit_path.length() > 0) {
+		prompt += " ";
+	}
+	prompt += m_edit_path;
+	prompt += "]\n";
+	switch (m_current_role) {
+	case console_role::role_administrator:
+		prompt += "# ";
+		break;
+	case console_role::role_operator:
+		prompt += "$ ";
+		break;
+	default:
+		prompt += "? ";
+	}
+	print(prompt.ptr());
+}
+
+void
 console_base::reset()
 {
 	int x, y;
@@ -169,6 +223,9 @@ console_base::print(const char *str)
 	int b = 0;
 	uint32_t c;
 
+	if (str == nullptr)
+		return 0;
+
 	while (*str != '\0') {
 		b = utf8_to_unicode(str, &c);
 		putchar(c);
@@ -202,5 +259,20 @@ console_base::line_shift()
 	}
 
 	refresh();
+}
+
+void
+console_base::handle_arrow(console_arrow arrow)
+{
+	switch (arrow) {
+	case console_arrow::arrow_up:
+		break;
+	case console_arrow::arrow_down:
+		break;
+	case console_arrow::arrow_right:
+		break;
+	case console_arrow::arrow_left:
+		break;
+	}
 }
 

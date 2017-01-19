@@ -77,13 +77,13 @@ public:
 	 * リンクリストの先頭の bidir_node へのポインタを返す。
 	 * @return リンクリストの先頭の bidir_node へのポインタ。
 	 */
-	bidir_node<V> *head();
+	bidir_node<V> *head() const;
 
 	/**
 	 * リンクリストの末尾の bidir_node へのポインタを返す
 	 * @return リンクリストの末尾の bidir_node へのポインタ。
 	 */
-	bidir_node<V> *tail();
+	bidir_node<V> *tail() const;
 
 	/**
 	 * リンクリストに登録された値の数。

@@ -78,6 +78,13 @@ public:
 	utf8str &operator+=(const char *s);
 
 	/**
+	 * 文字列の末尾に文字を追加する演算子。
+	 * @param c 追加する文字。
+	 * @return 追加後の文字列。
+	 */
+	utf8str &operator+=(const uint32_t c);
+
+	/**
 	 * 文字列を比較する演算子。
 	 * @param s 比較対象の文字列。
 	 * @return 文字列が引数と一致した場合に true を返す。

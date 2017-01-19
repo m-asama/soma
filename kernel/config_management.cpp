@@ -6,10 +6,15 @@
 
 #include "print.h"
 #include "config_model_build.h"
+#include "config_model_node.h"
+#include "config_data_node.h"
 
 #include "config_management.h"
 
 config_model_node *config_model_node_root;
+
+config_data_node *config_data_node_running;
+config_data_node *config_data_node_candidate;
 
 void
 config_model_dump_recursive(config_model_node *n, int indent)
@@ -39,6 +44,12 @@ config_model_dump()
 void
 config_init()
 {
+	config_data_node_running = new config_data_node;
+	config_data_node_running->type(config_data_node_type::type_keyword);
+	config_data_node_running->label("");
+	config_data_node_candidate = new config_data_node;
+	config_data_node_candidate->type(config_data_node_type::type_keyword);
+	config_data_node_candidate->label("");
 	config_model_build();
 }
 

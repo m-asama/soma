@@ -12,6 +12,7 @@
 #include "thread_management.h"
 #include "processor_management.h"
 #include "spinlock.h"
+#include "debug.h"
 
 #include "loader_info.h"
 
@@ -161,12 +162,6 @@ console_thread_main(thread *t)
 */
 		uint32_t c;
 		while((c = cb.getchar()) > 0) {
-/*
-			utf8str x;
-			x.append_hex64(c, 2);
-			x += " ";
-			printstr(x);
-*/
 			cb.putchar(c);
 		}
 

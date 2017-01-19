@@ -127,6 +127,14 @@ utf8str::operator+=(const char *s)
 	return append_utf8str(s, 0);
 }
 
+utf8str &
+utf8str::operator+=(const uint32_t c)
+{
+	char cc[8];
+	unicode_to_utf8(&c, cc);
+	return append_utf8str(cc, 0);
+}
+
 bool
 utf8str::operator==(const utf8str &s)
 {
