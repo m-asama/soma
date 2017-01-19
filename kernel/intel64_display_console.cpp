@@ -280,7 +280,7 @@ display_console::refresh()
 				font = font_find(0x00);
 			if (font == nullptr)
 				return;
-			plot_char(x * 8, y * 16, font);
+			plotchar(x * 8, y * 16, c);
 			if (font->width == 16) {
 				++x;
 			}
@@ -307,19 +307,15 @@ display_console::refresh()
 	}
 }
 
-uint32_t
-display_console::getchar()
+void
+display_console::handler()
 {
-	uint8_t c = 0;
-
-	if (m_ibuf.readable() == 0)
-		return 0;
-
 	while (m_ibuf.readable() > 0) {
+		uint8_t c = 0;
 
 		if (m_ibuf[0] == 0xe0) {
 			if (m_ibuf.readable() < 2) {
-				return 0;
+				return;
 			}
 			switch (m_ibuf[1]) {
 			case 0x1d:
@@ -329,48 +325,36 @@ display_console::getchar()
 			case 0x48: // 上矢印
 				handle_arrow(console_arrow::arrow_up);
 				m_ibuf.read(c); m_ibuf.read(c);
-				c = 0;
 				continue;
 			case 0x50: // 下矢印
 				handle_arrow(console_arrow::arrow_down);
 				m_ibuf.read(c); m_ibuf.read(c);
-				c = 0;
 				continue;
 			case 0x4d: // 右矢印
 				handle_arrow(console_arrow::arrow_right);
 				m_ibuf.read(c); m_ibuf.read(c);
-				c = 0;
 				continue;
 			case 0x4b: // 左矢印
 				handle_arrow(console_arrow::arrow_left);
 				m_ibuf.read(c); m_ibuf.read(c);
-				c = 0;
 				continue;
 			default:
-				m_ibuf.read(c);
-				m_ibuf.read(c);
-				c = 0;
+				m_ibuf.read(c); m_ibuf.read(c);
 				continue;
 			}
 		}
 
 		if (m_ibuf[0] == 0xe1) {
 			if (m_ibuf.readable() < 3) {
-				return 0;
+				return;
 			}
-			m_ibuf.read(c);
-			m_ibuf.read(c);
-			m_ibuf.read(c);
-			c = 0;
+			m_ibuf.read(c); m_ibuf.read(c); m_ibuf.read(c);
 			continue;
 		}
 
 		if ((m_ibuf[0] == 0x08) && (m_ibuf.readable() >= 3)
 		 && (m_ibuf[1] == 0x00) && (m_ibuf[2] == 0x00)) {
-			m_ibuf.read(c);
-			m_ibuf.read(c);
-			m_ibuf.read(c);
-			c = 0;
+			m_ibuf.read(c); m_ibuf.read(c); m_ibuf.read(c);
 			continue;
 		}
 
@@ -378,30 +362,25 @@ display_console::getchar()
 
 		if ((c == 0x2a) || (c == 0x36)) {
 			m_shift_pressed = true;
-			c = 0;
 			continue;
 		}
 
 		if ((c == 0xaa) || (c == 0xb6)) {
 			m_shift_pressed = false;
-			c = 0;
 			continue;
 		}
 
 		if (c == 0x1d) {
 			m_ctrl_pressed = true;
-			c = 0;
 			continue;
 		}
 
 		if (c == 0x9d) {
 			m_ctrl_pressed = false;
-			c = 0;
 			continue;
 		}
 
 		if (c & 0x80) {
-			c = 0;
 			continue;
 		}
 
@@ -411,11 +390,9 @@ display_console::getchar()
 		c = m_keymap->table[c];
 
 		if (c > 0)
-			break;
+			getchar(c);
 
 	}
-
-	return c;
 }
 
 void
@@ -426,14 +403,13 @@ display_console::putchar(uint32_t c)
 	bool wchar;
 
 	if ((c == 0x08) || (c == 0x7f)) {
-		font = font_find(' ');
 		if (cursor_x() > 0) {
 			cursor_x(cursor_x() - 1);
-			plot_char(cursor_x() * 8, cursor_y() * 16, font);
+			plotchar(cursor_x() * 8, cursor_y() * 16, ' ');
 		}
 		if ((cursor_x() > 0) && (buffer()[cols() * cursor_y() + cursor_x()] == 0xff)) {
 			cursor_x(cursor_x() - 1);
-			plot_char(cursor_x() * 8, cursor_y() * 16, font);
+			plotchar(cursor_x() * 8, cursor_y() * 16, ' ');
 		}
 		return;
 	}
@@ -466,7 +442,7 @@ display_console::putchar(uint32_t c)
 
 	x = cursor_x();
 	y = cursor_y();
-	plot_char(x * 8, y * 16, font);
+	plotchar(x * 8, y * 16, c);
 	buffer()[cols() * y + x] = c;
 	if (wchar) {
 		buffer()[cols() * y + (x + 1)] = 0xff;
@@ -484,10 +460,14 @@ display_console::putchar(uint32_t c)
 }
 
 void
-display_console::plot_char(uint32_t x, uint32_t y, struct font_data *font)
+display_console::plotchar(uint32_t x, uint32_t y, uint32_t c)
 {
 	uint32_t *base = (uint32_t *)m_uefifb_addr;
+	struct font_data *font;
 
+	font = font_find(c);
+	if (font == nullptr)
+		font = font_find(0x00);
 	if (font == nullptr)
 		return;
 

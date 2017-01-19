@@ -215,47 +215,48 @@ serial_console::handle_osc(char const *buf, const char c)
 	}
 }
 
-uint32_t
-serial_console::getchar()
+void
+serial_console::handler()
 {
-	uint32_t c;
-	char buf[16];
+	while (m_ibuf.readable() > 0) {
+		char buf[16];
 
-	for (int i = 0; i < 6; ++i) {
-		buf[i] = m_ibuf[i];
-	}
+		for (int i = 0; i < 6; ++i) {
+			buf[i] = m_ibuf[i];
+		}
 
-	if ((m_ibuf.readable() > 2)
-	 && (m_ibuf[0] == 0x1b)
-	 && (m_ibuf[1] == 0x5b)) {
-		for (int i = 2; i < m_ibuf.readable(); ++i) {
-			if ((m_ibuf[i] >= 0x40) && (m_ibuf[i] <= 0x7e)) {
-				for (int j = 0; j <= i; ++j) {
-					buf[j] = m_ibuf[j];
+		if ((m_ibuf.readable() > 2)
+		 && (m_ibuf[0] == 0x1b)
+		 && (m_ibuf[1] == 0x5b)) {
+			for (int i = 2; i < m_ibuf.readable(); ++i) {
+				if ((m_ibuf[i] >= 0x40) && (m_ibuf[i] <= 0x7e)) {
+					for (int j = 0; j <= i; ++j) {
+						buf[j] = m_ibuf[j];
+					}
+					for (int j = 0; j <= i; ++j) {
+						uint8_t dummy;
+						m_ibuf.read(dummy);
+					}
+					handle_osc(buf, buf[i]);
+					continue;
 				}
-				for (int j = 0; j <= i; ++j) {
-					uint8_t dummy;
-					m_ibuf.read(dummy);
-				}
-				handle_osc(buf, buf[i]);
-				break;
 			}
 		}
-	}
 
-	for (int i = 0; i < 6; ++i) {
-		buf[i] = m_ibuf[i];
-	}
-
-	c = 0;
-	int utf8len = utf8_to_unicode(buf, &c);
-	if (utf8len <= m_ibuf.readable()) {
-		for (int i = 0; i < utf8len; ++i) {
-			uint8_t dummy;
-			m_ibuf.read(dummy);
+		for (int i = 0; i < 6; ++i) {
+			buf[i] = m_ibuf[i];
 		}
+
+		uint32_t c = 0;
+		int utf8len = utf8_to_unicode(buf, &c);
+		if (utf8len <= m_ibuf.readable()) {
+			for (int i = 0; i < utf8len; ++i) {
+				uint8_t dummy;
+				m_ibuf.read(dummy);
+			}
+		}
+		getchar(c);
 	}
-	return c;
 }
 
 void
@@ -287,5 +288,10 @@ serial_console::putchar(uint32_t c)
 		while ((inb(m_io_port_base+5) & 0x20) == 0);
 		outb(m_io_port_base, '\n');
 	}
+}
+
+void
+serial_console::plotchar(uint32_t x, uint32_t y, uint32_t c)
+{
 }
 

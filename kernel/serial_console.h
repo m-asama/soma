@@ -58,16 +58,21 @@ public:
 	virtual void refresh();
 
 	/**
-	 * コンソールから一文字入力するための関数。
-	 * @return コンソールから得られた文字。
+	 * 入力ハンドラ。
 	 */
-	virtual uint32_t getchar();
+	virtual void handler();
 
 	/**
 	 * コンソールへ一文字出力するための関数。
 	 * @param c UNICODE で表現された一文字。
 	 */
 	virtual void putchar(uint32_t c);
+
+	/**
+	 * コンソールへ一文字出力するための関数。
+	 * @param c UNICODE で表現された一文字。
+	 */
+	virtual void plotchar(uint32_t x, uint32_t y, uint32_t c);
 
 	/**
 	 * I/O ポート番号のベースを設定する関数。

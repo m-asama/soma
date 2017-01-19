@@ -66,6 +66,8 @@ main(void *ptr)
 
 	printstr("End of main...\n");
 
+	console_print_prompt();
+
 	processor_start();
 }
 

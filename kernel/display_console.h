@@ -67,16 +67,21 @@ public:
 	virtual void refresh();
 
 	/**
-	 * コンソールから一文字入力するための関数。
-	 * @return コンソールから得られた文字。
+	 * 入力ハンドラ。
 	 */
-	virtual uint32_t getchar();
+	virtual void handler();
 
 	/**
 	 * コンソールへ一文字出力するための関数。
 	 * @param c UNICODE で表現された一文字。
 	 */
 	virtual void putchar(uint32_t c);
+
+	/**
+	 * コンソールへ一文字出力するための関数。
+	 * @param c UNICODE で表現された一文字。
+	 */
+	virtual void plotchar(uint32_t x, uint32_t y, uint32_t c);
 
 	/**
 	 * UEFI フレームバッファのベースアドレスを設定するための関数。
@@ -193,14 +198,6 @@ public:
 	uint64_t read_from_keyboard();
 
 private:
-	/**
-	 * 指定した位置に指定したフォントを表示する関数。
-	 * @param x フォントを表示する横方向の位置。
-	 * @param y フォントを表示する縦方向の位置。
-	 * @param font 表示したいフォントへのポインタ。
-	 */
-	void plot_char(uint32_t x, uint32_t y, struct font_data *font);
-
 	/**
 	 * UEFI フレームバッファのベースアドレス。
 	 */

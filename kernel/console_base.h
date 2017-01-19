@@ -193,11 +193,6 @@ public:
 	console_mode current_mode();
 
 	/**
-	 * プロンプトを表示する。
-	 */
-	void print_prompt();
-
-	/**
 	 * コンソールをリセットする。
 	 */
 	virtual void reset();
@@ -208,14 +203,24 @@ public:
 	virtual void refresh();
 
 	/**
-	 * コンソールから一文字取得する。
+	 * 入力ハンドラ。
 	 */
-	virtual uint32_t getchar() = 0;
+	virtual void handler() = 0;
 
 	/**
 	 * コンソールへ一文字表示する。
 	 */
 	virtual void putchar(uint32_t c) = 0;
+
+	/**
+	 * コンソールへ一文字表示する。
+	 */
+	virtual void plotchar(uint32_t x, uint32_t y, uint32_t c) = 0;
+
+	/**
+	 * コンソールで一文字処理する。
+	 */
+	void getchar(uint32_t c);
 
 	/**
 	 * 文字列を表示する。
@@ -231,6 +236,11 @@ public:
 	 * コンソールを一行送る。
 	 */
 	void line_shift();
+
+	/**
+	 * プロンプトを表示する。
+	 */
+	void print_prompt();
 
 	/**
 	 * 矢印キーの処理。

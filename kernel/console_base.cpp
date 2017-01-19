@@ -152,29 +152,6 @@ console_base::current_mode()
 }
 
 void
-console_base::print_prompt()
-{
-	utf8str prompt;
-	prompt += "[edit";
-	if (m_edit_path.length() > 0) {
-		prompt += " ";
-	}
-	prompt += m_edit_path;
-	prompt += "]\n";
-	switch (m_current_role) {
-	case console_role::role_administrator:
-		prompt += "# ";
-		break;
-	case console_role::role_operator:
-		prompt += "$ ";
-		break;
-	default:
-		prompt += "? ";
-	}
-	print(prompt.ptr());
-}
-
-void
 console_base::reset()
 {
 	int x, y;
@@ -200,22 +177,11 @@ console_base::refresh()
 {
 }
 
-/*
-uint32_t
-console_base::getchar()
-{
-	return 0;
-}
-*/
-
-/*
 void
-console_base::putchar(uint32_t c)
+console_base::getchar(uint32_t c)
 {
-	if (m_buffer == nullptr)
-		return;
+	putchar(c);
 }
-*/
 
 int
 console_base::print(const char *str)
@@ -262,16 +228,43 @@ console_base::line_shift()
 }
 
 void
+console_base::print_prompt()
+{
+	utf8str prompt;
+	prompt += "[edit";
+	if (m_edit_path.length() > 0) {
+		prompt += " ";
+	}
+	prompt += m_edit_path;
+	prompt += "]\n";
+	switch (m_current_role) {
+	case console_role::role_administrator:
+		prompt += "# ";
+		break;
+	case console_role::role_operator:
+		prompt += "$ ";
+		break;
+	default:
+		prompt += "? ";
+	}
+	print(prompt.ptr());
+}
+
+void
 console_base::handle_arrow(console_arrow arrow)
 {
 	switch (arrow) {
 	case console_arrow::arrow_up:
+		putchar('u');
 		break;
 	case console_arrow::arrow_down:
+		putchar('d');
 		break;
 	case console_arrow::arrow_right:
+		putchar('r');
 		break;
 	case console_arrow::arrow_left:
+		putchar('l');
 		break;
 	}
 }

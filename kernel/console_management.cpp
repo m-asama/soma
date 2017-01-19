@@ -37,24 +37,6 @@ console_putchar(uint32_t c)
 	consoles_lock->release();
 }
 
-uint32_t
-console_getchar()
-{
-	uint32_t c;
-	bidir_node<console_base> *bn;
-
-	consoles_lock->acquire();
-	for (bn = consoles->head(); bn != nullptr; bn = bn->next()) {
-		c = bn->v().getchar();
-		if (c > 0) {
-			break;
-		}
-	}
-	consoles_lock->release();
-
-	return c;
-}
-
 void
 display_console_keyboard_interrupt_handler_fn(uint8_t gsi)
 {
@@ -160,11 +142,7 @@ console_thread_main(thread *t)
 		x += "\n";
 		printstr(x);
 */
-		uint32_t c;
-		while((c = cb.getchar()) > 0) {
-			cb.putchar(c);
-		}
-
+		cb.handler();
 		reschedule();
 	}
 }
@@ -285,5 +263,17 @@ console_init2()
 	interrupt_handler_register(serial_console_ih1);
 	interrupt_handler_register(serial_console_ih2);
 
+}
+
+void
+console_print_prompt()
+{
+	bidir_node<console_base> *bn;
+	consoles_lock->acquire();
+	for (bn = consoles->head(); bn != nullptr; bn = bn->next()) {
+		console_base &cb = bn->v();
+		cb.print_prompt();
+	}
+	consoles_lock->release();
 }
 
