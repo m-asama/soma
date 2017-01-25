@@ -47,7 +47,7 @@ display_console_keyboard_interrupt_handler_fn(uint8_t gsi)
 	x += " 0x";
 	x.append_hex64(gsi, 2);
 	x += "\n";
-	printstr(x);
+	print(x);
 	*/
 	bidir_node<display_console> *bn;
 	for (bn = display_consoles->head(); bn != nullptr; bn = bn->next()) {
@@ -60,7 +60,7 @@ display_console_keyboard_interrupt_handler_fn(uint8_t gsi)
 			str += ": ";
 			thread_state_append(ct->state(), str);
 			str += " => pending\n";
-			printstr(str);
+			print(str);
 */
 			ct->state(thread_state::pending);
 		}
@@ -92,7 +92,7 @@ serial_console_interrupt_handler_fn(uint8_t gsi)
 	x += " 0x";
 	x.append_hex64(gsi, 2);
 	x += "\n";
-	printstr(x);
+	print(x);
 	*/
 	bidir_node<serial_console> *bn;
 	for (bn = serial_consoles->head(); bn != nullptr; bn = bn->next()) {
@@ -106,7 +106,7 @@ serial_console_interrupt_handler_fn(uint8_t gsi)
 				str += ": ";
 				thread_state_append(ct->state(), str);
 				str += " => pending\n";
-				printstr(str);
+				print(str);
 */
 				ct->state(thread_state::pending);
 			}
@@ -140,7 +140,7 @@ console_thread_main(thread *t)
 		x += " RSP:0x";
 		x.append_hex64((uint64_t)rsp(), 16);
 		x += "\n";
-		printstr(x);
+		print(x);
 */
 		cb.handler();
 		reschedule();
@@ -248,7 +248,7 @@ console_init2()
 		console_base &cb = bn->v();
 		thread *ct = thread_alloc(console_thread_main);
 		if (ct == nullptr) {
-			printstr("console_thread のメモリ割当に失敗しました。\n");
+			print("console_thread のメモリ割当に失敗しました。\n");
 			panic();
 		}
 		ct->name(cb.name());

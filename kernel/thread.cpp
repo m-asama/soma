@@ -138,7 +138,7 @@ thread::dump()
 	s += " NAME = ";
 	s += m_name;
 	s += "\n";
-	printstr(s);
+	print(s);
 /*
 	if (m_processor_state != nullptr) {
 		m_processor_state->dump();

@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "utf8str.h"
+
 /**
  * テスト結果。
  */
@@ -28,5 +30,10 @@ void memory_leak_test_end(char const *title);
 /**
  * テスト結果表示関数。
  */
-void print_test_result(char const *test_name, test_result test_result);
+void print_test_result(utf8str test_name, test_result test_result);
+
+/**
+ * テスト結果表示関数。
+ */
+void print_test_result(const char *test_name, test_result test_result);
 

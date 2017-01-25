@@ -75,24 +75,20 @@ printhex64(const uint64_t ul)
 }
 
 int
-printstr(const char *str)
+print(const utf8str str)
 {
-	int b;
-	uint32_t c;
-
-	while (*str != '\0') {
-		b = utf8_to_unicode(str, &c);
-		putchar(c);
-		str += b;
+	int c = 0;
+	for (int i = 0; i < str.unicode_length(); ++i) {
+		putchar(str[i]);
+		++c;
 	}
-
-	return 0;
+	return c;
 }
 
 int
-printstr(const utf8str &str)
+print(const char *str)
 {
-	return printstr(str.ptr());
+	utf8str s(str);
+	return print(s);
 }
-
 

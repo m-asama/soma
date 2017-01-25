@@ -75,7 +75,7 @@ interrupt_handler_dispatcher()
 	curps = processor_state_storage[processor_id()];
 
 	if (curps == nullptr) {
-		printstr("interrupt_handler: curps == nullptr\n");
+		print("interrupt_handler: curps == nullptr\n");
 	}
 
 	ssp = &curps->stacked_size;
@@ -86,7 +86,7 @@ interrupt_handler_dispatcher()
 		x += "IH GSI = 0x";
 		x.append_hex64(*gsi, 2);
 		x += "\n";
-		printstr(x);
+		print(x);
 	}
 */
 	interrupt_handlers_lock->acquire();
@@ -119,7 +119,7 @@ interrupt_handler_dispatcher()
 		x += " => ";
 		x += newt.name();
 		x += "\n";
-		printstr(x);
+		print(x);
 	}
 */
 	if (oldt.state() != thread_state::idle) {
@@ -128,7 +128,7 @@ interrupt_handler_dispatcher()
 		str += ": ";
 		thread_state_append(oldt.state(), str);
 		str += " => pending\n";
-		printstr(str);
+		print(str);
 */
 		oldt.state(thread_state::pending);
 	}
@@ -138,7 +138,7 @@ interrupt_handler_dispatcher()
 		str += ": ";
 		thread_state_append(newt.state(), str);
 		str += " => running\n";
-		printstr(str);
+		print(str);
 */
 		newt.state(thread_state::running);
 	}
@@ -216,7 +216,7 @@ interrupt_handler_dispatcher()
 		x += " => ";
 		x.append_hex64(newps->rip, 16);
 		x += "\n";
-		printstr(x);
+		print(x);
 	}
 */
 
@@ -320,7 +320,7 @@ processor_init_one(uint64_t id)
 
 	io_thread = thread_alloc(io_thread_main);
 	if (io_thread == nullptr) {
-		printstr("thread_alloc() に失敗しました。\n");
+		print("thread_alloc() に失敗しました。\n");
 		panic();
 	}
 
@@ -330,7 +330,7 @@ processor_init_one(uint64_t id)
 
 	processor = processor_alloc(*io_thread);
 	if (processor == nullptr) {
-		printstr("processor_alloc() に失敗しました。\n");
+		print("processor_alloc() に失敗しました。\n");
 		panic();
 	}
 
@@ -360,7 +360,7 @@ timer_interrupt_handler_fn(uint8_t gsi)
 	x += " 0x";
 	x.append_hex64(gsi, 2);
 	x += "\n";
-	printstr(x);
+	print(x);
 */
 }
 
@@ -387,13 +387,13 @@ processor_init(struct loader_info *li)
 	processors = new sorted_list<processor_base>;
 
 	if (processors == nullptr) {
-		printstr("プロセッサーのリストの初期化に失敗しました。\n");
+		print("プロセッサーのリストの初期化に失敗しました。\n");
 		panic();
 	}
 
 	subsequent_processor_boot_code = memory_alloc_page_lo(memory_page_size::page_size_4k);
 	if ((((uint64_t)subsequent_processor_boot_code) >> 12) > 0xff) {
-		printstr("subsequent_processor_boot_code のベクタがオーバーフローします。\n");
+		print("subsequent_processor_boot_code のベクタがオーバーフローします。\n");
 		panic();
 	}
 	extern uint64_t mptramp_start;
@@ -546,7 +546,7 @@ processor_start()
 			sleep(1000);
 			++count;
 			if (count > 1000) {
-				printstr("subsequent_processor_start に失敗しました。\n");
+				print("subsequent_processor_start に失敗しました。\n");
 				panic();
 			}
 		}
@@ -598,7 +598,7 @@ idle()
 	str += ": ";
 	thread_state_append(t.state(), str);
 	str += " => idle\n";
-	printstr(str);
+	print(str);
 */
 	t.state(thread_state::idle);
 	hlt();
@@ -614,7 +614,7 @@ reschedule()
 	str += ": ";
 	thread_state_append(t.state(), str);
 	str += " => idle\n";
-	printstr(str);
+	print(str);
 */
 	t.state(thread_state::idle);
 	int_0x20();
@@ -755,7 +755,7 @@ assert_sizeof_entry_classes()
 	}
 
 	if (errors > 0) {
-		printstr(s.ptr());
+		print(s);
 		panic();
 	}
 

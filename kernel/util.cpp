@@ -115,7 +115,7 @@ round_down_64(uint64_t &target, uint64_t align)
 }
 
 uint64_t
-parse_uint64(char const *str)
+parse_uint64(utf8str str)
 {
 	uint64_t val = 0;
 	int i = 0;
@@ -123,24 +123,26 @@ parse_uint64(char const *str)
 	if (str[i] == '+')
 		++i;
 
-	for (; i < 20; ++i) {
+	while (i < str.byte_length()) {
 		if ((str[i] < '0') || (str[i] > '9'))
 			break;
 		val *= 10;
 		val += (str[i] - '0');
+		++i;
 	}
 
 	return val;
 }
 
 uint64_t
-parse_uint64(utf8str str)
+parse_uint64(char const *str)
 {
-	return parse_uint64(str.ptr());
+	utf8str s(str);
+	return parse_uint64(s);
 }
 
 sint64_t
-parse_sint64(char const *str)
+parse_sint64(utf8str str)
 {
 	sint64_t val = 0;
 	sint64_t sign = 1;
@@ -153,19 +155,25 @@ parse_sint64(char const *str)
 		++i;
 	}
 
-	val = sign * parse_uint64(&str[i]);
+	utf8str t;
+	int len = str.unicode_length();
+	for (int j = i; j < len; ++j) {
+		t += str[j];
+	}
+	val = sign * parse_uint64(t);
 
 	return val;
 }
 
 sint64_t
-parse_sint64(utf8str str)
+parse_sint64(char const *str)
 {
-	return parse_sint64(str.ptr());
+	utf8str s(str);
+	return parse_sint64(s);
 }
 
 uint64_t
-parse_hex64(char const *str)
+parse_hex64(utf8str str)
 {
 	uint64_t val = 0;
 	int i = 0;
@@ -199,9 +207,10 @@ parse_hex64(char const *str)
 }
 
 uint64_t
-parse_hex64(utf8str str)
+parse_hex64(char const *str)
 {
-	return parse_hex64(str.ptr());
+	utf8str s(str);
+	return parse_hex64(s);
 }
 
 void

@@ -19,19 +19,19 @@ const static size_t buffer_block_size = 256;
 const static size_t max_width = 256;
 
 static inline size_t
-length(const char *s)
+byte_length(const char *s)
 {
-	size_t length = 0;
+	size_t byte_length = 0;
 
 	if (s == nullptr) {
 		return 0;
 	}
 
-	while (s[length] != '\0') {
-		++length;
+	while (s[byte_length] != '\0') {
+		++byte_length;
 	}
 
-	return length;
+	return byte_length;
 }
 
 static inline size_t
@@ -45,7 +45,7 @@ unicode_length(const char *s)
 
 	uint32_t c;
 	int i = 0;
-	size_t len = length(s);
+	size_t len = byte_length(s);
 	while (i < len) {
 		int count = utf8_to_unicode(&s[i], &c);
 		++unicode_length;
@@ -116,7 +116,7 @@ utf8str::~utf8str()
 
 utf8str::utf8str(const utf8str &src)
 {
-	init_utf8str(src.ptr());
+	init_utf8str(src.m_buffer);
 }
 
 utf8str::utf8str(const char *s)
@@ -136,7 +136,7 @@ utf8str::utf8str(utf8str &&src)
 utf8str &
 utf8str::operator=(const utf8str &src)
 {
-	return assign_utf8str(src.ptr());
+	return assign_utf8str(src.m_buffer);
 }
 
 utf8str &
@@ -162,7 +162,7 @@ utf8str::operator=(utf8str &&src)
 utf8str &
 utf8str::operator+=(const utf8str &s)
 {
-	return append_utf8str(s.ptr(), 0);
+	return append_utf8str(s.m_buffer, 0);
 }
 
 utf8str &
@@ -182,7 +182,7 @@ utf8str::operator+=(const uint32_t c)
 bool
 utf8str::operator==(const utf8str &s)
 {
-	return is_equal(s.ptr());
+	return is_equal(s.m_buffer);
 }
 
 bool
@@ -194,7 +194,7 @@ utf8str::operator==(const char *s)
 bool
 utf8str::operator!=(const utf8str &s)
 {
-	return !is_equal(s.ptr());
+	return !is_equal(s.m_buffer);
 }
 
 bool
@@ -206,7 +206,7 @@ utf8str::operator!=(const char *s)
 bool
 utf8str::operator>(const utf8str &s)
 {
-	return is_large(s.ptr());
+	return is_large(s.m_buffer);
 }
 
 bool
@@ -218,7 +218,7 @@ utf8str::operator>(const char *s)
 bool
 utf8str::operator<(const utf8str &s)
 {
-	return is_small(s.ptr());
+	return is_small(s.m_buffer);
 }
 
 bool
@@ -228,29 +228,9 @@ utf8str::operator<(const char *s)
 }
 
 uint32_t
-utf8str::operator[](sint64_t i)
+utf8str::operator[](sint64_t i) const
 {
-	size_t len = unicode_length();
-	if (len == 0) {
-		return 0;
-	}
-	int index;
-	if (i < 0) {
-		index = (len - ((i * -1) % len)) % len;
-	} else {
-		index = i % len;
-	}
-	int j = 0, k = 0;
-	uint32_t c;
-	while (j < length()) {
-		int count = utf8_to_unicode(&m_buffer[j], &c);
-		if (k == index) {
-			return c;
-		}
-		++k;
-		j += count;
-	}
-	return 0;
+	return unicode_at(i);
 }
 
 void
@@ -265,7 +245,7 @@ utf8str::init_utf8str(const char *s)
 		return;
 	}
 
-	while (buffer_size <= ::length(s)) {
+	while (buffer_size <= ::byte_length(s)) {
 		buffer_size += buffer_block_size;
 	}
 
@@ -293,7 +273,7 @@ utf8str::assign_utf8str(const char *s)
 	}
 	m_buffer_size = 0;
 
-	while (buffer_size <= ::length(s)) {
+	while (buffer_size <= ::byte_length(s)) {
 		buffer_size += buffer_block_size;
 	}
 	m_buffer = (char *)memory_alloc(buffer_size);
@@ -321,14 +301,14 @@ utf8str::append_utf8str(const char *s, size_t width)
 		return *this;
 	}
 /*
-	if (width < ::length(s)) {
-		width = ::length(s);
+	if (width < ::byte_length(s)) {
+		width = ::byte_length(s);
 	}
 */
 	if (width < ::width(s)) {
 		width = ::width(s);
 	}
-	length = this->length() + width + 1;
+	length = this->byte_length() + width + 1;
 	while (buffer_size <= length) {
 		buffer_size += buffer_block_size;
 	}
@@ -480,7 +460,7 @@ utf8str::truncate(uint64_t count)
 	}
 
 	for (int i = 0; i < count; ++i) {
-		int index = ::length(m_buffer) - 1;
+		int index = ::byte_length(m_buffer) - 1;
 		while ((index > 0) && ((m_buffer[index] & 0xc0) == 0x80)) {
 			--index;
 		}
@@ -499,8 +479,20 @@ utf8str::is_equal(const char *s)
 		return true;
 	}
 
-	if ((m_buffer == nullptr) || (s == nullptr)) {
-		return false;
+	if (m_buffer == nullptr) {
+		if (*s == '\0') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	if (s == nullptr) {
+		if (*m_buffer == '\0') {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	while ((m_buffer[i] != '\0') && (s[i] != '\0')) {
@@ -586,16 +578,22 @@ utf8str::is_small(const char *s)
 bool
 utf8str::beginning(utf8str s)
 {
-	if ((m_buffer == nullptr) || (s.m_buffer == nullptr)) {
+	return beginning(s.m_buffer);;
+}
+
+bool
+utf8str::beginning(char const *s)
+{
+	if ((m_buffer == nullptr) || (s == nullptr)) {
 		return false;
 	}
-	uint64_t len1 = length();
-	uint64_t len2 = s.length();
+	uint64_t len1 = byte_length();
+	uint64_t len2 = ::byte_length(s);
 	if (len1 < len2) {
 		return false;
 	}
 	for (int i = 0; i < len2; ++i) {
-		if (m_buffer[i] != s.m_buffer[i]) {
+		if (m_buffer[i] != s[i]) {
 			return false;
 		}
 	}
@@ -605,35 +603,99 @@ utf8str::beginning(utf8str s)
 bool
 utf8str::ending(utf8str s)
 {
-	if ((m_buffer == nullptr) || (s.m_buffer == nullptr)) {
+	return ending(s.m_buffer);
+}
+
+bool
+utf8str::ending(char const *s)
+{
+	if ((m_buffer == nullptr) || (s == nullptr)) {
 		return false;
 	}
-	uint64_t len1 = length();
-	uint64_t len2 = s.length();
+	uint64_t len1 = byte_length();
+	uint64_t len2 = ::byte_length(s);
 	if (len1 < len2) {
 		return false;
 	}
 	for (int i = 0; i < len2; ++i) {
-		if (m_buffer[(len1 - len2) + i] != s.m_buffer[i]) {
+		if (m_buffer[(len1 - len2) + i] != s[i]) {
 			return false;
 		}
 	}
 	return true;
 }
 
+/*
 const char *
 utf8str::ptr() const
 {
 	return m_buffer;
 }
+*/
+
+char
+utf8str::byte_at(sint64_t i) const
+{
+	size_t len = byte_length();
+	if (len == 0) {
+		return 0;
+	}
+	int index;
+	if (i < 0) {
+		index = (len - ((i * -1) % len)) % len;
+	} else {
+		index = i % len;
+	}
+	return m_buffer[index];
+}
+
+uint32_t
+utf8str::unicode_at(sint64_t i) const
+{
+	size_t len = unicode_length();
+	if (len == 0) {
+		return 0;
+	}
+	int index;
+	if (i < 0) {
+		index = (len - ((i * -1) % len)) % len;
+	} else {
+		index = i % len;
+	}
+	int j = 0, k = 0;
+	uint32_t c;
+	while (j < byte_length()) {
+		int count = utf8_to_unicode(&m_buffer[j], &c);
+		if (k == index) {
+			return c;
+		}
+		++k;
+		j += count;
+	}
+	return 0;
+}
+
+utf8str
+utf8str::byte_substring(sint64_t begin, sint64_t end) const
+{
+	utf8str byte_substring;
+	return byte_substring;
+}
+
+utf8str
+utf8str::unicode_substring(sint64_t begin, sint64_t end) const
+{
+	utf8str unicode_substring;
+	return unicode_substring;
+}
 
 size_t
-utf8str::length() const
+utf8str::byte_length() const
 {
 	if (m_buffer == nullptr) {
 		return 0;
 	}
-	return ::length(m_buffer);
+	return ::byte_length(m_buffer);
 }
 
 size_t

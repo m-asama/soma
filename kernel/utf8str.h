@@ -16,7 +16,7 @@ class utf8str {
 	/**
 	 * テスト関数は friend に設定する必要がある。
 	 */
-	friend void utf8str_test_one(utf8str &s, char const *teststr, char const *title);
+	friend void utf8str_test_one(utf8str &s, char const *teststr, utf8str title);
 
 public:
 	/**
@@ -145,7 +145,7 @@ public:
 	 * @param i インデックス。
 	 * @return 指定された位置の UNICODE 文字。
 	 */
-	uint32_t operator[](sint64_t i);
+	uint32_t operator[](sint64_t i) const;
 
 	/**
 	 * 文字列を初期化する関数。
@@ -228,6 +228,13 @@ public:
 	bool beginning(utf8str s);
 
 	/**
+	 * 文字列が指定する文字列で始まるかチェックする関数。
+	 * @param s チェックしたい文字列。
+	 * @return 指定した文字列で始まる場合に true を返す。
+	 */
+	bool beginning(char const *s);
+
+	/**
 	 * 文字列が指定する文字列で終わるかチェックする関数。
 	 * @param s チェックしたい文字列。
 	 * @return 指定した文字列で終わる場合に true を返す。
@@ -235,20 +242,57 @@ public:
 	bool ending(utf8str s);
 
 	/**
+	 * 文字列が指定する文字列で終わるかチェックする関数。
+	 * @param s チェックしたい文字列。
+	 * @return 指定した文字列で終わる場合に true を返す。
+	 */
+	bool ending(char const *s);
+
+	/**
 	 * 文字列へのポインタを返す関数。
 	 * @return 文字列へのポインタ。
 	 */
-	const char *ptr() const;
+	//const char *ptr() const;
+
+	/**
+	 * インデックスで指定したバイトの値を返す関数。
+	 * @param i インデックス。
+	 * @return 指定したインデックスのバイトの値。
+	 */
+	char byte_at(sint64_t i) const;
+
+	/**
+	 * インデックスで指定した UNICODE 文字を返す関数。
+	 * @param i インデックス。
+	 * @return 指定したインデックスの UNICODE の値。
+	 */
+	uint32_t unicode_at(sint64_t i) const;
+
+	/**
+	 * 部分文字列を返す関数。
+	 * @param begin 先頭文字のインデックス。
+	 * @param end 末尾文字のインデックス。
+	 * @return 指定された部分文字列。
+	 */
+	utf8str byte_substring(sint64_t begin, sint64_t end) const;
+
+	/**
+	 * 部分文字列を返す関数。
+	 * @param begin 先頭文字のインデックス。
+	 * @param end 末尾文字のインデックス。
+	 * @return 指定された部分文字列。
+	 */
+	utf8str unicode_substring(sint64_t begin, sint64_t end) const;
 
 	/**
 	 * 文字列の長さ(バイト数)を返す関数。
 	 * @return 文字列の長さ(バイト数)。
 	 */
-	size_t length() const;
+	size_t byte_length() const;
 
 	/**
-	 * 文字列の文字数を返す関数。
-	 * @return 文字列の文字数。
+	 * 文字列の UNICODE 文字数を返す関数。
+	 * @return 文字列の UNICODE 文字数。
 	 */
 	size_t unicode_length() const;
 

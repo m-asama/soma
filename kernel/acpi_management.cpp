@@ -26,7 +26,7 @@ acpi_init(struct loader_info *li)
 	char buf[9];
 
 	if (ptr == nullptr) {
-		printstr("rsdp_table が nullptr です。\n");
+		print("rsdp_table が nullptr です。\n");
 		panic();
 	}
 
@@ -36,7 +36,7 @@ acpi_init(struct loader_info *li)
 	buf[8] = '\0';
 
 	if (rsd_ptr_ != buf) {
-		printstr("rsdp_table が RSDP ではありません。\n");
+		print("rsdp_table が RSDP ではありません。\n");
 		panic();
 	}
 
@@ -50,7 +50,7 @@ acpi_init(struct loader_info *li)
 	}
 
 	if (apic == nullptr) {
-		printstr("APIC テーブルが見つかりませんでした。\n");
+		print("APIC テーブルが見つかりませんでした。\n");
 		panic();
 	}
 }

@@ -90,19 +90,19 @@ intel64_processor_state::restore(uint64_t *processor_state)
 void
 intel64_processor_state::dump()
 {
-	printstr("stack_pointer:\n");
-	printstr("    "); printhex64(m_stack_pointer); printstr("\n");
-	printstr("pml4_table:\n");
+	print("stack_pointer:\n");
+	print("    "); printhex64(m_stack_pointer); print("\n");
+	print("pml4_table:\n");
 	uint64_t prev[4];
 	uint64_t x[4];
 	uint64_t *p[4];
 	prev[0] = prev[1] = prev[2] = prev[3] = 0x1ul;
 	x[0] = (uint64_t)m_pml4_table->get_page_table();;
-	//printstr("x[0] = "); printhex64(x[0]); printstr("\n");
+	//print("x[0] = "); printhex64(x[0]); print("\n");
 	p[0] = (uint64_t *)(x[0] & 0x0000fffffffff000ul);
 	for (int i = 0; i < 512; ++i) {
 		x[0] = p[0][i];
-		//printstr("x[0] = "); printhex64(x[0]); printstr("\n");
+		//print("x[0] = "); printhex64(x[0]); print("\n");
 		if (x[0] & 0x1) {
 			p[1] = (uint64_t *)(x[0] & 0x0000fffffffff000ul);
 			for (int j = 0; j < 512; ++j) {

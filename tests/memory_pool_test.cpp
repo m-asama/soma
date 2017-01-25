@@ -517,10 +517,10 @@ memory_pool_test()
 	utf8str x;
 	x = "mp->count() ";
 	x.append_uint64(mp->count(), 10);
-	print_test_result(x.ptr(), res);
+	print_test_result(x, res);
 	x = "mp->m_next->count() ";
 	x.append_uint64(mp->m_next->count(), 10);
-	print_test_result(x.ptr(), res);
+	print_test_result(x, res);
 	if (mp->m_next->m_next != nullptr) {
 		print_test_result("3 個", res);
 	}
@@ -545,7 +545,7 @@ memory_pool_test()
 		x.append_sint64(mf[i], 12);
 		x += " sum: ";
 		x.append_sint64(ma[i] + mf[i], 12);
-		print_test_result(x.ptr(), test_result::pass);
+		print_test_result(x, test_result::pass);
 	}
 
 	memory_leak_test_end("メモリプールメモリリークチェック");

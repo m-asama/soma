@@ -18,7 +18,7 @@ thread_init()
 	threads = new sorted_list<thread>;
 
 	if (threads == nullptr) {
-		printstr("スレッドの初期化に失敗しました。");
+		print("スレッドの初期化に失敗しました。");
 		panic();
 	}
 }

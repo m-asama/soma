@@ -18,11 +18,11 @@ KERNEL_OBJS   = ../kernel/memory_management.o \
 		../kernel/unicode.o \
 		../kernel/print.o \
 		../kernel/utf8str.o \
-		../kernel/config_model_build.o \
-		../kernel/config_model_build_description.o \
-		../kernel/config_model_functions.o \
 		../kernel/config_model_node.o \
+		../kernel/config_model_build.o \
 		../kernel/config_model_nodes.o \
+		../kernel/config_model_functions.o \
+		../kernel/config_model_descriptions.o \
 		../kernel/config_model_validators.o \
 		../kernel/config_data_node.o \
 		../kernel/util.o

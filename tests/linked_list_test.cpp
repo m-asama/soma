@@ -22,7 +22,7 @@ linked_list_test_node0(linked_list<int> &x, char const *s)
 	}
 	utf8str s1(s);
 	s1 += ": ノード数 0 の先頭";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	/* **** */
 	if (x.tail() == nullptr) {
@@ -32,7 +32,7 @@ linked_list_test_node0(linked_list<int> &x, char const *s)
 	}
 	utf8str s2(s);
 	s2 += ": ノード数 0 の末尾";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	/* **** */
 	if (x.nodes() == 0) {
@@ -42,7 +42,7 @@ linked_list_test_node0(linked_list<int> &x, char const *s)
 	}
 	utf8str s3(s);
 	s3 += ": ノード数 0 のノード数";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	/* **** */
 	if (x.find(a) == nullptr) {
@@ -52,7 +52,7 @@ linked_list_test_node0(linked_list<int> &x, char const *s)
 	}
 	utf8str s4(s);
 	s4 += ": ノード数 0 の検索結果";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 }
 
 void
@@ -71,7 +71,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s1(s);
 	s1 += ": ノード数 1 の先頭";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	/* **** */
 	if (x.tail() != nullptr) {
@@ -81,7 +81,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s2(s);
 	s2 += ": ノード数 1 の末尾";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	/* **** */
 	if (x.head() == x.tail()) {
@@ -91,7 +91,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s3(s);
 	s3 += ": ノード数 1 の先頭と末尾";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->next() == nullptr) {
@@ -101,7 +101,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s4(s);
 	s4 += ": ノード数 1 のノードの next";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->prev() == nullptr) {
@@ -111,7 +111,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s5(s);
 	s5 += ": ノード数 1 のノードの prev";
-	print_test_result(s5.ptr(), res);
+	print_test_result(s5, res);
 
 	/* **** */
 	if (x.nodes() == 1) {
@@ -121,7 +121,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s6(s);
 	s6 += ": ノード数 1 のノード数";
-	print_test_result(s6.ptr(), res);
+	print_test_result(s6, res);
 
 	/* **** */
 	p = x.find(a);
@@ -132,7 +132,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s7(s);
 	s7 += ": ノード数 1 の検索結果(1)";
-	print_test_result(s7.ptr(), res);
+	print_test_result(s7, res);
 
 	/* **** */
 	p = x.find(b);
@@ -143,7 +143,7 @@ linked_list_test_node1(linked_list<int> &x, char const *s)
 	}
 	utf8str s8(s);
 	s8 += ": ノード数 1 の検索結果(2)";
-	print_test_result(s8.ptr(), res);
+	print_test_result(s8, res);
 }
 
 void
@@ -163,7 +163,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s1(s);
 	s1 += ": ノード数 2 の先頭";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	/* **** */
 	if (x.tail() != nullptr) {
@@ -173,7 +173,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s2(s);
 	s2 += ": ノード数 2 の末尾";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->next() != nullptr) {
@@ -183,7 +183,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s3(s);
 	s3 += ": ノード数 2 の先頭のノードの next";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->prev() == nullptr) {
@@ -193,7 +193,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s4(s);
 	s4 += ": ノード数 2 の先頭のノードの prev";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 
 	/* **** */
 	if (x.tail() != nullptr && x.tail()->next() == nullptr) {
@@ -203,7 +203,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s5(s);
 	s5 += ": ノード数 2 の末尾のノードの next";
-	print_test_result(s5.ptr(), res);
+	print_test_result(s5, res);
 
 	/* **** */
 	if (x.tail() != nullptr && x.tail()->prev() != nullptr) {
@@ -213,7 +213,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s6(s);
 	s6 += ": ノード数 2 の末尾のノードの prev";
-	print_test_result(s6.ptr(), res);
+	print_test_result(s6, res);
 
 	/* **** */
 	bidir_node<int> *bn;
@@ -228,7 +228,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s7(s);
 	s7 += ": ノード数 2 の値の合計";
-	print_test_result(s7.ptr(), res);
+	print_test_result(s7, res);
 
 	/* **** */
 	p = x.find(a);
@@ -239,7 +239,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s8(s);
 	s8 += ": ノード数 2 の検索結果(1)";
-	print_test_result(s8.ptr(), res);
+	print_test_result(s8, res);
 
 	/* **** */
 	p = x.find(b);
@@ -250,7 +250,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s9(s);
 	s9 += ": ノード数 2 の検索結果(2)";
-	print_test_result(s9.ptr(), res);
+	print_test_result(s9, res);
 
 	/* **** */
 	p = x.find(c);
@@ -261,7 +261,7 @@ linked_list_test_node2(linked_list<int> &x, char const *s)
 	}
 	utf8str s10(s);
 	s10 += ": ノード数 2 の検索結果(3)";
-	print_test_result(s10.ptr(), res);
+	print_test_result(s10, res);
 }
 
 void
@@ -282,7 +282,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s1(s);
 	s1 += ": ノード数 3 の先頭";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	/* **** */
 	if (x.tail() != nullptr) {
@@ -292,7 +292,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s2(s);
 	s2 += ": ノード数 3 の末尾";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->next() != nullptr) {
@@ -302,7 +302,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s3(s);
 	s3 += ": ノード数 3 の先頭のノードの next";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	/* **** */
 	if (x.head() != nullptr && x.head()->prev() == nullptr) {
@@ -312,7 +312,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s4(s);
 	s4 += ": ノード数 3 の先頭のノードの prev";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 
 	/* **** */
 	if (x.tail() != nullptr && x.tail()->next() == nullptr) {
@@ -322,7 +322,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s5(s);
 	s5 += ": ノード数 3 の末尾のノードの next";
-	print_test_result(s5.ptr(), res);
+	print_test_result(s5, res);
 
 	/* **** */
 	if (x.tail() != nullptr && x.tail()->prev() != nullptr) {
@@ -332,7 +332,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s6(s);
 	s6 += ": ノード数 3 の末尾のノードの prev";
-	print_test_result(s6.ptr(), res);
+	print_test_result(s6, res);
 
 	/* **** */
 	bidir_node<int> *bn;
@@ -347,7 +347,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s7(s);
 	s7 += ": ノード数 3 の値の合計";
-	print_test_result(s7.ptr(), res);
+	print_test_result(s7, res);
 
 	/* **** */
 	p = x.find(a);
@@ -358,7 +358,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s8(s);
 	s8 += ": ノード数 3 の検索結果(1)";
-	print_test_result(s8.ptr(), res);
+	print_test_result(s8, res);
 
 	/* **** */
 	p = x.find(b);
@@ -369,7 +369,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s9(s);
 	s9 += ": ノード数 3 の検索結果(2)";
-	print_test_result(s9.ptr(), res);
+	print_test_result(s9, res);
 
 	/* **** */
 	p = x.find(c);
@@ -380,7 +380,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s10(s);
 	s10 += ": ノード数 3 の検索結果(3)";
-	print_test_result(s10.ptr(), res);
+	print_test_result(s10, res);
 
 	/* **** */
 	p = x.find(d);
@@ -391,7 +391,7 @@ linked_list_test_node3(linked_list<int> &x, char const *s)
 	}
 	utf8str s11(s);
 	s11 += ": ノード数 3 の検索結果(4)";
-	print_test_result(s11.ptr(), res);
+	print_test_result(s11, res);
 }
 
 void

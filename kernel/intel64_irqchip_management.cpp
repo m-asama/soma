@@ -75,7 +75,7 @@ ioapic_init()
 	uint32_t *ioapic = (uint32_t *)0x00000000fec00000ul;
 
 //	ioapic[0] = 0x00000001; sleep(100);
-//	printstr("IOAPICVS: "); printhex32(ioapic[4]); printstr("\n");
+//	print("IOAPICVS: "); printhex32(ioapic[4]); print("\n");
 
 //	sleep(100);
 
@@ -126,7 +126,7 @@ irqchip_init_one(uint64_t id, uint64_t apic_address, uint64_t gsi_base)
 	irqchip = irqchip_alloc();
 
 	if (irqchip == nullptr) {
-		printstr("irqchip_alloc() に失敗しました。\n");
+		print("irqchip_alloc() に失敗しました。\n");
 		panic();
 	}
 
@@ -144,7 +144,7 @@ void irqchip_init()
 	irqchips = new sorted_list<irqchip_base>;
 
 	if (irqchips == nullptr) {
-		printstr("IRQ チップのリストの初期化に失敗しました。\n");
+		print("IRQ チップのリストの初期化に失敗しました。\n");
 		panic();
 	}
 

@@ -62,9 +62,9 @@ main(void *ptr)
 //	memory_dump();
 	memory_stats();
 
-	printstr("日本語のテスト\n");
+	print("日本語のテスト\n");
 
-	printstr("End of main...\n");
+	print("End of main...\n");
 
 	console_print_prompt();
 

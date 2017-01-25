@@ -76,6 +76,6 @@ irqchip_base::dump()
 	s += " GSI BASE = 0x";
 	s.append_hex64(m_gsi_base, 16);
 	s += "\n";
-	printstr(s);
+	print(s);
 }
 

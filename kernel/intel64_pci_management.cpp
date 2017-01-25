@@ -90,15 +90,15 @@ pci_check_all_buses()
 			vendor = pci_check_vendor(bus, slot);
 			device = pci_check_device(bus, slot);
 			if (vendor != 0xffff) {
-				printstr(" ");
+				print(" ");
 				printhex8(bus);
-				printstr(" ");
+				print(" ");
 				printhex8(slot);
-				printstr(" ");
+				print(" ");
 				printhex64(vendor);
-				printstr(" ");
+				print(" ");
 				printhex64(device);
-				printstr("\n");
+				print("\n");
 			}
 			if (vendor == 0x8086 && ((device == 0x0c46)
 					      || (device == 0x0c47)
@@ -108,9 +108,9 @@ pci_check_all_buses()
 				w = pci_config_read_word(bus, slot, 0, 0x92);
 				pci_config_write_word(bus, slot, 0, 0x92, (w|1));
 				w = pci_config_read_word(bus, slot, 0, 0x92);
-				printstr("    ");
+				print("    ");
 				printhex64(w);
-				printstr("\n");
+				print("\n");
 			}
 		}
 	}
@@ -164,9 +164,9 @@ pci_init()
 	x |= 0x0100;
 	pci_config_write_word(0, 1, 0, 0x4e, x);
 	printhex64(pci_config_read_word(0, 1, 0, 0x4e));
-	printstr("\n");
+	print("\n");
 	printhex64(x);
-	printstr("\n");
+	print("\n");
 */
 }
 

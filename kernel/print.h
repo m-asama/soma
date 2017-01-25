@@ -14,6 +14,6 @@ int printhex8(const uint8_t uc);
 int printhex16(const uint16_t us);
 int printhex32(const uint32_t ui);
 int printhex64(const uint64_t ul);
-int printstr(const char *str);
-int printstr(const utf8str &str);
+int print(const utf8str str);
+int print(const char *str);
 

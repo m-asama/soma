@@ -99,7 +99,7 @@ processor_base::dump()
 	s += ": MMIO BASE = 0x";
 	s.append_hex64(m_apic_address, 16);
 	s += "\n";
-	printstr(s);
+	print(s);
 	bidir_node<thread> *bn;
 	for (bn = m_threads.head(); bn != nullptr; bn = bn->next()) {
 		bn->v().dump();

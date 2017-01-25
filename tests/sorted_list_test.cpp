@@ -9,7 +9,7 @@
 #include "sorted_list.h"
 
 void
-sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
+sorted_list_test_common(sorted_list<int> &x, utf8str s, int count, int sum)
 {
 	test_result res;
 	bidir_node<int> *bn;
@@ -30,7 +30,7 @@ sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s1(s);
 	s1 += ": 正順 count";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	if (sumt == sum) {
 		res = test_result::pass;
@@ -39,7 +39,7 @@ sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s2(s);
 	s2 += ": 正順 sum";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	countt = 0;
 	sumt = 0;
@@ -55,7 +55,7 @@ sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s3(s);
 	s3 += ": 逆順 count";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	if (sumt == sum) {
 		res = test_result::pass;
@@ -64,7 +64,7 @@ sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s4(s);
 	s4 += ": 逆順 sum";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 
 	int t = 0;
 	res = test_result::pass;
@@ -76,7 +76,7 @@ sorted_list_test_common(sorted_list<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s5(s);
 	s5 += ": 順序";
-	print_test_result(s5.ptr(), res);
+	print_test_result(s5, res);
 }
 
 void
@@ -112,43 +112,43 @@ sorted_list_test()
 
 			utf8str s0(s);
 			s0 += "(0)";
-			sorted_list_test_common(x, s0.ptr(), 0, sum);
+			sorted_list_test_common(x, s0, 0, sum);
 
 			utf8str s1(s);
 			s1 += "(1)";
 			x.insert(test_data[i][0]);
 			sum += test_data[i][0];
-			sorted_list_test_common(x, s1.ptr(), 1, sum);
+			sorted_list_test_common(x, s1, 1, sum);
 
 			utf8str s2(s);
 			s2 += "(2)";
 			x.insert(test_data[i][1]);
 			sum += test_data[i][1];
-			sorted_list_test_common(x, s2.ptr(), 2, sum);
+			sorted_list_test_common(x, s2, 2, sum);
 
 			utf8str s3(s);
 			s3 += "(3)";
 			x.insert(test_data[i][2]);
 			sum += test_data[i][2];
-			sorted_list_test_common(x, s3.ptr(), 3, sum);
+			sorted_list_test_common(x, s3, 3, sum);
 
 			utf8str s4(s);
 			s4 += "(4)";
 			x.remove(test_data[r][0]);
 			sum -= test_data[r][0];
-			sorted_list_test_common(x, s4.ptr(), 2, sum);
+			sorted_list_test_common(x, s4, 2, sum);
 
 			utf8str s5(s);
 			s5 += "(5)";
 			x.remove(test_data[r][1]);
 			sum -= test_data[r][1];
-			sorted_list_test_common(x, s5.ptr(), 1, sum);
+			sorted_list_test_common(x, s5, 1, sum);
 
 			utf8str s6(s);
 			s6 += "(6)";
 			x.remove(test_data[r][2]);
 			sum -= test_data[r][2];
-			sorted_list_test_common(x, s6.ptr(), 0, sum);
+			sorted_list_test_common(x, s6, 0, sum);
 		}
 	}
 	memory_leak_test_end("整列リストメモリリークチェック");

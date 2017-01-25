@@ -264,7 +264,7 @@ public:
 	/**
 	 * 説明を表示する。
 	 */
-	void print_description(char const *label, msg *description);
+	void print_description(utf8str label, msg *description);
 
 	/**
 	 * 矢印キーの処理。

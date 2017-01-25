@@ -108,37 +108,37 @@ acpi_apic::dump()
 	length = *u32p;
 	tail = ptr + length;
 	u32p = (uint32_t *)&m_apic_address[36];
-	printstr("Local Interrupt Controller Address = "); printhex64((uint64_t)*u32p); printstr("\n");
+	print("Local Interrupt Controller Address = "); printhex64((uint64_t)*u32p); print("\n");
 	u32p = (uint32_t *)&m_apic_address[40];
-	printstr("Flags = "); printhex64((uint64_t)*u32p); printstr("\n");
+	print("Flags = "); printhex64((uint64_t)*u32p); print("\n");
 	ptr += 44;
 	while (ptr < tail) {
-		printstr("  Type = "); printhex8(ptr[0]);
+		print("  Type = "); printhex8(ptr[0]);
 		length = ptr[1];
-		//printstr("  Length = "); printhex8(ptr[1]); printstr("\n");
+		//print("  Length = "); printhex8(ptr[1]); print("\n");
 		if (ptr[0] == 0) {
-			printstr(" ACPI ProcUID  = "); printhex8(ptr[2]);
-			printstr(" APIC ID       = "); printhex8(ptr[3]);
+			print(" ACPI ProcUID  = "); printhex8(ptr[2]);
+			print(" APIC ID       = "); printhex8(ptr[3]);
 			u32p = (uint32_t *)&ptr[4];
-			printstr(" Flags         = "); printhex64(*u32p);
+			print(" Flags         = "); printhex64(*u32p);
 		}
 		if (ptr[0] == 1) {
-			printstr(" I/O APIC ID   = "); printhex8(ptr[2]);
+			print(" I/O APIC ID   = "); printhex8(ptr[2]);
 			u32p = (uint32_t *)&ptr[4];
-			printstr(" I/O APIC Addr = "); printhex64(*u32p);
+			print(" I/O APIC Addr = "); printhex64(*u32p);
 			u64p = (uint64_t *)u32p;
 			u32p = (uint32_t *)&ptr[8];
-			printstr(" GSInterr Base = "); printhex64(*u32p);
+			print(" GSInterr Base = "); printhex64(*u32p);
 		}
 		if (ptr[0] == 2) {
 			u32p = (uint32_t *)&ptr[4];
-			printstr(" Bus = "); printhex8(ptr[2]);
-			printstr(" Src = "); printhex8(ptr[3]);
-			printstr(" GSI = "); printhex64(*u32p);
-			printstr(" F1 = "); printhex8(ptr[8]);
-			printstr(" F2 = "); printhex8(ptr[9]);
+			print(" Bus = "); printhex8(ptr[2]);
+			print(" Src = "); printhex8(ptr[3]);
+			print(" GSI = "); printhex64(*u32p);
+			print(" F1 = "); printhex8(ptr[8]);
+			print(" F2 = "); printhex8(ptr[9]);
 		}
-		printstr("\n");
+		print("\n");
 		ptr += length;
 	}
 }
@@ -233,7 +233,7 @@ acpi_rsdp::xsdt()
 	uint64_t *addrp;
 
 	if (ptr == nullptr) {
-		printstr("rsdp_address is nullptr.\n");
+		print("rsdp_address is nullptr.\n");
 		panic();
 	}
 
@@ -247,7 +247,7 @@ acpi_rsdp::xsdt()
 	buf[4] = '\0';
 
 	if (xsdt != buf) {
-		printstr("Cannot find XSDT.\n");
+		print("Cannot find XSDT.\n");
 		panic();
 	}
 

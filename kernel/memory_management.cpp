@@ -26,7 +26,7 @@ memory_alloc(size_t size)
 	bidir_node<memory_block> *bn;
 	memory_block *mb;
 
-	//printstr("memory_alloc\n");
+	//print("memory_alloc\n");
 
 	if (size & 0x7) {
 		size &= ~ 0x7;
@@ -67,7 +67,7 @@ memory_free(void *ptr)
 	char *cp;
 	int i;
 
-	//printstr("memory_free\n");
+	//print("memory_free\n");
 
 	mb = alloc_block.find(key);
 	if (mb == nullptr)
@@ -90,17 +90,17 @@ retry:
 			break;
 		if ((bn->v().base() + bn->v().size()) == bn->next()->v().base()) {
 			/*
-			printstr("memory_free: merge\n");
-			printstr("    base = 0x");
+			print("memory_free: merge\n");
+			print("    base = 0x");
 			printhex64(bn->v().base());
-			printstr(" size = 0x");
+			print(" size = 0x");
 			printhex64(bn->v().size());
-			printstr("\n");
-			printstr("    base = 0x");
+			print("\n");
+			print("    base = 0x");
 			printhex64(bn->next()->v().base());
-			printstr(" size = 0x");
+			print(" size = 0x");
 			printhex64(bn->next()->v().size());
-			printstr("\n");
+			print("\n");
 			*/
 			bn->v().size(bn->v().size() + bn->next()->v().size());
 			mb = &bn->next()->v();
@@ -183,28 +183,28 @@ memory_alloc_page_hi(memory_page_size page_size)
 void *
 operator new(size_t size)
 {
-	//printstr("new\n");
+	//print("new\n");
 	return memory_alloc(size);
 }
 
 void *
 operator new[](size_t size)
 {
-	//printstr("new[]\n");
+	//print("new[]\n");
 	return memory_alloc(size);
 }
 
 void
 operator delete(void* ptr) noexcept
 {
-	//printstr("delete\n");
+	//print("delete\n");
 	memory_free(ptr);
 }
 
 void
 operator delete[](void* ptr) noexcept
 {
-	//printstr("delete[]\n");
+	//print("delete[]\n");
 	memory_free(ptr);
 }
 
@@ -225,7 +225,7 @@ memory_init(struct loader_info *li)
 	}
 
 	if (limd == nullptr) {
-		printstr("memory_init: Cannot find conventional memory.\n");
+		print("memory_init: Cannot find conventional memory.\n");
 		panic();
 	}
 
@@ -240,14 +240,14 @@ memory_init(struct loader_info *li)
 	ht_size = sizeof(bidir_node<memory_block> *) * hash_table_init_size;
 
 	if (first_size < (mb_size + bn_size + ht_size)) {
-		printstr("memory_init: Out of memory.\n");
-		printstr("first base = 0x");
+		print("memory_init: Out of memory.\n");
+		print("first base = 0x");
 		printhex64(first_base);
-		printstr(" first size = 0x");
+		print(" first size = 0x");
 		printhex64(first_size);
-		printstr(" required size = 0x");
+		print(" required size = 0x");
 		printhex64(mb_size + bn_size + ht_size);
-		printstr("\n");
+		print("\n");
 		panic();
 	}
 
@@ -300,7 +300,7 @@ memory_init(struct loader_info *li)
 		}
 		mb = new memory_block(base, size);
 		if (mb == nullptr) {
-			printstr("memory_init: memory_block alloc failed.\n");
+			print("memory_init: memory_block alloc failed.\n");
 			panic();
 		}
 		free_block.insert(*mb);
@@ -308,21 +308,21 @@ memory_init(struct loader_info *li)
 
 	mb = new memory_block((uint64_t)memory_block::s_mem_pool.m_table, mb_size);
 	if (mb == nullptr) {
-		printstr("memory_init: memory_block alloc failed.\n");
+		print("memory_init: memory_block alloc failed.\n");
 		panic();
 	}
 	alloc_block.insert(*mb);
 
 	mb = new memory_block((uint64_t)bidir_node<memory_block>::s_mem_pool.m_table, bn_size);
 	if (mb == nullptr) {
-		printstr("memory_init: memory_block alloc failed.\n");
+		print("memory_init: memory_block alloc failed.\n");
 		panic();
 	}
 	alloc_block.insert(*mb);
 
 	mb = new memory_block((uint64_t)alloc_block.m_table, ht_size);
 	if (mb == nullptr) {
-		printstr("memory_init: memory_block alloc failed.\n");
+		print("memory_init: memory_block alloc failed.\n");
 		panic();
 	}
 	alloc_block.insert(*mb);
@@ -394,54 +394,54 @@ memory_dump()
 	uint64_t free = 0;
 	bidir_node<memory_block> *bn;
 	i = 0;
-	printstr("FREE BLOCKS:\n");
+	print("FREE BLOCKS:\n");
 	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
-		printstr("   0x");
+		print("   0x");
 		printhex8(i);
-		printstr(" 0x");
+		print(" 0x");
 		printhex64(bn->v().base());
-		printstr(" 0x");
+		print(" 0x");
 		printhex64(bn->v().size());
-		printstr(" 0x");
+		print(" 0x");
 		printhex64((uint64_t)&bn->v());
-		printstr("\n");
+		print("\n");
 		++i;
 		free += bn->v().size();
 	}
-	printstr("ALLOC BLOCKS:\n");
+	print("ALLOC BLOCKS:\n");
 	if (alloc_block.table() == nullptr) {
-		printstr("    alloc_block.table == nullptr\n");
+		print("    alloc_block.table == nullptr\n");
 		return;
 	}
-	printstr("    alloc_block.table           = 0x");
+	print("    alloc_block.table           = 0x");
 	printhex64((uint64_t)alloc_block.table());
-	printstr("\n");
+	print("\n");
 	for (i = 0; i < alloc_block.table_size(); ++i) {
 		if (alloc_block.table()[i] == nullptr)
 			continue;
-		printstr("   0x");
+		print("   0x");
 		printhex8(i);
-		printstr("\n");
+		print("\n");
 		for (bn = alloc_block.table()[i]; bn != nullptr; bn = bn->next()) {
-			printstr("        0x");
+			print("        0x");
 			printhex64(bn->v().base());
-			printstr(" 0x");
+			print(" 0x");
 			printhex64(bn->v().size());
-			printstr(" 0x");
+			print(" 0x");
 			printhex64((uint64_t)&bn->v());
-			printstr("\n");
+			print("\n");
 		}
 	}
-	printstr("MEMORY POOL:\n");
-	printstr("    bidir_node<memory_block>    = 0x");
+	print("MEMORY POOL:\n");
+	print("    bidir_node<memory_block>    = 0x");
 	printhex64(bidir_node<memory_block>::count());
-	printstr("\n");
-	printstr("    memory_block                = 0x");
+	print("\n");
+	print("    memory_block                = 0x");
 	printhex64(memory_block::count());
-	printstr("\n");
-	printstr("FREE BYTES: ");
+	print("\n");
+	print("FREE BYTES: ");
 	printhex64(free);
-	printstr("\n");
+	print("\n");
 }
 
 void
@@ -451,17 +451,17 @@ memory_free_dump()
 	uint64_t free = 0;
 	bidir_node<memory_block> *bn;
 	i = 0;
-	printstr("FREE BLOCKS:\n");
+	print("FREE BLOCKS:\n");
 	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
-		printstr("   0x");
+		print("   0x");
 		printhex8(i);
-		printstr(" 0x");
+		print(" 0x");
 		printhex64(bn->v().base());
-		printstr(" 0x");
+		print(" 0x");
 		printhex64(bn->v().size());
-		printstr(" 0x");
+		print(" 0x");
 		printhex64((uint64_t)&bn->v());
-		printstr("\n");
+		print("\n");
 		++i;
 		free += bn->v().size();
 	}
@@ -494,7 +494,7 @@ memory_stats()
 	s += "TOTAL ";
 	s.append_uint64(alloc + free, 12);
 	s += "\n";
-	printstr(s);
+	print(s);
 }
 
 extern "C" void *memset(void *b, int c, size_t len);

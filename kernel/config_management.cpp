@@ -24,11 +24,9 @@ config_model_dump_recursive(config_model_node *n, int indent)
 	for (int i = indent; i > 0; --i) {
 		s += "    ";
 	}
-	if (n->identifier().ptr() != nullptr) {
-		s += n->identifier().ptr();
-	}
+	s += n->identifier();
 	s += "\n";
-	printstr(s);
+	print(s);
 	bidir_node<config_model_node> *bn;
 	for (bn = n->children().head(); bn != nullptr; bn = bn->next()) {
 		if (bn->v().config() == true)
@@ -51,22 +49,17 @@ config_model_node_nearest(utf8str path, config_model_node *&node, utf8str &remai
 int
 config_data_node_find(config_data_node *root, utf8str path, config_data_node *&node)
 {
-	char const *p = path.ptr();
-	if (p == nullptr) {
-		node = nullptr;
-		return 0;
-	}
-	while (*p == ' ') {
-		++p;
+	int i = 0;
+	int len = path.unicode_length();
+	while ((i < len) && (path[i] == ' ')) {
+		++i;
 	}
 	utf8str token;
-	while (*p != '\0') {
+	while ((i < len) && (path[i] != '\0')) {
 		token = "";
-		while ((*p != ' ') && (*p != '\0')) {
-			uint32_t c;
-			int count = utf8_to_unicode(p, &c);
-			token += c;
-			p += count;
+		while ((i < len) && (path[i] != ' ') && (path[i] != '\0')) {
+			token += path[i];
+			++i;
 		}
 		sorted_list<config_data_node> &children = root->children();
 		bidir_node<config_data_node> *bn;
@@ -82,8 +75,8 @@ config_data_node_find(config_data_node *root, utf8str path, config_data_node *&n
 			node = nullptr;
 			return 0;
 		}
-		while (*p == ' ') {
-			++p;
+		while ((i < len) && (path[i] == ' ')) {
+			++i;
 		}
 	}
 	node = root;

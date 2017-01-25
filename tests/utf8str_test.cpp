@@ -9,7 +9,7 @@
 #include "utf8str.h"
 
 void
-utf8str_test_one(utf8str &s, char const *teststr, char const *title)
+utf8str_test_one(utf8str &s, char const *teststr, utf8str title)
 {
 	test_result res;
 	int size = 0;
@@ -29,7 +29,7 @@ utf8str_test_one(utf8str &s, char const *teststr, char const *title)
 	}
 	utf8str s1(title);
 	s1 += "の m_buffer";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	/* **** */
 	if (s.m_buffer_size >= size) {
@@ -39,7 +39,7 @@ utf8str_test_one(utf8str &s, char const *teststr, char const *title)
 	}
 	utf8str s2(title);
 	s2 += "の m_buffer_size";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	if (s.m_buffer == nullptr || teststr == nullptr) {
 		return;
@@ -49,16 +49,16 @@ utf8str_test_one(utf8str &s, char const *teststr, char const *title)
 	int i;
 	res = test_result::pass;
 	for (i = 0; teststr[i] != '\0'; ++i) {
-		if (s.ptr()[i] != teststr[i]) {
+		if (s.byte_at(i) != teststr[i]) {
 			res = test_result::fail;
 		}
 	}
-	if (s.ptr()[i] != teststr[i]) {
-		res = test_result::fail;
-	}
+//	if (s.byte_at(i) != teststr[i]) {
+//		res = test_result::fail;
+//	}
 	utf8str s3(title);
 	s3 += "の値比較";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 }
 
 void
@@ -68,21 +68,21 @@ utf8str_test_str(char const *teststr, char const *title)
 		utf8str titlestr(title);
 		titlestr += ": C 文字列で初期化した文字列";
 		utf8str s(teststr);
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	{
 		utf8str titlestr(title);
 		titlestr += ": utf8str で初期化した文字列";
 		utf8str ss(teststr);
 		utf8str s(ss);
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	{
 		utf8str titlestr(title);
 		titlestr += ": C 文字列を代入した文字列";
 		utf8str s;
 		s = teststr;
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	{
 		utf8str titlestr(title);
@@ -90,7 +90,7 @@ utf8str_test_str(char const *teststr, char const *title)
 		utf8str ss(teststr);
 		utf8str s;
 		s = ss;
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	/*
 	{
@@ -98,7 +98,7 @@ utf8str_test_str(char const *teststr, char const *title)
 		titlestr += ": C 文字列を += した文字列";
 		utf8str s("teststr");
 		s += teststr;
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	{
 		utf8str titlestr(title);
@@ -106,7 +106,7 @@ utf8str_test_str(char const *teststr, char const *title)
 		utf8str ss(teststr);
 		utf8str s("teststr");
 		s += ss;
-		utf8str_test_one(s, teststr, titlestr.ptr());
+		utf8str_test_one(s, teststr, titlestr);
 	}
 	*/
 }
@@ -121,18 +121,18 @@ utf8str_test()
 	{
 		utf8str titlestr("デフォルトコンストラクタで初期化した文字列");
 		utf8str s;
-		utf8str_test_one(s, nullptr, titlestr.ptr());
+		utf8str_test_one(s, nullptr, titlestr);
 	}
 	{
 		utf8str titlestr("nullptr で初期化した文字列");
 		utf8str s(nullptr);
-		utf8str_test_one(s, nullptr, titlestr.ptr());
+		utf8str_test_one(s, nullptr, titlestr);
 	}
 	{
 		utf8str titlestr("デフォルト utf8str で初期化した文字列");
 		utf8str ss;
 		utf8str s(ss);
-		utf8str_test_one(s, nullptr, titlestr.ptr());
+		utf8str_test_one(s, nullptr, titlestr);
 	}
 	utf8str_test_str(teststr1, "teststr1");
 	utf8str_test_str(teststr2, "teststr2");

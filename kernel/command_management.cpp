@@ -225,22 +225,17 @@ int
 command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 {
 	node = command_node_root;
-	char const *p = command.ptr();
-	if (p == nullptr) {
-		remaining = "";
-		return 0;
-	}
-	while (*p == ' ') {
-		++p;
+	int i = 0;
+	int len = command.unicode_length();
+	while ((i < len) && (command[i] == ' ')) {
+		++i;
 	}
 	utf8str token;
-	while (*p != '\0') {
+	while ((i < len) && (command[i] != '\0')) {
 		token = "";
-		while ((*p != ' ') && (*p != '\0')) {
-			uint32_t c;
-			int count = utf8_to_unicode(p, &c);
-			token += c;
-			p += count;
+		while ((i < len) && (command[i] != ' ') && (command[i] != '\0')) {
+			token += command[i];
+			++i;
 		}
 		sorted_list<command_node> &children = node->children();
 		bidir_node<command_node> *bn;
@@ -265,7 +260,9 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 			case command_node_type::type_config_model_edit:
 				node = &bn->v();
 				remaining = token;
-				remaining += p;
+				for (int j = i; j < len; ++j) {
+					remaining += command[j];
+				}
 				break;
 			case command_node_type::type_root:
 				break;
@@ -274,11 +271,13 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 		exit_loop:
 		if (found == false) {
 			remaining = token;
-			remaining += p;
+			for (int j = i; j < len; ++j) {
+				remaining += command[j];
+			}
 			return 0;
 		}
-		while (*p == ' ') {
-			++p;
+		while ((i < len) && (command[i] == ' ')) {
+			++i;
 		}
 	}
 	remaining = "";

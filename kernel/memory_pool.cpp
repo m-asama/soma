@@ -107,16 +107,16 @@ memory_pool<T>::free(T *ptr)
 	}
 
 	if (m_free_bits[i] & (1ul << j)) {
-		printstr("not allocated? index = ");
+		print("not allocated? index = ");
 		printhex8(index);
-		printstr("\n");
+		print("\n");
 		return;
 	}
 
 	if (ptr != &m_table[index]) {
-		printstr("index not match index = ");
+		print("index not match index = ");
 		printhex8(index);
-		printstr("\n");
+		print("\n");
 		return;
 	}
 

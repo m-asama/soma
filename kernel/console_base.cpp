@@ -212,7 +212,7 @@ console_base::handle_command_prompt(uint32_t c)
 	utf8str s;
 	switch (c) {
 	case 0x7f:
-		if (m_command_line.length() > 0) {
+		if (m_command_line.byte_length() > 0) {
 			m_command_line.truncate(1);
 			putchar(c);
 		}
@@ -220,7 +220,7 @@ console_base::handle_command_prompt(uint32_t c)
 	case ' ':
 	case '\t':
 		if ((remaining == "")
-		 && (m_command_line.length() > 0)
+		 && (m_command_line.byte_length() > 0)
 		 && (m_command_line[-1] != ' ')) {
 			m_command_line += ' ';
 			putchar(c);
@@ -257,7 +257,7 @@ console_base::handle_command_prompt(uint32_t c)
 					for (int i = 0; i < remaining.unicode_length(); ++i) {
 						putchar(0x7f);
 					}
-					print(node.keyword_label().ptr());
+					print(node.keyword_label());
 					print(" ");
 					break;
 				case command_node_type::type_variable:
@@ -275,7 +275,7 @@ console_base::handle_command_prompt(uint32_t c)
 					command_node &node = bn->v();
 					switch (node.type()) {
 					case command_node_type::type_keyword:
-						print_description(node.keyword_label().ptr(), node.description());
+						print_description(node.keyword_label(), node.description());
 						break;
 					case command_node_type::type_variable:
 						break;
@@ -300,7 +300,7 @@ console_base::handle_command_prompt(uint32_t c)
 		s += "] remaining = [";
 		s += remaining;
 		s += "]\n";
-		dp(s.ptr());
+		//dp(s.ptr());
 		if (remaining == "") {
 			putchar(c);
 			if (cn->execute() != nullptr) {
@@ -335,25 +335,19 @@ console_base::getchar(uint32_t c)
 int
 console_base::print(const char *str)
 {
-	int b = 0;
-	uint32_t c;
-
-	if (str == nullptr)
-		return 0;
-
-	while (*str != '\0') {
-		b = utf8_to_unicode(str, &c);
-		putchar(c);
-		str += b;
-	}
-
-	return b;
+	utf8str s(str);
+	return print(s);
 }
 
 int
 console_base::print(utf8str str)
 {
-	return print(str.ptr());
+	int c = 0;
+	for (int i = 0; i < str.unicode_length(); ++i) {
+		putchar(str[i]);
+		++c;
+	}
+	return c;
 }
 
 void
@@ -381,7 +375,7 @@ console_base::print_prompt()
 {
 	utf8str prompt;
 	prompt += "[edit";
-	if (m_edit_path.length() > 0) {
+	if (m_edit_path.byte_length() > 0) {
 		prompt += " ";
 	}
 	prompt += m_edit_path;
@@ -397,15 +391,15 @@ console_base::print_prompt()
 		prompt += "? ";
 	}
 	prompt += m_command_line;
-	print(prompt.ptr());
+	print(prompt);
 }
 
 void
-console_base::print_description(char const *label, msg *description)
+console_base::print_description(utf8str label, msg *description)
 {
 //	char const *desc;
 
-	if ((label == nullptr) || (description == nullptr)) {
+	if (description == nullptr) {
 		return;
 	}
 
@@ -418,12 +412,11 @@ console_base::print_description(char const *label, msg *description)
 		}
 	}
 
-	utf8str lstr(label);
 	utf8str l;
 	l += "    ";
 	l += label;
-	if (lstr.width() < 15) {
-		for (int i = lstr.width(); i < 15; ++i) {
+	if (label.width() < 15) {
+		for (int i = label.width(); i < 15; ++i) {
 			l += ' ';
 		}
 	}

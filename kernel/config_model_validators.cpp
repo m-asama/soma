@@ -9,22 +9,6 @@
 bool
 config_model_node_valid_binary(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	while (*p != '\0') {
-		if ((*p >= '0' && *p <= '9')
-		 || (*p >= 'A' && *p <= 'Z')
-		 || (*p >= 'a' && *p <= 'z')
-		 || *p == '-'
-		 || *p == '_'
-		 || *p == '=') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
@@ -37,54 +21,18 @@ config_model_node_valid_bits(utf8str value)
 bool
 config_model_node_valid_boolean(utf8str value)
 {
-	if ((value == "true") || (value == "false")) {
-		return true;
-	}
 	return false;
 }
 
 bool
 config_model_node_valid_decimal64(utf8str value)
 {
-	char const *p = value.ptr();
-	char const *q;
-	if (p == nullptr) {
-		return false;
-	}
-	if ((*p == '-') || (*p == '+')) {
-		++p;
-	}
-	q = p;
-	while (*p != '\0') {
-		if ((*p >= '0' && *p <= '9')
-		 || *p == '.') {
-		} else {
-			return false;
-		}
-		++p;
-	}
-	int count = 0;
-	while (*q != '\0') {
-		if (*p == '.') {
-			++count;
-		}
-	}
-	if (count > 1) {
-		return false;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_empty(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return true;
-	}
-	if (*p == '\0') {
-		return true;
-	}
 	return false;
 }
 
@@ -109,80 +57,24 @@ config_model_node_valid_instance_identifier(utf8str value)
 bool
 config_model_node_valid_int8(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if ((*p == '-') || (*p == '+')) {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_int16(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if ((*p == '-') || (*p == '+')) {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_int32(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if ((*p == '-') || (*p == '+')) {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_int64(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if ((*p == '-') || (*p == '+')) {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
@@ -201,80 +93,24 @@ config_model_node_valid_string(utf8str value)
 bool
 config_model_node_valid_uint8(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if (*p == '+') {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_uint16(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if (*p == '+') {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_uint32(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if (*p == '+') {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
 bool
 config_model_node_valid_uint64(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return false;
-	}
-	if (*p == '+') {
-		++p;
-	}
-	while (*p != '\0') {
-		if (*p >= '0' && *p <= '9') {
-		} else {
-			return false;
-		}
-		++p;
-	}
 	return true;
 }
 
@@ -365,11 +201,7 @@ config_model_node_valid_phys_address(utf8str value)
 bool
 config_model_node_valid_mac_address(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return true;
-	}
-	if (value.length() != 17) {
+	if (value.byte_length() != 17) {
 		return false;
 	}
 	return config_model_node_valid_hex_string(value);
@@ -384,37 +216,34 @@ config_model_node_valid_xpath1_0(utf8str value)
 bool
 config_model_node_valid_hex_string(utf8str value)
 {
-	char const *p = value.ptr();
-	if (p == nullptr) {
-		return true;
-	}
 	if (value == "") {
 		return true;
 	}
-	if (((*p >= '0' && *p <= '9')
-	  || (*p >= 'A' && *p <= 'F')
-	  || (*p >= 'a' && *p <= 'f'))
-	 && ((*(p + 1) >= '0' && *(p + 1) <= '9')
-	  || (*(p + 1) >= 'A' && *(p + 1) <= 'F')
-	  || (*(p + 1) >= 'a' && *(p + 1) <= 'f'))) {
+	int i = 0;
+	if (((value.byte_at(i) >= '0' && value.byte_at(i) <= '9')
+	  || (value.byte_at(i) >= 'A' && value.byte_at(i) <= 'F')
+	  || (value.byte_at(i) >= 'a' && value.byte_at(i) <= 'f'))
+	 && ((value.byte_at(i + 1) >= '0' && value.byte_at(i + 1) <= '9')
+	  || (value.byte_at(i + 1) >= 'A' && value.byte_at(i + 1) <= 'F')
+	  || (value.byte_at(i + 1) >= 'a' && value.byte_at(i + 1) <= 'f'))) {
 	} else {
 		return false;
 	}
-	p += 2;
-	while ((*p != '\0')
-	    && (*(p + 1) != '\0')
-	    && (*(p + 2) != '\0')) {
-		if ((*p == ':')
-		 && ((*(p + 1) >= '0' && *(p + 1) <= '9')
-		  || (*(p + 1) >= 'A' && *(p + 1) <= 'F')
-		  || (*(p + 1) >= 'a' && *(p + 1) <= 'f'))
-		 && ((*(p + 2) >= '0' && *(p + 2) <= '9')
-		  || (*(p + 2) >= 'A' && *(p + 2) <= 'F')
-		  || (*(p + 2) >= 'a' && *(p + 2) <= 'f'))) {
+	i += 2;
+	while ((value.byte_at(i) != '\0')
+	    && (value.byte_at(i + 1) != '\0')
+	    && (value.byte_at(i + 2) != '\0')) {
+		if ((value.byte_at(i) == ':')
+		 && ((value.byte_at(i + 1) >= '0' && value.byte_at(i + 1) <= '9')
+		  || (value.byte_at(i + 1) >= 'A' && value.byte_at(i + 1) <= 'F')
+		  || (value.byte_at(i + 1) >= 'a' && value.byte_at(i + 1) <= 'f'))
+		 && ((value.byte_at(i + 2) >= '0' && value.byte_at(i + 2) <= '9')
+		  || (value.byte_at(i + 2) >= 'A' && value.byte_at(i + 2) <= 'F')
+		  || (value.byte_at(i + 2) >= 'a' && value.byte_at(i + 2) <= 'f'))) {
 		} else {
 			return false;
 		}
-		p += 3;
+		i += 3;
 	}
 	return true;
 }
@@ -489,17 +318,15 @@ config_model_node_valid_ipv4_address(utf8str value)
 	char *p = nullptr;
 	char buf[256];
 
-	if (value.ptr() == nullptr) {
-		return false;
-	}
 	for (int i = 0; i < 256; ++i) {
 		buf[i] = '\0';
 	}
-	for (int i = 0; i < 255; ++i) {
-		buf[i] = value.ptr()[i];
-		if (value.ptr()[i] == '\0') {
-			break;
-		}
+	int t = value.byte_length();
+	if (t >= 255) {
+		t = 255;
+	}
+	for (int i = 0; i < t; ++i) {
+		buf[i] = value.byte_at(i);
 	}
 
 	/* インターフェース部分のチェック */
@@ -515,6 +342,7 @@ config_model_node_valid_ipv4_address(utf8str value)
 	if (pcount > 1) {
 		return false;
 	}
+
 
 	/* アドレス部分のチェック */
 	char *optr[4];

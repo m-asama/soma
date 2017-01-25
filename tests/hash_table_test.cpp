@@ -49,7 +49,7 @@ hash_table_test_common(hash_table<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s1(s);
 	s1 += ": 正順 count";
-	print_test_result(s1.ptr(), res);
+	print_test_result(s1, res);
 
 	if (sumt == sum) {
 		res = test_result::pass;
@@ -58,7 +58,7 @@ hash_table_test_common(hash_table<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s2(s);
 	s2 += ": 正順 sum";
-	print_test_result(s2.ptr(), res);
+	print_test_result(s2, res);
 
 	countt = 0;
 	sumt = 0;
@@ -82,7 +82,7 @@ hash_table_test_common(hash_table<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s3(s);
 	s3 += ": 逆順 count";
-	print_test_result(s3.ptr(), res);
+	print_test_result(s3, res);
 
 	if (sumt == sum) {
 		res = test_result::pass;
@@ -91,7 +91,7 @@ hash_table_test_common(hash_table<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s4(s);
 	s4 += ": 逆順 sum";
-	print_test_result(s4.ptr(), res);
+	print_test_result(s4, res);
 
 	if (x.nodes() == count) {
 		res = test_result::pass;
@@ -100,7 +100,7 @@ hash_table_test_common(hash_table<int> &x, char const *s, int count, int sum)
 	}
 	utf8str s5(s);
 	s5 += ":nodes()";
-	print_test_result(s5.ptr(), res);
+	print_test_result(s5, res);
 }
 
 void

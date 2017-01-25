@@ -122,11 +122,33 @@ main(int argc, char *argv[])
 
 	utf8str pass_s;
 	pass_s.append_uint64(test_pass, 8);
-	std::cout << "            PASS" << pass_s.ptr() << std::endl;
+	int len1 = pass_s.byte_length();
+	char buf1[256];
+	for (int i = 0; i < 256; ++i) {
+		buf1[i] = '\0';
+	}
+	if (len1 >= 255) {
+		len1 = 255;
+	}
+	for (int i = 0; i < len1; ++i) {
+		buf1[i] = pass_s.byte_at(i);
+	}
+	std::cout << "            PASS" << buf1 << std::endl;
 
 	utf8str fail_s;
 	fail_s.append_uint64(test_fail, 8);
-	std::cout << "            FAIL" << fail_s.ptr() << std::endl;
+	int len2 = fail_s.byte_length();
+	char buf2[256];
+	for (int i = 0; i < 256; ++i) {
+		buf2[i] = '\0';
+	}
+	if (len2 >= 255) {
+		len2 = 255;
+	}
+	for (int i = 0; i < len2; ++i) {
+		buf2[i] = fail_s.byte_at(i);
+	}
+	std::cout << "            FAIL" << buf2 << std::endl;
 
 	std::cout << std::endl;
 
@@ -186,27 +208,38 @@ memory_leak_test_end(char const *title)
 /*
 	utf8str s1(title);
 	s1 += "(alloc_size)";
-	print_test_result(s1.ptr(), res1);
+	print_test_result(s1, res1);
 
 	utf8str s2(title);
 	s2 += "(free_size)";
-	print_test_result(s2.ptr(), res2);
+	print_test_result(s2, res2);
 */
 	utf8str s3(title);
 	s3 += "(bidir_node_int_count)";
-	print_test_result(s3.ptr(), res3);
+	print_test_result(s3, res3);
 
 	utf8str s4(title);
 	s4 += "(memory_block_count)";
-	print_test_result(s4.ptr(), res4);
+	print_test_result(s4, res4);
 }
 
 void
-print_test_result(char const *name, test_result res)
+print_test_result(utf8str name, test_result res)
 {
-	utf8str n(name);
-	int w = n.width();
-	std::cout << "      * " << n.ptr() << " ";
+	char buf[256];
+	for (int i = 0; i < 256; ++i) {
+		buf[i] = '\0';
+	}
+	int t;
+	t = name.byte_length();
+	if (t >= 255) {
+		t = 255;
+	}
+	for (int i = 0; i < t; ++i) {
+		buf[i] = name.byte_at(i);
+	}
+	int w = name.width();
+	std::cout << "      * " << buf << " ";
 	for (int i = (62 - w); i > 0; --i) { std::cout << "."; }
 	switch (res) {
 	case test_result::pass:
@@ -219,6 +252,13 @@ print_test_result(char const *name, test_result res)
 		break;
 	}
 	std::cout << std::endl;
+}
+
+void
+print_test_result(char const *name, test_result res)
+{
+	utf8str n(name);
+	print_test_result(n, res);
 }
 
 void

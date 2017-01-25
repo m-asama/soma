@@ -26,7 +26,7 @@ print_rec(config_data_node *n, int indent)
 		si += "    ";
 	}
 	si += n->label();
-	print_test_result(si.ptr(), res);
+	print_test_result(si, res);
 	sorted_list<config_data_node> &children = n->children();
 	bidir_node<config_data_node> *bn;
 	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
@@ -44,16 +44,16 @@ config_test()
 /*
 	print_test_result("aaa", res);
 	utf8str x;
-	x.append_hex64((uint64_t)config_model_node_root->identifier().ptr(), 16);
-	print_test_result(x.ptr(), res);
-	print_test_result(config_model_node_root->identifier().ptr(), res);
+	x.append_hex64((uint64_t)config_model_node_root->identifier(), 16);
+	print_test_result(x, res);
+	print_test_result(config_model_node_root->identifier(), res);
 
 */
 	sorted_list<config_model_node> &children = config_model_node_root->children();
 	bidir_node<config_model_node> *bn;
 	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
 		print_test_result("bbb", res);
-		print_test_result(bn->v().identifier().ptr(), res);
+		print_test_result(bn->v().identifier(), res);
 	}
 
 	if (config_data_node::count() == 0) {

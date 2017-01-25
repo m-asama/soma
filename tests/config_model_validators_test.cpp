@@ -22,7 +22,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.168.1.1");
@@ -31,7 +31,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.168.1.1.1");
@@ -40,7 +40,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.168.1");
@@ -49,7 +49,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.168.1.1.");
@@ -58,7 +58,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s(".192.168.1.1");
@@ -67,7 +67,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192..1.1");
@@ -76,7 +76,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.256.1.1");
@@ -85,7 +85,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 	{
 		utf8str s("192.16x.1.1");
@@ -94,7 +94,7 @@ config_model_validators_test()
 		} else {
 			res = test_result::fail;
 		}
-		print_test_result(s.ptr(), res);
+		print_test_result(s, res);
 	}
 
 	memory_leak_test_end("設定モデル値チェック関数");
