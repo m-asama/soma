@@ -1596,7 +1596,9 @@ cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_valid
 {
 	return true;
 }
+*/
 
+/*
 bool
 cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_commit(config_data_node *running, config_data_node *candidate)
 {
@@ -1874,7 +1876,9 @@ cmn_routing_state_ribs_rib__routes_route__destination_prefix_validate(config_dat
 {
 	return true;
 }
+*/
 
+/*
 bool
 cmn_routing_state_ribs_rib__routes_route__destination_prefix_commit(config_data_node *running, config_data_node *candidate)
 {

@@ -7,6 +7,7 @@
 #pragma once
 
 #include "type.h"
+#include "utf8str.h"
 
 /*
  * ビット演算関連
@@ -34,7 +35,11 @@ int round_down_64(uint64_t &target, uint64_t align);
  * 
  */
 uint64_t parse_uint64(char const *str);
+uint64_t parse_uint64(utf8str str);
 sint64_t parse_sint64(char const *str);
+sint64_t parse_sint64(utf8str str);
+uint64_t parse_hex64(char const *str);
+uint64_t parse_hex64(utf8str str);
 
 void panic();
 

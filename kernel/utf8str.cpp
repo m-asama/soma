@@ -35,6 +35,27 @@ length(const char *s)
 }
 
 static inline size_t
+unicode_length(const char *s)
+{
+	size_t unicode_length = 0;
+
+	if (s == nullptr) {
+		return 0;
+	}
+
+	uint32_t c;
+	int i = 0;
+	size_t len = length(s);
+	while (i < len) {
+		int count = utf8_to_unicode(&s[i], &c);
+		++unicode_length;
+		i += count;
+	}
+
+	return unicode_length;
+}
+
+static inline size_t
 width(const char *s)
 {
 	size_t width = 0;
@@ -103,6 +124,15 @@ utf8str::utf8str(const char *s)
 	init_utf8str(s);
 }
 
+utf8str::utf8str(utf8str &&src)
+{
+	if (this != &src) {
+		m_buffer = src.m_buffer;
+		m_buffer_size = src.m_buffer_size;
+		src.m_buffer = nullptr;
+	}
+}
+
 utf8str &
 utf8str::operator=(const utf8str &src)
 {
@@ -113,6 +143,20 @@ utf8str &
 utf8str::operator=(const char *s)
 {
 	return assign_utf8str(s);
+}
+
+utf8str &
+utf8str::operator=(utf8str &&src)
+{
+	if (this != &src) {
+		if (m_buffer != nullptr) {
+			memory_free(m_buffer);
+		}
+		m_buffer = src.m_buffer;
+		m_buffer_size = src.m_buffer_size;
+		src.m_buffer = nullptr;
+	}
+	return *this;
 }
 
 utf8str &
@@ -181,6 +225,32 @@ bool
 utf8str::operator<(const char *s)
 {
 	return is_small(s);
+}
+
+uint32_t
+utf8str::operator[](sint64_t i)
+{
+	size_t len = unicode_length();
+	if (len == 0) {
+		return 0;
+	}
+	int index;
+	if (i < 0) {
+		index = (len - ((i * -1) % len)) % len;
+	} else {
+		index = i % len;
+	}
+	int j = 0, k = 0;
+	uint32_t c;
+	while (j < length()) {
+		int count = utf8_to_unicode(&m_buffer[j], &c);
+		if (k == index) {
+			return c;
+		}
+		++k;
+		j += count;
+	}
+	return 0;
 }
 
 void
@@ -402,6 +472,24 @@ utf8str::append_hex64(uint64_t val, size_t width)
 	return *this;
 }
 
+utf8str &
+utf8str::truncate(uint64_t count)
+{
+	if (m_buffer == nullptr) {
+		return *this;
+	}
+
+	for (int i = 0; i < count; ++i) {
+		int index = ::length(m_buffer) - 1;
+		while ((index > 0) && ((m_buffer[index] & 0xc0) == 0x80)) {
+			--index;
+		}
+		m_buffer[index] = '\0';
+	}
+	
+	return *this;
+}
+
 bool
 utf8str::is_equal(const char *s)
 {
@@ -495,6 +583,44 @@ utf8str::is_small(const char *s)
 	return false;
 }
 
+bool
+utf8str::beginning(utf8str s)
+{
+	if ((m_buffer == nullptr) || (s.m_buffer == nullptr)) {
+		return false;
+	}
+	uint64_t len1 = length();
+	uint64_t len2 = s.length();
+	if (len1 < len2) {
+		return false;
+	}
+	for (int i = 0; i < len2; ++i) {
+		if (m_buffer[i] != s.m_buffer[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool
+utf8str::ending(utf8str s)
+{
+	if ((m_buffer == nullptr) || (s.m_buffer == nullptr)) {
+		return false;
+	}
+	uint64_t len1 = length();
+	uint64_t len2 = s.length();
+	if (len1 < len2) {
+		return false;
+	}
+	for (int i = 0; i < len2; ++i) {
+		if (m_buffer[(len1 - len2) + i] != s.m_buffer[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 const char *
 utf8str::ptr() const
 {
@@ -508,6 +634,15 @@ utf8str::length() const
 		return 0;
 	}
 	return ::length(m_buffer);
+}
+
+size_t
+utf8str::unicode_length() const
+{
+	if (m_buffer == nullptr) {
+		return 0;
+	}
+	return ::unicode_length(m_buffer);
 }
 
 size_t

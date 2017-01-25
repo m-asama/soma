@@ -136,6 +136,148 @@ utf8str_test()
 	}
 	utf8str_test_str(teststr1, "teststr1");
 	utf8str_test_str(teststr2, "teststr2");
+	{
+		test_result res;
+		utf8str s1("abcde");
+		utf8str s2("abc");
+		s1.truncate(2);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("abcde:abcd", res);
+	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		utf8str s2("");
+		s1.truncate(5);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("abcde:abcd", res);
+	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		utf8str s2("");
+		s1.truncate(8);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("abcde:abcd", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		utf8str s2("アイウエ");
+		s1.truncate(1);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("アイウエオ:アイウエ", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		utf8str s2("アイウ");
+		s1.truncate(2);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("abcde:abcd", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		utf8str s2("");
+		s1.truncate(8);
+		if (s1 == s2) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("abcde:abcd", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		if (s1.unicode_length() == 5) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_length(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		if (s1.unicode_length() == 5) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_length(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("aイcエe");
+		if (s1.unicode_length() == 5) {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_length(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("aイcエe");
+		if (s1[0] == 'a') {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("[](1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("aイcエe");
+		if (s1[5] == 'a') {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("[](1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("aイcエe");
+		if (s1[-1] == 'e') {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("[](1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("aイcエe");
+		if (s1[2] == 'c') {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("[](1)", res);
+	}
 	memory_leak_test_end("文字列メモリリークチェック");
 }
 

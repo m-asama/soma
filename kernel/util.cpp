@@ -118,8 +118,12 @@ uint64_t
 parse_uint64(char const *str)
 {
 	uint64_t val = 0;
+	int i = 0;
 
-	for (int i = 0; i < 20; ++i) {
+	if (str[i] == '+')
+		++i;
+
+	for (; i < 20; ++i) {
 		if ((str[i] < '0') || (str[i] > '9'))
 			break;
 		val *= 10;
@@ -129,18 +133,75 @@ parse_uint64(char const *str)
 	return val;
 }
 
+uint64_t
+parse_uint64(utf8str str)
+{
+	return parse_uint64(str.ptr());
+}
+
 sint64_t
 parse_sint64(char const *str)
 {
 	sint64_t val = 0;
 	sint64_t sign = 1;
+	int i = 0;
 
-	if (str[0] == '-')
+	if (str[i] == '-') {
+		++i;
 		sign = -1;
+	} else if (str[i] == '+') {
+		++i;
+	}
 
-	val = sign * parse_uint64(&str[1]);
+	val = sign * parse_uint64(&str[i]);
 
 	return val;
+}
+
+sint64_t
+parse_sint64(utf8str str)
+{
+	return parse_sint64(str.ptr());
+}
+
+uint64_t
+parse_hex64(char const *str)
+{
+	uint64_t val = 0;
+	int i = 0;
+
+	if ((str[i] == '0') && (str[i + 1] == 'x')) {
+		i += 2;
+	}
+
+	while (str[i] != '\0') {
+		if (((str[i] < '0') || (str[i] > '9'))
+		 && ((str[i] < 'A') || (str[i] > 'F'))
+		 && ((str[i] < 'a') || (str[i] > 'f'))) {
+			break;
+		}
+		uint64_t t = 0;
+		if ((str[i] >= '0') || (str[i] <= '9')) {
+			t = str[i] - '0';
+		}
+		if ((str[i] >= 'A') || (str[i] <= 'F')) {
+			t = str[i] - 'A' + 10;
+		}
+		if ((str[i] >= 'a') || (str[i] <= 'f')) {
+			t = str[i] - 'a' + 10;
+		}
+		val <<= 4;
+		val |= t;
+		++i;
+	}
+
+	return val;
+}
+
+uint64_t
+parse_hex64(utf8str str)
+{
+	return parse_hex64(str.ptr());
 }
 
 void

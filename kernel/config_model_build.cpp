@@ -8,6 +8,7 @@
 #include "config_model_build.h"
 #include "config_model_node.h"
 #include "config_model_nodes.h"
+#include "config_model_descriptions.h"
 #include "config_model_functions.h"
 
 void
@@ -32,6 +33,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__name_validate);
 	t->commit(cmn_interfaces_interface__name_commit);
+	t->description(cmn_interfaces_interface__name_msg);
 	cmn_interfaces_interface__description = new config_model_node;
 	t = cmn_interfaces_interface__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -44,6 +46,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__description_validate);
 	t->commit(cmn_interfaces_interface__description_commit);
+	t->description(cmn_interfaces_interface__description_msg);
 	cmn_interfaces_interface__type = new config_model_node;
 	t = cmn_interfaces_interface__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -56,6 +59,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__type_validate);
 	t->commit(cmn_interfaces_interface__type_commit);
+	t->description(cmn_interfaces_interface__type_msg);
 	cmn_interfaces_interface__enabled = new config_model_node;
 	t = cmn_interfaces_interface__enabled;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -68,6 +72,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__enabled_validate);
 	t->commit(cmn_interfaces_interface__enabled_commit);
+	t->description(cmn_interfaces_interface__enabled_msg);
 	cmn_interfaces_interface__link_up_down_trap_enable = new config_model_node;
 	t = cmn_interfaces_interface__link_up_down_trap_enable;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -80,6 +85,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__link_up_down_trap_enable_validate);
 	t->commit(cmn_interfaces_interface__link_up_down_trap_enable_commit);
+	t->description(cmn_interfaces_interface__link_up_down_trap_enable_msg);
 	cmn_interfaces_interface__ipv4 = new config_model_node;
 	cmn_interfaces_interface__ipv4_enabled = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_enabled;
@@ -93,6 +99,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_enabled_validate);
 	t->commit(cmn_interfaces_interface__ipv4_enabled_commit);
+	t->description(cmn_interfaces_interface__ipv4_enabled_msg);
 	cmn_interfaces_interface__ipv4_forwarding = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_forwarding;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -105,6 +112,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_forwarding_validate);
 	t->commit(cmn_interfaces_interface__ipv4_forwarding_commit);
+	t->description(cmn_interfaces_interface__ipv4_forwarding_msg);
 	cmn_interfaces_interface__ipv4_mtu = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -117,6 +125,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_mtu_validate);
 	t->commit(cmn_interfaces_interface__ipv4_mtu_commit);
+	t->description(cmn_interfaces_interface__ipv4_mtu_msg);
 	cmn_interfaces_interface__ipv4_address_ = new config_model_node;
 	cmn_interfaces_interface__ipv4_address__ip = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_address__ip;
@@ -130,6 +139,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_address__ip_validate);
 	t->commit(cmn_interfaces_interface__ipv4_address__ip_commit);
+	t->description(cmn_interfaces_interface__ipv4_address__ip_msg);
 	cmn_interfaces_interface__ipv4_address__prefix_length = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_address__prefix_length;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -142,6 +152,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_address__prefix_length_validate);
 	t->commit(cmn_interfaces_interface__ipv4_address__prefix_length_commit);
+	t->description(cmn_interfaces_interface__ipv4_address__prefix_length_msg);
 	cmn_interfaces_interface__ipv4_address__netmask = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_address__netmask;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -154,6 +165,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_address__netmask_validate);
 	t->commit(cmn_interfaces_interface__ipv4_address__netmask_commit);
+	t->description(cmn_interfaces_interface__ipv4_address__netmask_msg);
 	t = cmn_interfaces_interface__ipv4_address_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("address");
@@ -166,6 +178,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_address__validate);
 	t->commit(cmn_interfaces_interface__ipv4_address__commit);
+	t->description(cmn_interfaces_interface__ipv4_address__msg);
 	cmn_interfaces_interface__ipv4_neighbor_ = new config_model_node;
 	cmn_interfaces_interface__ipv4_neighbor__ip = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_neighbor__ip;
@@ -179,6 +192,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_neighbor__ip_validate);
 	t->commit(cmn_interfaces_interface__ipv4_neighbor__ip_commit);
+	t->description(cmn_interfaces_interface__ipv4_neighbor__ip_msg);
 	cmn_interfaces_interface__ipv4_neighbor__link_layer_address = new config_model_node;
 	t = cmn_interfaces_interface__ipv4_neighbor__link_layer_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -191,6 +205,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_neighbor__link_layer_address_validate);
 	t->commit(cmn_interfaces_interface__ipv4_neighbor__link_layer_address_commit);
+	t->description(cmn_interfaces_interface__ipv4_neighbor__link_layer_address_msg);
 	t = cmn_interfaces_interface__ipv4_neighbor_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("neighbor");
@@ -203,6 +218,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_neighbor__validate);
 	t->commit(cmn_interfaces_interface__ipv4_neighbor__commit);
+	t->description(cmn_interfaces_interface__ipv4_neighbor__msg);
 	t = cmn_interfaces_interface__ipv4;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv4");
@@ -212,6 +228,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv4_validate);
 	t->commit(cmn_interfaces_interface__ipv4_commit);
+	t->description(cmn_interfaces_interface__ipv4_msg);
 	cmn_interfaces_interface__ipv6 = new config_model_node;
 	cmn_interfaces_interface__ipv6_enabled = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_enabled;
@@ -225,6 +242,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_enabled_validate);
 	t->commit(cmn_interfaces_interface__ipv6_enabled_commit);
+	t->description(cmn_interfaces_interface__ipv6_enabled_msg);
 	cmn_interfaces_interface__ipv6_forwarding = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_forwarding;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -237,6 +255,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_forwarding_validate);
 	t->commit(cmn_interfaces_interface__ipv6_forwarding_commit);
+	t->description(cmn_interfaces_interface__ipv6_forwarding_msg);
 	cmn_interfaces_interface__ipv6_mtu = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -249,6 +268,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_mtu_validate);
 	t->commit(cmn_interfaces_interface__ipv6_mtu_commit);
+	t->description(cmn_interfaces_interface__ipv6_mtu_msg);
 	cmn_interfaces_interface__ipv6_address_ = new config_model_node;
 	cmn_interfaces_interface__ipv6_address__ip = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_address__ip;
@@ -262,6 +282,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_address__ip_validate);
 	t->commit(cmn_interfaces_interface__ipv6_address__ip_commit);
+	t->description(cmn_interfaces_interface__ipv6_address__ip_msg);
 	cmn_interfaces_interface__ipv6_address__prefix_length = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_address__prefix_length;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -274,6 +295,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_address__prefix_length_validate);
 	t->commit(cmn_interfaces_interface__ipv6_address__prefix_length_commit);
+	t->description(cmn_interfaces_interface__ipv6_address__prefix_length_msg);
 	t = cmn_interfaces_interface__ipv6_address_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("address");
@@ -286,6 +308,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_address__validate);
 	t->commit(cmn_interfaces_interface__ipv6_address__commit);
+	t->description(cmn_interfaces_interface__ipv6_address__msg);
 	cmn_interfaces_interface__ipv6_neighbor_ = new config_model_node;
 	cmn_interfaces_interface__ipv6_neighbor__ip = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_neighbor__ip;
@@ -299,6 +322,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_neighbor__ip_validate);
 	t->commit(cmn_interfaces_interface__ipv6_neighbor__ip_commit);
+	t->description(cmn_interfaces_interface__ipv6_neighbor__ip_msg);
 	cmn_interfaces_interface__ipv6_neighbor__link_layer_address = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_neighbor__link_layer_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -311,6 +335,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_neighbor__link_layer_address_validate);
 	t->commit(cmn_interfaces_interface__ipv6_neighbor__link_layer_address_commit);
+	t->description(cmn_interfaces_interface__ipv6_neighbor__link_layer_address_msg);
 	t = cmn_interfaces_interface__ipv6_neighbor_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("neighbor");
@@ -323,6 +348,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_neighbor__validate);
 	t->commit(cmn_interfaces_interface__ipv6_neighbor__commit);
+	t->description(cmn_interfaces_interface__ipv6_neighbor__msg);
 	cmn_interfaces_interface__ipv6_dup_addr_detect_transmits = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_dup_addr_detect_transmits;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -335,6 +361,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_dup_addr_detect_transmits_validate);
 	t->commit(cmn_interfaces_interface__ipv6_dup_addr_detect_transmits_commit);
+	t->description(cmn_interfaces_interface__ipv6_dup_addr_detect_transmits_msg);
 	cmn_interfaces_interface__ipv6_autoconf = new config_model_node;
 	cmn_interfaces_interface__ipv6_autoconf_create_global_addresses = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_autoconf_create_global_addresses;
@@ -348,6 +375,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_autoconf_create_global_addresses_validate);
 	t->commit(cmn_interfaces_interface__ipv6_autoconf_create_global_addresses_commit);
+	t->description(cmn_interfaces_interface__ipv6_autoconf_create_global_addresses_msg);
 	cmn_interfaces_interface__ipv6_autoconf_create_temporary_addresses = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_autoconf_create_temporary_addresses;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -360,6 +388,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_autoconf_create_temporary_addresses_validate);
 	t->commit(cmn_interfaces_interface__ipv6_autoconf_create_temporary_addresses_commit);
+	t->description(cmn_interfaces_interface__ipv6_autoconf_create_temporary_addresses_msg);
 	cmn_interfaces_interface__ipv6_autoconf_temporary_valid_lifetime = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_autoconf_temporary_valid_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -372,6 +401,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_autoconf_temporary_valid_lifetime_validate);
 	t->commit(cmn_interfaces_interface__ipv6_autoconf_temporary_valid_lifetime_commit);
+	t->description(cmn_interfaces_interface__ipv6_autoconf_temporary_valid_lifetime_msg);
 	cmn_interfaces_interface__ipv6_autoconf_temporary_preferred_lifetime = new config_model_node;
 	t = cmn_interfaces_interface__ipv6_autoconf_temporary_preferred_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -384,6 +414,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_autoconf_temporary_preferred_lifetime_validate);
 	t->commit(cmn_interfaces_interface__ipv6_autoconf_temporary_preferred_lifetime_commit);
+	t->description(cmn_interfaces_interface__ipv6_autoconf_temporary_preferred_lifetime_msg);
 	t = cmn_interfaces_interface__ipv6_autoconf;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("autoconf");
@@ -393,6 +424,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_autoconf_validate);
 	t->commit(cmn_interfaces_interface__ipv6_autoconf_commit);
+	t->description(cmn_interfaces_interface__ipv6_autoconf_msg);
 	t = cmn_interfaces_interface__ipv6;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv6");
@@ -402,6 +434,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__ipv6_validate);
 	t->commit(cmn_interfaces_interface__ipv6_commit);
+	t->description(cmn_interfaces_interface__ipv6_msg);
 	t = cmn_interfaces_interface_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("interface");
@@ -414,6 +447,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_interface__validate);
 	t->commit(cmn_interfaces_interface__commit);
+	t->description(cmn_interfaces_interface__msg);
 	t = cmn_interfaces;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("interfaces");
@@ -423,6 +457,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_interfaces_validate);
 	t->commit(cmn_interfaces_commit);
+	t->description(cmn_interfaces_msg);
 	cmn_interfaces_state = new config_model_node;
 	cmn_interfaces_state_interface_ = new config_model_node;
 	cmn_interfaces_state_interface__name = new config_model_node;
@@ -437,6 +472,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__name_validate);
 	t->commit(cmn_interfaces_state_interface__name_commit);
+	t->description(cmn_interfaces_state_interface__name_msg);
 	cmn_interfaces_state_interface__type = new config_model_node;
 	t = cmn_interfaces_state_interface__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -449,6 +485,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__type_validate);
 	t->commit(cmn_interfaces_state_interface__type_commit);
+	t->description(cmn_interfaces_state_interface__type_msg);
 	cmn_interfaces_state_interface__admin_status = new config_model_node;
 	t = cmn_interfaces_state_interface__admin_status;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -461,6 +498,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__admin_status_validate);
 	t->commit(cmn_interfaces_state_interface__admin_status_commit);
+	t->description(cmn_interfaces_state_interface__admin_status_msg);
 	cmn_interfaces_state_interface__oper_status = new config_model_node;
 	t = cmn_interfaces_state_interface__oper_status;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -473,6 +511,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__oper_status_validate);
 	t->commit(cmn_interfaces_state_interface__oper_status_commit);
+	t->description(cmn_interfaces_state_interface__oper_status_msg);
 	cmn_interfaces_state_interface__last_change = new config_model_node;
 	t = cmn_interfaces_state_interface__last_change;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -485,6 +524,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__last_change_validate);
 	t->commit(cmn_interfaces_state_interface__last_change_commit);
+	t->description(cmn_interfaces_state_interface__last_change_msg);
 	cmn_interfaces_state_interface__if_index = new config_model_node;
 	t = cmn_interfaces_state_interface__if_index;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -497,6 +537,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__if_index_validate);
 	t->commit(cmn_interfaces_state_interface__if_index_commit);
+	t->description(cmn_interfaces_state_interface__if_index_msg);
 	cmn_interfaces_state_interface__phys_address = new config_model_node;
 	t = cmn_interfaces_state_interface__phys_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -509,6 +550,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__phys_address_validate);
 	t->commit(cmn_interfaces_state_interface__phys_address_commit);
+	t->description(cmn_interfaces_state_interface__phys_address_msg);
 	cmn_interfaces_state_interface__speed = new config_model_node;
 	t = cmn_interfaces_state_interface__speed;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -521,6 +563,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__speed_validate);
 	t->commit(cmn_interfaces_state_interface__speed_commit);
+	t->description(cmn_interfaces_state_interface__speed_msg);
 	cmn_interfaces_state_interface__statistics = new config_model_node;
 	cmn_interfaces_state_interface__statistics_discontinuity_time = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_discontinuity_time;
@@ -534,6 +577,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_discontinuity_time_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_discontinuity_time_commit);
+	t->description(cmn_interfaces_state_interface__statistics_discontinuity_time_msg);
 	cmn_interfaces_state_interface__statistics_in_octets = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_octets;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -546,6 +590,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_octets_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_octets_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_octets_msg);
 	cmn_interfaces_state_interface__statistics_in_unicast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_unicast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -558,6 +603,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_unicast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_unicast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_unicast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_in_broadcast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_broadcast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -570,6 +616,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_broadcast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_broadcast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_broadcast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_in_multicast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_multicast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -582,6 +629,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_multicast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_multicast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_multicast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_in_discards = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_discards;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -594,6 +642,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_discards_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_discards_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_discards_msg);
 	cmn_interfaces_state_interface__statistics_in_errors = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_errors;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -606,6 +655,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_errors_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_errors_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_errors_msg);
 	cmn_interfaces_state_interface__statistics_in_unknown_protos = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_in_unknown_protos;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -618,6 +668,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_in_unknown_protos_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_in_unknown_protos_commit);
+	t->description(cmn_interfaces_state_interface__statistics_in_unknown_protos_msg);
 	cmn_interfaces_state_interface__statistics_out_octets = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_octets;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -630,6 +681,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_octets_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_octets_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_octets_msg);
 	cmn_interfaces_state_interface__statistics_out_unicast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_unicast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -642,6 +694,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_unicast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_unicast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_unicast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_out_broadcast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_broadcast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -654,6 +707,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_broadcast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_broadcast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_broadcast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_out_multicast_pkts = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_multicast_pkts;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -666,6 +720,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_multicast_pkts_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_multicast_pkts_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_multicast_pkts_msg);
 	cmn_interfaces_state_interface__statistics_out_discards = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_discards;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -678,6 +733,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_discards_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_discards_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_discards_msg);
 	cmn_interfaces_state_interface__statistics_out_errors = new config_model_node;
 	t = cmn_interfaces_state_interface__statistics_out_errors;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -690,6 +746,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_out_errors_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_out_errors_commit);
+	t->description(cmn_interfaces_state_interface__statistics_out_errors_msg);
 	t = cmn_interfaces_state_interface__statistics;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("statistics");
@@ -699,6 +756,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__statistics_validate);
 	t->commit(cmn_interfaces_state_interface__statistics_commit);
+	t->description(cmn_interfaces_state_interface__statistics_msg);
 	cmn_interfaces_state_interface__ipv4 = new config_model_node;
 	cmn_interfaces_state_interface__ipv4_forwarding = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_forwarding;
@@ -712,6 +770,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_forwarding_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_forwarding_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_forwarding_msg);
 	cmn_interfaces_state_interface__ipv4_mtu = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -724,6 +783,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_mtu_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_mtu_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_mtu_msg);
 	cmn_interfaces_state_interface__ipv4_address_ = new config_model_node;
 	cmn_interfaces_state_interface__ipv4_address__ip = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_address__ip;
@@ -737,6 +797,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_address__ip_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_address__ip_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_address__ip_msg);
 	cmn_interfaces_state_interface__ipv4_address__prefix_length = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_address__prefix_length;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -749,6 +810,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_address__prefix_length_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_address__prefix_length_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_address__prefix_length_msg);
 	cmn_interfaces_state_interface__ipv4_address__netmask = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_address__netmask;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -761,6 +823,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_address__netmask_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_address__netmask_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_address__netmask_msg);
 	cmn_interfaces_state_interface__ipv4_address__origin = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_address__origin;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -773,6 +836,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_address__origin_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_address__origin_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_address__origin_msg);
 	t = cmn_interfaces_state_interface__ipv4_address_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("address");
@@ -785,6 +849,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_address__validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_address__commit);
+	t->description(cmn_interfaces_state_interface__ipv4_address__msg);
 	cmn_interfaces_state_interface__ipv4_neighbor_ = new config_model_node;
 	cmn_interfaces_state_interface__ipv4_neighbor__ip = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_neighbor__ip;
@@ -798,6 +863,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_neighbor__ip_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_neighbor__ip_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_neighbor__ip_msg);
 	cmn_interfaces_state_interface__ipv4_neighbor__link_layer_address = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_neighbor__link_layer_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -810,6 +876,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_neighbor__link_layer_address_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_neighbor__link_layer_address_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_neighbor__link_layer_address_msg);
 	cmn_interfaces_state_interface__ipv4_neighbor__origin = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv4_neighbor__origin;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -822,6 +889,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_neighbor__origin_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_neighbor__origin_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_neighbor__origin_msg);
 	t = cmn_interfaces_state_interface__ipv4_neighbor_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("neighbor");
@@ -834,6 +902,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_neighbor__validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_neighbor__commit);
+	t->description(cmn_interfaces_state_interface__ipv4_neighbor__msg);
 	t = cmn_interfaces_state_interface__ipv4;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv4");
@@ -843,6 +912,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv4_validate);
 	t->commit(cmn_interfaces_state_interface__ipv4_commit);
+	t->description(cmn_interfaces_state_interface__ipv4_msg);
 	cmn_interfaces_state_interface__ipv6 = new config_model_node;
 	cmn_interfaces_state_interface__ipv6_forwarding = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_forwarding;
@@ -856,6 +926,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_forwarding_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_forwarding_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_forwarding_msg);
 	cmn_interfaces_state_interface__ipv6_mtu = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -868,6 +939,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_mtu_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_mtu_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_mtu_msg);
 	cmn_interfaces_state_interface__ipv6_address_ = new config_model_node;
 	cmn_interfaces_state_interface__ipv6_address__ip = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_address__ip;
@@ -881,6 +953,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_address__ip_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_address__ip_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_address__ip_msg);
 	cmn_interfaces_state_interface__ipv6_address__prefix_length = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_address__prefix_length;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -893,6 +966,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_address__prefix_length_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_address__prefix_length_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_address__prefix_length_msg);
 	cmn_interfaces_state_interface__ipv6_address__origin = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_address__origin;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -905,6 +979,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_address__origin_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_address__origin_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_address__origin_msg);
 	cmn_interfaces_state_interface__ipv6_address__status = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_address__status;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -917,6 +992,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_address__status_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_address__status_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_address__status_msg);
 	t = cmn_interfaces_state_interface__ipv6_address_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("address");
@@ -929,6 +1005,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_address__validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_address__commit);
+	t->description(cmn_interfaces_state_interface__ipv6_address__msg);
 	cmn_interfaces_state_interface__ipv6_neighbor_ = new config_model_node;
 	cmn_interfaces_state_interface__ipv6_neighbor__ip = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_neighbor__ip;
@@ -942,6 +1019,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__ip_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__ip_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__ip_msg);
 	cmn_interfaces_state_interface__ipv6_neighbor__link_layer_address = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_neighbor__link_layer_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -954,6 +1032,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__link_layer_address_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__link_layer_address_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__link_layer_address_msg);
 	cmn_interfaces_state_interface__ipv6_neighbor__origin = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_neighbor__origin;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -966,6 +1045,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__origin_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__origin_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__origin_msg);
 	cmn_interfaces_state_interface__ipv6_neighbor__is_router = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_neighbor__is_router;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -978,6 +1058,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__is_router_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__is_router_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__is_router_msg);
 	cmn_interfaces_state_interface__ipv6_neighbor__state = new config_model_node;
 	t = cmn_interfaces_state_interface__ipv6_neighbor__state;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -990,6 +1071,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__state_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__state_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__state_msg);
 	t = cmn_interfaces_state_interface__ipv6_neighbor_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("neighbor");
@@ -1002,6 +1084,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_neighbor__validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_neighbor__commit);
+	t->description(cmn_interfaces_state_interface__ipv6_neighbor__msg);
 	t = cmn_interfaces_state_interface__ipv6;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv6");
@@ -1011,6 +1094,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__ipv6_validate);
 	t->commit(cmn_interfaces_state_interface__ipv6_commit);
+	t->description(cmn_interfaces_state_interface__ipv6_msg);
 	t = cmn_interfaces_state_interface_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("interface");
@@ -1023,6 +1107,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_interface__validate);
 	t->commit(cmn_interfaces_state_interface__commit);
+	t->description(cmn_interfaces_state_interface__msg);
 	t = cmn_interfaces_state;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("interfaces-state");
@@ -1032,6 +1117,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_interfaces_state_validate);
 	t->commit(cmn_interfaces_state_commit);
+	t->description(cmn_interfaces_state_msg);
 	cmn_routing_state = new config_model_node;
 	cmn_routing_state_routing_instance_ = new config_model_node;
 	cmn_routing_state_routing_instance__name = new config_model_node;
@@ -1046,6 +1132,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__name_validate);
 	t->commit(cmn_routing_state_routing_instance__name_commit);
+	t->description(cmn_routing_state_routing_instance__name_msg);
 	cmn_routing_state_routing_instance__type = new config_model_node;
 	t = cmn_routing_state_routing_instance__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1058,6 +1145,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__type_validate);
 	t->commit(cmn_routing_state_routing_instance__type_commit);
+	t->description(cmn_routing_state_routing_instance__type_msg);
 	cmn_routing_state_routing_instance__default_ribs = new config_model_node;
 	cmn_routing_state_routing_instance__default_ribs_default_rib_ = new config_model_node;
 	cmn_routing_state_routing_instance__default_ribs_default_rib__rib_name = new config_model_node;
@@ -1072,6 +1160,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__default_ribs_default_rib__rib_name_validate);
 	t->commit(cmn_routing_state_routing_instance__default_ribs_default_rib__rib_name_commit);
+	t->description(cmn_routing_state_routing_instance__default_ribs_default_rib__rib_name_msg);
 	cmn_routing_state_routing_instance__default_ribs_default_rib__address_family = new config_model_node;
 	t = cmn_routing_state_routing_instance__default_ribs_default_rib__address_family;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1084,6 +1173,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__default_ribs_default_rib__address_family_validate);
 	t->commit(cmn_routing_state_routing_instance__default_ribs_default_rib__address_family_commit);
+	t->description(cmn_routing_state_routing_instance__default_ribs_default_rib__address_family_msg);
 	t = cmn_routing_state_routing_instance__default_ribs_default_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("default-rib");
@@ -1096,6 +1186,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__default_ribs_default_rib__validate);
 	t->commit(cmn_routing_state_routing_instance__default_ribs_default_rib__commit);
+	t->description(cmn_routing_state_routing_instance__default_ribs_default_rib__msg);
 	t = cmn_routing_state_routing_instance__default_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("default-ribs");
@@ -1105,6 +1196,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__default_ribs_validate);
 	t->commit(cmn_routing_state_routing_instance__default_ribs_commit);
+	t->description(cmn_routing_state_routing_instance__default_ribs_msg);
 	cmn_routing_state_routing_instance__interfaces = new config_model_node;
 	cmn_routing_state_routing_instance__interfaces_interface_ = new config_model_node;
 	cmn_routing_state_routing_instance__interfaces_interface__name = new config_model_node;
@@ -1119,6 +1211,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__name_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__name_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__name_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements = new config_model_node;
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements;
@@ -1132,6 +1225,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1144,6 +1238,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1156,6 +1251,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1168,6 +1264,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1180,6 +1277,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1192,6 +1290,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1204,6 +1303,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1216,6 +1316,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1228,6 +1329,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1240,6 +1342,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list = new config_model_node;
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix_ = new config_model_node;
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec = new config_model_node;
@@ -1254,6 +1357,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1266,6 +1370,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1278,6 +1383,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1290,6 +1396,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_msg);
 	cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag = new config_model_node;
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1302,6 +1409,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_msg);
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("prefix");
@@ -1314,6 +1422,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__msg);
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("prefix-list");
@@ -1323,6 +1432,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_msg);
 	t = cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv6-router-advertisements");
@@ -1332,6 +1442,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__ipv6_router_advertisements_msg);
 	t = cmn_routing_state_routing_instance__interfaces_interface_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("interface");
@@ -1344,6 +1455,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__interfaces_interface__validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_interface__commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_interface__msg);
 	t = cmn_routing_state_routing_instance__interfaces;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("interfaces");
@@ -1353,6 +1465,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__interfaces_validate);
 	t->commit(cmn_routing_state_routing_instance__interfaces_commit);
+	t->description(cmn_routing_state_routing_instance__interfaces_msg);
 	cmn_routing_state_routing_instance__routing_protocols = new config_model_node;
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol_ = new config_model_node;
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__type = new config_model_node;
@@ -1367,6 +1480,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__type_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__type_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__type_msg);
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__name = new config_model_node;
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__name;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1379,6 +1493,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__name_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__name_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__name_msg);
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__route_preference = new config_model_node;
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__route_preference;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1391,6 +1506,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__route_preference_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__route_preference_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__route_preference_msg);
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs = new config_model_node;
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib_ = new config_model_node;
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name = new config_model_node;
@@ -1405,6 +1521,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_msg);
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter = new config_model_node;
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1417,6 +1534,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_msg);
 	cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter = new config_model_node;
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1429,6 +1547,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_msg);
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("connected-rib");
@@ -1441,6 +1560,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__msg);
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("connected-ribs");
@@ -1450,6 +1570,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__connected_ribs_msg);
 	t = cmn_routing_state_routing_instance__routing_protocols_routing_protocol_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("routing-protocol");
@@ -1462,6 +1583,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_routing_protocol__msg);
 	t = cmn_routing_state_routing_instance__routing_protocols;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("routing-protocols");
@@ -1471,6 +1593,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__routing_protocols_validate);
 	t->commit(cmn_routing_state_routing_instance__routing_protocols_commit);
+	t->description(cmn_routing_state_routing_instance__routing_protocols_msg);
 	cmn_routing_state_routing_instance__id = new config_model_node;
 	t = cmn_routing_state_routing_instance__id;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1483,6 +1606,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_routing_instance__id_validate);
 	t->commit(cmn_routing_state_routing_instance__id_commit);
+	t->description(cmn_routing_state_routing_instance__id_msg);
 	t = cmn_routing_state_routing_instance_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("routing-instance");
@@ -1495,6 +1619,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_routing_instance__validate);
 	t->commit(cmn_routing_state_routing_instance__commit);
+	t->description(cmn_routing_state_routing_instance__msg);
 	cmn_routing_state_next_hop_lists = new config_model_node;
 	cmn_routing_state_next_hop_lists_next_hop_list_ = new config_model_node;
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop_ = new config_model_node;
@@ -1510,6 +1635,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_list_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_list_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_list_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__use_rib = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__use_rib;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1522,6 +1648,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__use_rib_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__use_rib_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__use_rib_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__outgoing_interface = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1534,6 +1661,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__outgoing_interface_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__outgoing_interface_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__outgoing_interface_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1546,6 +1674,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1558,6 +1687,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1570,6 +1700,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__priority = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__priority;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1582,6 +1713,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__priority_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__priority_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__priority_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__next_hop__weight = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop__weight;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1594,6 +1726,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__weight_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__weight_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__weight_msg);
 	t = cmn_routing_state_next_hop_lists_next_hop_list__next_hop_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("next-hop");
@@ -1606,6 +1739,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__next_hop__msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__id = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__id;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1618,6 +1752,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__id_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__id_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__id_msg);
 	cmn_routing_state_next_hop_lists_next_hop_list__address_family = new config_model_node;
 	t = cmn_routing_state_next_hop_lists_next_hop_list__address_family;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1630,6 +1765,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__address_family_validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__address_family_commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__address_family_msg);
 	t = cmn_routing_state_next_hop_lists_next_hop_list_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("next-hop-list");
@@ -1642,6 +1778,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_next_hop_lists_next_hop_list__validate);
 	t->commit(cmn_routing_state_next_hop_lists_next_hop_list__commit);
+	t->description(cmn_routing_state_next_hop_lists_next_hop_list__msg);
 	t = cmn_routing_state_next_hop_lists;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("next-hop-lists");
@@ -1651,6 +1788,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_next_hop_lists_validate);
 	t->commit(cmn_routing_state_next_hop_lists_commit);
+	t->description(cmn_routing_state_next_hop_lists_msg);
 	cmn_routing_state_ribs = new config_model_node;
 	cmn_routing_state_ribs_rib_ = new config_model_node;
 	cmn_routing_state_ribs_rib__name = new config_model_node;
@@ -1665,6 +1803,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__name_validate);
 	t->commit(cmn_routing_state_ribs_rib__name_commit);
+	t->description(cmn_routing_state_ribs_rib__name_msg);
 	cmn_routing_state_ribs_rib__routes = new config_model_node;
 	cmn_routing_state_ribs_rib__routes_route_ = new config_model_node;
 	cmn_routing_state_ribs_rib__routes_route__route_preference = new config_model_node;
@@ -1679,6 +1818,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__route_preference_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__route_preference_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__route_preference_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop = new config_model_node;
 	cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_list = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_list;
@@ -1692,6 +1832,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_list_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_list_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_list_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop_use_rib = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_use_rib;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1704,6 +1845,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_use_rib_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_use_rib_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_use_rib_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop_outgoing_interface = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1716,6 +1858,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_outgoing_interface_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_outgoing_interface_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_outgoing_interface_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_address = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1728,6 +1871,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_address_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_address_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_address_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1740,6 +1884,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_next_hop_msg);
 	cmn_routing_state_ribs_rib__routes_route__next_hop_special_next_hop = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop_special_next_hop;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1752,6 +1897,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_special_next_hop_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_special_next_hop_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_special_next_hop_msg);
 	t = cmn_routing_state_ribs_rib__routes_route__next_hop;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("next-hop");
@@ -1761,6 +1907,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__next_hop_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__next_hop_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__next_hop_msg);
 	cmn_routing_state_ribs_rib__routes_route__source_protocol = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__source_protocol;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1773,6 +1920,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__source_protocol_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__source_protocol_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__source_protocol_msg);
 	cmn_routing_state_ribs_rib__routes_route__active = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__active;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1785,6 +1933,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__active_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__active_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__active_msg);
 	cmn_routing_state_ribs_rib__routes_route__last_updated = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__last_updated;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1797,6 +1946,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__last_updated_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__last_updated_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__last_updated_msg);
 	cmn_routing_state_ribs_rib__routes_route__destination_prefix = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__destination_prefix;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1809,6 +1959,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__destination_prefix_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__destination_prefix_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__destination_prefix_msg);
 	cmn_routing_state_ribs_rib__routes_route__destination_prefix = new config_model_node;
 	t = cmn_routing_state_ribs_rib__routes_route__destination_prefix;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1821,6 +1972,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__destination_prefix_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__destination_prefix_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__destination_prefix_msg);
 	t = cmn_routing_state_ribs_rib__routes_route_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("route");
@@ -1833,6 +1985,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__routes_route__validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_route__commit);
+	t->description(cmn_routing_state_ribs_rib__routes_route__msg);
 	t = cmn_routing_state_ribs_rib__routes;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("routes");
@@ -1842,6 +1995,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__routes_validate);
 	t->commit(cmn_routing_state_ribs_rib__routes_commit);
+	t->description(cmn_routing_state_ribs_rib__routes_msg);
 	cmn_routing_state_ribs_rib__recipient_ribs = new config_model_node;
 	cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib_ = new config_model_node;
 	cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__rib_name = new config_model_node;
@@ -1856,6 +2010,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__rib_name_validate);
 	t->commit(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__rib_name_commit);
+	t->description(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__rib_name_msg);
 	cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__filter = new config_model_node;
 	t = cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1868,6 +2023,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__filter_validate);
 	t->commit(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__filter_commit);
+	t->description(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__filter_msg);
 	t = cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("recipient-rib");
@@ -1880,6 +2036,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__validate);
 	t->commit(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__commit);
+	t->description(cmn_routing_state_ribs_rib__recipient_ribs_recipient_rib__msg);
 	t = cmn_routing_state_ribs_rib__recipient_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("recipient-ribs");
@@ -1889,6 +2046,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__recipient_ribs_validate);
 	t->commit(cmn_routing_state_ribs_rib__recipient_ribs_commit);
+	t->description(cmn_routing_state_ribs_rib__recipient_ribs_msg);
 	cmn_routing_state_ribs_rib__id = new config_model_node;
 	t = cmn_routing_state_ribs_rib__id;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1901,6 +2059,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__id_validate);
 	t->commit(cmn_routing_state_ribs_rib__id_commit);
+	t->description(cmn_routing_state_ribs_rib__id_msg);
 	cmn_routing_state_ribs_rib__address_family = new config_model_node;
 	t = cmn_routing_state_ribs_rib__address_family;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1913,6 +2072,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_state_ribs_rib__address_family_validate);
 	t->commit(cmn_routing_state_ribs_rib__address_family_commit);
+	t->description(cmn_routing_state_ribs_rib__address_family_msg);
 	t = cmn_routing_state_ribs_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("rib");
@@ -1925,6 +2085,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_rib__validate);
 	t->commit(cmn_routing_state_ribs_rib__commit);
+	t->description(cmn_routing_state_ribs_rib__msg);
 	t = cmn_routing_state_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ribs");
@@ -1934,6 +2095,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_ribs_validate);
 	t->commit(cmn_routing_state_ribs_commit);
+	t->description(cmn_routing_state_ribs_msg);
 	cmn_routing_state_route_filters = new config_model_node;
 	cmn_routing_state_route_filters_route_filter_ = new config_model_node;
 	cmn_routing_state_route_filters_route_filter__name = new config_model_node;
@@ -1948,6 +2110,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_route_filters_route_filter__name_validate);
 	t->commit(cmn_routing_state_route_filters_route_filter__name_commit);
+	t->description(cmn_routing_state_route_filters_route_filter__name_msg);
 	cmn_routing_state_route_filters_route_filter__type = new config_model_node;
 	t = cmn_routing_state_route_filters_route_filter__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -1960,6 +2123,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_route_filters_route_filter__type_validate);
 	t->commit(cmn_routing_state_route_filters_route_filter__type_commit);
+	t->description(cmn_routing_state_route_filters_route_filter__type_msg);
 	t = cmn_routing_state_route_filters_route_filter_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("route-filter");
@@ -1972,6 +2136,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_route_filters_route_filter__validate);
 	t->commit(cmn_routing_state_route_filters_route_filter__commit);
+	t->description(cmn_routing_state_route_filters_route_filter__msg);
 	t = cmn_routing_state_route_filters;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("route-filters");
@@ -1981,6 +2146,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_route_filters_validate);
 	t->commit(cmn_routing_state_route_filters_commit);
+	t->description(cmn_routing_state_route_filters_msg);
 	t = cmn_routing_state;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("routing-state");
@@ -1990,6 +2156,7 @@ config_model_build()
 	t->config(false);
 	t->validate(cmn_routing_state_validate);
 	t->commit(cmn_routing_state_commit);
+	t->description(cmn_routing_state_msg);
 	cmn_routing = new config_model_node;
 	cmn_routing_routing_instance_ = new config_model_node;
 	cmn_routing_routing_instance__name = new config_model_node;
@@ -2004,6 +2171,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__name_validate);
 	t->commit(cmn_routing_routing_instance__name_commit);
+	t->description(cmn_routing_routing_instance__name_msg);
 	cmn_routing_routing_instance__type = new config_model_node;
 	t = cmn_routing_routing_instance__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2016,6 +2184,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__type_validate);
 	t->commit(cmn_routing_routing_instance__type_commit);
+	t->description(cmn_routing_routing_instance__type_msg);
 	cmn_routing_routing_instance__enabled = new config_model_node;
 	t = cmn_routing_routing_instance__enabled;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2028,6 +2197,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__enabled_validate);
 	t->commit(cmn_routing_routing_instance__enabled_commit);
+	t->description(cmn_routing_routing_instance__enabled_msg);
 	cmn_routing_routing_instance__description = new config_model_node;
 	t = cmn_routing_routing_instance__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2040,6 +2210,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__description_validate);
 	t->commit(cmn_routing_routing_instance__description_commit);
+	t->description(cmn_routing_routing_instance__description_msg);
 	cmn_routing_routing_instance__default_ribs = new config_model_node;
 	cmn_routing_routing_instance__default_ribs_default_rib_ = new config_model_node;
 	cmn_routing_routing_instance__default_ribs_default_rib__rib_name = new config_model_node;
@@ -2054,6 +2225,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__default_ribs_default_rib__rib_name_validate);
 	t->commit(cmn_routing_routing_instance__default_ribs_default_rib__rib_name_commit);
+	t->description(cmn_routing_routing_instance__default_ribs_default_rib__rib_name_msg);
 	cmn_routing_routing_instance__default_ribs_default_rib__address_family = new config_model_node;
 	t = cmn_routing_routing_instance__default_ribs_default_rib__address_family;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2066,6 +2238,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__default_ribs_default_rib__address_family_validate);
 	t->commit(cmn_routing_routing_instance__default_ribs_default_rib__address_family_commit);
+	t->description(cmn_routing_routing_instance__default_ribs_default_rib__address_family_msg);
 	t = cmn_routing_routing_instance__default_ribs_default_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("default-rib");
@@ -2078,6 +2251,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__default_ribs_default_rib__validate);
 	t->commit(cmn_routing_routing_instance__default_ribs_default_rib__commit);
+	t->description(cmn_routing_routing_instance__default_ribs_default_rib__msg);
 	t = cmn_routing_routing_instance__default_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("default-ribs");
@@ -2087,6 +2261,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__default_ribs_validate);
 	t->commit(cmn_routing_routing_instance__default_ribs_commit);
+	t->description(cmn_routing_routing_instance__default_ribs_msg);
 	cmn_routing_routing_instance__interfaces = new config_model_node;
 	cmn_routing_routing_instance__interfaces_interface_ = new config_model_node;
 	cmn_routing_routing_instance__interfaces_interface__name = new config_model_node;
@@ -2101,6 +2276,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__name_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__name_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__name_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements = new config_model_node;
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements;
@@ -2114,6 +2290,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_send_advertisements_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2126,6 +2303,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_max_rtr_adv_interval_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2138,6 +2316,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_min_rtr_adv_interval_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2150,6 +2329,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_managed_flag_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2162,6 +2342,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_other_config_flag_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2174,6 +2355,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_link_mtu_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2186,6 +2368,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_reachable_time_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2198,6 +2381,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_retrans_timer_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2210,6 +2394,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_cur_hop_limit_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2222,6 +2407,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_default_lifetime_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list = new config_model_node;
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix_ = new config_model_node;
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec = new config_model_node;
@@ -2236,6 +2422,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__prefix_spec_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__no_advertise = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__no_advertise;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2248,6 +2435,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__no_advertise_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__no_advertise_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__no_advertise_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2260,6 +2448,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__valid_lifetime_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2272,6 +2461,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__on_link_flag_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2284,6 +2474,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__preferred_lifetime_msg);
 	cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag = new config_model_node;
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2296,6 +2487,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__autonomous_flag_msg);
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("prefix");
@@ -2308,6 +2500,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_prefix__msg);
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("prefix-list");
@@ -2317,6 +2510,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_prefix_list_msg);
 	t = cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv6-router-advertisements");
@@ -2326,6 +2520,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__ipv6_router_advertisements_msg);
 	t = cmn_routing_routing_instance__interfaces_interface_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("interface");
@@ -2338,6 +2533,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_interface__validate);
 	t->commit(cmn_routing_routing_instance__interfaces_interface__commit);
+	t->description(cmn_routing_routing_instance__interfaces_interface__msg);
 	t = cmn_routing_routing_instance__interfaces;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("interfaces");
@@ -2347,6 +2543,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__interfaces_validate);
 	t->commit(cmn_routing_routing_instance__interfaces_commit);
+	t->description(cmn_routing_routing_instance__interfaces_msg);
 	cmn_routing_routing_instance__routing_protocols = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol_ = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__type = new config_model_node;
@@ -2361,6 +2558,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__type_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__type_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__type_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__name = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__name;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2373,6 +2571,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__name_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__name_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__name_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__description = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2385,6 +2584,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__description_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__description_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__description_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__enabled = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__enabled;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2397,6 +2597,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__enabled_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__enabled_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__enabled_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__route_preference = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__route_preference;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2409,6 +2610,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__route_preference_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__route_preference_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__route_preference_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib_ = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name = new config_model_node;
@@ -2423,6 +2625,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__rib_name_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2435,6 +2638,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__import_filter_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2447,6 +2651,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__export_filter_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("connected-rib");
@@ -2459,6 +2664,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_connected_rib__msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("connected-ribs");
@@ -2468,6 +2674,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__connected_ribs_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4 = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route_ = new config_model_node;
@@ -2483,6 +2690,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__destination_prefix_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__destination_prefix_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__destination_prefix_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__description = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2495,6 +2703,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__description_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__description_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__description_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry_ = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__name = new config_model_node;
@@ -2509,6 +2718,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__name_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__name_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__name_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__outgoing_interface = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2521,6 +2731,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__outgoing_interface_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__outgoing_interface_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__outgoing_interface_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__next_hop_address = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2533,6 +2744,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__next_hop_address_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__next_hop_address_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__next_hop_address_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__priority = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__priority;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2545,6 +2757,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__priority_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__priority_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__priority_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__weight = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__weight;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2557,6 +2770,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__weight_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__weight_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__weight_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("multipath-entry");
@@ -2569,6 +2783,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_multipath_entry__msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_outgoing_interface = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2581,6 +2796,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_outgoing_interface_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_outgoing_interface_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_outgoing_interface_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_next_hop_address = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2593,6 +2809,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_next_hop_address_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_next_hop_address_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_next_hop_address_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("next-hop");
@@ -2602,6 +2819,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__next_hop_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("route");
@@ -2614,6 +2832,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_route__msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv4");
@@ -2623,6 +2842,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv4_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6 = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route_ = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__destination_prefix = new config_model_node;
@@ -2637,6 +2857,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__destination_prefix_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__destination_prefix_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__destination_prefix_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__description = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2649,6 +2870,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__description_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__description_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__description_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry_ = new config_model_node;
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__name = new config_model_node;
@@ -2663,6 +2885,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__name_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__name_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__name_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__outgoing_interface = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2675,6 +2898,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__outgoing_interface_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__outgoing_interface_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__outgoing_interface_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__next_hop_address = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2687,6 +2911,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__next_hop_address_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__next_hop_address_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__next_hop_address_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__priority = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__priority;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2699,6 +2924,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__priority_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__priority_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__priority_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__weight = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__weight;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2711,6 +2937,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__weight_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__weight_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__weight_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("multipath-entry");
@@ -2723,6 +2950,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_multipath_entry__msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_outgoing_interface = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_outgoing_interface;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2735,6 +2963,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_outgoing_interface_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_outgoing_interface_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_outgoing_interface_msg);
 	cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_next_hop_address = new config_model_node;
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_next_hop_address;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2747,6 +2976,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_next_hop_address_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_next_hop_address_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_next_hop_address_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("next-hop");
@@ -2756,6 +2986,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__next_hop_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("route");
@@ -2768,6 +2999,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_route__msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ipv6");
@@ -2777,6 +3009,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_ipv6_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("static-routes");
@@ -2786,6 +3019,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__static_routes_msg);
 	t = cmn_routing_routing_instance__routing_protocols_routing_protocol_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("routing-protocol");
@@ -2798,6 +3032,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_routing_protocol__validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_routing_protocol__commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_routing_protocol__msg);
 	t = cmn_routing_routing_instance__routing_protocols;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("routing-protocols");
@@ -2807,6 +3042,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__routing_protocols_validate);
 	t->commit(cmn_routing_routing_instance__routing_protocols_commit);
+	t->description(cmn_routing_routing_instance__routing_protocols_msg);
 	cmn_routing_routing_instance__router_id = new config_model_node;
 	t = cmn_routing_routing_instance__router_id;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2819,6 +3055,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__router_id_validate);
 	t->commit(cmn_routing_routing_instance__router_id_commit);
+	t->description(cmn_routing_routing_instance__router_id_msg);
 	t = cmn_routing_routing_instance_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("routing-instance");
@@ -2831,6 +3068,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_routing_instance__validate);
 	t->commit(cmn_routing_routing_instance__commit);
+	t->description(cmn_routing_routing_instance__msg);
 	cmn_routing_ribs = new config_model_node;
 	cmn_routing_ribs_rib_ = new config_model_node;
 	cmn_routing_ribs_rib__name = new config_model_node;
@@ -2845,6 +3083,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__name_validate);
 	t->commit(cmn_routing_ribs_rib__name_commit);
+	t->description(cmn_routing_ribs_rib__name_msg);
 	cmn_routing_ribs_rib__description = new config_model_node;
 	t = cmn_routing_ribs_rib__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2857,6 +3096,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__description_validate);
 	t->commit(cmn_routing_ribs_rib__description_commit);
+	t->description(cmn_routing_ribs_rib__description_msg);
 	cmn_routing_ribs_rib__recipient_ribs = new config_model_node;
 	cmn_routing_ribs_rib__recipient_ribs_recipient_rib_ = new config_model_node;
 	cmn_routing_ribs_rib__recipient_ribs_recipient_rib__rib_name = new config_model_node;
@@ -2871,6 +3111,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__rib_name_validate);
 	t->commit(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__rib_name_commit);
+	t->description(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__rib_name_msg);
 	cmn_routing_ribs_rib__recipient_ribs_recipient_rib__filter = new config_model_node;
 	t = cmn_routing_ribs_rib__recipient_ribs_recipient_rib__filter;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2883,6 +3124,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__filter_validate);
 	t->commit(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__filter_commit);
+	t->description(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__filter_msg);
 	t = cmn_routing_ribs_rib__recipient_ribs_recipient_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("recipient-rib");
@@ -2895,6 +3137,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__validate);
 	t->commit(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__commit);
+	t->description(cmn_routing_ribs_rib__recipient_ribs_recipient_rib__msg);
 	t = cmn_routing_ribs_rib__recipient_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("recipient-ribs");
@@ -2904,6 +3147,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__recipient_ribs_validate);
 	t->commit(cmn_routing_ribs_rib__recipient_ribs_commit);
+	t->description(cmn_routing_ribs_rib__recipient_ribs_msg);
 	cmn_routing_ribs_rib__address_family = new config_model_node;
 	t = cmn_routing_ribs_rib__address_family;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2916,6 +3160,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__address_family_validate);
 	t->commit(cmn_routing_ribs_rib__address_family_commit);
+	t->description(cmn_routing_ribs_rib__address_family_msg);
 	t = cmn_routing_ribs_rib_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("rib");
@@ -2928,6 +3173,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_rib__validate);
 	t->commit(cmn_routing_ribs_rib__commit);
+	t->description(cmn_routing_ribs_rib__msg);
 	t = cmn_routing_ribs;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("ribs");
@@ -2937,6 +3183,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_ribs_validate);
 	t->commit(cmn_routing_ribs_commit);
+	t->description(cmn_routing_ribs_msg);
 	cmn_routing_route_filters = new config_model_node;
 	cmn_routing_route_filters_route_filter_ = new config_model_node;
 	cmn_routing_route_filters_route_filter__name = new config_model_node;
@@ -2951,6 +3198,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_route_filters_route_filter__name_validate);
 	t->commit(cmn_routing_route_filters_route_filter__name_commit);
+	t->description(cmn_routing_route_filters_route_filter__name_msg);
 	cmn_routing_route_filters_route_filter__description = new config_model_node;
 	t = cmn_routing_route_filters_route_filter__description;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2963,6 +3211,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_route_filters_route_filter__description_validate);
 	t->commit(cmn_routing_route_filters_route_filter__description_commit);
+	t->description(cmn_routing_route_filters_route_filter__description_msg);
 	cmn_routing_route_filters_route_filter__type = new config_model_node;
 	t = cmn_routing_route_filters_route_filter__type;
 	t->statement(config_model_node_statement::statement_leaf);
@@ -2975,6 +3224,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_route_filters_route_filter__type_validate);
 	t->commit(cmn_routing_route_filters_route_filter__type_commit);
+	t->description(cmn_routing_route_filters_route_filter__type_msg);
 	t = cmn_routing_route_filters_route_filter_;
 	t->statement(config_model_node_statement::statement_list);
 	t->identifier("route-filter");
@@ -2987,6 +3237,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_route_filters_route_filter__validate);
 	t->commit(cmn_routing_route_filters_route_filter__commit);
+	t->description(cmn_routing_route_filters_route_filter__msg);
 	t = cmn_routing_route_filters;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("route-filters");
@@ -2996,6 +3247,7 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_route_filters_validate);
 	t->commit(cmn_routing_route_filters_commit);
+	t->description(cmn_routing_route_filters_msg);
 	t = cmn_routing;
 	t->statement(config_model_node_statement::statement_container);
 	t->identifier("routing");
@@ -3005,7 +3257,6 @@ config_model_build()
 	t->config(true);
 	t->validate(cmn_routing_validate);
 	t->commit(cmn_routing_commit);
-
-	config_model_build_description();
+	t->description(cmn_routing_msg);
 }
 

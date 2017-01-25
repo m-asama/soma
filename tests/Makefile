@@ -23,6 +23,7 @@ KERNEL_OBJS   = ../kernel/memory_management.o \
 		../kernel/config_model_functions.o \
 		../kernel/config_model_node.o \
 		../kernel/config_model_nodes.o \
+		../kernel/config_model_validators.o \
 		../kernel/config_data_node.o \
 		../kernel/util.o
 
@@ -35,6 +36,8 @@ OBJS	      = utf8str_test.o \
 		memory_pool_test.o \
 		memory_management_test.o \
 		ring_buffer_test.o \
+		util_test.o \
+		config_model_validators_test.o \
 		config_test.o \
 		main.o
 

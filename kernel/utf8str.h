@@ -36,9 +36,9 @@ public:
 	utf8str(const utf8str &src);
 
 	/**
-	 * ムーブコンストラクタ。ムーブは禁止(仮)。
+	 * ムーブコンストラクタ。
 	 */
-	utf8str(const utf8str &&src) = delete;
+	utf8str(utf8str &&src);
 
 	/**
 	 * コンストラクタ。
@@ -53,9 +53,9 @@ public:
 	utf8str &operator=(const utf8str &src);
 
 	/**
-	 * ムーブ代入演算子。ムーブ代入は禁止(仮)。
+	 * ムーブ代入演算子。
 	 */
-	utf8str &operator=(const utf8str &&src) = delete;
+	utf8str &operator=(utf8str &&src);
 
 	/**
 	 * 代入演算子。
@@ -141,6 +141,13 @@ public:
 	bool operator<(const char *s);
 
 	/**
+	 * インデックスを指定して UNICODE 文字を返す。
+	 * @param i インデックス。
+	 * @return 指定された位置の UNICODE 文字。
+	 */
+	uint32_t operator[](sint64_t i);
+
+	/**
 	 * 文字列を初期化する関数。
 	 * @param s 初期化したい文字列。
 	 */
@@ -186,6 +193,13 @@ public:
 	utf8str &append_hex64(uint64_t val, size_t width);
 
 	/**
+	 * 文字列の末尾から削除する関数。
+	 * @param count 削除したい文字数。
+	 * @return 削除後の文字列。
+	 */
+	utf8str &truncate(uint64_t count);
+
+	/**
 	 * 文字列を比較する関数。
 	 * @param s 比較対象の文字列。
 	 * @return 文字列が等しい時に true を返す。
@@ -207,16 +221,36 @@ public:
 	bool is_small(const char *s);
 
 	/**
+	 * 文字列が指定する文字列で始まるかチェックする関数。
+	 * @param s チェックしたい文字列。
+	 * @return 指定した文字列で始まる場合に true を返す。
+	 */
+	bool beginning(utf8str s);
+
+	/**
+	 * 文字列が指定する文字列で終わるかチェックする関数。
+	 * @param s チェックしたい文字列。
+	 * @return 指定した文字列で終わる場合に true を返す。
+	 */
+	bool ending(utf8str s);
+
+	/**
 	 * 文字列へのポインタを返す関数。
 	 * @return 文字列へのポインタ。
 	 */
 	const char *ptr() const;
 
 	/**
-	 * 文字列の長さを返す関数。
-	 * @return 文字列の長さ。
+	 * 文字列の長さ(バイト数)を返す関数。
+	 * @return 文字列の長さ(バイト数)。
 	 */
 	size_t length() const;
+
+	/**
+	 * 文字列の文字数を返す関数。
+	 * @return 文字列の文字数。
+	 */
+	size_t unicode_length() const;
 
 	/**
 	 * 文字列の幅を返す関数。

@@ -14,7 +14,7 @@
 #include "config_model_node.h"
 
 config_model_node::config_model_node()
-	: m_parent(nullptr), m_validate(nullptr), m_commit(nullptr)
+	: m_parent(nullptr), m_validate(nullptr), m_commit(nullptr), m_description(nullptr)
 {
 }
 
@@ -254,27 +254,15 @@ config_model_node::commit()
 }
 
 void
-config_model_node::description_ja(char const *description_ja)
+config_model_node::description(msg *description)
 {
-	m_description_ja = description_ja;
+	m_description = description;
 }
 
-char const *
-config_model_node::description_ja()
+msg *
+config_model_node::description()
 {
-	return m_description_ja;
-}
-
-void
-config_model_node::description_en(char const *description_en)
-{
-	m_description_en = description_en;
-}
-
-char const *
-config_model_node::description_en()
-{
-	return m_description_en;
+	return m_description;
 }
 
 memory_pool<config_model_node> config_model_node::s_mem_pool;

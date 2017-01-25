@@ -15,6 +15,7 @@
 enum class config_data_node_type {
 	type_keyword,
 	type_variable,
+	type_root,
 };
 
 /**

@@ -10,6 +10,7 @@
 #include "utf8str.h"
 #include "linked_list.h"
 #include "thread.h"
+#include "console_management.h"
 
 /**
  * コンソールの権限。
@@ -23,8 +24,9 @@ enum class console_role {
  * コンソールのモード。
  */
 enum class console_mode {
-	mode_prompt,
-	mode_password,
+	mode_login_prompt,
+	mode_command_prompt,
+	mode_dont_echo,
 	mode_pager,
 };
 
@@ -193,6 +195,18 @@ public:
 	console_mode current_mode();
 
 	/**
+	 * 言語を設定。
+	 * @param current_lang 言語。
+	 */
+	void current_lang(console_lang current_lang);
+
+	/**
+	 * 言語を返す。
+	 * @return 言語。
+	 */
+	console_lang current_lang();
+
+	/**
 	 * コンソールをリセットする。
 	 */
 	virtual void reset();
@@ -218,6 +232,11 @@ public:
 	virtual void plotchar(uint32_t x, uint32_t y, uint32_t c) = 0;
 
 	/**
+	 *
+	 */
+	void handle_command_prompt(uint32_t c);
+
+	/**
 	 * コンソールで一文字処理する。
 	 */
 	void getchar(uint32_t c);
@@ -230,7 +249,7 @@ public:
 	/**
 	 * 文字列を表示する。
 	 */
-	int print(utf8str &str);
+	int print(utf8str str);
 
 	/**
 	 * コンソールを一行送る。
@@ -241,6 +260,11 @@ public:
 	 * プロンプトを表示する。
 	 */
 	void print_prompt();
+
+	/**
+	 * 説明を表示する。
+	 */
+	void print_description(char const *label, msg *description);
 
 	/**
 	 * 矢印キーの処理。
@@ -292,6 +316,11 @@ private:
 	 * 現在のモード。
 	 */
 	console_mode m_current_mode;
+
+	/**
+	 * 現在の言語。
+	 */
+	console_lang m_current_lang;
 
 	/**
 	 * 編集中の設定のパス。

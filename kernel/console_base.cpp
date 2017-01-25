@@ -5,6 +5,10 @@
  */
 
 #include "unicode.h"
+#include "command_node.h"
+#include "command_management.h"
+#include "config_management.h"
+#include "debug.h"
 
 #include "console_base.h"
 
@@ -17,7 +21,8 @@ console_base::console_base()
 	m_cursor_y = 0;
 	m_console_thread = nullptr;
 	m_current_role = console_role::role_operator;
-	m_current_mode = console_mode::mode_prompt;
+	m_current_mode = console_mode::mode_command_prompt;
+	m_current_lang = console_lang::lang_ja;
 }
 
 console_base::~console_base()
@@ -152,6 +157,18 @@ console_base::current_mode()
 }
 
 void
+console_base::current_lang(console_lang current_lang)
+{
+	m_current_lang = current_lang;
+}
+ 
+console_lang
+console_base::current_lang()
+{
+	return m_current_lang;
+}
+
+void
 console_base::reset()
 {
 	int x, y;
@@ -178,9 +195,141 @@ console_base::refresh()
 }
 
 void
+console_base::handle_command_prompt(uint32_t c)
+{
+	command_node *cn = nullptr;
+	config_model_node *cmn = nullptr;
+	utf8str remaining("");
+
+	command_node_nearest(m_command_line, cn, remaining);
+	if (cn->type() == command_node_type::type_config_model) {
+		config_model_node_nearest(remaining, cmn, remaining, false);
+	}
+	if (cn->type() == command_node_type::type_config_model_edit) {
+		config_model_node_nearest(remaining, cmn, remaining, true);
+	}
+
+	utf8str s;
+	switch (c) {
+	case 0x7f:
+		if (m_command_line.length() > 0) {
+			m_command_line.truncate(1);
+			putchar(c);
+		}
+		break;
+	case ' ':
+	case '\t':
+		if ((remaining == "")
+		 && (m_command_line.length() > 0)
+		 && (m_command_line[-1] != ' ')) {
+			m_command_line += ' ';
+			putchar(c);
+		} else {
+			bidir_node<command_node> *bn, *match_bn = nullptr;
+			int match = 0;
+			sorted_list<command_node> &children = cn->children();
+			for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+				command_node &node = bn->v();
+				switch (node.type()) {
+				case command_node_type::type_keyword:
+					if (node.keyword_label().beginning(remaining)) {
+						++match;
+						match_bn = bn;
+					}
+					break;
+				case command_node_type::type_variable:
+					break;
+				case command_node_type::type_config_model:
+					break;
+				case command_node_type::type_config_model_edit:
+					break;
+				case command_node_type::type_root:
+					break;
+				}
+			}
+			if (match == 1) {
+				command_node &node = match_bn->v();
+				switch (node.type()) {
+				case command_node_type::type_keyword:
+					m_command_line.truncate(remaining.unicode_length());
+					m_command_line += node.keyword_label();
+					m_command_line += ' ';
+					for (int i = 0; i < remaining.unicode_length(); ++i) {
+						putchar(0x7f);
+					}
+					print(node.keyword_label().ptr());
+					print(" ");
+					break;
+				case command_node_type::type_variable:
+					break;
+				case command_node_type::type_config_model:
+					break;
+				case command_node_type::type_config_model_edit:
+					break;
+				case command_node_type::type_root:
+					break;
+				}
+			} else {
+				print("\n");
+				for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+					command_node &node = bn->v();
+					switch (node.type()) {
+					case command_node_type::type_keyword:
+						print_description(node.keyword_label().ptr(), node.description());
+						break;
+					case command_node_type::type_variable:
+						break;
+					case command_node_type::type_config_model:
+						break;
+					case command_node_type::type_config_model_edit:
+						break;
+					case command_node_type::type_root:
+						break;
+					}
+				}
+				print_prompt();
+			}
+		}
+		break;
+	case '\r':
+	case '\n':
+		s += "\nm_command_line = [";
+		s += m_command_line;
+		s += "] cn->keyword_label() = [";
+		s += cn->keyword_label();
+		s += "] remaining = [";
+		s += remaining;
+		s += "]\n";
+		dp(s.ptr());
+		if (remaining == "") {
+			putchar(c);
+			if (cn->execute() != nullptr) {
+				cn->execute()(*this, m_command_line);
+			}
+			m_command_line = "";
+			print_prompt();
+		}
+		break;
+	default:
+		m_command_line += c;
+		putchar(c);
+	}
+}
+
+void
 console_base::getchar(uint32_t c)
 {
-	putchar(c);
+	switch (m_current_mode) {
+	case console_mode::mode_login_prompt:
+		break;
+	case console_mode::mode_command_prompt:
+		handle_command_prompt(c);
+		break;
+	case console_mode::mode_dont_echo:
+		break;
+	case console_mode::mode_pager:
+		break;
+	}
 }
 
 int
@@ -202,7 +351,7 @@ console_base::print(const char *str)
 }
 
 int
-console_base::print(utf8str &str)
+console_base::print(utf8str str)
 {
 	return print(str.ptr());
 }
@@ -247,7 +396,49 @@ console_base::print_prompt()
 	default:
 		prompt += "? ";
 	}
+	prompt += m_command_line;
 	print(prompt.ptr());
+}
+
+void
+console_base::print_description(char const *label, msg *description)
+{
+//	char const *desc;
+
+	if ((label == nullptr) || (description == nullptr)) {
+		return;
+	}
+
+	utf8str desc;
+	desc = description[0].msg;
+	for (int i = 0; i < sizeof(console_lang); ++i) {
+		if (description[i].lang == m_current_lang) {
+			desc = description[i].msg;
+			break;
+		}
+	}
+
+	utf8str lstr(label);
+	utf8str l;
+	l += "    ";
+	l += label;
+	if (lstr.width() < 15) {
+		for (int i = lstr.width(); i < 15; ++i) {
+			l += ' ';
+		}
+	}
+	l += ' ';
+	for (int i = 0; i < desc.unicode_length(); ++i) {
+		if (l.width() > (m_cols - 2)) {
+			l += "\n";
+			print(l);
+			l = "                    ";
+			
+		}
+		l += desc[i];
+	}
+	l += "\n";
+	print(l);
 }
 
 void

@@ -9,7 +9,7 @@
 #include "utf8str.h"
 #include "sorted_list.h"
 #include "memory_pool.h"
-//#include "config_data_node.h"
+#include "console_base.h"
 
 class config_data_node;
 
@@ -344,22 +344,12 @@ public:
 	/**
 	 *
 	 */
-	void description_ja(char const *description_ja);
+	void description(msg *description);
 
 	/**
 	 *
 	 */
-	char const *description_ja();
-
-	/**
-	 *
-	 */
-	void description_en(char const *description_en);
-
-	/**
-	 *
-	 */
-	char const *description_en();
+	msg *description();
 
 private:
 	/**
@@ -452,14 +442,9 @@ private:
 	commit_fn m_commit;
 
 	/**
-	 * 説明(日本語)。
+	 * 説明。
 	 */
-	char const *m_description_ja;
-
-	/**
-	 * 説明(英語)。
-	 */
-	char const *m_description_en;
+	msg *m_description;
 
 };
 
