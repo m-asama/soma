@@ -32,6 +32,26 @@ public:
 	 */
 	bool operator==(const config_model_argument &rhs);
 
+	/**
+	 *
+	 */
+	void label(utf8str label);
+
+	/**
+	 *
+	 */
+	utf8str label();
+
+	/**
+	 *
+	 */
+	void value(sint64_t value);
+
+	/**
+	 *
+	 */
+	sint64_t value();
+
 private:
 	/**
 	 * 引数。

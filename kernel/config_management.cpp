@@ -68,7 +68,7 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 			if (bn->v().identifier() != token1) {
 				continue;
 			}
-			config_model_node_type type;
+			//config_model_node_type type;
 			switch (bn->v().statement()) {
 			case config_model_node_statement::statement_container:
 				node = &bn->v();
@@ -90,11 +90,13 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 					token2 += path[i];
 					++i;
 				}
+			/* XXX:
 				type = bn->v().type();
 				if ((token2 != "")
 				 && config_model_node_valid(type, token2)) {
 					arg_parsed = 1;
 				}
+			*/
 				goto exit_loop;
 				break;
 			case config_model_node_statement::statement_list:
@@ -112,11 +114,13 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 						token2 += path[i];
 						++i;
 					}
+				/* XXX:
 					type = bn2->v().type();
 					if ((token2 != "")
 					 && config_model_node_valid(type, token2)) {
 						++arg_parsed;
 					}
+				*/
 				}
 				goto exit_loop;
 				break;

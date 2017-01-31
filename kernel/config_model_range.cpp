@@ -21,6 +21,18 @@ config_model_range::operator==(const config_model_range &rhs)
 	return (this == &rhs);
 }
 
+void
+config_model_range::range(utf8str range)
+{
+	m_range = range;
+}
+
+utf8str
+config_model_range::range()
+{
+	return m_range;
+}
+
 bool
 config_model_range::check(utf8str value)
 {

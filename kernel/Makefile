@@ -39,6 +39,7 @@ OBJS	      = main.o \
 		utf8str.o \
 		spinlock.o \
 		config_model_node.o \
+		config_model_type.o \
 		config_model_build.o \
 		config_model_nodes.o \
 		config_model_functions.o \

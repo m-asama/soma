@@ -15,7 +15,7 @@
 
 config_model_node::config_model_node()
 	: m_parent(nullptr), m_presence(false), m_mandatory(false), m_min_elements(-1), m_max_elements(-1),
-	  m_validate(nullptr), m_commit(nullptr), m_description(nullptr), m_format(nullptr)
+	  m_validate(nullptr), m_commit(nullptr), m_description(nullptr)
 {
 }
 
@@ -106,18 +106,6 @@ sorted_list<config_model_node> &
 config_model_node::children()
 {
 	return m_children;
-}
-
-void
-config_model_node::type(config_model_node_type type)
-{
-	m_type = type;
-}
-
-config_model_node_type
-config_model_node::type()
-{
-	return m_type;
 }
 
 void
@@ -248,75 +236,21 @@ config_model_node::config()
 }
 
 void
-config_model_node::add_argument(config_model_argument &argument)
+config_model_node::add_type(config_model_type &type)
 {
-	m_arguments.insert_tail(argument);
+	m_types.insert_tail(type);
 }
 
 void
-config_model_node::delete_argument(config_model_argument &argument)
+config_model_node::delete_type(config_model_type &type)
 {
-	m_arguments.remove(argument);
+	m_types.remove(type);
 }
 
-linked_list<config_model_argument> &
-config_model_node::arguments()
+linked_list<config_model_type> &
+config_model_node::types()
 {
-	return m_arguments;
-}
-
-void
-config_model_node::add_range(config_model_range &range)
-{
-	m_ranges.insert_tail(range);
-}
-
-void
-config_model_node::delete_range(config_model_range &range)
-{
-	m_ranges.remove(range);
-}
-
-linked_list<config_model_range> &
-config_model_node::ranges()
-{
-	return m_ranges;
-}
-
-void
-config_model_node::add_pattern(config_model_pattern &pattern)
-{
-	m_patterns.insert_tail(pattern);
-}
-
-void
-config_model_node::delete_pattern(config_model_pattern &pattern)
-{
-	m_patterns.remove(pattern);
-}
-
-linked_list<config_model_pattern> &
-config_model_node::patterns() 
-{
-	return m_patterns;
-}
-
-void
-config_model_node::add_length(config_model_length &length)
-{
-	m_lengthes.insert_tail(length);
-}
-
-void
-config_model_node::delete_length(config_model_length &length)
-{
-	m_lengthes.remove(length);
-}
-
-linked_list<config_model_length> &
-config_model_node::lengthes()
-{
-	return m_lengthes;
+	return m_types;
 }
 
 void
@@ -353,18 +287,6 @@ msg *
 config_model_node::description()
 {
 	return m_description;
-}
-
-void
-config_model_node::format(msg *format)
-{
-	m_format = format;
-}
-
-msg *
-config_model_node::format()
-{
-	return m_format;
 }
 
 memory_pool<config_model_node> config_model_node::s_mem_pool;

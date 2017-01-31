@@ -21,6 +21,18 @@ config_model_length::operator==(const config_model_length &rhs)
 	return (this == &rhs);
 }
 
+void
+config_model_length::length(utf8str length)
+{
+	m_length = length;
+}
+
+utf8str
+config_model_length::length()
+{
+	return m_length;
+}
+
 bool
 config_model_length::check(utf8str value)
 {

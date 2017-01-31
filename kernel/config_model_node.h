@@ -10,11 +10,9 @@
 #include "sorted_list.h"
 #include "memory_pool.h"
 #include "console_base.h"
-#include "config_model_argument.h"
-#include "config_model_range.h"
-#include "config_model_pattern.h"
-#include "config_model_length.h"
+#include "config_model_type.h"
 
+//class config_model_type;
 class config_data_node;
 
 typedef bool (*validate_fn)(config_data_node *);
@@ -33,6 +31,7 @@ enum class config_model_node_statement {
 /**
  *
  */
+/*
 enum class config_model_node_type {
 	type_binary,
 	type_bits,
@@ -54,6 +53,7 @@ enum class config_model_node_type {
 	type_uint64,
 	type_union,
 };
+*/
 
 /**
  *
@@ -175,16 +175,6 @@ public:
 	/**
 	 *
 	 */
-	void type(config_model_node_type type);
-
-	/**
-	 *
-	 */
-	config_model_node_type type();
-
-	/**
-	 *
-	 */
 	void presence(bool presence);
 
 	/**
@@ -290,62 +280,17 @@ public:
 	/**
 	 *
 	 */
-	void add_argument(config_model_argument &argument);
+	void add_type(config_model_type &type);
 
 	/**
 	 *
 	 */
-	void delete_argument(config_model_argument &argument);
+	void delete_type(config_model_type &type);
 
 	/**
 	 *
 	 */
-	linked_list<config_model_argument> &arguments();
-
-	/**
-	 *
-	 */
-	void add_range(config_model_range &range);
-
-	/**
-	 *
-	 */
-	void delete_range(config_model_range &range);
-
-	/**
-	 *
-	 */
-	linked_list<config_model_range> &ranges();
-
-	/**
-	 *
-	 */
-	void add_pattern(config_model_pattern &pattern);
-
-	/**
-	 *
-	 */
-	void delete_pattern(config_model_pattern &pattern);
-
-	/**
-	 *
-	 */
-	linked_list<config_model_pattern> &patterns();
-
-	/**
-	 *
-	 */
-	void add_length(config_model_length &length);
-
-	/**
-	 *
-	 */
-	void delete_length(config_model_length &length);
-
-	/**
-	 *
-	 */
-	linked_list<config_model_length> &lengthes();
+	linked_list<config_model_type> &types();
 
 	/**
 	 *
@@ -377,16 +322,6 @@ public:
 	 */
 	msg *description();
 
-	/**
-	 *
-	 */
-	void format(msg *format);
-
-	/**
-	 *
-	 */
-	msg *format();
-
 private:
 	/**
 	 *
@@ -412,12 +347,6 @@ private:
 	 * 子ノードのリスト。
 	 */
 	sorted_list<config_model_node> m_children;
-
-	/**
-	 * ノードの型。
-	 * leaf, leaf_list
-	 */
-	config_model_node_type m_type;
 
 	/**
 	 * 存在フラグ。
@@ -474,32 +403,11 @@ private:
 	bool m_config;
 
 	/**
-	 * 引数。
-	 * leaf_list か list で、
-	 * 型が bits, enumeration, identityref の時のみ使用。
+	 * 型のリスト。
+	 * leaf_list か leaf の時に使用。
+	 * union の場合のみ複数の config_model_type のオブジェクトを保持。
 	 */
-	linked_list<config_model_argument> m_arguments;
-
-	/**
-	 * 範囲。
-	 * leaf_list か list で、
-	 * 型が数値型の時のみ使用。
-	 */
-	linked_list<config_model_range> m_ranges;
-
-	/**
-	 * パターン。
-	 * leaf_list か list で、
-	 * 型が文字列型の時のみ使用。
-	 */
-	linked_list<config_model_pattern> m_patterns;
-
-	/**
-	 * 長さ。
-	 * leaf_list か list で、
-	 * 型が文字列型の時のみ使用。
-	 */
-	linked_list<config_model_length> m_lengthes;
+	linked_list<config_model_type> m_types;
 
 	/**
 	 * 設定の検証をする関数へのポインタ。
@@ -515,11 +423,6 @@ private:
 	 * 説明。
 	 */
 	msg *m_description;
-
-	/**
-	 * フォーマット。
-	 */
-	msg *m_format;
 
 };
 

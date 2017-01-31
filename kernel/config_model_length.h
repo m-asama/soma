@@ -36,6 +36,16 @@ public:
 	 */
 	bool check(utf8str value);
 
+	/**
+	 *
+	 */
+	void length(utf8str length);
+
+	/**
+	 *
+	 */
+	utf8str length();
+
 private:
 	/**
 	 * 範囲。

@@ -21,3 +21,27 @@ config_model_argument::operator==(const config_model_argument &rhs)
 	return (this == &rhs);
 }
 
+void
+config_model_argument::label(utf8str label)
+{
+	m_label = label;
+}
+
+utf8str
+config_model_argument::label()
+{
+	return m_label;
+}
+
+void
+config_model_argument::value(sint64_t value)
+{
+	m_value = value;
+}
+
+sint64_t
+config_model_argument::value()
+{
+	return m_value;
+}
+

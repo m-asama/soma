@@ -32,6 +32,16 @@ public:
 	bool operator==(const config_model_pattern &rhs);
 
 	/**
+	 *
+	 */
+	void pattern(utf8str pattern);
+
+	/**
+	 *
+	 */
+	utf8str pattern();
+
+	/**
 	 * チェックメソッド。
 	 */
 	bool check(utf8str value);

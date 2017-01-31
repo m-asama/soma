@@ -36,6 +36,16 @@ public:
 	 */
 	bool check(utf8str value);
 
+	/**
+	 *
+	 */
+	void range(utf8str range);
+
+	/**
+	 *
+	 */
+	utf8str range();
+
 private:
 	/**
 	 * 範囲。
