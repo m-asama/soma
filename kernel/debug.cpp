@@ -3,6 +3,7 @@
  */
 
 #include "type.h"
+#include "utf8str.h"
 #include "intel64_assembly.h"
 
 static uint16_t m_io_port_base = 0x3f8;
@@ -16,11 +17,17 @@ dpc(char c)
 }
 
 void
+dp(utf8str s)
+{
+	for (int i = 0; i < s.byte_length(); ++i) {
+		dpc(s.byte_at(i));
+	}
+}
+
+void
 dp(char const *s)
 {
-	while (*s != '\0') {
-		dpc(*s);
-		++s;
-	}
+	utf8str str(s);
+	dp(str);
 }
 

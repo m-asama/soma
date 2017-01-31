@@ -14,7 +14,8 @@
 #include "config_model_node.h"
 
 config_model_node::config_model_node()
-	: m_parent(nullptr), m_validate(nullptr), m_commit(nullptr), m_description(nullptr)
+	: m_parent(nullptr), m_presence(false), m_mandatory(false), m_min_elements(-1), m_max_elements(-1),
+	  m_validate(nullptr), m_commit(nullptr), m_description(nullptr), m_format(nullptr)
 {
 }
 
@@ -163,24 +164,24 @@ config_model_node::mandatory()
 }
 
 void
-config_model_node::min_elements(uint64_t min_elements)
+config_model_node::min_elements(sint64_t min_elements)
 {
 	m_min_elements = min_elements;
 }
 
-uint64_t
+sint64_t
 config_model_node::min_elements()
 {
 	return m_min_elements;
 }
 
 void
-config_model_node::max_elements(uint64_t max_elements)
+config_model_node::max_elements(sint64_t max_elements)
 {
 	m_max_elements = max_elements;
 }
 
-uint64_t
+sint64_t
 config_model_node::max_elements()
 {
 	return m_max_elements;
@@ -199,22 +200,39 @@ config_model_node::ordered_by()
 }
 
 void
-config_model_node::key(utf8str key)
+config_model_node::add_key(config_model_node &key)
 {
-	m_key = key;
+	m_key.insert_tail(key);
 }
 
 void
-config_model_node::key(char const *key)
+config_model_node::delete_key(config_model_node &key)
 {
-	utf8str s(key);
-	m_key = s;
+	m_key.remove(key);
 }
 
-utf8str
+linked_list<config_model_node> &
 config_model_node::key()
 {
 	return m_key;
+}
+        
+void
+config_model_node::add_unique(config_model_node &unique)
+{
+	m_unique.insert_tail(unique);
+}
+        
+void
+config_model_node::delete_unique(config_model_node &unique)
+{
+	m_unique.remove(unique);
+}
+        
+linked_list<config_model_node> &
+config_model_node::unique()
+{
+	return m_unique;
 }
 
 void
@@ -227,6 +245,78 @@ bool
 config_model_node::config()
 {
 	return m_config;
+}
+
+void
+config_model_node::add_argument(config_model_argument &argument)
+{
+	m_arguments.insert_tail(argument);
+}
+
+void
+config_model_node::delete_argument(config_model_argument &argument)
+{
+	m_arguments.remove(argument);
+}
+
+linked_list<config_model_argument> &
+config_model_node::arguments()
+{
+	return m_arguments;
+}
+
+void
+config_model_node::add_range(config_model_range &range)
+{
+	m_ranges.insert_tail(range);
+}
+
+void
+config_model_node::delete_range(config_model_range &range)
+{
+	m_ranges.remove(range);
+}
+
+linked_list<config_model_range> &
+config_model_node::ranges()
+{
+	return m_ranges;
+}
+
+void
+config_model_node::add_pattern(config_model_pattern &pattern)
+{
+	m_patterns.insert_tail(pattern);
+}
+
+void
+config_model_node::delete_pattern(config_model_pattern &pattern)
+{
+	m_patterns.remove(pattern);
+}
+
+linked_list<config_model_pattern> &
+config_model_node::patterns() 
+{
+	return m_patterns;
+}
+
+void
+config_model_node::add_length(config_model_length &length)
+{
+	m_lengthes.insert_tail(length);
+}
+
+void
+config_model_node::delete_length(config_model_length &length)
+{
+	m_lengthes.remove(length);
+}
+
+linked_list<config_model_length> &
+config_model_node::lengthes()
+{
+	return m_lengthes;
 }
 
 void
@@ -263,6 +353,18 @@ msg *
 config_model_node::description()
 {
 	return m_description;
+}
+
+void
+config_model_node::format(msg *format)
+{
+	m_format = format;
+}
+
+msg *
+config_model_node::format()
+{
+	return m_format;
 }
 
 memory_pool<config_model_node> config_model_node::s_mem_pool;

@@ -43,7 +43,12 @@ OBJS	      = main.o \
 		config_model_nodes.o \
 		config_model_functions.o \
 		config_model_descriptions.o \
+		config_model_formats.o \
 		config_model_validators.o \
+		config_model_argument.o \
+		config_model_range.o \
+		config_model_pattern.o \
+		config_model_length.o \
 		config_data_node.o \
 		config_management.o \
 		command_node.o \

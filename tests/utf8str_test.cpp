@@ -278,6 +278,66 @@ utf8str_test()
 		}
 		print_test_result("[](1)", res);
 	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		if (s1.byte_substring(1, 4) == "bcd") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("byte_substring(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		if (s1.byte_substring(2, 0) == "cde") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("byte_substring(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("abcde");
+		if (s1.byte_substring(1, -1) == "bcd") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("byte_substring(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		if (s1.unicode_substring(1, 4) == "イウエ") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_substring(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		if (s1.unicode_substring(2, 0) == "ウエオ") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_substring(1)", res);
+	}
+	{
+		test_result res;
+		utf8str s1("アイウエオ");
+		if (s1.unicode_substring(1, -1) == "イウエ") {
+			res = test_result::pass;
+		} else {
+			res = test_result::fail;
+		}
+		print_test_result("unicode_substring(1)", res);
+	}
 	memory_leak_test_end("文字列メモリリークチェック");
 }
 

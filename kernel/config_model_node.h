@@ -10,6 +10,10 @@
 #include "sorted_list.h"
 #include "memory_pool.h"
 #include "console_base.h"
+#include "config_model_argument.h"
+#include "config_model_range.h"
+#include "config_model_pattern.h"
+#include "config_model_length.h"
 
 class config_data_node;
 
@@ -30,7 +34,6 @@ enum class config_model_node_statement {
  *
  */
 enum class config_model_node_type {
-	// YANG 組込型
 	type_binary,
 	type_bits,
 	type_boolean,
@@ -50,58 +53,6 @@ enum class config_model_node_type {
 	type_uint32,
 	type_uint64,
 	type_union,
-	// ietf-yang-types
-	type_counter32,
-	type_zero_based_counter32,
-	type_counter64,
-	type_zero_based_counter64,
-	type_gauge32,
-	type_gauge64,
-	type_object_identifier,
-	type_object_identifier_128,
-	type_yang_identifier,
-	type_date_and_time,
-	type_timeticks,
-	type_timestamp,
-	type_phys_address,
-	type_mac_address,
-	type_xpath1_0,
-	type_hex_string,
-	type_uuid,
-	type_dotted_quad,
-	// ietf-interfaces
-	type_interface_ref,
-	type_interface_state_ref,
-	// ietf-inet-types
-	type_ip_version,
-	type_dscp,
-	type_ipv6_flow_label,
-	type_port_number,
-	type_as_number,
-	type_ip_address,
-	type_ipv4_address,
-	type_ipv6_address,
-	type_ip_address_no_zone,
-	type_ipv4_address_no_zone,
-	type_ipv6_address_no_zone,
-	type_ip_prefix,
-	type_ipv4_prefix,
-	type_ipv6_prefix,
-	type_domain_name,
-	type_host,
-	type_uri,
-	// ietf-ip
-	type_ip_address_origin,
-	type_neighbor_origin,
-	// ietf-routing
-	type_routing_instance_ref,
-	type_routing_instance_state_ref,
-	type_rib_ref,
-	type_rib_state_ref,
-	type_next_hop_list_ref,
-	type_route_filter_ref,
-	type_route_filter_state_ref,
-	type_route_preference,
 };
 
 /**
@@ -269,22 +220,22 @@ public:
 	/**
 	 *
 	 */
-	void min_elements(uint64_t min_elements);
+	void min_elements(sint64_t min_elements);
 
 	/**
 	 *
 	 */
-	uint64_t min_elements();
+	sint64_t min_elements();
 
 	/**
 	 *
 	 */
-	void max_elements(uint64_t max_elements);
+	void max_elements(sint64_t max_elements);
 
 	/**
 	 *
 	 */
-	uint64_t max_elements();
+	sint64_t max_elements();
 
 	/**
 	 *
@@ -299,17 +250,32 @@ public:
 	/**
 	 *
 	 */
-	void key(utf8str key);
+	void add_key(config_model_node &key);
 
 	/**
 	 *
 	 */
-	void key(char const *key);
+	void delete_key(config_model_node &key);
 
 	/**
 	 *
 	 */
-	utf8str key();
+	linked_list<config_model_node> &key();
+
+	/**
+	 *
+	 */
+	void add_unique(config_model_node &unique);
+
+	/**
+	 *
+	 */
+	void delete_unique(config_model_node &unique);
+
+	/**
+	 *
+	 */
+	linked_list<config_model_node> &unique();
 
 	/**
 	 *
@@ -320,6 +286,66 @@ public:
 	 *
 	 */
 	bool config();
+
+	/**
+	 *
+	 */
+	void add_argument(config_model_argument &argument);
+
+	/**
+	 *
+	 */
+	void delete_argument(config_model_argument &argument);
+
+	/**
+	 *
+	 */
+	linked_list<config_model_argument> &arguments();
+
+	/**
+	 *
+	 */
+	void add_range(config_model_range &range);
+
+	/**
+	 *
+	 */
+	void delete_range(config_model_range &range);
+
+	/**
+	 *
+	 */
+	linked_list<config_model_range> &ranges();
+
+	/**
+	 *
+	 */
+	void add_pattern(config_model_pattern &pattern);
+
+	/**
+	 *
+	 */
+	void delete_pattern(config_model_pattern &pattern);
+
+	/**
+	 *
+	 */
+	linked_list<config_model_pattern> &patterns();
+
+	/**
+	 *
+	 */
+	void add_length(config_model_length &length);
+
+	/**
+	 *
+	 */
+	void delete_length(config_model_length &length);
+
+	/**
+	 *
+	 */
+	linked_list<config_model_length> &lengthes();
 
 	/**
 	 *
@@ -350,6 +376,16 @@ public:
 	 *
 	 */
 	msg *description();
+
+	/**
+	 *
+	 */
+	void format(msg *format);
+
+	/**
+	 *
+	 */
+	msg *format();
 
 private:
 	/**
@@ -405,13 +441,13 @@ private:
 	 * 最小数。
 	 * leaf_list, list
 	 */
-	uint64_t m_min_elements;
+	sint64_t m_min_elements;
 
 	/**
 	 * 最大数。
 	 * leaf_list, list
 	 */
-	uint64_t m_max_elements;
+	sint64_t m_max_elements;
 
 	/**
 	 * 表示順。
@@ -420,16 +456,50 @@ private:
 	config_model_node_ordered_by m_ordered_by;
 
 	/**
-	 * 主キー。
+	 * キー。
 	 * list
 	 */
-	utf8str m_key;
+	linked_list<config_model_node> m_key;
+
+	/**
+	 * ユニーク。
+	 * list
+	 */
+	linked_list<config_model_node> m_unique;
 
 	/**
 	 * 設定フラグ。
 	 * container, leaf, leaf_list, list
 	 */
 	bool m_config;
+
+	/**
+	 * 引数。
+	 * leaf_list か list で、
+	 * 型が bits, enumeration, identityref の時のみ使用。
+	 */
+	linked_list<config_model_argument> m_arguments;
+
+	/**
+	 * 範囲。
+	 * leaf_list か list で、
+	 * 型が数値型の時のみ使用。
+	 */
+	linked_list<config_model_range> m_ranges;
+
+	/**
+	 * パターン。
+	 * leaf_list か list で、
+	 * 型が文字列型の時のみ使用。
+	 */
+	linked_list<config_model_pattern> m_patterns;
+
+	/**
+	 * 長さ。
+	 * leaf_list か list で、
+	 * 型が文字列型の時のみ使用。
+	 */
+	linked_list<config_model_length> m_lengthes;
 
 	/**
 	 * 設定の検証をする関数へのポインタ。
@@ -445,6 +515,11 @@ private:
 	 * 説明。
 	 */
 	msg *m_description;
+
+	/**
+	 * フォーマット。
+	 */
+	msg *m_format;
 
 };
 

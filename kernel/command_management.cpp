@@ -233,7 +233,8 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 	utf8str token;
 	while ((i < len) && (command[i] != '\0')) {
 		token = "";
-		while ((i < len) && (command[i] != ' ') && (command[i] != '\0')) {
+		while ((i < len)
+		    && (command[i] != ' ') && (command[i] != '\0')) {
 			token += command[i];
 			++i;
 		}
@@ -241,6 +242,7 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 		bidir_node<command_node> *bn;
 		bool found = false;
 		for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+			config_model_node_type type;
 			switch (bn->v().type()) {
 			case command_node_type::type_keyword:
 				if (bn->v().keyword_label() == token) {
@@ -250,7 +252,8 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 				}
 				break;
 			case command_node_type::type_variable:
-				if (config_model_node_valid(bn->v().variable_type(), token)) {
+				type = bn->v().variable_type();
+				if (config_model_node_valid(type, token)) {
 					node = &bn->v();
 					found = true;
 					goto exit_loop;
@@ -258,11 +261,13 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 				break;
 			case command_node_type::type_config_model:
 			case command_node_type::type_config_model_edit:
+				/*
 				node = &bn->v();
 				remaining = token;
 				for (int j = i; j < len; ++j) {
 					remaining += command[j];
 				}
+				*/
 				break;
 			case command_node_type::type_root:
 				break;
@@ -292,6 +297,7 @@ command_init()
 	command_node_root = new command_node;
 	t = command_node_root;
 	t->type(command_node_type::type_root);
+	t->keyword_label("[root]");
 	t->execute(command_node_root_execute);
 	t->description(command_node_root_msg);
 
@@ -309,6 +315,7 @@ command_init()
 
 	t = new command_node;
 	t->type(command_node_type::type_config_model);
+	t->keyword_label("[config]");
 	t->execute(cn_set_execute);
 	t->parent(cn_set);
 	cn_set->add_child(*t);
@@ -327,6 +334,7 @@ command_init()
 
 	t = new command_node;
 	t->type(command_node_type::type_config_model);
+	t->keyword_label("[config]");
 	t->execute(cn_get_execute);
 	t->parent(cn_get);
 	cn_get->add_child(*t);
@@ -345,6 +353,7 @@ command_init()
 
 	t = new command_node;
 	t->type(command_node_type::type_config_model);
+	t->keyword_label("[config]");
 	t->execute(cn_delete_execute);
 	t->parent(cn_delete);
 	cn_delete->add_child(*t);
@@ -363,6 +372,7 @@ command_init()
 
 	t = new command_node;
 	t->type(command_node_type::type_config_model_edit);
+	t->keyword_label("[config]");
 	t->execute(cn_edit_execute);
 	t->parent(cn_edit);
 	cn_edit->add_child(*t);

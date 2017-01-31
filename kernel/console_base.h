@@ -11,6 +11,11 @@
 #include "linked_list.h"
 #include "thread.h"
 #include "console_management.h"
+//#include "command_node.h"
+//#include "config_model_node.h"
+
+class command_node;
+class config_model_node;
 
 /**
  * コンソールの権限。
@@ -230,6 +235,16 @@ public:
 	 * コンソールへ一文字表示する。
 	 */
 	virtual void plotchar(uint32_t x, uint32_t y, uint32_t c) = 0;
+
+	/**
+	 *
+	 */
+	void handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed, bool exclude_leaf);
+
+	/**
+	 *
+	 */
+	void handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed);
 
 	/**
 	 *

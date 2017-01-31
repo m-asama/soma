@@ -195,21 +195,165 @@ console_base::refresh()
 }
 
 void
+console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed, bool exclude_leaf)
+{
+	bidir_node<config_model_node> *bn, *match_bn = nullptr;
+	int match = 0;
+	sorted_list<config_model_node> &children = cmn->children();
+	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+		config_model_node &node = bn->v();
+		if (node.config() == false) {
+			continue;
+		}
+		if (arg_parsed > 0) {
+			if (node.identifier().beginning(remaining)) {
+				++match;
+				match_bn = bn;
+			}
+		} else {
+			//dp("\nid = ["); dp(node.identifier()); dp("]\n");
+			//dp("rm = ["); dp(remaining); dp("]\n");
+		}
+	}
+	if (match == 1) {
+		if (arg_parsed > 0) {
+			config_model_node &node = match_bn->v();
+			m_command_line.truncate(remaining.unicode_length());
+			m_command_line += node.identifier();
+			m_command_line += ' ';
+			for (int i = 0; i < remaining.unicode_length(); ++i) {
+				putchar(0x7f);
+			}
+			print(node.identifier());
+			print(" ");
+		} else {
+
+
+		}
+	} else {
+		print("\n");
+		if (arg_parsed > 0) {
+			for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+				config_model_node &node = bn->v();
+				if (node.config() == false) {
+					continue;
+				}
+				print_description(node.identifier(), node.description());
+			}
+		} else {
+		}
+		print_prompt();
+	}
+}
+
+void
+console_base::handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed)
+{
+	bidir_node<command_node> *bn, *match_bn = nullptr;
+	int match = 0;
+	sorted_list<command_node> &children = cn->children();
+	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+		command_node &node = bn->v();
+		switch (node.type()) {
+		case command_node_type::type_keyword:
+			if (node.keyword_label().beginning(remaining)) {
+				++match;
+				match_bn = bn;
+			}
+			break;
+		case command_node_type::type_variable:
+			break;
+		case command_node_type::type_config_model:
+			handle_config_model_completion(c, cmn, remaining, arg_parsed, false);
+			return;
+			break;
+		case command_node_type::type_config_model_edit:
+			handle_config_model_completion(c, cmn, remaining, arg_parsed, true);
+			return;
+			break;
+		case command_node_type::type_root:
+			break;
+		}
+	}
+	if (match == 1) {
+		command_node &node = match_bn->v();
+		switch (node.type()) {
+		case command_node_type::type_keyword:
+			m_command_line.truncate(remaining.unicode_length());
+			m_command_line += node.keyword_label();
+			m_command_line += ' ';
+			for (int i = 0; i < remaining.unicode_length(); ++i) {
+				putchar(0x7f);
+			}
+			print(node.keyword_label());
+			print(" ");
+			break;
+		case command_node_type::type_variable:
+			break;
+		case command_node_type::type_config_model:
+			break;
+		case command_node_type::type_config_model_edit:
+			break;
+		case command_node_type::type_root:
+			break;
+		}
+	} else {
+		print("\n");
+		for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+			command_node &node = bn->v();
+			switch (node.type()) {
+			case command_node_type::type_keyword:
+				print_description(node.keyword_label(), node.description());
+				break;
+			case command_node_type::type_variable:
+				break;
+			case command_node_type::type_config_model:
+				break;
+			case command_node_type::type_config_model_edit:
+				break;
+			case command_node_type::type_root:
+				break;
+			}
+		}
+		print_prompt();
+	}
+}
+
+void
 console_base::handle_command_prompt(uint32_t c)
 {
 	command_node *cn = nullptr;
 	config_model_node *cmn = nullptr;
 	utf8str remaining("");
+	utf8str remaining1("");
+	utf8str remaining2("");
+	utf8str xxx("false");
 
 	command_node_nearest(m_command_line, cn, remaining);
-	if (cn->type() == command_node_type::type_config_model) {
-		config_model_node_nearest(remaining, cmn, remaining, false);
+	remaining1 = remaining;
+	sorted_list<command_node> &children = cn->children();
+	bidir_node<command_node> *bn;
+	bool config_model = false;
+	uint64_t arg_parsed = 0;
+	bool exclude_leaf = false;
+	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+		command_node &cmnt = bn->v();
+		if (cmnt.type() == command_node_type::type_config_model) {
+			config_model = true;
+			break;
+		}
+		if (cmnt.type() == command_node_type::type_config_model_edit) {
+			config_model = true;
+			exclude_leaf = true;
+			break;
+		}
 	}
-	if (cn->type() == command_node_type::type_config_model_edit) {
-		config_model_node_nearest(remaining, cmn, remaining, true);
+	if (config_model == true) {
+		xxx = "true";
+		config_model_node_nearest(remaining, cmn, remaining, arg_parsed, exclude_leaf);
+		remaining2 = remaining;
 	}
 
-	utf8str s;
 	switch (c) {
 	case 0x7f:
 		if (m_command_line.byte_length() > 0) {
@@ -223,84 +367,13 @@ console_base::handle_command_prompt(uint32_t c)
 		 && (m_command_line.byte_length() > 0)
 		 && (m_command_line[-1] != ' ')) {
 			m_command_line += ' ';
-			putchar(c);
+			putchar(' ');
 		} else {
-			bidir_node<command_node> *bn, *match_bn = nullptr;
-			int match = 0;
-			sorted_list<command_node> &children = cn->children();
-			for (bn = children.head(); bn != nullptr; bn = bn->next()) {
-				command_node &node = bn->v();
-				switch (node.type()) {
-				case command_node_type::type_keyword:
-					if (node.keyword_label().beginning(remaining)) {
-						++match;
-						match_bn = bn;
-					}
-					break;
-				case command_node_type::type_variable:
-					break;
-				case command_node_type::type_config_model:
-					break;
-				case command_node_type::type_config_model_edit:
-					break;
-				case command_node_type::type_root:
-					break;
-				}
-			}
-			if (match == 1) {
-				command_node &node = match_bn->v();
-				switch (node.type()) {
-				case command_node_type::type_keyword:
-					m_command_line.truncate(remaining.unicode_length());
-					m_command_line += node.keyword_label();
-					m_command_line += ' ';
-					for (int i = 0; i < remaining.unicode_length(); ++i) {
-						putchar(0x7f);
-					}
-					print(node.keyword_label());
-					print(" ");
-					break;
-				case command_node_type::type_variable:
-					break;
-				case command_node_type::type_config_model:
-					break;
-				case command_node_type::type_config_model_edit:
-					break;
-				case command_node_type::type_root:
-					break;
-				}
-			} else {
-				print("\n");
-				for (bn = children.head(); bn != nullptr; bn = bn->next()) {
-					command_node &node = bn->v();
-					switch (node.type()) {
-					case command_node_type::type_keyword:
-						print_description(node.keyword_label(), node.description());
-						break;
-					case command_node_type::type_variable:
-						break;
-					case command_node_type::type_config_model:
-						break;
-					case command_node_type::type_config_model_edit:
-						break;
-					case command_node_type::type_root:
-						break;
-					}
-				}
-				print_prompt();
-			}
+			handle_command_completion(c, cn, cmn, remaining, arg_parsed);
 		}
 		break;
 	case '\r':
 	case '\n':
-		s += "\nm_command_line = [";
-		s += m_command_line;
-		s += "] cn->keyword_label() = [";
-		s += cn->keyword_label();
-		s += "] remaining = [";
-		s += remaining;
-		s += "]\n";
-		//dp(s.ptr());
 		if (remaining == "") {
 			putchar(c);
 			if (cn->execute() != nullptr) {
@@ -309,6 +382,38 @@ console_base::handle_command_prompt(uint32_t c)
 			m_command_line = "";
 			print_prompt();
 		}
+		break;
+	case 0x1b:
+
+		{
+		utf8str s;
+		s += "\n";
+		s += "m_command_line    = ["; s += m_command_line; s += "]\n";
+		s += "remaining1        = ["; s += remaining1; s += "]\n";
+		s += "remaining2        = ["; s += remaining2; s += "]\n";
+		s += "xxx               = ["; s += xxx; s += "]\n";
+		s += "arg_parsed        = ["; 
+		s.append_sint64(arg_parsed, 0);
+		s += "]\n";
+		command_node *cnt = cn;
+		s += "command_node      = ";
+		while (cnt != nullptr) {
+			s += " < ";
+			s += cnt->keyword_label();
+			cnt = cnt->parent();
+		}
+		s += "\n";
+		config_model_node *cmnt = cmn;
+		s += "config_model_node = ";
+		while (cmnt != nullptr) {
+			s += " < ";
+			s += cmnt->identifier();
+			cmnt = cmnt->parent();
+		}
+		s += "\n";
+		dp(s);
+		}
+
 		break;
 	default:
 		m_command_line += c;
@@ -397,8 +502,6 @@ console_base::print_prompt()
 void
 console_base::print_description(utf8str label, msg *description)
 {
-//	char const *desc;
-
 	if (description == nullptr) {
 		return;
 	}
@@ -412,26 +515,28 @@ console_base::print_description(utf8str label, msg *description)
 		}
 	}
 
-	utf8str l;
-	l += "    ";
-	l += label;
+	utf8str s;
+	s += "    ";
+	s += label;
 	if (label.width() < 15) {
 		for (int i = label.width(); i < 15; ++i) {
-			l += ' ';
+			s += ' ';
 		}
+	} else {
+		s += "\n                   ";
 	}
-	l += ' ';
+	s += ' ';
 	for (int i = 0; i < desc.unicode_length(); ++i) {
-		if (l.width() > (m_cols - 2)) {
-			l += "\n";
-			print(l);
-			l = "                    ";
+		if (s.width() > (m_cols - 2)) {
+			s += "\n";
+			print(s);
+			s = "                    ";
 			
 		}
-		l += desc[i];
+		s += desc[i];
 	}
-	l += "\n";
-	print(l);
+	s += "\n";
+	print(s);
 }
 
 void

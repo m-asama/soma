@@ -1590,22 +1590,6 @@ cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_commi
 	return true;
 }
 
-/*
-bool
-cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_validate(config_data_node *node)
-{
-	return true;
-}
-*/
-
-/*
-bool
-cmn_routing_state_next_hop_lists_next_hop_list__next_hop__next_hop_address_commit(config_data_node *running, config_data_node *candidate)
-{
-	return true;
-}
-*/
-
 bool
 cmn_routing_state_next_hop_lists_next_hop_list__next_hop__special_next_hop_validate(config_data_node *node)
 {
@@ -1869,22 +1853,6 @@ cmn_routing_state_ribs_rib__routes_route__destination_prefix_commit(config_data_
 {
 	return true;
 }
-
-/*
-bool
-cmn_routing_state_ribs_rib__routes_route__destination_prefix_validate(config_data_node *node)
-{
-	return true;
-}
-*/
-
-/*
-bool
-cmn_routing_state_ribs_rib__routes_route__destination_prefix_commit(config_data_node *running, config_data_node *candidate)
-{
-	return true;
-}
-*/
 
 bool
 cmn_routing_state_ribs_rib__recipient_ribs_validate(config_data_node *node)

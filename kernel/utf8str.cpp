@@ -679,6 +679,30 @@ utf8str
 utf8str::byte_substring(sint64_t begin, sint64_t end) const
 {
 	utf8str byte_substring;
+	size_t len = byte_length();
+	if (len == 0) {
+		return byte_substring;
+	}
+	sint64_t begini;
+	if (begin < 0) {
+		begini = (len - ((begin * -1) % len)) % len;
+	} else {
+		begini = begin % len;
+	}
+	sint64_t endi;
+	if (end < 0) {
+		endi = (len - ((end * -1) % len)) % len;
+	} else {
+		endi = end % len;
+	}
+	if (endi == 0) {
+		endi = len;
+	}
+	if (begini <= endi) {
+		for (sint64_t i = begini; i < endi; ++i) {
+			byte_substring += byte_at(i);
+		}
+	}
 	return byte_substring;
 }
 
@@ -686,6 +710,30 @@ utf8str
 utf8str::unicode_substring(sint64_t begin, sint64_t end) const
 {
 	utf8str unicode_substring;
+	size_t len = unicode_length();
+	if (len == 0) {
+		return unicode_substring;
+	}
+	sint64_t begini;
+	if (begin < 0) {
+		begini = (len - ((begin * -1) % len)) % len;
+	} else {
+		begini = begin % len;
+	}
+	sint64_t endi;
+	if (end < 0) {
+		endi = (len - ((end * -1) % len)) % len;
+	} else {
+		endi = end % len;
+	}
+	if (endi == 0) {
+		endi = len;
+	}	
+	if (begini <= endi) {
+		for (sint64_t i = begini; i < endi; ++i) {
+			unicode_substring += unicode_at(i);
+		}
+	}
 	return unicode_substring;
 }
 
