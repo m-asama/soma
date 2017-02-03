@@ -162,7 +162,7 @@ public:
 	uint32_t length();
 
 	/**
-	 *  ACPI テーブルの数を返す。
+	 * ACPI テーブルの数を返す。
 	 * @return ACPI テーブルの数。
 	 */
 	size_t acpi_table_size();

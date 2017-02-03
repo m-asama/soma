@@ -466,7 +466,7 @@ utf8str::truncate(uint64_t count)
 		}
 		m_buffer[index] = '\0';
 	}
-	
+
 	return *this;
 }
 
@@ -728,7 +728,7 @@ utf8str::unicode_substring(sint64_t begin, sint64_t end) const
 	}
 	if (endi == 0) {
 		endi = len;
-	}	
+	}
 	if (begini <= endi) {
 		for (sint64_t i = begini; i < endi; ++i) {
 			unicode_substring += unicode_at(i);

@@ -7,7 +7,7 @@
 #include "config_model_type.h"
 
 config_model_type::config_model_type(config_model_node_type type)
-	: m_type(type)
+	: m_type(type), m_description(msg_null), m_format(msg_null)
 {
 }
 
@@ -133,6 +133,47 @@ msg *
 config_model_type::format()
 {
 	return m_format;
+}
+
+bool
+config_model_type::valid(utf8str value)
+{
+	bidir_node<config_model_argument> *bna;
+	switch (m_type) {
+	case config_model_node_type::type_bits:
+	case config_model_node_type::type_boolean:
+	case config_model_node_type::type_enumeration:
+	case config_model_node_type::type_identityref:
+		for (bna = m_arguments.head(); bna != nullptr; bna = bna->next()) {
+			config_model_argument &argument = bna->v();
+			if (value == argument.label()) {
+				return true;
+			}
+		}
+		return false;
+		break;
+	case config_model_node_type::type_leafref:
+		break;
+	case config_model_node_type::type_string:
+		break;
+	case config_model_node_type::type_int8:
+	case config_model_node_type::type_int16:
+	case config_model_node_type::type_int32:
+	case config_model_node_type::type_int64:
+	case config_model_node_type::type_uint8:
+	case config_model_node_type::type_uint16:
+	case config_model_node_type::type_uint32:
+	case config_model_node_type::type_uint64:
+		break;
+	case config_model_node_type::type_decimal64:
+		break;
+	case config_model_node_type::type_binary:
+	case config_model_node_type::type_empty:
+	case config_model_node_type::type_instance_identifier:
+	case config_model_node_type::type_union:
+		break;
+	}
+	return true;
 }
 
 memory_pool<config_model_type> config_model_type::s_mem_pool;

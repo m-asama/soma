@@ -70,19 +70,19 @@ config_test()
 	c1 = new config_data_node;
 	c1->type(config_data_node_type::type_variable);
 	c1->label("child1");
-	
+
 	c2 = new config_data_node;
 	c2->type(config_data_node_type::type_variable);
 	c2->label("child2");
-	
+
 	p1 = new config_data_node;
 	p1->type(config_data_node_type::type_keyword);
 	p1->label("parent1");
-	
+
 	p2 = new config_data_node;
 	p2->type(config_data_node_type::type_keyword);
 	p2->label("parent2");
-	
+
 	r1 = new config_data_node;
 	r1->type(config_data_node_type::type_keyword);
 	r1->label("root");
@@ -117,6 +117,6 @@ config_test()
 		res = test_result::fail;
 	}
 	print_test_result("config_data_node 割当数", res);
-	
+
 }
 

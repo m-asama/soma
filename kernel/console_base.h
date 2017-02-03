@@ -10,7 +10,7 @@
 #include "utf8str.h"
 #include "linked_list.h"
 #include "thread.h"
-#include "console_management.h"
+#include "console_msg.h"
 //#include "command_node.h"
 //#include "config_model_node.h"
 
@@ -120,43 +120,43 @@ public:
 	 * @return 何も返さない。
 	 */
 	void rows(uint32_t rows);
-	
+
 	/**
 	 * コンソールの行数を返す。
 	 * @return 現在の行数を返す。
 	 */
 	uint32_t rows();
-	
+
 	/**
 	 * コンソールバッファを設定する。
 	 * @param buffer 新しいコンソールバッファへのポインタ。
 	 */
 	void buffer(uint32_t *buffer);
-	
+
 	/**
 	 * コンソールバッファへのポインタを返す。
 	 * @return コンソールバッファへのポインタ。
 	 */
 	uint32_t *buffer();
-	
+
 	/**
 	 * カーソルの横方向の位置を設定する。
 	 * @param cursor_x カーソルの横方向の位置。
 	 */
 	void cursor_x(uint32_t cursor_x);
-	
+
 	/**
 	 * カーソルの横方向の位置を返す。
 	 * @return カーソルの横方向の位置。
 	 */
 	uint32_t cursor_x();
-	
+
 	/**
 	 * カーソルの縦方向の位置を設定する。
 	 * @param cursor_y カーソルの縦方向の位置。
 	 */
 	void cursor_y(uint32_t cursor_y);
-	
+
 	/**
 	 * カーソルの縦方向の位置を返す。
 	 * @return カーソルの縦方向の位置。
@@ -212,6 +212,16 @@ public:
 	console_lang current_lang();
 
 	/**
+	 *
+	 */
+	void edit_path(utf8str edit_path);
+
+	/**
+	 *
+	 */
+	utf8str edit_path();
+
+	/**
 	 * コンソールをリセットする。
 	 */
 	virtual void reset();
@@ -239,12 +249,12 @@ public:
 	/**
 	 *
 	 */
-	void handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed, bool exclude_leaf);
+	void handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t pos, bool exclude_leaf);
 
 	/**
 	 *
 	 */
-	void handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed);
+	void handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t pos);
 
 	/**
 	 *
@@ -280,6 +290,11 @@ public:
 	 * 説明を表示する。
 	 */
 	void print_description(utf8str label, msg *description);
+
+	/**
+	 * 説明を表示する。
+	 */
+	void print_description(msg *label, msg *description);
 
 	/**
 	 * 矢印キーの処理。

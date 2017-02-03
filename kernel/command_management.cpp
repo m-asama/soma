@@ -9,7 +9,6 @@
 #include "command_node.h"
 #include "console_base.h"
 #include "config_management.h"
-#include "config_model_validators.h"
 
 #include "command_management.h"
 
@@ -125,12 +124,33 @@ msg cn_edit_msg[] = {
 bool
 cn_edit_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_edit_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
-	return true;
+	if (!command.beginning("edit ")
+	 || (command == "edit ")) {
+		return false;
+	}
+
+	utf8str path, remaining, newpath;
+	uint64_t pos;
+
+	path = command.unicode_substring(5, 0);
+	while ((path.unicode_length() > 0) && (path[-1] == ' ')) {
+		path.truncate(1);
+	}
+
+	newpath = cb.edit_path();
+	if (newpath != "") {
+		newpath += " ";
+	}
+	newpath += path;
+
+	config_model_node *cmn;
+	config_model_node_nearest(newpath, cmn, remaining, pos, true);
+	if (config_model_node_completed(cmn, pos)) {
+		cb.edit_path(newpath);
+		return true;
+	}
+
+	return false;
 }
 
 msg cn_top_msg[] = {
@@ -147,11 +167,12 @@ msg cn_top_msg[] = {
 bool
 cn_top_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_top_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
+	if ((command != "top")
+	 && (command != "top ")) {
+		return false;
+	}
+
+	cb.edit_path("");
 	return true;
 }
 
@@ -242,8 +263,8 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 		bidir_node<command_node> *bn;
 		bool found = false;
 		for (bn = children.head(); bn != nullptr; bn = bn->next()) {
-			config_model_node_type type;
-			switch (bn->v().type()) {
+			config_model_type *type;
+			switch (bn->v().node_type()) {
 			case command_node_type::type_keyword:
 				if (bn->v().keyword_label() == token) {
 					node = &bn->v();
@@ -252,15 +273,15 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 				}
 				break;
 			case command_node_type::type_variable:
-				type = bn->v().variable_type();
-				if (config_model_node_valid(type, token)) {
+				type = bn->v().model_type();
+				if ((type != nullptr) && type->valid(token)) {
 					node = &bn->v();
 					found = true;
 					goto exit_loop;
 				}
 				break;
 			case command_node_type::type_config_model:
-			case command_node_type::type_config_model_edit:
+			case command_node_type::type_config_model_woleafs:
 				/*
 				node = &bn->v();
 				remaining = token;
@@ -296,7 +317,7 @@ command_init()
 
 	command_node_root = new command_node;
 	t = command_node_root;
-	t->type(command_node_type::type_root);
+	t->node_type(command_node_type::type_root);
 	t->keyword_label("[root]");
 	t->execute(command_node_root_execute);
 	t->description(command_node_root_msg);
@@ -306,7 +327,7 @@ command_init()
 	utf8str cn_set_keyword_label("set");
 	cn_set = new command_node;
 	t = cn_set;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_set_keyword_label);
 	t->execute(cn_set_execute);
 	t->description(cn_set_msg);
@@ -314,7 +335,7 @@ command_init()
 	command_node_root->add_child(*cn_set);
 
 	t = new command_node;
-	t->type(command_node_type::type_config_model);
+	t->node_type(command_node_type::type_config_model);
 	t->keyword_label("[config]");
 	t->execute(cn_set_execute);
 	t->parent(cn_set);
@@ -325,7 +346,7 @@ command_init()
 	utf8str cn_get_keyword_label("get");
 	cn_get = new command_node;
 	t = cn_get;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_get_keyword_label);
 	t->execute(cn_get_execute);
 	t->description(cn_get_msg);
@@ -333,7 +354,7 @@ command_init()
 	command_node_root->add_child(*cn_get);
 
 	t = new command_node;
-	t->type(command_node_type::type_config_model);
+	t->node_type(command_node_type::type_config_model);
 	t->keyword_label("[config]");
 	t->execute(cn_get_execute);
 	t->parent(cn_get);
@@ -344,7 +365,7 @@ command_init()
 	utf8str cn_delete_keyword_label("delete");
 	cn_delete = new command_node;
 	t = cn_delete;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_delete_keyword_label);
 	t->execute(cn_delete_execute);
 	t->description(cn_delete_msg);
@@ -352,7 +373,7 @@ command_init()
 	command_node_root->add_child(*cn_delete);
 
 	t = new command_node;
-	t->type(command_node_type::type_config_model);
+	t->node_type(command_node_type::type_config_model);
 	t->keyword_label("[config]");
 	t->execute(cn_delete_execute);
 	t->parent(cn_delete);
@@ -363,7 +384,7 @@ command_init()
 	utf8str cn_edit_keyword_label("edit");
 	cn_edit = new command_node;
 	t = cn_edit;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_edit_keyword_label);
 	t->execute(cn_edit_execute);
 	t->description(cn_edit_msg);
@@ -371,7 +392,7 @@ command_init()
 	command_node_root->add_child(*cn_edit);
 
 	t = new command_node;
-	t->type(command_node_type::type_config_model_edit);
+	t->node_type(command_node_type::type_config_model_woleafs);
 	t->keyword_label("[config]");
 	t->execute(cn_edit_execute);
 	t->parent(cn_edit);
@@ -382,7 +403,7 @@ command_init()
 	utf8str cn_top_keyword_label("top");
 	cn_top = new command_node;
 	t = cn_top;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_top_keyword_label);
 	t->execute(cn_top_execute);
 	t->description(cn_top_msg);
@@ -394,7 +415,7 @@ command_init()
 	utf8str cn_show_keyword_label("show");
 	cn_show = new command_node;
 	t = cn_show;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_show_keyword_label);
 	t->execute(cn_show_execute);
 	t->description(cn_show_msg);
@@ -406,7 +427,7 @@ command_init()
 	utf8str cn_reset_keyword_label("reset");
 	cn_reset = new command_node;
 	t = cn_reset;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_reset_keyword_label);
 	t->execute(cn_reset_execute);
 	t->description(cn_reset_msg);
@@ -418,7 +439,7 @@ command_init()
 	utf8str cn_clear_keyword_label("clear");
 	cn_clear = new command_node;
 	t = cn_clear;
-	t->type(command_node_type::type_keyword);
+	t->node_type(command_node_type::type_keyword);
 	t->keyword_label(cn_clear_keyword_label);
 	t->execute(cn_clear_execute);
 	t->description(cn_clear_msg);

@@ -181,6 +181,11 @@ public:
 	 */
 	msg *format();
 
+	/**
+	 *
+	 */
+	bool valid(utf8str value);
+
 private:
 	/**
 	 *
@@ -192,7 +197,7 @@ private:
 	 * leaf, leaf_list
 	 */
 	config_model_node_type m_type;
-	
+
 	/**
 	 * 引数。
 	 * leaf_list か leaf で、

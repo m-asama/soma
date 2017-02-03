@@ -7,7 +7,7 @@
 #include "command_node.h"
 
 command_node::command_node()
-	: m_parent(nullptr), m_execute(nullptr), m_description(nullptr)
+	: m_model_type(nullptr), m_parent(nullptr), m_execute(nullptr), m_description(msg_null)
 {
 }
 
@@ -30,15 +30,15 @@ command_node::operator delete(void *ptr)
 bool
 command_node::operator==(const command_node &rhs)
 {
-	if (m_type == rhs.m_type) {
-		switch (m_type) {
+	if (m_node_type == rhs.m_node_type) {
+		switch (m_node_type) {
 		case command_node_type::type_keyword:
 			return (m_keyword_label == rhs.m_keyword_label);
 		case command_node_type::type_variable:
-			return (m_variable_type == rhs.m_variable_type);
+			return (m_model_type == rhs.m_model_type);
 		case command_node_type::type_config_model:
 			return true;
-		case command_node_type::type_config_model_edit:
+		case command_node_type::type_config_model_woleafs:
 			return true;
 		case command_node_type::type_root:
 			return true;
@@ -51,34 +51,34 @@ command_node::operator==(const command_node &rhs)
 bool
 command_node::operator>(const command_node &rhs)
 {
-	if (m_type == rhs.m_type) {
-		switch (m_type) {
+	if (m_node_type == rhs.m_node_type) {
+		switch (m_node_type) {
 		case command_node_type::type_keyword:
 			return (m_keyword_label > rhs.m_keyword_label);
 		case command_node_type::type_variable:
-			return (m_variable_type > rhs.m_variable_type);
+			return (m_model_type > rhs.m_model_type);
 		case command_node_type::type_config_model:
 			return false;
-		case command_node_type::type_config_model_edit:
+		case command_node_type::type_config_model_woleafs:
 			return false;
 		case command_node_type::type_root:
 			return false;
 		}
 	} else {
-		return (m_type > rhs.m_type);
+		return (m_node_type > rhs.m_node_type);
 	}
 }
 
 void
-command_node::type(command_node_type type)
+command_node::node_type(command_node_type node_type)
 {
-	m_type = type;
+	m_node_type = node_type;
 }
 
 command_node_type
-command_node::type()
+command_node::node_type()
 {
-	return m_type;
+	return m_node_type;
 }
 
 void
@@ -94,15 +94,15 @@ command_node::keyword_label()
 }
 
 void
-command_node::variable_type(config_model_node_type variable_type)
+command_node::model_type(config_model_type *model_type)
 {
-	m_variable_type = variable_type;
+	m_model_type = model_type;
 }
 
-config_model_node_type
-command_node::variable_type()
+config_model_type *
+command_node::model_type()
 {
-	return m_variable_type;
+	return m_model_type;
 }
 
 void

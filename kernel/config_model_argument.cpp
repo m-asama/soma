@@ -7,7 +7,7 @@
 #include "config_model_argument.h"
 
 config_model_argument::config_model_argument(utf8str label, sint64_t value)
-	: m_label(label), m_value(value)
+	: m_label(label), m_value(value), m_description(msg_null)
 {
 }
 
@@ -43,5 +43,17 @@ sint64_t
 config_model_argument::value()
 {
 	return m_value;
+}
+
+void
+config_model_argument::description(msg *description)
+{
+	m_description = description;
+}
+
+msg *
+config_model_argument::description()
+{
+	return m_description;
 }
 

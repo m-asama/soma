@@ -8,6 +8,7 @@
 
 #include "type.h"
 #include "utf8str.h"
+#include "console_msg.h"
 
 class config_model_argument {
 
@@ -52,6 +53,16 @@ public:
 	 */
 	sint64_t value();
 
+	/**
+	 *
+	 */
+	void description(msg *description);
+
+	/**
+	 *
+	 */
+	msg *description();
+
 private:
 	/**
 	 * 引数。
@@ -62,6 +73,11 @@ private:
 	 * 値。
 	 */
 	sint64_t m_value;
+
+	/**
+	 * 説明。
+	 */
+	msg *m_description;
 
 };
 

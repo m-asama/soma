@@ -32,7 +32,7 @@ int round_up_64(uint64_t &target, uint64_t align);
 int round_down_64(uint64_t &target, uint64_t align);
 
 /*
- * 
+ *
  */
 uint64_t parse_uint64(char const *str);
 uint64_t parse_uint64(utf8str str);

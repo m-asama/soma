@@ -18,27 +18,27 @@ public:
 	 * コンストラクタ。
 	 */
 	spinlock();
-	
+
 	/**
 	 * デストラクタ。
 	 */
 	virtual ~spinlock();
-	
+
 	/**
 	 * コピーコンストラクタ。コピーは禁止。
 	 */
 	spinlock(const spinlock &src) = delete;
-	
+
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
 	spinlock(const spinlock &&src) = delete;
-	
+
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
 	 */
 	spinlock &operator=(const spinlock &src) = delete;
-	
+
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */

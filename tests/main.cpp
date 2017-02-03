@@ -21,7 +21,6 @@
 #include "memory_management_test.h"
 #include "ring_buffer_test.h"
 #include "util_test.h"
-#include "config_model_validators_test.h"
 #include "config_test.h"
 
 #include "main.h"
@@ -77,10 +76,6 @@ struct test_module {
 	{
 		.name	= "ユーティリティ関数",
 		.func	= util_test,
-	},
-	{
-		.name	= "設定モデル値チェック関数",
-		.func	= config_model_validators_test,
 	},
 	{
 		.name	= "設定",

@@ -11,7 +11,9 @@
 
 extern config_model_node *config_model_node_root;
 
-int config_model_node_nearest(utf8str path, config_model_node *&node, utf8str &remaining, uint64_t &arg_parsed, bool exclude_leaf);
+bool config_model_node_completed(config_model_node *&cmn, uint64_t pos);
+
+int config_model_node_nearest(utf8str path, config_model_node *&node, utf8str &remaining, uint64_t &pos, bool exclude_leaf);
 
 int config_data_node_find(config_data_node *root, utf8str path, config_data_node *&node);
 

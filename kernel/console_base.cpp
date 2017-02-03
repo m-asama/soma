@@ -161,11 +161,24 @@ console_base::current_lang(console_lang current_lang)
 {
 	m_current_lang = current_lang;
 }
- 
+
 console_lang
 console_base::current_lang()
 {
 	return m_current_lang;
+}
+
+
+void
+console_base::edit_path(utf8str edit_path)
+{
+	m_edit_path = edit_path;
+}
+
+utf8str
+console_base::edit_path()
+{
+	return m_edit_path;
 }
 
 void
@@ -195,28 +208,28 @@ console_base::refresh()
 }
 
 void
-console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed, bool exclude_leaf)
+console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t pos, bool exclude_leaf)
 {
-	bidir_node<config_model_node> *bn, *match_bn = nullptr;
-	int match = 0;
-	sorted_list<config_model_node> &children = cmn->children();
-	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
-		config_model_node &node = bn->v();
-		if (node.config() == false) {
-			continue;
-		}
-		if (arg_parsed > 0) {
+	// 次にノードの先頭が期待される時。
+	if (config_model_node_completed(cmn, pos)) {
+		bidir_node<config_model_node> *bn, *match_bn = nullptr;
+		int match = 0;
+		sorted_list<config_model_node> &children = cmn->children();
+		for (bn = children.head(); bn != nullptr; bn = bn->next()) {
+			config_model_node &node = bn->v();
+			if ((node.config() == false)
+			 || (node.is_key() == true)
+			 || ((exclude_leaf == true)
+			  && ((node.statement() == config_model_node_statement::statement_leaf)
+			   || (node.statement() == config_model_node_statement::statement_leaf_list)))) {
+				continue;
+			}
 			if (node.identifier().beginning(remaining)) {
 				++match;
 				match_bn = bn;
 			}
-		} else {
-			//dp("\nid = ["); dp(node.identifier()); dp("]\n");
-			//dp("rm = ["); dp(remaining); dp("]\n");
 		}
-	}
-	if (match == 1) {
-		if (arg_parsed > 0) {
+		if (match == 1) {
 			config_model_node &node = match_bn->v();
 			m_command_line.truncate(remaining.unicode_length());
 			m_command_line += node.identifier();
@@ -227,34 +240,104 @@ console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn
 			print(node.identifier());
 			print(" ");
 		} else {
-
-
-		}
-	} else {
-		print("\n");
-		if (arg_parsed > 0) {
+			print("\n");
 			for (bn = children.head(); bn != nullptr; bn = bn->next()) {
 				config_model_node &node = bn->v();
-				if (node.config() == false) {
+				if ((node.config() == false)
+				 || (node.is_key() == true)
+				 || ((exclude_leaf == true)
+				  && ((node.statement() == config_model_node_statement::statement_leaf)
+				   || (node.statement() == config_model_node_statement::statement_leaf_list)))) {
 					continue;
 				}
 				print_description(node.identifier(), node.description());
 			}
-		} else {
+			print_prompt();
 		}
-		print_prompt();
+		return;
+	}
+
+	// 次にリーフやリストの変数部分が期待される時。
+	int i = 0;
+	bidir_node<config_model_node> *bn;
+	config_model_node *t = nullptr;
+	switch (cmn->statement()) {
+	case config_model_node_statement::statement_container:
+		break;
+	case config_model_node_statement::statement_list:
+		// リストの変数部分の時。
+		for (bn = cmn->key().head(); bn != nullptr; bn = bn->next()) {
+			if (i == pos) {
+				break;
+			}
+			++i;
+		}
+		if (bn == nullptr) {
+			break;
+		}
+		t = &bn->v();
+		// このまま次の処理へ流れる。
+	case config_model_node_statement::statement_leaf:
+	case config_model_node_statement::statement_leaf_list:
+		// リーフかリーフリストの時。
+		if (t == nullptr) {
+			t = cmn;
+		}
+		int match = 0;
+		bidir_node<config_model_type> *bnt;
+		for (bnt = t->types().head(); bnt != nullptr; bnt = bnt->next()) {
+			config_model_type &type = bnt->v();
+			bidir_node<config_model_argument> *bna, *match_bna = nullptr;
+			switch (type.type()) {
+			case config_model_node_type::type_bits:
+			case config_model_node_type::type_boolean:
+			case config_model_node_type::type_enumeration:
+			case config_model_node_type::type_identityref:
+				for (bna = type.arguments().head(); bna != nullptr; bna = bna->next()) {
+					config_model_argument &argument = bna->v();
+					if (argument.label().beginning(remaining)) {
+						++match;
+						match_bna = bna;
+					}
+				}
+				if (match == 1) {
+					m_command_line.truncate(remaining.unicode_length());
+					m_command_line += match_bna->v().label();
+					m_command_line += ' ';
+					for (int i = 0; i < remaining.unicode_length(); ++i) {
+						putchar(0x7f);
+					}
+					print(match_bna->v().label());
+					print(" ");
+				} else {
+					print("\n");
+					for (bna = type.arguments().head(); bna != nullptr; bna = bna->next()) {
+						config_model_argument &argument = bna->v();
+						print_description(argument.label(), argument.description());
+					}
+					print_prompt();
+				}
+				return;
+				break;
+			default:
+				print("\n");
+				print_description(type.format(), type.description());
+				print_prompt();
+			}
+		}
+		break;
 	}
 }
 
 void
-console_base::handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t arg_parsed)
+console_base::handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t pos)
 {
 	bidir_node<command_node> *bn, *match_bn = nullptr;
 	int match = 0;
 	sorted_list<command_node> &children = cn->children();
 	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
 		command_node &node = bn->v();
-		switch (node.type()) {
+		switch (node.node_type()) {
 		case command_node_type::type_keyword:
 			if (node.keyword_label().beginning(remaining)) {
 				++match;
@@ -264,11 +347,11 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 		case command_node_type::type_variable:
 			break;
 		case command_node_type::type_config_model:
-			handle_config_model_completion(c, cmn, remaining, arg_parsed, false);
+			handle_config_model_completion(c, cmn, remaining, pos, false);
 			return;
 			break;
-		case command_node_type::type_config_model_edit:
-			handle_config_model_completion(c, cmn, remaining, arg_parsed, true);
+		case command_node_type::type_config_model_woleafs:
+			handle_config_model_completion(c, cmn, remaining, pos, true);
 			return;
 			break;
 		case command_node_type::type_root:
@@ -277,7 +360,7 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 	}
 	if (match == 1) {
 		command_node &node = match_bn->v();
-		switch (node.type()) {
+		switch (node.node_type()) {
 		case command_node_type::type_keyword:
 			m_command_line.truncate(remaining.unicode_length());
 			m_command_line += node.keyword_label();
@@ -292,7 +375,7 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 			break;
 		case command_node_type::type_config_model:
 			break;
-		case command_node_type::type_config_model_edit:
+		case command_node_type::type_config_model_woleafs:
 			break;
 		case command_node_type::type_root:
 			break;
@@ -301,7 +384,7 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 		print("\n");
 		for (bn = children.head(); bn != nullptr; bn = bn->next()) {
 			command_node &node = bn->v();
-			switch (node.type()) {
+			switch (node.node_type()) {
 			case command_node_type::type_keyword:
 				print_description(node.keyword_label(), node.description());
 				break;
@@ -309,7 +392,7 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 				break;
 			case command_node_type::type_config_model:
 				break;
-			case command_node_type::type_config_model_edit:
+			case command_node_type::type_config_model_woleafs:
 				break;
 			case command_node_type::type_root:
 				break;
@@ -334,15 +417,15 @@ console_base::handle_command_prompt(uint32_t c)
 	sorted_list<command_node> &children = cn->children();
 	bidir_node<command_node> *bn;
 	bool config_model = false;
-	uint64_t arg_parsed = 0;
+	uint64_t pos = 0;
 	bool exclude_leaf = false;
 	for (bn = children.head(); bn != nullptr; bn = bn->next()) {
 		command_node &cmnt = bn->v();
-		if (cmnt.type() == command_node_type::type_config_model) {
+		if (cmnt.node_type() == command_node_type::type_config_model) {
 			config_model = true;
 			break;
 		}
-		if (cmnt.type() == command_node_type::type_config_model_edit) {
+		if (cmnt.node_type() == command_node_type::type_config_model_woleafs) {
 			config_model = true;
 			exclude_leaf = true;
 			break;
@@ -350,7 +433,11 @@ console_base::handle_command_prompt(uint32_t c)
 	}
 	if (config_model == true) {
 		xxx = "true";
-		config_model_node_nearest(remaining, cmn, remaining, arg_parsed, exclude_leaf);
+		utf8str t = m_edit_path;
+		t += " ";
+		t += remaining;
+		remaining = t;
+		config_model_node_nearest(remaining, cmn, remaining, pos, exclude_leaf);
 		remaining2 = remaining;
 	}
 
@@ -369,17 +456,20 @@ console_base::handle_command_prompt(uint32_t c)
 			m_command_line += ' ';
 			putchar(' ');
 		} else {
-			handle_command_completion(c, cn, cmn, remaining, arg_parsed);
+			handle_command_completion(c, cn, cmn, remaining, pos);
 		}
 		break;
 	case '\r':
 	case '\n':
 		if (remaining == "") {
+			bool success = false;
 			putchar(c);
 			if (cn->execute() != nullptr) {
-				cn->execute()(*this, m_command_line);
+				success = cn->execute()(*this, m_command_line);
 			}
-			m_command_line = "";
+			if (success == true) {
+				m_command_line = "";
+			}
 			print_prompt();
 		}
 		break;
@@ -392,8 +482,8 @@ console_base::handle_command_prompt(uint32_t c)
 		s += "remaining1        = ["; s += remaining1; s += "]\n";
 		s += "remaining2        = ["; s += remaining2; s += "]\n";
 		s += "xxx               = ["; s += xxx; s += "]\n";
-		s += "arg_parsed        = ["; 
-		s.append_sint64(arg_parsed, 0);
+		s += "pos               = [";
+		s.append_sint64(pos, 0);
 		s += "]\n";
 		command_node *cnt = cn;
 		s += "command_node      = ";
@@ -416,8 +506,20 @@ console_base::handle_command_prompt(uint32_t c)
 
 		break;
 	default:
-		m_command_line += c;
-		putchar(c);
+		if ((cmn == nullptr)
+		 && (cn->children().nodes() > 0)) {
+			m_command_line += c;
+			putchar(c);
+		}
+		if ((cmn != nullptr)) {
+			if (((cmn->statement() != config_model_node_statement::statement_leaf)
+			  && (cmn->statement() != config_model_node_statement::statement_leaf_list))
+		 	 || (!config_model_node_completed(cmn, pos))
+			 || (m_command_line[-1] != ' ')) {
+				m_command_line += c;
+				putchar(c);
+			}
+		}
 	}
 }
 
@@ -531,12 +633,31 @@ console_base::print_description(utf8str label, msg *description)
 			s += "\n";
 			print(s);
 			s = "                    ";
-			
 		}
 		s += desc[i];
 	}
 	s += "\n";
 	print(s);
+}
+
+void
+console_base::print_description(msg *label, msg *description)
+{
+	if ((label == nullptr)
+	 || (description == nullptr)) {
+		return;
+	}
+
+	utf8str l;
+	l = label[0].msg;
+	for (int i = 0; i < sizeof(console_lang); ++i) {
+		if (label[i].lang == m_current_lang) {
+			l = label[i].msg;
+			break;
+		}
+	}
+
+	print_description(l, description);
 }
 
 void

@@ -1033,7 +1033,7 @@ class intel64_processor : public processor_base {
 public:
 	/**
 	 * コンストラクタ。
-	 * @param io_thread 
+	 * @param io_thread
 	 */
 	intel64_processor(thread &io_thread);
 

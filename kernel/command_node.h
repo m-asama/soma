@@ -20,8 +20,8 @@ typedef bool (*execute_fn)(console_base &, utf8str);
 enum class command_node_type {
 	type_keyword,
 	type_variable,
-	type_config_model,	// config = true のノード
-	type_config_model_edit,	// config = true で leaf と leaf_list 以外のノード
+	type_config_model,		// config = true のノード
+	type_config_model_woleafs,	// config = true で leaf と leaf_list 以外のノード
 	type_root,
 };
 
@@ -84,12 +84,12 @@ public:
 	/**
 	 *
 	 */
-	void type(command_node_type type);
+	void node_type(command_node_type node_type);
 
 	/**
 	 *
 	 */
-	command_node_type type();
+	command_node_type node_type();
 
 	/**
 	 *
@@ -104,12 +104,12 @@ public:
 	/**
 	 *
 	 */
-	void variable_type(config_model_node_type variable_type);
+	void model_type(config_model_type *model_type);
 
 	/**
 	 *
 	 */
-	config_model_node_type variable_type();
+	config_model_type *model_type();
 
 	/**
 	 *
@@ -165,7 +165,7 @@ private:
 	/**
 	 * コマンドノードのタイプ。
 	 */
-	command_node_type m_type;
+	command_node_type m_node_type;
 
 	/**
 	 * コマンドノードを表す文字列(タイプがキーワードの場合)。
@@ -175,7 +175,7 @@ private:
 	/**
 	 * コマンドノードの表すデータ型(タイプが変数の場合)。
 	 */
-	config_model_node_type m_variable_type;
+	config_model_type *m_model_type;
 
 	/**
 	 * 親。

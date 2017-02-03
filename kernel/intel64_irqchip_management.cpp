@@ -113,8 +113,8 @@ ioapic_init()
 	ioapic[16] = 0x00000024; sleep(100);
 	ioapic[16] = 0x00000023; sleep(100);
 
-//	outb(0x22, 0x70);   // Select IMCR
-//	outb(0x23, inb(0x23) | 1);  // Mask external interrupts.
+//	outb(0x22, 0x70); 		// Select IMCR
+//	outb(0x23, inb(0x23) | 1);	// Mask external interrupts.
 
 }
 

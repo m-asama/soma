@@ -31,6 +31,7 @@ OBJS	      = main.o \
 		thread_management.o \
 		thread.o \
 		console_management.o \
+		console_msg.o \
 		console_base.o \
 		font.o \
 		font_data.o \
@@ -45,8 +46,8 @@ OBJS	      = main.o \
 		config_model_functions.o \
 		config_model_descriptions.o \
 		config_model_formats.o \
-		config_model_validators.o \
 		config_model_argument.o \
+		config_model_argument_descriptions.o \
 		config_model_range.o \
 		config_model_pattern.o \
 		config_model_length.o \

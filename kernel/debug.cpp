@@ -1,5 +1,7 @@
 /**
- *
+ * @file	debug.cpp
+ * @brief	デバッグ出力関連の処理をする関数実装。
+ * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
 
 #include "type.h"

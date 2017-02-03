@@ -63,7 +63,7 @@ utf8_to_unicode(const char *utf8, uint32_t *unicode)
 	if ((utf8[0] & 0x80) == 0x00) {
 		*unicode = utf8[0];
 		return 1;
-	} 
+	}
 	if (((utf8[0] & 0xe0) == 0xc0)
 	 && ((utf8[1] & 0xc0) == 0x80)) {
 		*unicode = utf8[1] & 0x3f;

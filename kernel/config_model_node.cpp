@@ -15,7 +15,7 @@
 
 config_model_node::config_model_node()
 	: m_parent(nullptr), m_presence(false), m_mandatory(false), m_min_elements(-1), m_max_elements(-1),
-	  m_validate(nullptr), m_commit(nullptr), m_description(nullptr)
+	  m_validate(nullptr), m_commit(nullptr), m_description(msg_null)
 {
 }
 
@@ -40,7 +40,7 @@ config_model_node::operator==(const config_model_node &rhs)
 {
 	return (m_identifier == rhs.identifier());
 }
-        
+
 bool
 config_model_node::operator>(const config_model_node &rhs)
 {
@@ -204,19 +204,19 @@ config_model_node::key()
 {
 	return m_key;
 }
-        
+
 void
 config_model_node::add_unique(config_model_node &unique)
 {
 	m_unique.insert_tail(unique);
 }
-        
+
 void
 config_model_node::delete_unique(config_model_node &unique)
 {
 	m_unique.remove(unique);
 }
-        
+
 linked_list<config_model_node> &
 config_model_node::unique()
 {
@@ -287,6 +287,24 @@ msg *
 config_model_node::description()
 {
 	return m_description;
+}
+
+bool
+config_model_node::is_key()
+{
+	bidir_node<config_model_node> *bn;
+
+	if (m_parent == nullptr) {
+		return false;
+	}
+
+	for (bn = m_parent->m_key.head(); bn != nullptr; bn = bn->next()) {
+		if (bn->v() == *this) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 memory_pool<config_model_node> config_model_node::s_mem_pool;

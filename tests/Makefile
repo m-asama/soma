@@ -18,12 +18,19 @@ KERNEL_OBJS   = ../kernel/memory_management.o \
 		../kernel/unicode.o \
 		../kernel/print.o \
 		../kernel/utf8str.o \
+		../kernel/console_msg.o \
 		../kernel/config_model_node.o \
+		../kernel/config_model_type.o \
+		../kernel/config_model_argument.o \
+		../kernel/config_model_length.o \
+		../kernel/config_model_pattern.o \
+		../kernel/config_model_range.o \
 		../kernel/config_model_build.o \
 		../kernel/config_model_nodes.o \
 		../kernel/config_model_functions.o \
 		../kernel/config_model_descriptions.o \
-		../kernel/config_model_validators.o \
+		../kernel/config_model_argument_descriptions.o \
+		../kernel/config_model_formats.o \
 		../kernel/config_data_node.o \
 		../kernel/util.o
 
@@ -37,7 +44,6 @@ OBJS	      = utf8str_test.o \
 		memory_management_test.o \
 		ring_buffer_test.o \
 		util_test.o \
-		config_model_validators_test.o \
 		config_test.o \
 		main.o
 

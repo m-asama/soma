@@ -113,7 +113,7 @@ public:
 	static void operator delete(void *ptr);
 
 	/**
-	 * 
+	 *
 	 */
 	bool operator==(const config_model_node &rhs);
 
@@ -321,6 +321,11 @@ public:
 	 *
 	 */
 	msg *description();
+
+	/**
+	 *
+	 */
+	bool is_key();
 
 private:
 	/**

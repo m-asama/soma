@@ -11,22 +11,6 @@
 #include "loader_info.h"
 
 /**
- * コンソールの言語。
- */
-enum class console_lang {
-	lang_ja,
-	lang_en,
-};
-
-/**
- * 多言語対応文字列。
- */
-struct msg {
-	console_lang lang;
-	char const *msg;
-};
-
-/**
  * コンソールに 1 文字出力するための関数。
  * @param c UNICODE 文字。
  * @return 何も返さない。

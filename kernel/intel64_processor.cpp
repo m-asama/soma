@@ -435,7 +435,7 @@ intel64_idt_entry::set_intel64_idt_entry1(uint64_t intel64_idt_entry1)
 {
 	m_intel64_idt_entry[1] = intel64_idt_entry1;
 }
-        
+
 uint64_t
 intel64_idt_entry::get_intel64_idt_entry1()
 {

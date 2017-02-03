@@ -1,5 +1,7 @@
 /**
- *
+ * @file	debug.h
+ * @brief	デバッグ出力関連の処理をする関数宣言。
+ * @author	Masakazu Asama <m-asama@ginzado.co.jp>
  */
 
 #pragma once

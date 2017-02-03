@@ -512,8 +512,6 @@ memory_pool_test()
 	}
 	print_test_result("最終状態の m_prev", res);
 
-
-
 	utf8str x;
 	x = "mp->count() ";
 	x.append_uint64(mp->count(), 10);
@@ -524,8 +522,6 @@ memory_pool_test()
 	if (mp->m_next->m_next != nullptr) {
 		print_test_result("3 個", res);
 	}
-	
-
 
 	/*
 	 * mp の削除
