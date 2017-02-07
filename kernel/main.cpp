@@ -52,8 +52,8 @@ main(void *ptr)
 
 	pci_init();
 
-	config_init();
 	command_init();
+	config_init();
 
 	processor_dump();
 	irqchip_dump();

@@ -689,6 +689,9 @@ utf8str::byte_substring(sint64_t begin, sint64_t end) const
 	} else {
 		begini = begin % len;
 	}
+	if (begin == len) {
+		begini = len;
+	}
 	sint64_t endi;
 	if (end < 0) {
 		endi = (len - ((end * -1) % len)) % len;
@@ -719,6 +722,9 @@ utf8str::unicode_substring(sint64_t begin, sint64_t end) const
 		begini = (len - ((begin * -1) % len)) % len;
 	} else {
 		begini = begin % len;
+	}
+	if (begin == len) {
+		begini = len;
 	}
 	sint64_t endi;
 	if (end < 0) {

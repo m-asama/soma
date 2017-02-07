@@ -42,7 +42,7 @@ public:
 	/**
 	 *
 	 */
-	config_data_node(const config_data_node &&src) = delete;
+	config_data_node(config_data_node &&src);
 
 	/**
 	 *
@@ -52,7 +52,7 @@ public:
 	/**
 	 *
 	 */
-	config_data_node &operator=(const config_data_node &&src) = delete;
+	config_data_node &operator=(config_data_node &&src);
 
 	/**
 	 *
@@ -68,6 +68,16 @@ public:
 	 *
 	 */
 	bool operator==(const config_data_node &rhs);
+
+	/**
+	 *
+	 */
+	bool operator!=(const config_data_node &rhs);
+
+	/**
+	 *
+	 */
+	bool operator<(const config_data_node &rhs);
 
 	/**
 	 *

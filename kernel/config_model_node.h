@@ -31,33 +31,6 @@ enum class config_model_node_statement {
 /**
  *
  */
-/*
-enum class config_model_node_type {
-	type_binary,
-	type_bits,
-	type_boolean,
-	type_decimal64,
-	type_empty,
-	type_enumeration,
-	type_identityref,
-	type_instance_identifier,
-	type_int8,
-	type_int16,
-	type_int32,
-	type_int64,
-	type_leafref,
-	type_string,
-	type_uint8,
-	type_uint16,
-	type_uint32,
-	type_uint64,
-	type_union,
-};
-*/
-
-/**
- *
- */
 enum class config_model_node_ordered_by {
 	ordered_by_system,
 	ordered_by_user,

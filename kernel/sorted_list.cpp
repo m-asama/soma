@@ -37,6 +37,7 @@ sorted_list<V>::insert(V &v)
 	if (m_head == nullptr && m_tail == nullptr) {
 		m_head = n;
 		m_tail = n;
+		++m_nodes;
 		return 0;
 	}
 

@@ -6,9 +6,10 @@
 
 #include "print.h"
 #include "unicode.h"
-#include "command_node.h"
 #include "console_base.h"
 #include "config_management.h"
+#include "command_node.h"
+#include "command_debug.h"
 
 #include "command_management.h"
 
@@ -18,6 +19,7 @@ command_node *cn_get;
 command_node *cn_delete;
 command_node *cn_edit;
 command_node *cn_top;
+command_node *cn_commit;
 command_node *cn_show;
 command_node *cn_reset;
 command_node *cn_clear;
@@ -36,11 +38,6 @@ msg command_node_root_msg[] = {
 bool
 command_node_root_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "command_node_root_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
 	return true;
 }
 
@@ -58,11 +55,24 @@ msg cn_set_msg[] = {
 bool
 cn_set_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_set_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
+	if (!command.beginning("set ")
+	 || (command == "set ")) {
+		return false;
+	}
+
+	utf8str path, newpath;
+	path = command.unicode_substring(4, 0);
+	while ((path.unicode_length() > 0) && (path[-1] == ' ')) {
+		path.truncate(1);
+	}
+
+	newpath = cb.edit_path();
+	if (newpath != "") {
+		newpath += " ";
+	}
+	newpath += path;
+
+	config_data_node_set(config_data_node_candidate, newpath);
 	return true;
 }
 
@@ -80,11 +90,32 @@ msg cn_get_msg[] = {
 bool
 cn_get_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_get_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
+	if (!command.beginning("get")) {
+		return false;
+	}
+
+	utf8str path, newpath;
+	if (command.unicode_length() > 3) {
+		path = command.unicode_substring(3, 0);
+	} else {
+		path = "";
+	}
+	while ((path.unicode_length() > 0) && (path[0] == ' ')) {
+		path = path.unicode_substring(1, 0);
+	}
+	while ((path.unicode_length() > 0) && (path[-1] == ' ')) {
+		path.truncate(1);
+	}
+
+	newpath = cb.edit_path();
+	if (newpath != "") {
+		newpath += " ";
+	}
+	newpath += path;
+
+	utf8str result;
+	config_data_node_get(newpath, result);
+	cb.print(result);
 	return true;
 }
 
@@ -102,11 +133,24 @@ msg cn_delete_msg[] = {
 bool
 cn_delete_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_delete_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
+	if (!command.beginning("delete ")
+	 || (command == "delete ")) {
+		return false;
+	}
+
+	utf8str path, newpath;
+	path = command.unicode_substring(7, 0);
+	while ((path.unicode_length() > 0) && (path[-1] == ' ')) {
+		path.truncate(1);
+	}
+
+	newpath = cb.edit_path();
+	if (newpath != "") {
+		newpath += " ";
+	}
+	newpath += path;
+
+	config_data_node_delete(config_data_node_candidate, newpath);
 	return true;
 }
 
@@ -130,8 +174,6 @@ cn_edit_execute(console_base &cb, utf8str command)
 	}
 
 	utf8str path, remaining, newpath;
-	uint64_t pos;
-
 	path = command.unicode_substring(5, 0);
 	while ((path.unicode_length() > 0) && (path[-1] == ' ')) {
 		path.truncate(1);
@@ -144,6 +186,7 @@ cn_edit_execute(console_base &cb, utf8str command)
 	newpath += path;
 
 	config_model_node *cmn;
+	uint64_t pos;
 	config_model_node_nearest(newpath, cmn, remaining, pos, true);
 	if (config_model_node_completed(cmn, pos)) {
 		cb.edit_path(newpath);
@@ -176,6 +219,25 @@ cn_top_execute(console_base &cb, utf8str command)
 	return true;
 }
 
+msg cn_commit_msg[] = {
+	{
+		.lang = console_lang::lang_ja,
+		.msg  = "設定を反映する。",
+	},
+	{
+		.lang = console_lang::lang_en,
+		.msg  = "commit",
+	},
+};
+
+bool
+cn_commit_execute(console_base &cb, utf8str command)
+{
+	/* XXX: */
+	*config_data_node_running = *config_data_node_candidate;
+	return true;
+}
+
 msg cn_show_msg[] = {
 	{
 		.lang = console_lang::lang_ja,
@@ -190,11 +252,6 @@ msg cn_show_msg[] = {
 bool
 cn_show_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_show_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
 	return true;
 }
 
@@ -212,11 +269,6 @@ msg cn_reset_msg[] = {
 bool
 cn_reset_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_reset_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
 	return true;
 }
 
@@ -234,11 +286,6 @@ msg cn_clear_msg[] = {
 bool
 cn_clear_execute(console_base &cb, utf8str command)
 {
-	utf8str s;
-	s += "cn_clear_execute [";
-	s += command;
-	s += "]\n";
-	cb.print(s);
 	return true;
 }
 
@@ -282,14 +329,6 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 				break;
 			case command_node_type::type_config_model:
 			case command_node_type::type_config_model_woleafs:
-				/*
-				node = &bn->v();
-				remaining = token;
-				for (int j = i; j < len; ++j) {
-					remaining += command[j];
-				}
-				*/
-				break;
 			case command_node_type::type_root:
 				break;
 			}
@@ -354,7 +393,7 @@ command_init()
 	command_node_root->add_child(*cn_get);
 
 	t = new command_node;
-	t->node_type(command_node_type::type_config_model);
+	t->node_type(command_node_type::type_config_model_woleafs);
 	t->keyword_label("[config]");
 	t->execute(cn_get_execute);
 	t->parent(cn_get);
@@ -410,6 +449,18 @@ command_init()
 	t->parent(command_node_root);
 	command_node_root->add_child(*cn_top);
 
+	/* commit */
+
+	utf8str cn_commit_keyword_label("commit");
+	cn_commit = new command_node;
+	t = cn_commit;
+	t->node_type(command_node_type::type_keyword);
+	t->keyword_label(cn_commit_keyword_label);
+	t->execute(cn_commit_execute);
+	t->description(cn_commit_msg);
+	t->parent(command_node_root);
+	command_node_root->add_child(*cn_commit);
+
 	/* show */
 
 	utf8str cn_show_keyword_label("show");
@@ -445,6 +496,8 @@ command_init()
 	t->description(cn_clear_msg);
 	t->parent(command_node_root);
 	command_node_root->add_child(*cn_clear);
+
+	command_debug_init();
 
 }
 

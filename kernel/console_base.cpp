@@ -461,7 +461,10 @@ console_base::handle_command_prompt(uint32_t c)
 		break;
 	case '\r':
 	case '\n':
-		if (remaining == "") {
+		if ((remaining == "")
+		 && ((cmn == nullptr)
+		  || ((cmn != nullptr)
+		   && (config_model_node_completed(cmn, pos))))) {
 			bool success = false;
 			putchar(c);
 			if (cn->execute() != nullptr) {
@@ -506,19 +509,15 @@ console_base::handle_command_prompt(uint32_t c)
 
 		break;
 	default:
-		if ((cmn == nullptr)
-		 && (cn->children().nodes() > 0)) {
+		if (((cmn == nullptr)
+		  && (cn->children().nodes() > 0))
+		 || ((cmn != nullptr)
+		  && (((cmn->statement() != config_model_node_statement::statement_leaf)
+		    && (cmn->statement() != config_model_node_statement::statement_leaf_list))
+	 	   || (!config_model_node_completed(cmn, pos))
+		   || (m_command_line[-1] != ' ')))) {
 			m_command_line += c;
 			putchar(c);
-		}
-		if ((cmn != nullptr)) {
-			if (((cmn->statement() != config_model_node_statement::statement_leaf)
-			  && (cmn->statement() != config_model_node_statement::statement_leaf_list))
-		 	 || (!config_model_node_completed(cmn, pos))
-			 || (m_command_line[-1] != ' ')) {
-				m_command_line += c;
-				putchar(c);
-			}
 		}
 	}
 }

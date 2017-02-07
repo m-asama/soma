@@ -55,6 +55,7 @@ OBJS	      = main.o \
 		config_management.o \
 		command_node.o \
 		command_management.o \
+		command_debug.o \
 		util.o
 
 .if "${SOMA_TARGET}" == "x86_64"

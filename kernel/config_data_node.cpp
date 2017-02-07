@@ -15,14 +15,10 @@ config_data_node::config_data_node()
 
 config_data_node::~config_data_node()
 {
-	linked_list<config_data_node> dellist;
-	bidir_node<config_data_node> *bn;
-	for (bn = m_children.head(); bn != nullptr; bn = bn->next()) {
-		dellist.insert_tail(bn->v());
-	}
-	for (bn = dellist.head(); bn != nullptr; bn = bn->next()) {
-		m_children.remove(bn->v());
-		delete &bn->v();
+	while (m_children.head() != nullptr) {
+		config_data_node &node = m_children.head()->v();
+		m_children.remove(node);
+		delete &node;
 	}
 }
 
@@ -39,27 +35,56 @@ config_data_node::config_data_node(const config_data_node &src)
 		m_children.insert(*child);
 	}
 }
+config_data_node::config_data_node(config_data_node &&src)
+{
+	m_type = src.m_type;
+	m_label = src.m_label;
+	m_config_model_node = src.m_config_model_node;
+	m_parent = src.m_parent;
+	while (src.m_children.head() != nullptr) {
+		config_data_node &node = src.m_children.head()->v();
+		src.m_children.remove(node);
+		m_children.insert(node);
+	}
+}
 
 config_data_node &
 config_data_node::operator=(const config_data_node &src)
 {
-	linked_list<config_data_node> dellist;
-	bidir_node<config_data_node> *bn;
-	for (bn = m_children.head(); bn != nullptr; bn = bn->next()) {
-		dellist.insert_tail(bn->v());
-	}
-	for (bn = dellist.head(); bn != nullptr; bn = bn->next()) {
-		m_children.remove(bn->v());
-		delete &bn->v();
+	while (m_children.head() != nullptr) {
+		config_data_node &node = m_children.head()->v();
+		m_children.remove(node);
+		delete &node;
 	}
 	m_type = src.m_type;
 	m_label = src.m_label;
 	m_config_model_node = src.m_config_model_node;
 	m_parent = src.m_parent;
+	bidir_node<config_data_node> *bn;
 	for (bn = src.m_children.head(); bn != nullptr; bn = bn->next()) {
 		config_data_node *child = new config_data_node(bn->v());
 		child->parent(this);
 		m_children.insert(*child);
+	}
+	return *this;
+}
+
+config_data_node &
+config_data_node::operator=(config_data_node &&src)
+{
+	while (m_children.head() != nullptr) {
+		config_data_node &node = m_children.head()->v();
+		m_children.remove(node);
+		delete &node;
+	}
+	m_type = src.m_type;
+	m_label = src.m_label;
+	m_config_model_node = src.m_config_model_node;
+	m_parent = src.m_parent;
+	while (src.m_children.head() != nullptr) {
+		config_data_node &node = src.m_children.head()->v();
+		src.m_children.remove(node);
+		m_children.insert(node);
 	}
 	return *this;
 }
@@ -80,6 +105,18 @@ bool
 config_data_node::operator==(const config_data_node &rhs)
 {
 	return (m_label == rhs.m_label);
+}
+
+bool
+config_data_node::operator!=(const config_data_node &rhs)
+{
+	return (m_label != rhs.m_label);
+}
+
+bool
+config_data_node::operator<(const config_data_node &rhs)
+{
+	return (m_label < rhs.m_label);
 }
 
 bool
