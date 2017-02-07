@@ -7,6 +7,8 @@
 #include "unicode.h"
 #include "command_node.h"
 #include "command_management.h"
+#include "config_model_node.h"
+#include "config_data_node.h"
 #include "config_management.h"
 #include "debug.h"
 
@@ -208,7 +210,7 @@ console_base::refresh()
 }
 
 void
-console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t pos, bool exclude_leaf)
+console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn, config_data_node *&cdn, utf8str &remaining, uint64_t pos, bool exclude_leaf)
 {
 	// 次にノードの先頭が期待される時。
 	if (config_model_node_completed(cmn, pos)) {
@@ -320,17 +322,48 @@ console_base::handle_config_model_completion(uint32_t c, config_model_node *&cmn
 				return;
 				break;
 			default:
-				print("\n");
-				print_description(type.format(), type.description());
-				print_prompt();
+				if ((cdn != nullptr) && (c == '\t') && (remaining != "")) {
+					bidir_node<config_data_node> *cdnbn, *match_cdnbn = nullptr;
+					for (cdnbn = cdn->children().head(); cdnbn != nullptr; cdnbn = cdnbn->next()) {
+						config_data_node &cdnt = cdnbn->v();
+						if (cdnt.label().beginning(remaining)) {
+							++match;
+							match_cdnbn = cdnbn;
+						}
+					}
+					if (match == 1) {
+						m_command_line.truncate(remaining.unicode_length());
+						m_command_line += match_cdnbn->v().label();
+						m_command_line += ' ';
+						for (int i = 0; i < remaining.unicode_length(); ++i) {
+							putchar(0x7f);
+						}
+						print(match_cdnbn->v().label());
+						print(" ");
+						return;
+					}
+				}
 			}
 		}
+		print("\n");
+		for (bnt = t->types().head(); bnt != nullptr; bnt = bnt->next()) {
+			config_model_type &type = bnt->v();
+			print_description(type.format(), type.description());
+		}
+		if (cdn != nullptr) {
+			bidir_node<config_data_node> *cdnbn;
+			for (cdnbn = cdn->children().head(); cdnbn != nullptr; cdnbn = cdnbn->next()) {
+				config_data_node &cdnt = cdnbn->v();
+				print_description(cdnt.label(), nullptr);
+			}
+		}
+		print_prompt();
 		break;
 	}
 }
 
 void
-console_base::handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t pos)
+console_base::handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, config_data_node *&cdn, utf8str &remaining, uint64_t pos)
 {
 	bidir_node<command_node> *bn, *match_bn = nullptr;
 	int match = 0;
@@ -347,11 +380,11 @@ console_base::handle_command_completion(uint32_t c, command_node *&cn, config_mo
 		case command_node_type::type_variable:
 			break;
 		case command_node_type::type_config_model:
-			handle_config_model_completion(c, cmn, remaining, pos, false);
+			handle_config_model_completion(c, cmn, cdn, remaining, pos, false);
 			return;
 			break;
 		case command_node_type::type_config_model_woleafs:
-			handle_config_model_completion(c, cmn, remaining, pos, true);
+			handle_config_model_completion(c, cmn, cdn, remaining, pos, true);
 			return;
 			break;
 		case command_node_type::type_root:
@@ -407,13 +440,10 @@ console_base::handle_command_prompt(uint32_t c)
 {
 	command_node *cn = nullptr;
 	config_model_node *cmn = nullptr;
+	config_data_node *cdn = config_data_node_candidate;
 	utf8str remaining("");
-	utf8str remaining1("");
-	utf8str remaining2("");
-	utf8str xxx("false");
 
 	command_node_nearest(m_command_line, cn, remaining);
-	remaining1 = remaining;
 	sorted_list<command_node> &children = cn->children();
 	bidir_node<command_node> *bn;
 	bool config_model = false;
@@ -432,13 +462,17 @@ console_base::handle_command_prompt(uint32_t c)
 		}
 	}
 	if (config_model == true) {
-		xxx = "true";
-		utf8str t = m_edit_path;
-		t += " ";
-		t += remaining;
-		remaining = t;
-		config_model_node_nearest(remaining, cmn, remaining, pos, exclude_leaf);
-		remaining2 = remaining;
+		utf8str path = m_edit_path;
+		if (path != "") {
+			path += " ";
+		}
+		path += remaining;
+		utf8str remaining2;
+		config_model_node_nearest(path, cmn, remaining, pos, exclude_leaf);
+		config_data_node_nearest(path, cdn, remaining2);
+		if ((cdn != nullptr) && (cdn->config_model_node_() != cmn)) {
+			cdn = nullptr;
+		}
 	}
 
 	switch (c) {
@@ -456,7 +490,7 @@ console_base::handle_command_prompt(uint32_t c)
 			m_command_line += ' ';
 			putchar(' ');
 		} else {
-			handle_command_completion(c, cn, cmn, remaining, pos);
+			handle_command_completion(c, cn, cmn, cdn, remaining, pos);
 		}
 		break;
 	case '\r':
@@ -475,38 +509,6 @@ console_base::handle_command_prompt(uint32_t c)
 			}
 			print_prompt();
 		}
-		break;
-	case 0x1b:
-
-		{
-		utf8str s;
-		s += "\n";
-		s += "m_command_line    = ["; s += m_command_line; s += "]\n";
-		s += "remaining1        = ["; s += remaining1; s += "]\n";
-		s += "remaining2        = ["; s += remaining2; s += "]\n";
-		s += "xxx               = ["; s += xxx; s += "]\n";
-		s += "pos               = [";
-		s.append_sint64(pos, 0);
-		s += "]\n";
-		command_node *cnt = cn;
-		s += "command_node      = ";
-		while (cnt != nullptr) {
-			s += " < ";
-			s += cnt->keyword_label();
-			cnt = cnt->parent();
-		}
-		s += "\n";
-		config_model_node *cmnt = cmn;
-		s += "config_model_node = ";
-		while (cmnt != nullptr) {
-			s += " < ";
-			s += cmnt->identifier();
-			cmnt = cmnt->parent();
-		}
-		s += "\n";
-		dp(s);
-		}
-
 		break;
 	default:
 		if (((cmn == nullptr)
@@ -604,6 +606,11 @@ void
 console_base::print_description(utf8str label, msg *description)
 {
 	if (description == nullptr) {
+		utf8str s;
+		s += "    ";
+		s += label;
+		s += "\n";
+		print(s);
 		return;
 	}
 
@@ -642,8 +649,7 @@ console_base::print_description(utf8str label, msg *description)
 void
 console_base::print_description(msg *label, msg *description)
 {
-	if ((label == nullptr)
-	 || (description == nullptr)) {
+	if (label == nullptr) {
 		return;
 	}
 

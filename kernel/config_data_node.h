@@ -7,7 +7,9 @@
 #pragma once
 
 #include "utf8str.h"
-#include "config_model_node.h"
+#include "sorted_list.h"
+
+class config_model_node;
 
 /**
  *

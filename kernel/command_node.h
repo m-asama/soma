@@ -10,7 +10,9 @@
 #include "sorted_list.h"
 #include "memory_pool.h"
 #include "console_base.h"
-#include "config_model_node.h"
+#include "config_model_type.h"
+
+class config_model_node;
 
 typedef bool (*execute_fn)(console_base &, utf8str);
 

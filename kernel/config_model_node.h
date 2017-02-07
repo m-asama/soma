@@ -12,7 +12,6 @@
 #include "console_base.h"
 #include "config_model_type.h"
 
-//class config_model_type;
 class config_data_node;
 
 typedef bool (*validate_fn)(config_data_node *);

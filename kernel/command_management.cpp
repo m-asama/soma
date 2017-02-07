@@ -289,7 +289,7 @@ cn_clear_execute(console_base &cb, utf8str command)
 	return true;
 }
 
-int
+void
 command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 {
 	node = command_node_root;
@@ -339,14 +339,14 @@ command_node_nearest(utf8str command, command_node *&node, utf8str &remaining)
 			for (int j = i; j < len; ++j) {
 				remaining += command[j];
 			}
-			return 0;
+			return;
 		}
 		while ((i < len) && (command[i] == ' ')) {
 			++i;
 		}
 	}
 	remaining = "";
-	return 0;
+	return;
 }
 
 void

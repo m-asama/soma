@@ -18,7 +18,7 @@ extern command_node *cn_show;
 extern command_node *cn_reset;
 extern command_node *cn_clear;
 
-int command_node_nearest(utf8str command, command_node *&node, utf8str &remaining);
+void command_node_nearest(utf8str command, command_node *&node, utf8str &remaining);
 
 void command_init();
 

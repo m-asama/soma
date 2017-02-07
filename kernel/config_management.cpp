@@ -74,7 +74,7 @@ config_model_node_completed(config_model_node *&cmn, uint64_t pos)
 	return completed;
 }
 
-int
+void
 config_model_node_nearest(utf8str path, config_model_node *&node,
 	utf8str &remaining, uint64_t &pos, bool exclude_leaf)
 {
@@ -134,7 +134,7 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 					for (int j = i; j < len; ++j) {
 						remaining += path[j];
 					}
-					return 0;
+					return;
 				}
 				goto exit_loop;
 				break;
@@ -167,7 +167,7 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 						for (int j = i; j < len; ++j) {
 							remaining += path[j];
 						}
-						return 0;
+						return;
 					}
 				}
 				goto exit_loop;
@@ -180,17 +180,17 @@ config_model_node_nearest(utf8str path, config_model_node *&node,
 			for (int j = i; j < len; ++j) {
 				remaining += path[j];
 			}
-			return 0;
+			return;
 		}
 		while ((i < len) && (path[i] == ' ')) {
 			++i;
 		}
 	}
 	remaining = "";
-	return 0;
+	return;
 }
 
-int
+void
 config_data_node_find(config_data_node *root, utf8str path,
 	config_data_node *&node)
 {
@@ -218,14 +218,14 @@ config_data_node_find(config_data_node *root, utf8str path,
 		}
 		if (found == false) {
 			node = nullptr;
-			return 0;
+			return;
 		}
 		while ((i < len) && (path[i] == ' ')) {
 			++i;
 		}
 	}
 	node = root;
-	return 0;
+	return;
 }
 
 bool

@@ -16,6 +16,7 @@
 
 class command_node;
 class config_model_node;
+class config_data_node;
 
 /**
  * コンソールの権限。
@@ -249,12 +250,12 @@ public:
 	/**
 	 *
 	 */
-	void handle_config_model_completion(uint32_t c, config_model_node *&cmn, utf8str &remaining, uint64_t pos, bool exclude_leaf);
+	void handle_config_model_completion(uint32_t c, config_model_node *&cmn, config_data_node *&cdn, utf8str &remaining, uint64_t pos, bool exclude_leaf);
 
 	/**
 	 *
 	 */
-	void handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, utf8str &remaining, uint64_t pos);
+	void handle_command_completion(uint32_t c, command_node *&cn, config_model_node *&cmn, config_data_node *&cdn, utf8str &remaining, uint64_t pos);
 
 	/**
 	 *

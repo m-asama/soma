@@ -9,7 +9,6 @@
 #include "utf8str.h"
 #include "linked_list.h"
 #include "console_management.h"
-//#include "config_model_node.h"
 #include "config_model_argument.h"
 #include "config_model_length.h"
 #include "config_model_pattern.h"
