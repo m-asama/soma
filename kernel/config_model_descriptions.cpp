@@ -9,7 +9,7 @@
 msg cmn_interfaces_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "interfaces",
+		.msg  = "インターフェースに関する設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -20,7 +20,7 @@ msg cmn_interfaces_dscr[] = {
 msg cmn_interfaces_interface__dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "interface",
+		.msg  = "インターフェースの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -31,7 +31,7 @@ msg cmn_interfaces_interface__dscr[] = {
 msg cmn_interfaces_interface__name_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "name",
+		.msg  = "インターフェース名。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -42,7 +42,7 @@ msg cmn_interfaces_interface__name_dscr[] = {
 msg cmn_interfaces_interface__description_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "description",
+		.msg  = "インターフェースの説明。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -53,7 +53,7 @@ msg cmn_interfaces_interface__description_dscr[] = {
 msg cmn_interfaces_interface__type_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "type",
+		.msg  = "インターフェースのタイプ。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -64,7 +64,7 @@ msg cmn_interfaces_interface__type_dscr[] = {
 msg cmn_interfaces_interface__enabled_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "enabled",
+		.msg  = "インターフェースの有効・無効。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -86,7 +86,7 @@ msg cmn_interfaces_interface__link_up_down_trap_enable_dscr[] = {
 msg cmn_interfaces_interface__ipv4_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "ipv4",
+		.msg  = "IPv4に関する設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -97,7 +97,7 @@ msg cmn_interfaces_interface__ipv4_dscr[] = {
 msg cmn_interfaces_interface__ipv4_enabled_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "enabled",
+		.msg  = "IPv4の有効・無効。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -108,7 +108,7 @@ msg cmn_interfaces_interface__ipv4_enabled_dscr[] = {
 msg cmn_interfaces_interface__ipv4_forwarding_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "forwarding",
+		.msg  = "IPv4の転送設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -119,7 +119,7 @@ msg cmn_interfaces_interface__ipv4_forwarding_dscr[] = {
 msg cmn_interfaces_interface__ipv4_mtu_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "mtu",
+		.msg  = "MTUの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -130,7 +130,7 @@ msg cmn_interfaces_interface__ipv4_mtu_dscr[] = {
 msg cmn_interfaces_interface__ipv4_address__dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "address",
+		.msg  = "IPv4アドレスの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -152,7 +152,7 @@ msg cmn_interfaces_interface__ipv4_address__ip_dscr[] = {
 msg cmn_interfaces_interface__ipv4_address__prefix_length_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "prefix-length",
+		.msg  = "プレフィクス長の設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -163,7 +163,7 @@ msg cmn_interfaces_interface__ipv4_address__prefix_length_dscr[] = {
 msg cmn_interfaces_interface__ipv4_address__netmask_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "netmask",
+		.msg  = "ネットマスクの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -207,7 +207,7 @@ msg cmn_interfaces_interface__ipv4_neighbor__link_layer_address_dscr[] = {
 msg cmn_interfaces_interface__ipv6_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "ipv6",
+		.msg  = "IPv6に関する設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -218,7 +218,7 @@ msg cmn_interfaces_interface__ipv6_dscr[] = {
 msg cmn_interfaces_interface__ipv6_enabled_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "enabled",
+		.msg  = "IPv6の有効・無効。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -229,7 +229,7 @@ msg cmn_interfaces_interface__ipv6_enabled_dscr[] = {
 msg cmn_interfaces_interface__ipv6_forwarding_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "forwarding",
+		.msg  = "IPv6の転送の設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -240,7 +240,7 @@ msg cmn_interfaces_interface__ipv6_forwarding_dscr[] = {
 msg cmn_interfaces_interface__ipv6_mtu_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "mtu",
+		.msg  = "MTUの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -251,7 +251,7 @@ msg cmn_interfaces_interface__ipv6_mtu_dscr[] = {
 msg cmn_interfaces_interface__ipv6_address__dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "address",
+		.msg  = "IPv6アドレスの設定。",
 	},
 	{
 		.lang = console_lang::lang_en,
@@ -273,7 +273,7 @@ msg cmn_interfaces_interface__ipv6_address__ip_dscr[] = {
 msg cmn_interfaces_interface__ipv6_address__prefix_length_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "prefix-length",
+		.msg  = "プレフィクス長の設定。",
 	},
 	{
 		.lang = console_lang::lang_en,

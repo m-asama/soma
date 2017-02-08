@@ -9,88 +9,88 @@
 msg fmt_binary_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_binary",
+		.msg  = "BINARY",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_binary",
+		.msg  = "BINARY",
 	},
 };
 
 msg fmt_binary_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_binary",
+		.msg  = "バイナリー書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_binary",
+		.msg  = "Binary format.",
 	},
 };
 
 msg fmt_bits_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_bits",
+		.msg  = "BITS",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_bits",
+		.msg  = "BITS",
 	},
 };
 
 msg fmt_bits_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_bits",
+		.msg  = "ビット列書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_bits",
+		.msg  = "Bits format.",
 	},
 };
 
 msg fmt_boolean_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_boolean",
+		.msg  = "(true|false)",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_boolean",
+		.msg  = "(true|false)",
 	},
 };
 
 msg fmt_boolean_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_boolean",
+		.msg  = "真偽値書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_boolean",
+		.msg  = "Boolean format.",
 	},
 };
 
 msg fmt_decimal64_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_decimal64",
+		.msg  = "123.456",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_decimal64",
+		.msg  = "123.456",
 	},
 };
 
 msg fmt_decimal64_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_decimal64",
+		.msg  = "10進数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_decimal64",
+		.msg  = "Decimal format.",
 	},
 };
 
@@ -185,88 +185,88 @@ msg fmt_instance_identifier_dscr[] = {
 msg fmt_int8_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int8",
+		.msg  = "-128..127",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int8",
+		.msg  = "-128..127",
 	},
 };
 
 msg fmt_int8_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int8",
+		.msg  = "符号付き8ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int8",
+		.msg  = "Signed 8bits integer format.",
 	},
 };
 
 msg fmt_int16_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int16",
+		.msg  = "-32768..32767",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int16",
+		.msg  = "-32768..32767",
 	},
 };
 
 msg fmt_int16_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int16",
+		.msg  = "符号付き16ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int16",
+		.msg  = "Signed 16bits integer format.",
 	},
 };
 
 msg fmt_int32_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int32",
+		.msg  = "-2147483648..2147483647",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int32",
+		.msg  = "-2147483648..2147483647",
 	},
 };
 
 msg fmt_int32_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int32",
+		.msg  = "符号付き32ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int32",
+		.msg  = "Signed 32bits integer format.",
 	},
 };
 
 msg fmt_int64_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int64",
+		.msg  = "-9223372036854775808..9223372036854775807",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int64",
+		.msg  = "-9223372036854775808..9223372036854775807",
 	},
 };
 
 msg fmt_int64_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_int64",
+		.msg  = "符号付き32ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_int64",
+		.msg  = "Signed 32bits integer format.",
 	},
 };
 
@@ -295,110 +295,110 @@ msg fmt_leafref_dscr[] = {
 msg fmt_string_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_string",
+		.msg  = "STRING",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_string",
+		.msg  = "STRING",
 	},
 };
 
 msg fmt_string_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_string",
+		.msg  = "文字列書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_string",
+		.msg  = "String format.",
 	},
 };
 
 msg fmt_uint8_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint8",
+		.msg  = "0..255",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint8",
+		.msg  = "0..255",
 	},
 };
 
 msg fmt_uint8_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint8",
+		.msg  = "符号無し8ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint8",
+		.msg  = "Unsigned 8bits integer format.",
 	},
 };
 
 msg fmt_uint16_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint16",
+		.msg  = "0..65535",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint16",
+		.msg  = "0..65535",
 	},
 };
 
 msg fmt_uint16_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint16",
+		.msg  = "符号無し16ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint16",
+		.msg  = "Unsigned 16bits integer format.",
 	},
 };
 
 msg fmt_uint32_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint32",
+		.msg  = "0..4294967295",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint32",
+		.msg  = "0..4294967295",
 	},
 };
 
 msg fmt_uint32_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint32",
+		.msg  = "符号無し32ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint32",
+		.msg  = "Unsigned 32bits integer format.",
 	},
 };
 
 msg fmt_uint64_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint64",
+		.msg  = "0..18446744073709551615",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint64",
+		.msg  = "0..18446744073709551615",
 	},
 };
 
 msg fmt_uint64_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_uint64",
+		.msg  = "符号無し32ビット整数書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_uint64",
+		.msg  = "Unsigned 32bits integer format.",
 	},
 };
 
@@ -691,44 +691,44 @@ msg fmt_timestamp_dscr[] = {
 msg fmt_phys_address_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_phys_address",
+		.msg  = "([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_phys_address",
+		.msg  = "([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?",
 	},
 };
 
 msg fmt_phys_address_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_phys_address",
+		.msg  = "物理アドレス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_phys_address",
+		.msg  = "Physical address format.",
 	},
 };
 
 msg fmt_mac_address_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_mac_address",
+		.msg  = "XX:XX:XX:XX:XX:XX",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_mac_address",
+		.msg  = "XX:XX:XX:XX:XX:XX",
 	},
 };
 
 msg fmt_mac_address_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_mac_address",
+		.msg  = "MACアドレス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_mac_address",
+		.msg  = "MAC address format.",
 	},
 };
 
@@ -933,22 +933,22 @@ msg fmt_ipv6_flow_label_dscr[] = {
 msg fmt_port_number_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_port_number",
+		.msg  = "0..65535",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_port_number",
+		.msg  = "0..65535",
 	},
 };
 
 msg fmt_port_number_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_port_number",
+		.msg  = "ポート番号書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_port_number",
+		.msg  = "Port number format.",
 	},
 };
 
@@ -999,44 +999,44 @@ msg fmt_ip_address_dscr[] = {
 msg fmt_ipv4_address_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_address",
+		.msg  = "XXX.XXX.XXX.XXX(%XXX)?",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_address",
+		.msg  = "XXX.XXX.XXX.XXX(%XXX)?",
 	},
 };
 
 msg fmt_ipv4_address_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_address",
+		.msg  = "IPv4アドレス書式(ゾーン情報付加可)。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_address",
+		.msg  = "IPv4 address format(with zone index).",
 	},
 };
 
 msg fmt_ipv6_address_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_address",
+		.msg  = "X:X:X:X::X(%XXX)?",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_address",
+		.msg  = "X:X:X:X::X(%XXX)?",
 	},
 };
 
 msg fmt_ipv6_address_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_address",
+		.msg  = "IPv6アドレス書式(ゾーン情報付加可)。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_address",
+		.msg  = "IPv6 address format(with zone index).",
 	},
 };
 
@@ -1065,44 +1065,44 @@ msg fmt_ip_address_no_zone_dscr[] = {
 msg fmt_ipv4_address_no_zone_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_address_no_zone",
+		.msg  = "XXX.XXX.XXX.XXX",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_address_no_zone",
+		.msg  = "XXX.XXX.XXX.XXX",
 	},
 };
 
 msg fmt_ipv4_address_no_zone_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_address_no_zone",
+		.msg  = "IPv4アドレス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_address_no_zone",
+		.msg  = "IPv4 address format.",
 	},
 };
 
 msg fmt_ipv6_address_no_zone_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_address_no_zone",
+		.msg  = "X:X:X:X::X",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_address_no_zone",
+		.msg  = "X:X:X:X::X",
 	},
 };
 
 msg fmt_ipv6_address_no_zone_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_address_no_zone",
+		.msg  = "IPv6アドレス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_address_no_zone",
+		.msg  = "IPv6 address format.",
 	},
 };
 
@@ -1131,44 +1131,44 @@ msg fmt_ip_prefix_dscr[] = {
 msg fmt_ipv4_prefix_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_prefix",
+		.msg  = "XXX.XXX.XXX.XXX/XX",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_prefix",
+		.msg  = "XXX.XXX.XXX.XXX/XX",
 	},
 };
 
 msg fmt_ipv4_prefix_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv4_prefix",
+		.msg  = "IPv4プレフィクス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv4_prefix",
+		.msg  = "IPv4 prefix format.",
 	},
 };
 
 msg fmt_ipv6_prefix_frmt[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_prefix",
+		.msg  = "X:X:X:X::X/XX",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_prefix",
+		.msg  = "X:X:X:X::X/XX",
 	},
 };
 
 msg fmt_ipv6_prefix_dscr[] = {
 	{
 		.lang = console_lang::lang_ja,
-		.msg  = "fmt_ipv6_prefix",
+		.msg  = "IPv6プレフィクス書式。",
 	},
 	{
 		.lang = console_lang::lang_en,
-		.msg  = "fmt_ipv6_prefix",
+		.msg  = "IPv6 prefix format.",
 	},
 };
 
