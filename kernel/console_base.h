@@ -278,6 +278,11 @@ public:
 	int print(utf8str str);
 
 	/**
+	 * 文字列を表示する。
+	 */
+	int print(msg *str);
+
+	/**
 	 * コンソールを一行送る。
 	 */
 	void line_shift();

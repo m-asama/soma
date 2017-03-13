@@ -9,6 +9,7 @@
 #include "console_management.h"
 #include "unicode.h"
 #include "utf8str.h"
+#include "console_msg.h"
 
 int
 putchar(const uint32_t c)
@@ -90,5 +91,11 @@ print(const char *str)
 {
 	utf8str s(str);
 	return print(s);
+}
+
+int
+print(msg *str)
+{
+	return print(str[0].msg);
 }
 

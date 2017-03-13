@@ -558,6 +558,17 @@ console_base::print(utf8str str)
 	return c;
 }
 
+int
+console_base::print(msg *str)
+{
+	for (int i = 0; i < sizeof(console_lang); ++i) {
+		if (str[i].lang == m_current_lang) {
+			return print(str[i].msg);
+		}
+	}
+	return print(str[0].msg);
+}
+
 void
 console_base::line_shift()
 {
