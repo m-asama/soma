@@ -95,6 +95,9 @@ pci_device_base::pci_dump()
 	s += " BIST: ";
 	s.append_hex64(pci_config_read_uint8(m_bus, m_slot, 0, 0x0f), 2);
 	s += "\n";
+	if (pci_config_read_uint8(m_bus, m_slot, 0, 0x0e) != 0x00) {
+		return s;
+	}
 	s += "    Base Address Register 1: ";
 	s.append_hex64(pci_config_read_uint32(m_bus, m_slot, 0, 0x10), 8);
 	s += "\n";
@@ -143,7 +146,7 @@ pci_device_base::pci_dump()
 	s += "\n";
 
 	s += "    Capabilities List:\n";
-	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34);
+	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34) & 0xfc;
 	while (capp != 0x00) {
 		uint8_t capid = pci_config_read_uint8(m_bus, m_slot, 0, capp);
 		s += "        Capability ID: ";
@@ -165,11 +168,20 @@ pci_device_base::pci_dump()
 		case 0x0e: s += " (AGP 8x)\n"; break;
 		case 0x0f: s += " (Secure Device)\n"; break;
 		case 0x10: s += " (PCI Express)\n"; break;
-		case 0x11: s += " (MSI-X)\n"; break;
+		case 0x11:
+			s += " (MSI-X)\n";
+			s += "            Message Control: ";
+			s.append_hex64(pci_config_read_uint16(m_bus, m_slot, 0, capp + 2), 4);
+			s += "\n            Table Offset: ";
+			s.append_hex64(pci_config_read_uint32(m_bus, m_slot, 0, capp + 4), 8);
+			s += "\n            PBA Offset: ";
+			s.append_hex64(pci_config_read_uint32(m_bus, m_slot, 0, capp + 8), 8);
+			s += "\n";
+			break;
 		default:
 			s += " (Unknown Capability)\n";
 		}
-		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1);
+		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
 	}
 
 	return s;
