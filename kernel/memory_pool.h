@@ -48,7 +48,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	memory_pool(const memory_pool<T> &&src) = delete;
+	memory_pool(memory_pool<T> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -58,7 +58,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const memory_pool<T> &&src) = delete;
+	void operator=(memory_pool<T> &&src) = delete;
 
 	/**
 	 * メモリブロックから未使用のものを見つけ出し割り当てる関数。

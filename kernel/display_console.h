@@ -44,7 +44,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	display_console(const display_console &&src) = delete;
+	display_console(display_console &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -54,7 +54,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const display_console &&src) = delete;
+	void operator=(display_console &&src) = delete;
 
 	/**
 	 * コンソールをリセットするための関数。

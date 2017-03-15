@@ -50,7 +50,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	bidir_node(const bidir_node<V> &&src) = delete;
+	bidir_node(bidir_node<V> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -60,7 +60,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const bidir_node<V> &&src) = delete;
+	void operator=(bidir_node<V> &&src) = delete;
 
 	/**
 	 * メモリ割当演算子。 memory_pool から割り当てる。

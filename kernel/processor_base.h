@@ -35,7 +35,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	processor_base(const processor_base &&src) = delete;
+	processor_base(processor_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -45,7 +45,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	processor_base &operator=(const processor_base &&src) = delete;
+	processor_base &operator=(processor_base &&src) = delete;
 
 	/**
 	 *

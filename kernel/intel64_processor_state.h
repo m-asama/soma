@@ -64,12 +64,12 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_processor_state(const intel64_processor_state &&src) = delete;
+	intel64_processor_state(intel64_processor_state &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
 	 */
-	intel64_processor_state &operator=(const intel64_processor_state &&src) = delete;
+	intel64_processor_state &operator=(intel64_processor_state &&src) = delete;
 
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。

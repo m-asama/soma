@@ -35,7 +35,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	serial_console(const serial_console &&src) = delete;
+	serial_console(serial_console &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -45,7 +45,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const serial_console &&src) = delete;
+	void operator=(serial_console &&src) = delete;
 
 	/**
 	 * コンソールをリセットするための関数。

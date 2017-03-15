@@ -68,7 +68,7 @@ public:
 	/**
 	 *
 	 */
-	config_model_type(const config_model_type &&src) = delete;
+	config_model_type(config_model_type &&src) = delete;
 
 	/**
 	 *
@@ -78,7 +78,7 @@ public:
 	/**
 	 *
 	 */
-	config_model_type &operator=(const config_model_type &&src) = delete;
+	config_model_type &operator=(config_model_type &&src) = delete;
 
 	/**
 	 *

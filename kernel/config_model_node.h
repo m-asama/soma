@@ -59,7 +59,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	config_model_node(const config_model_node &&src) = delete;
+	config_model_node(config_model_node &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -69,7 +69,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	config_model_node &operator=(const config_model_node &&src) = delete;
+	config_model_node &operator=(config_model_node &&src) = delete;
 
 	/**
 	 * メモリ割当演算子。 memory_pool から割り当てる。

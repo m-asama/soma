@@ -52,7 +52,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	thread(const thread &&src) = delete;
+	thread(thread &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -62,7 +62,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	thread &operator=(const thread &&src) = delete;
+	thread &operator=(thread &&src) = delete;
 
 	/**
 	 * スレッドを比較するための等価演算子。

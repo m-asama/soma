@@ -51,7 +51,7 @@ public:
 	/**
 	 *
 	 */
-	command_node(const command_node &&src) = delete;
+	command_node(command_node &&src) = delete;
 
 	/**
 	 *
@@ -61,7 +61,7 @@ public:
 	/**
 	 *
 	 */
-	command_node &operator=(const command_node &&src) = delete;
+	command_node &operator=(command_node &&src) = delete;
 
 	/**
 	 *

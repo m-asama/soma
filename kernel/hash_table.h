@@ -51,7 +51,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	hash_table(const hash_table<V> &&src) = delete;
+	hash_table(hash_table<V> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -61,7 +61,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const hash_table<V> &&src) = delete;
+	void operator=(hash_table<V> &&src) = delete;
 
 	/**
 	 * ハッシュテーブルに値を格納する。

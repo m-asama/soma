@@ -33,7 +33,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_ioapic(const intel64_ioapic &&src) = delete;
+	intel64_ioapic(intel64_ioapic &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -43,7 +43,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_ioapic &operator=(const intel64_ioapic &&src) = delete;
+	intel64_ioapic &operator=(intel64_ioapic &&src) = delete;
 
 private:
 	/**

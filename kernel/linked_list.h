@@ -33,7 +33,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	linked_list(const linked_list<V> &&src) = delete;
+	linked_list(linked_list<V> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -43,7 +43,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const linked_list<V> &&src) = delete;
+	void operator=(linked_list<V> &&src) = delete;
 
 	/**
 	 * リンクリストの先頭に値を格納する。

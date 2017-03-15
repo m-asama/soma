@@ -32,7 +32,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	processor_state_base(const processor_state_base &&src) = delete;
+	processor_state_base(processor_state_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -42,7 +42,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	processor_state_base &operator=(const processor_state_base &&src) = delete;
+	processor_state_base &operator=(processor_state_base &&src) = delete;
 
 	/**
 	 *

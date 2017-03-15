@@ -39,7 +39,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	sorted_list(const sorted_list<V> &&src) = delete;
+	sorted_list(sorted_list<V> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -49,7 +49,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const sorted_list<V> &&src) = delete;
+	void operator=(sorted_list<V> &&src) = delete;
 
 	/**
 	 * 整列リストに値を格納する。

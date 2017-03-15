@@ -32,7 +32,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	irqchip_base(const irqchip_base &&src) = delete;
+	irqchip_base(irqchip_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -42,7 +42,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	irqchip_base &operator=(const irqchip_base &&src) = delete;
+	irqchip_base &operator=(irqchip_base &&src) = delete;
 
 	/**
 	 *

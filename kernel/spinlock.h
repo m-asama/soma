@@ -32,7 +32,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	spinlock(const spinlock &&src) = delete;
+	spinlock(spinlock &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -42,7 +42,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	spinlock &operator=(const spinlock &&src) = delete;
+	spinlock &operator=(spinlock &&src) = delete;
 
 	/**
 	 * スピンロックを取得する。

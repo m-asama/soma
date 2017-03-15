@@ -44,7 +44,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	ring_buffer(const ring_buffer<V> &&src) = delete;
+	ring_buffer(ring_buffer<V> &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -54,7 +54,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const ring_buffer<V> &&src) = delete;
+	void operator=(ring_buffer<V> &&src) = delete;
 
 	/**
 	 * インデックスを指定して値を読む。

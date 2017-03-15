@@ -56,7 +56,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	acpi_apic(const acpi_apic &&src) = delete;
+	acpi_apic(acpi_apic &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -66,7 +66,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	acpi_apic &operator=(const acpi_apic &&src) = delete;
+	acpi_apic &operator=(acpi_apic &&src) = delete;
 
 	/**
 	 * ACPI APIC テーブルのシグネチャへのポインタを返す。
@@ -137,7 +137,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	acpi_xsdt(const acpi_xsdt &&src) = delete;
+	acpi_xsdt(acpi_xsdt &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -147,7 +147,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	acpi_xsdt &operator=(const acpi_xsdt &&src) = delete;
+	acpi_xsdt &operator=(acpi_xsdt &&src) = delete;
 
 	/**
 	 * ACPI XSDT テーブルのシグネチャへのポインタを返す。
@@ -219,7 +219,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	acpi_rsdp(const acpi_rsdp &&src) = delete;
+	acpi_rsdp(acpi_rsdp &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -229,7 +229,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	acpi_rsdp &operator=(const acpi_rsdp &&src) = delete;
+	acpi_rsdp &operator=(acpi_rsdp &&src) = delete;
 
 	/**
 	 * ACPI RSDP テーブルのシグネチャへのポインタを返す。

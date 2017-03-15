@@ -71,7 +71,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	console_base(const console_base &&src) = delete;
+	console_base(console_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -81,7 +81,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const console_base &&src) = delete;
+	void operator=(console_base &&src) = delete;
 
 	/**
 	 * コンソール同士を比較するための等価演算子。

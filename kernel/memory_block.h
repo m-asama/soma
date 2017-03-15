@@ -47,7 +47,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	memory_block(const memory_block &&src) = delete;
+	memory_block(memory_block &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -57,7 +57,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	void operator=(const memory_block &&src) = delete;
+	void operator=(memory_block &&src) = delete;
 
 	/**
 	 * new 演算子。

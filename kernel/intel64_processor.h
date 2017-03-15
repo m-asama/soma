@@ -34,7 +34,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_gdt_entry(const intel64_gdt_entry &&src) = delete;
+	intel64_gdt_entry(intel64_gdt_entry &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -44,7 +44,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_gdt_entry &operator=(const intel64_gdt_entry &&src) = delete;
+	intel64_gdt_entry &operator=(intel64_gdt_entry &&src) = delete;
 
 	/**
 	 *
@@ -188,7 +188,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_gdtr(const intel64_gdtr &&src) = delete;
+	intel64_gdtr(intel64_gdtr &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -198,7 +198,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_gdtr &operator=(const intel64_gdtr &&src) = delete;
+	intel64_gdtr &operator=(intel64_gdtr &&src) = delete;
 
 	/**
 	 *
@@ -313,7 +313,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_idt_entry(const intel64_idt_entry &&src) = delete;
+	intel64_idt_entry(intel64_idt_entry &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -323,7 +323,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_idt_entry &operator=(const intel64_idt_entry &&src) = delete;
+	intel64_idt_entry &operator=(intel64_idt_entry &&src) = delete;
 
 	/**
 	 *
@@ -437,7 +437,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_idtr(const intel64_idtr &&src) = delete;
+	intel64_idtr(intel64_idtr &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -447,7 +447,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_idtr &operator=(const intel64_idtr &&src) = delete;
+	intel64_idtr &operator=(intel64_idtr &&src) = delete;
 
 	/**
 	 *
@@ -531,7 +531,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_page_entry_base(const intel64_page_entry_base &&src) = delete;
+	intel64_page_entry_base(intel64_page_entry_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -541,7 +541,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_page_entry_base &operator=(const intel64_page_entry_base &&src) = delete;
+	intel64_page_entry_base &operator=(intel64_page_entry_base &&src) = delete;
 
 	/**
 	 *
@@ -645,7 +645,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_page_table_base(const intel64_page_table_base &&src) = delete;
+	intel64_page_table_base(intel64_page_table_base &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -655,7 +655,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_page_table_base &operator=(const intel64_page_table_base &&src) = delete;
+	intel64_page_table_base &operator=(intel64_page_table_base &&src) = delete;
 
 	/**
 	 *
@@ -694,7 +694,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pd_entry(const intel64_pd_entry &&src) = delete;
+	intel64_pd_entry(intel64_pd_entry &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -704,7 +704,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pd_entry operator=(const intel64_pd_entry &&src) = delete;
+	intel64_pd_entry operator=(intel64_pd_entry &&src) = delete;
 
 	/**
 	 *
@@ -782,7 +782,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pd_table(const intel64_pd_table &&src) = delete;
+	intel64_pd_table(intel64_pd_table &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -792,7 +792,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pd_table &operator=(const intel64_pd_table &&src) = delete;
+	intel64_pd_table &operator=(intel64_pd_table &&src) = delete;
 
 	/**
 	 *
@@ -825,7 +825,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pdpt_entry(const intel64_pdpt_entry &&src) = delete;
+	intel64_pdpt_entry(intel64_pdpt_entry &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -835,7 +835,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pdpt_entry &operator=(const intel64_pdpt_entry &&src) = delete;
+	intel64_pdpt_entry &operator=(intel64_pdpt_entry &&src) = delete;
 
 	/**
 	 *
@@ -883,7 +883,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pdpt_table(const intel64_pdpt_table &&src) = delete;
+	intel64_pdpt_table(intel64_pdpt_table &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -893,7 +893,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pdpt_table &operator=(const intel64_pdpt_table &&src) = delete;
+	intel64_pdpt_table &operator=(intel64_pdpt_table &&src) = delete;
 
 	/**
 	 *
@@ -942,7 +942,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pml4_entry(const intel64_pml4_entry &&src) = delete;
+	intel64_pml4_entry(intel64_pml4_entry &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -952,7 +952,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pml4_entry &operator=(const intel64_pml4_entry &&src) = delete;
+	intel64_pml4_entry &operator=(intel64_pml4_entry &&src) = delete;
 
 	/**
 	 *
@@ -990,7 +990,7 @@ public:
 	/**
 	 * ムーブコンストラクタ。ムーブは禁止。
 	 */
-	intel64_pml4_table(const intel64_pml4_table &&src) = delete;
+	intel64_pml4_table(intel64_pml4_table &&src) = delete;
 
 	/**
 	 * コピー代入演算子。コピー代入は禁止。
@@ -1000,7 +1000,7 @@ public:
 	/**
 	 * ムーブ代入演算子。ムーブ代入は禁止。
 	 */
-	intel64_pml4_table &operator=(const intel64_pml4_table &&src) = delete;
+	intel64_pml4_table &operator=(intel64_pml4_table &&src) = delete;
 
 	/**
 	 *
