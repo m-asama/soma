@@ -17,6 +17,13 @@ unknown_pci_device::~unknown_pci_device()
 {
 }
 
+utf8str
+unknown_pci_device::pci_dump()
+{
+	utf8str s(pci_device_base::pci_dump());
+	return s;
+}
+
 pci_device_base *
 unknown_pci_device_alloc()
 {

@@ -11,10 +11,13 @@
 #include "sorted_list.h"
 #include "hash_table.h"
 #include "memory_block.h"
+#include "console_base.h"
 
 #include "intel64_assembly.h"
 
 #include "loader_info.h"
+
+static struct loader_info *li = nullptr;
 
 static sorted_list<memory_block> free_block;
 static hash_table<memory_block> alloc_block(memory_block_hash, memory_block_equal);
@@ -209,13 +212,15 @@ operator delete[](void* ptr) noexcept
 }
 
 void
-memory_init(struct loader_info *li)
+memory_init(struct loader_info *lit)
 {
 	int i;
 	struct li_memdesc *limd = nullptr;
 	uint64_t first_base, first_size, base, size;
 	uint64_t mb_size, bn_size, ht_size;
 	memory_block *mb;
+
+	li = lit;
 
 	for (i = 0; i < li->mm_num_of_mds; ++i) {
 		if (li->mm_mds[i].md_type == 7) {
@@ -495,6 +500,74 @@ memory_stats()
 	s.append_uint64(alloc + free, 12);
 	s += "\n";
 	print(s);
+}
+
+void
+memory_debug_memory_map(console_base &cb)
+{
+	int i;
+	struct li_memdesc *limd = nullptr;
+	utf8str s;
+	s += "ID START      SIZE       TYPE\n";
+	for (i = 0; i < li->mm_num_of_mds; ++i) {
+		limd = &li->mm_mds[i];
+		s.append_hex64(i, 2);
+		s += " 0x";
+		s.append_hex64(limd->md_phys_start, 8);
+		s += " 0x";
+		s.append_hex64(limd->md_num_of_pages * 4096, 8);
+		switch (limd->md_type) {
+		case 0:
+			s += " EfiReservedMemoryType";
+			break;
+		case 1:
+			s += " EfiLoaderCode";
+			break;
+		case 2:
+			s += " EfiLoaderData";
+			break;
+		case 3:
+			s += " EfiBootServicesCode";
+			break;
+		case 4:
+			s += " EfiBootServicesData";
+			break;
+		case 5:
+			s += " EfiRuntimeServiceCode";
+			break;
+		case 6:
+			s += " EfiRuntimeServicesData";
+			break;
+		case 7:
+			s += " EfiConventionalMemory";
+			break;
+		case 8:
+			s += " EfiUnusableMemory";
+			break;
+		case 9:
+			s += " EfiACPIReclaimMemory";
+			break;
+		case 10:
+			s += " EfiACPIMemoryNVS";
+			break;
+		case 11:
+			s += " EfiMemoryMappedIO";
+			break;
+		case 12:
+			s += " EfiMemoryMappedIOPortSpace";
+			break;
+		case 13:
+			s += " EfiPalCode";
+			break;
+		case 14:
+			s += " EfiPersistentMemory";
+			break;
+		default:
+			s += " ???";
+		}
+		s += "\n";
+	}
+	cb.print(s);
 }
 
 extern "C" void *memset(void *b, int c, size_t len);

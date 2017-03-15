@@ -32,12 +32,16 @@ run: loader/loader.efi kernel/kernel.bin
 	#	-chardev stdio,mux=on,id=char0 \
 	#	-mon chardev=char0,mode=readline,default \
 	#	-serial telnet:0.0.0.0:2300,server,nowait
-	qemu-system-x86_64 -smp 2 -m 1024 -bios OVMF.fd \
+	sudo qemu-system-x86_64 -smp 2 -m 1024 -bios OVMF.fd \
 		-hda fat:./hda -hdb fat:./hdb \
-		-chardev socket,id=char0,server,host=0.0.0.0,port=2300,nowait,telnet \
-		-mon chardev=char0,mode=readline,default \
 		-vnc 0.0.0.0:0,password -k ja \
-		-serial stdio
+		-serial stdio \
+		-netdev type=tap,ifname=tap0,id=net0 \
+		-device virtio-net-pci,netdev=net0 \
+		-netdev type=tap,ifname=tap1,id=net1 \
+		-device virtio-net-pci,netdev=net1 \
+		-chardev socket,id=char0,server,host=0.0.0.0,port=2300,nowait,telnet \
+		-mon chardev=char0,mode=readline,default
 
 test: tests/main
 	make -C tests test

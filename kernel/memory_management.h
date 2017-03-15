@@ -8,6 +8,9 @@
 
 #include "loader_info.h"
 
+//#include "console_base.h"
+class console_base;
+
 /**
  * ページサイズを表すための enum class。
  */
@@ -80,4 +83,8 @@ void memory_dump();
 void memory_free_dump();
 void memory_stats();
 
+/**
+ *
+ */
+void memory_debug_memory_map(console_base &cb);
 

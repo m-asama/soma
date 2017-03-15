@@ -7,6 +7,7 @@
 #pragma once
 
 #include "type.h"
+#include "utf8str.h"
 
 /**
  * PCI デバイスの基底クラス宣言。
@@ -44,7 +45,51 @@ public:
 	 */
 	pci_device_base &operator=(pci_device_base &&src) = delete;
 
+	/**
+	 *
+	 */
+	bool operator==(const pci_device_base &rhs);
+
+	/**
+	 *
+	 */
+	bool operator>(const pci_device_base &rhs);
+
+	/**
+	 *
+	 */
+	void bus(sint16_t bus);
+
+	/**
+	 *
+	 */
+	sint16_t bus();
+
+	/**
+	 *
+	 */
+	void slot(sint16_t slot);
+
+	/**
+	 *
+	 */
+	sint16_t slot();
+
+	/**
+	 *
+	 */
+	virtual utf8str pci_dump();
+
 private:
+	/**
+	 *
+	 */
+	sint16_t m_bus;
+
+	/**
+	 *
+	 */
+	sint16_t m_slot;
 
 };
 

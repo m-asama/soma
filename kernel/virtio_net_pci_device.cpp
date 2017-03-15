@@ -17,6 +17,13 @@ virtio_net_pci_device::~virtio_net_pci_device()
 {
 }
 
+utf8str
+virtio_net_pci_device::pci_dump()
+{
+	utf8str s(pci_device_base::pci_dump());
+	return s;
+}
+
 pci_device_base *
 virtio_net_pci_device_alloc()
 {

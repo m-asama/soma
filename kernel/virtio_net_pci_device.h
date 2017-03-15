@@ -46,6 +46,11 @@ public:
 	 */
 	virtio_net_pci_device &operator=(virtio_net_pci_device &&src) = delete;
 
+	/**
+	 *
+	 */
+	virtual utf8str pci_dump();
+
 private:
 
 };

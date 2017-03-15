@@ -56,6 +56,10 @@ OBJS	      = main.o \
 		command_node.o \
 		command_management.o \
 		command_debug.o \
+		command_debug_memory.o \
+		command_debug_pci.o \
+		command_debug_command.o \
+		command_debug_config.o \
 		pci_device_management.o \
 		net_device_base.o \
 		pci_device_base.o \

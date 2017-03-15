@@ -44,9 +44,16 @@ public:
 	 */
 	unknown_pci_device &operator=(unknown_pci_device &&src) = delete;
 
+	/**
+	 *
+	 */
+	virtual utf8str pci_dump();
+
 private:
 
 };
+
+pci_device_base *unknown_pci_device_alloc();
 
 bool unknown_pci_device_init();
 

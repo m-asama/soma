@@ -6,5 +6,7 @@
 
 #pragma once
 
+extern command_node *cn_show_debug;
+
 void command_debug_init();
 

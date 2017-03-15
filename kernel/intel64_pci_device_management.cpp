@@ -10,7 +10,7 @@
 
 #include "pci_device_management.h"
 
-static uint32_t
+uint32_t
 pci_address(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset)
 {
 	return (uint32_t)((bus << 16)
@@ -20,7 +20,7 @@ pci_address(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset)
 		| ((uint32_t)0x80000000));
 }
 
-static uint8_t __attribute__ ((unused))
+uint8_t
 pci_config_read_uint8(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset)
 {
 	uint32_t address;
@@ -31,7 +31,7 @@ pci_config_read_uint8(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offse
 	return ((inl(0xcfc) >> ((offset & 0x03) * 8)) & 0xff);
 }
 
-static void __attribute__ ((unused))
+void
 pci_config_write_uint8(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint8_t val)
 {
 	uint32_t address;
@@ -48,7 +48,7 @@ pci_config_write_uint8(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offs
 	outl(0xcfc, tmp);
 }
 
-static uint16_t __attribute__ ((unused))
+uint16_t
 pci_config_read_uint16(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset)
 {
 	uint32_t address;
@@ -59,7 +59,7 @@ pci_config_read_uint16(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offs
 	return ((inl(0xcfc) >> ((offset & 0x02) * 8)) & 0xffff);
 }
 
-static void __attribute__ ((unused))
+void
 pci_config_write_uint16(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint16_t val)
 {
 	uint32_t address;
@@ -76,7 +76,7 @@ pci_config_write_uint16(uint8_t bus, uint8_t slot, uint8_t function, uint8_t off
 	outl(0xcfc, tmp);
 }
 
-static uint32_t __attribute__ ((unused))
+uint32_t
 pci_config_read_uint32(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset)
 {
 	uint32_t address;
@@ -87,7 +87,7 @@ pci_config_read_uint32(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offs
 	return (inl(0xcfc));
 }
 
-static void __attribute__ ((unused))
+void
 pci_config_write_uint32(uint8_t bus, uint8_t slot, uint8_t function, uint8_t offset, uint32_t val)
 {
 	uint32_t address;
@@ -98,7 +98,7 @@ pci_config_write_uint32(uint8_t bus, uint8_t slot, uint8_t function, uint8_t off
 	outl(0xcfc, val);
 }
 
-static uint16_t
+uint16_t
 pci_check_vendor(uint8_t bus, uint8_t slot)
 {
 	uint16_t vendor;
@@ -106,7 +106,7 @@ pci_check_vendor(uint8_t bus, uint8_t slot)
 	return vendor;
 }
 
-static uint16_t
+uint16_t
 pci_check_device(uint8_t bus, uint8_t slot)
 {
 	uint16_t device;
@@ -126,6 +126,12 @@ pci_check_all_buses()
 			device = pci_check_device(bus, slot);
 			if (vendor == 0xffff) {
 				continue;
+			}
+			pci_device_base *pci_device = pci_device_alloc(vendor, device);
+			if (pci_device != nullptr) {
+				pci_device->bus(bus);
+				pci_device->slot(slot);
+				register_pci_device(*pci_device);
 			}
 		}
 	}
