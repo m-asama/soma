@@ -112,7 +112,7 @@ public:
 
 	/**
 	 * データビットを設定する関数。
- 	 * @param data_bits データビット。
+	 * @param data_bits データビット。
 	 */
 	void data_bits(uint8_t data_bits);
 

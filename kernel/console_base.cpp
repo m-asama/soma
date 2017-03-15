@@ -516,7 +516,7 @@ console_base::handle_command_prompt(uint32_t c)
 		 || ((cmn != nullptr)
 		  && (((cmn->statement() != config_model_node_statement::statement_leaf)
 		    && (cmn->statement() != config_model_node_statement::statement_leaf_list))
-	 	   || (!config_model_node_completed(cmn, pos))
+		   || (!config_model_node_completed(cmn, pos))
 		   || (m_command_line[-1] != ' ')))) {
 			m_command_line += c;
 			putchar(c);

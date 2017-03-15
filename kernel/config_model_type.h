@@ -47,12 +47,12 @@ class config_model_type {
 public:
 	/**
 	 *
- 	 */
+	 */
 	config_model_type() = delete;
 
 	/**
 	 *
- 	 */
+	 */
 	config_model_type(config_model_node_type type);
 
 	/**

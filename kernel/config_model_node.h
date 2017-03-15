@@ -131,7 +131,7 @@ public:
 
 	/**
 	 *
- 	 */
+	 */
 	void add_child(config_model_node &child);
 
 	/**
@@ -206,7 +206,7 @@ public:
 
 	/**
 	 *
- 	 */
+	 */
 	config_model_node_ordered_by ordered_by();
 
 	/**

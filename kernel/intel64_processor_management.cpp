@@ -718,7 +718,7 @@ assert_sizeof_entry_classes()
 		s += "\n";
 		++errors;
 	}
-		
+
 	if (sizeof(intel64_idt_entry) != 16) {
 		s += "sizeof(intel64_idt_entry) = ";
 		s.append_uint64(sizeof(intel64_idt_entry), 0);
