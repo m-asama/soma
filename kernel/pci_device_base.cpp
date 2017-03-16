@@ -62,6 +62,282 @@ pci_device_base::slot()
 	return m_slot;
 }
 
+uint32_t
+pci_device_base::address(uint8_t function, uint8_t offset)
+{
+	return pci_address(m_bus, m_slot, function, offset);
+}
+
+uint8_t
+pci_device_base::config_read_uint8(uint8_t function, uint8_t offset)
+{
+	return pci_config_read_uint8(m_bus, m_slot, function, offset);
+}
+
+void
+pci_device_base::config_write_uint8(uint8_t function, uint8_t offset, uint8_t val)
+{
+	pci_config_write_uint8(m_bus, m_slot, function, offset, val);
+}
+
+uint16_t
+pci_device_base::config_read_uint16(uint8_t function, uint8_t offset)
+{
+	return pci_config_read_uint16(m_bus, m_slot, function, offset);
+}
+
+void
+pci_device_base::config_write_uint16(uint8_t function, uint8_t offset, uint16_t val)
+{
+	pci_config_write_uint16(m_bus, m_slot, function, offset, val);
+}
+
+uint32_t
+pci_device_base::config_read_uint32(uint8_t function, uint8_t offset)
+{
+	return pci_config_read_uint32(m_bus, m_slot, function, offset);
+}
+
+void
+pci_device_base::config_write_uint32(uint8_t function, uint8_t offset, uint32_t val)
+{
+	pci_config_write_uint32(m_bus, m_slot, function, offset, val);
+}
+
+uint16_t
+pci_device_base::vendor_id()
+{
+	return config_read_uint16(0, 0x00);
+}
+
+uint16_t
+pci_device_base::device_id()
+{
+	return config_read_uint16(0, 0x02);
+}
+
+void
+pci_device_base::command(uint16_t command)
+{
+	config_write_uint16(0, 0x04, command);
+}
+
+uint16_t
+pci_device_base::command()
+{
+	return config_read_uint16(0, 0x04);
+}
+
+void
+pci_device_base::status(uint16_t status)
+{
+	config_write_uint16(0, 0x06, status);
+}
+
+uint16_t
+pci_device_base::status()
+{
+	return config_read_uint16(0, 0x06);
+}
+
+uint8_t
+pci_device_base::revision_id()
+{
+	return config_read_uint8(0, 0x08);
+}
+
+uint32_t
+pci_device_base::class_code()
+{
+	return config_read_uint32(0, 0x08) >> 8;
+}
+
+void
+pci_device_base::cacheline_size(uint8_t cacheline_size)
+{
+	config_write_uint8(0, 0x0c, cacheline_size);
+}
+
+uint8_t
+pci_device_base::cacheline_size()
+{
+	return config_read_uint8(0, 0x0c);
+}
+
+void
+pci_device_base::latency_timer(uint8_t latency_timer)
+{
+	config_write_uint8(0, 0x0d, latency_timer);
+}
+
+uint8_t
+pci_device_base::latency_timer()
+{
+	return config_read_uint8(0, 0x0d);
+}
+
+uint8_t
+pci_device_base::header_type()
+{
+	return config_read_uint8(0, 0x0e);
+}
+
+void
+pci_device_base::bist(uint8_t bist)
+{
+	config_write_uint8(0, 0x0f, bist);
+}
+
+uint8_t
+pci_device_base::bist()
+{
+	return config_read_uint8(0, 0x0f);
+}
+
+void
+pci_device_base::base_address_register_0(uint32_t base_address_register_0)
+{
+	config_write_uint32(0, 0x10, base_address_register_0);
+}
+
+uint32_t
+pci_device_base::base_address_register_0()
+{
+	return config_read_uint32(0, 0x10);
+}
+
+void
+pci_device_base::base_address_register_1(uint32_t base_address_register_1)
+{
+	config_write_uint32(0, 0x14, base_address_register_1);
+}
+
+uint32_t
+pci_device_base::base_address_register_1()
+{
+	return config_read_uint32(0, 0x14);
+}
+
+void
+pci_device_base::base_address_register_2(uint32_t base_address_register_2)
+{
+	config_write_uint32(0, 0x18, base_address_register_2);
+}
+
+uint32_t
+pci_device_base::base_address_register_2()
+{
+	return config_read_uint32(0, 0x18);
+}
+
+void
+pci_device_base::base_address_register_3(uint32_t base_address_register_3)
+{
+	config_write_uint32(0, 0x1c, base_address_register_3);
+}
+
+uint32_t
+pci_device_base::base_address_register_3()
+{
+	return config_read_uint32(0, 0x1c);
+}
+
+void
+pci_device_base::base_address_register_4(uint32_t base_address_register_4)
+{
+	config_write_uint32(0, 0x20, base_address_register_4);
+}
+
+uint32_t
+pci_device_base::base_address_register_4()
+{
+	return config_read_uint32(0, 0x20);
+}
+
+void
+pci_device_base::base_address_register_5(uint32_t base_address_register_5)
+{
+	config_write_uint32(0, 0x24, base_address_register_5);
+}
+
+uint32_t
+pci_device_base::base_address_register_5()
+{
+	return config_read_uint32(0, 0x24);
+}
+
+void
+pci_device_base::cardbus_cis_pointer(uint32_t cardbus_cis_pointer)
+{
+	config_write_uint32(0, 0x28, cardbus_cis_pointer);
+}
+
+uint32_t
+pci_device_base::cardbus_cis_pointer()
+{
+	return config_read_uint32(0, 0x28);
+}
+
+uint16_t
+pci_device_base::subsystem_vendor_id()
+{
+	return config_read_uint16(0, 0x2c);
+}
+
+uint16_t
+pci_device_base::subsystem_id()
+{
+	return config_read_uint16(0, 0x2e);
+}
+
+void
+pci_device_base::expansion_rom_base_address(uint32_t expansion_rom_base_address)
+{
+	config_write_uint32(0, 0x30, expansion_rom_base_address);
+}
+
+uint32_t
+pci_device_base::expansion_rom_base_address()
+{
+	return config_read_uint32(0, 0x30);
+}
+
+uint8_t
+pci_device_base::capabilities_pointer()
+{
+	return config_read_uint8(0, 0x34);
+}
+
+void
+pci_device_base::interrupt_line(uint8_t interrupt_line)
+{
+	config_write_uint8(0, 0x3c, interrupt_line);
+}
+
+uint8_t
+pci_device_base::interrupt_line()
+{
+	return config_read_uint8(0, 0x3c);
+}
+
+uint8_t
+pci_device_base::interrupt_pin()
+{
+	return config_read_uint8(0, 0x3d);
+}
+
+uint8_t
+pci_device_base::min_gnt()
+{
+	return config_read_uint8(0, 0x3e);
+}
+
+uint8_t
+pci_device_base::max_lat()
+{
+	return config_read_uint8(0, 0x3f);
+}
+
 utf8str
 pci_device_base::pci_dump()
 {

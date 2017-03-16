@@ -131,6 +131,7 @@ pci_check_all_buses()
 			if (pci_device != nullptr) {
 				pci_device->bus(bus);
 				pci_device->slot(slot);
+				pci_device->pci_init();
 				register_pci_device(*pci_device);
 			}
 		}

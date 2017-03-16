@@ -17,6 +17,11 @@ unknown_pci_device::~unknown_pci_device()
 {
 }
 
+void
+unknown_pci_device::pci_init()
+{
+}
+
 utf8str
 unknown_pci_device::pci_dump()
 {

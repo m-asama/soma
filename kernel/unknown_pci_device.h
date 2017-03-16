@@ -47,6 +47,11 @@ public:
 	/**
 	 *
 	 */
+	virtual void pci_init();
+
+	/**
+	 *
+	 */
 	virtual utf8str pci_dump();
 
 private:

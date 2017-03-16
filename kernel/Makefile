@@ -62,10 +62,10 @@ OBJS	      = main.o \
 		command_debug_config.o \
 		pci_device_management.o \
 		net_device_base.o \
+		block_device_base.o \
 		pci_device_base.o \
 		unknown_pci_device.o \
 		virtio_device_base.o \
-		virtio_net_pci_device.o \
 		util.o
 
 .if "${SOMA_TARGET}" == "x86_64"
@@ -82,6 +82,9 @@ OBJS	     += intel64_subsequent_processor.o \
 		intel64_pci_device_management.o \
 		intel64_display_console.o \
 		intel64_serial_console.o \
+		intel64_virtio_pci_device_base.o \
+		intel64_virtio_net_pci_device.o \
+		intel64_virtio_block_pci_device.o \
 		intel64_util.o
 .endif
 

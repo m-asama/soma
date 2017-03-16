@@ -9,7 +9,7 @@
 #include "sorted_list.h"
 
 #include "unknown_pci_device.h"
-#include "virtio_net_pci_device.h"
+#include "intel64_virtio_net_pci_device.h"
 
 #include "pci_device_management.h"
 
@@ -65,7 +65,7 @@ pci_device_init()
 	pci_device_entries = new sorted_list<struct pci_device_entry>;
 
 	unknown_pci_device_init();
-	virtio_net_pci_device_init();
+	intel64_virtio_net_pci_device_init();
 
 	pci_check_all_buses();
 }
