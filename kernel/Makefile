@@ -22,6 +22,7 @@ OBJS	      = main.o \
 		debug.o \
 		processor_base.o \
 		processor_state_base.o \
+		processor_statistics.o \
 		irqchip_base.o \
 		acpi_management.o \
 		acpi.o \
@@ -56,6 +57,7 @@ OBJS	      = main.o \
 		command_node.o \
 		command_management.o \
 		command_debug.o \
+		command_debug_processor.o \
 		command_debug_memory.o \
 		command_debug_pci.o \
 		command_debug_command.o \

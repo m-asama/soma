@@ -74,11 +74,13 @@ display_console_mouse_interrupt_handler_fn(uint8_t gsi)
 
 struct interrupt_handler display_console_keyboard_ih = {
 	.gsi	= 0x21,
+	.name	= "display console keyboard",
 	.ih	= display_console_keyboard_interrupt_handler_fn,
 };
 
 struct interrupt_handler display_console_mouse_ih = {
 	.gsi	= 0x2c,
+	.name	= "display console mouse",
 	.ih	= display_console_mouse_interrupt_handler_fn,
 };
 
@@ -116,11 +118,13 @@ serial_console_interrupt_handler_fn(uint8_t gsi)
 
 struct interrupt_handler serial_console_ih1 = {
 	.gsi	= 0x23,
+	.name	= "serial console 1",
 	.ih	= serial_console_interrupt_handler_fn,
 };
 
 struct interrupt_handler serial_console_ih2 = {
 	.gsi	= 0x24,
+	.name	= "serial console 2",
 	.ih	= serial_console_interrupt_handler_fn,
 };
 

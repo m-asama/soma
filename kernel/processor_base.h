@@ -9,6 +9,7 @@
 #include "type.h"
 #include "sorted_list.h"
 #include "thread.h"
+#include "processor_statistics.h"
 
 /**
  * CPU の基底クラス。
@@ -110,6 +111,11 @@ public:
 	/**
 	 *
 	 */
+	processor_statistics &statistics();
+
+	/**
+	 *
+	 */
 	virtual void dump();
 
 protected:
@@ -142,6 +148,11 @@ protected:
 	 *
 	 */
 	thread *m_running_thread;
+
+	/**
+	 *
+	 */
+	processor_statistics m_statistics;
 
 };
 

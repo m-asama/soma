@@ -166,6 +166,14 @@ public:
 	 * @param width 追加したい幅数。
 	 * @return 追加後の文字列。
 	 */
+	utf8str &append_utf8str(const utf8str &s, size_t width);
+
+	/**
+	 * 文字列の末尾に文字列を追加する関数。
+	 * @param s 追加したい文字列。
+	 * @param width 追加したい幅数。
+	 * @return 追加後の文字列。
+	 */
 	utf8str &append_utf8str(const char *s, size_t width);
 
 	/**

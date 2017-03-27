@@ -14,6 +14,7 @@ extern "C" void interrupt_handler_dispatcher();
 
 struct interrupt_handler {
 	uint8_t gsi;
+	char const *name;
 	void (*ih)(uint8_t);
 };
 
@@ -60,4 +61,6 @@ processor_base *processor_current();
 int processor_add_thread(thread &thread);
 
 void processor_dump();
+
+void processor_debug_interrupt_counters(console_base &cb);
 

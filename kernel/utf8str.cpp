@@ -289,6 +289,13 @@ utf8str::assign_utf8str(const char *s)
 }
 
 utf8str &
+utf8str::append_utf8str(const utf8str &s, size_t width)
+{
+	append_utf8str(s.m_buffer, width);
+	return *this;
+}
+
+utf8str &
 utf8str::append_utf8str(const char *s, size_t width)
 {
 	size_t length = 0;

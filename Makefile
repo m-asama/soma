@@ -32,7 +32,7 @@ run: loader/loader.efi kernel/kernel.bin
 	#	-chardev stdio,mux=on,id=char0 \
 	#	-mon chardev=char0,mode=readline,default \
 	#	-serial telnet:0.0.0.0:2300,server,nowait
-	sudo qemu-system-x86_64 -smp 2 -m 1024 -bios OVMF.fd \
+	sudo qemu-system-x86_64 -smp 4 -m 1024 -bios OVMF.fd \
 		-hda fat:./hda -hdb fat:./hdb \
 		-vnc 0.0.0.0:0,password -k ja \
 		-serial stdio \

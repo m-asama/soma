@@ -90,6 +90,12 @@ processor_base::running_thread()
 	return m_running_thread;
 }
 
+processor_statistics &
+processor_base::statistics()
+{
+	return m_statistics;
+}
+
 void
 processor_base::dump()
 {

@@ -22,6 +22,7 @@
 #include "io_thread_management.h"
 #include "intel64_processor_interrupt_handler_init.h"
 #include "spinlock.h"
+#include "console_base.h"
 
 #include "debug.h"
 
@@ -55,6 +56,8 @@ void *subsequent_processor_boot_code = nullptr;
 extern "C" intel64_processor_state_storage *processor_state_storage[256];
 intel64_processor_state_storage *processor_state_storage[256];
 
+static processor_statistics *statistics_table[256];
+
 static spinlock *thread_lock = nullptr;
 
 static linked_list<struct interrupt_handler> *interrupt_handlers[256];
@@ -64,6 +67,8 @@ static void assert_sizeof_entry_classes();
 
 extern "C" void interrupt_handler_dispatcher();
 
+static uint64_t interrupt_handler_dispatcher_counter = 0;
+
 void
 interrupt_handler_dispatcher()
 {
@@ -71,15 +76,25 @@ interrupt_handler_dispatcher()
 //	uint64_t *error_code, *rip, *cs, *rflags, *rsp, *ss;
 //	uint64_t *rax, *rbx, *rcx, *rdx, *rdi, *rsi, *rbp, *cr3;
 
+	++interrupt_handler_dispatcher_counter;
+
 	intel64_processor_state_storage *curps;
 	curps = processor_state_storage[processor_id()];
-
 	if (curps == nullptr) {
 		print("interrupt_handler: curps == nullptr\n");
 	}
 
 	ssp = &curps->stacked_size;
 	gsi = &curps->gsi;
+
+	processor_statistics *statistics;
+	statistics = statistics_table[processor_id()];
+	if (statistics == nullptr) {
+		print("statistics == nullptr\n");
+	} else {
+		statistics->interrupt_counter(*gsi) += 1;
+	}
+
 /*
 	{
 		utf8str x;
@@ -219,10 +234,11 @@ interrupt_handler_dispatcher()
 		print(x);
 	}
 */
-
+/*
 	volatile uint32_t *ioapic = (uint32_t *)0x00000000fec00000ul;
 	volatile uint32_t eoi = *gsi;
 	ioapic[16] = eoi;
+*/
 }
 
 void
@@ -362,10 +378,29 @@ timer_interrupt_handler_fn(uint8_t gsi)
 	x += "\n";
 	print(x);
 */
+/*
+	switch (processor_id()) {
+	case 0:
+		dp("0");
+		break;
+	case 1:
+		dp("1");
+		break;
+	case 2:
+		dp("2");
+		break;
+	case 3:
+		dp("3");
+		break;
+	default:
+		dp("?");
+	}
+*/
 }
 
 struct interrupt_handler timer_ih = {
 	.gsi	= 0x20,
+	.name	= "timer",
 	.ih	= timer_interrupt_handler_fn,
 };
 
@@ -531,6 +566,7 @@ processor_start()
 		processor.running_thread(&io_thread);
 		void *psa = io_thread.processor_state()->processor_state_address();
 		processor_state_storage[processor.id()] = (intel64_processor_state_storage *)psa;
+		statistics_table[processor.id()] = &processor.statistics();
 		if (processor.boot_processor()) {
 			boot_processor_pml4_table_address = io_thread.page_table();
 			boot_processor_stack_pointer = io_thread.stack_pointer();
@@ -704,6 +740,44 @@ processor_dump()
 	for (bn = processors->head(); bn != nullptr; bn = bn->next()) {
 		bn->v().dump();
 	}
+}
+
+void
+processor_debug_interrupt_counters(console_base &cb)
+{
+	utf8str s;
+	s += "interrupt_handler_dispatcher_counter: ";
+	s.append_uint64(interrupt_handler_dispatcher_counter, 0);
+	s += "\n";
+	for (int i = 0; i < 256; ++i) {
+		uint64_t counter_sum = 0;
+		bidir_node<processor_base> *bn;
+		for (bn = processors->head(); bn != nullptr; bn = bn->next()) {
+			counter_sum += bn->v().statistics().interrupt_counter(i);
+		}
+		if (counter_sum == 0) {
+			continue;
+		}
+		utf8str name;
+		bidir_node<struct interrupt_handler> *bnh;
+		for (bnh = interrupt_handlers[i]->head(); bnh != nullptr; bnh = bnh->next()) {
+			struct interrupt_handler &ih = bnh->v();
+			if (name != "") { name += ","; }
+			name += ih.name;
+		}
+		if (name == "") {
+			name = "(UNKNOWN)";
+		}
+		s += "0x";
+		s.append_hex64(i, 2);
+		s += " ";
+		s.append_utf8str(name, 25);
+		for (bn = processors->head(); bn != nullptr; bn = bn->next()) {
+			s.append_uint64(bn->v().statistics().interrupt_counter(i), 10);
+		}
+		s += "\n";
+	}
+	cb.print(s);
 }
 
 static void

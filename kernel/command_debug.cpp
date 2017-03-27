@@ -8,6 +8,7 @@
 #include "command_node.h"
 #include "command_management.h"
 #include "config_management.h"
+#include "command_debug_processor.h"
 #include "command_debug_memory.h"
 #include "command_debug_pci.h"
 #include "command_debug_command.h"
@@ -48,6 +49,7 @@ command_debug_init()
 	t->parent(cn_show);
 	cn_show->add_child(*cn_show_debug);
 
+	command_debug_processor_init();
 	command_debug_memory_init();
 	command_debug_pci_init();
 	command_debug_command_init();
