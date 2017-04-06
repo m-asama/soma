@@ -7,12 +7,12 @@
 #pragma once
 
 #include "intel64_virtio_pci_device_base.h"
-#include "block_device_base.h"
+#include "virtio_block_device_base.h"
 
 /**
  * VirtIO-Block PCI デバイスクラス。
  */
-class intel64_virtio_block_pci_device : public intel64_virtio_pci_device_base, public block_device_base {
+class intel64_virtio_block_pci_device : public intel64_virtio_pci_device_base, public virtio_block_device_base {
 
 public:
 	/**

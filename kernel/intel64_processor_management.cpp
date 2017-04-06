@@ -22,7 +22,6 @@
 #include "io_thread_management.h"
 #include "intel64_processor_interrupt_handler_init.h"
 #include "spinlock.h"
-#include "console_base.h"
 
 #include "debug.h"
 
@@ -426,7 +425,7 @@ processor_init(struct loader_info *li)
 		panic();
 	}
 
-	subsequent_processor_boot_code = memory_alloc_page_lo(memory_page_size::page_size_4k);
+	subsequent_processor_boot_code = memory_alloc_page_lo(memory_page_size::page_size_4k, 1);
 	if ((((uint64_t)subsequent_processor_boot_code) >> 12) > 0xff) {
 		print("subsequent_processor_boot_code のベクタがオーバーフローします。\n");
 		panic();
@@ -742,8 +741,8 @@ processor_dump()
 	}
 }
 
-void
-processor_debug_interrupt_counters(console_base &cb)
+utf8str
+processor_debug_interrupt_counters()
 {
 	utf8str s;
 	s += "interrupt_handler_dispatcher_counter: ";
@@ -777,7 +776,7 @@ processor_debug_interrupt_counters(console_base &cb)
 		}
 		s += "\n";
 	}
-	cb.print(s);
+	return s;
 }
 
 static void

@@ -193,6 +193,16 @@ public:
 	/**
 	 *
 	 */
+	void base_address_register_at(uint8_t index, uint32_t base_address_register);
+
+	/**
+	 *
+	 */
+	uint32_t base_address_register_at(uint8_t index);
+
+	/**
+	 *
+	 */
 	void base_address_register_0(uint32_t base_address_register_0);
 
 	/**
@@ -313,9 +323,204 @@ public:
 	/**
 	 *
 	 */
+	bool msi_capable();
+
+	/**
+	 *
+	 */
+	uint8_t msi_capability_offset();
+
+	/**
+	 *
+	 */
+	void msi_enable(bool msi_enable);
+
+	/**
+	 *
+	 */
+	bool msi_enable();
+
+	/**
+	 *
+	 */
+	bool msi_per_vector_masking_capable();
+
+	/**
+	 *
+	 */
+	bool msi_64bit_address_capable();
+
+	/**
+	 *
+	 */
+	void msi_multiple_message_enable(sint8_t msi_multiple_message_enable);
+
+	/**
+	 *
+	 */
+	sint8_t msi_multiple_message_enable();
+
+	/**
+	 *
+	 */
+	sint8_t msi_multiple_message_capable();
+
+	/**
+	 *
+	 */
+	void msi_message_address(uint32_t msi_message_address);
+
+	/**
+	 *
+	 */
+	uint32_t msi_message_address();
+
+	/**
+	 *
+	 */
+	void msi_message_upper_address(uint32_t msi_message_upper_address);
+
+	/**
+	 *
+	 */
+	uint32_t msi_message_upper_address();
+
+	/**
+	 *
+	 */
+	void msi_message_data(uint16_t msi_message_data);
+
+	/**
+	 *
+	 */
+	uint16_t msi_message_data();
+
+	/**
+	 *
+	 */
+	void msi_mask_bits(uint32_t msi_mask_bits);
+
+	/**
+	 *
+	 */
+	uint32_t msi_mask_bits();
+
+	/**
+	 *
+	 */
+	uint32_t msi_pending_bits();
+
+	/**
+	 *
+	 */
+	bool msix_capable();
+
+	/**
+	 *
+	 */
+	uint8_t msix_capability_offset();
+
+	/**
+	 *
+	 */
+	void msix_enable(bool msix_enable);
+
+	/**
+	 *
+	 */
+	bool msix_enable();
+
+	/**
+	 *
+	 */
+	void msix_function_mask(bool msix_function_mask);
+
+	/**
+	 *
+	 */
+	bool msix_function_mask();
+
+	/**
+	 *
+	 */
+	uint16_t msix_table_size();
+
+	/**
+	 *
+	 */
+	uint32_t msix_table_offset();
+
+	/**
+	 *
+	 */
+	sint8_t msix_table_bir();
+
+	/**
+	 *
+	 */
+	uint32_t msix_pba_offset();
+
+	/**
+	 *
+	 */
+	sint8_t msix_pba_bir();
+
+	/**
+	 *
+	 */
+	void msix_message_address_at(uint16_t index, uint32_t msix_message_address);
+
+	/**
+	 *
+	 */
+	uint32_t msix_message_address_at(uint16_t index);
+
+	/**
+	 *
+	 */
+	void msix_message_upper_address_at(uint16_t index, uint32_t msix_message_upper_address);
+
+	/**
+	 *
+	 */
+	uint32_t msix_message_upper_address_at(uint16_t index);
+
+	/**
+	 *
+	 */
+	void msix_message_data_at(uint16_t index, uint32_t msix_message_data);
+
+	/**
+	 *
+	 */
+	uint32_t msix_message_data_at(uint16_t index);
+
+	/**
+	 *
+	 */
+	void msix_mask_bit_at(uint16_t index, bool msix_mask_bit);
+
+	/**
+	 *
+	 */
+	bool msix_mask_bit_at(uint16_t index);
+
+	/**
+	 *
+	 */
+	void msix_pending_bit_at(uint16_t index, bool msix_pending_bit);
+
+	/**
+	 *
+	 */
+	bool msix_pending_bit_at(uint16_t index);
+
+	/**
+	 *
+	 */
 	virtual utf8str pci_dump();
 
-private:
+protected:
 	/**
 	 *
 	 */

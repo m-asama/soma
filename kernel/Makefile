@@ -67,7 +67,10 @@ OBJS	      = main.o \
 		block_device_base.o \
 		pci_device_base.o \
 		unknown_pci_device.o \
+		virtqueue.o \
 		virtio_device_base.o \
+		virtio_net_device_base.o \
+		virtio_block_device_base.o \
 		util.o
 
 .if "${SOMA_TARGET}" == "x86_64"

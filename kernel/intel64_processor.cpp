@@ -646,7 +646,7 @@ intel64_page_entry_base::get_page_table_entry()
 
 intel64_page_table_base::intel64_page_table_base()
 {
-	m_page_table = (intel64_page_entry_base *)memory_alloc_page_lo(memory_page_size::page_size_4k);
+	m_page_table = (intel64_page_entry_base *)memory_alloc_page_lo(memory_page_size::page_size_4k, 1);
 	for (int i = 0; i < 512; ++i) {
 		m_page_table[i].init();
 	}

@@ -11,7 +11,6 @@
 #include "sorted_list.h"
 #include "hash_table.h"
 #include "memory_block.h"
-#include "console_base.h"
 
 #include "intel64_assembly.h"
 
@@ -115,20 +114,22 @@ retry:
 }
 
 void *
-memory_alloc_page_lo(memory_page_size page_size)
+memory_alloc_page_lo(memory_page_size page_size, uint64_t page_count)
 {
 	void *ptr;
 	bidir_node<memory_block> *bn;
 	memory_block *mb;
-	size_t size;
+	size_t size, size_page;
 	uint64_t base;
 
 	switch (page_size) {
 	case memory_page_size::page_size_4k:
-		size = 0x1000;
+		size = 0x1000 * page_count;
+		size_page = 0x1000;
 		break;
 	case memory_page_size::page_size_2m:
-		size = 0x200000;
+		size = 0x200000 * page_count;
+		size_page = 0x200000;
 		break;
 	default:
 		return nullptr;
@@ -138,7 +139,7 @@ memory_alloc_page_lo(memory_page_size page_size)
 		//base = bn->v().base();
 		//size = bn->v().size();
 		base = bn->v().base();
-		round_up_64(base, size);
+		round_up_64(base, size_page);
 		if ((bn->v().base() <= base) &&
 		    ((bn->v().base() + bn->v().size()) >= (base + size))) {
 			break;
@@ -177,7 +178,7 @@ memory_alloc_page_lo(memory_page_size page_size)
 
 /*
 void *
-memory_alloc_page_hi(memory_page_size page_size)
+memory_alloc_page_hi(memory_page_size page_size, uint64_t page_count)
 {
 	return nullptr;
 }
@@ -392,61 +393,69 @@ memory_block_bidir_node_count()
 	return bidir_node<memory_block>::count();
 }
 
-void
+utf8str
 memory_dump()
 {
 	int i;
 	uint64_t free = 0;
 	bidir_node<memory_block> *bn;
 	i = 0;
-	print("FREE BLOCKS:\n");
+	utf8str s;
+	uint64_t base[256], size[256];
+	s += "FREE BLOCKS:\n";
 	for (bn = free_block.head(); bn != nullptr; bn = bn->next()) {
-		print("   0x");
-		printhex8(i);
-		print(" 0x");
-		printhex64(bn->v().base());
-		print(" 0x");
-		printhex64(bn->v().size());
-		print(" 0x");
-		printhex64((uint64_t)&bn->v());
-		print("\n");
+		base[i] = bn->v().base();
+		size[i] = bn->v().size();
 		++i;
 		free += bn->v().size();
 	}
-	print("ALLOC BLOCKS:\n");
-	if (alloc_block.table() == nullptr) {
-		print("    alloc_block.table == nullptr\n");
-		return;
+	for (int j = 0; (j < i) && (j < 256); ++j) {
+		s += "   0x";
+		s.append_hex64(j, 2);
+		s += " 0x";
+		s.append_hex64(base[j], 16);
+		s += " 0x";
+		s.append_hex64(base[j] + size[j], 16);
+		s += " 0x";
+		s.append_hex64(size[j], 16);
+		s += "\n";
 	}
-	print("    alloc_block.table           = 0x");
-	printhex64((uint64_t)alloc_block.table());
-	print("\n");
+	return s;
+	s += "ALLOC BLOCKS:\n";
+	if (alloc_block.table() == nullptr) {
+		s += "    alloc_block.table == nullptr\n";
+		return s;
+	}
+	s += "    alloc_block.table           = 0x";
+	s.append_hex64((uint64_t)alloc_block.table(), 16);
+	s += "\n";
 	for (i = 0; i < alloc_block.table_size(); ++i) {
 		if (alloc_block.table()[i] == nullptr)
 			continue;
-		print("   0x");
-		printhex8(i);
-		print("\n");
+		s += "   0x";
+		s.append_hex64(i, 2);
+		s += "\n";
 		for (bn = alloc_block.table()[i]; bn != nullptr; bn = bn->next()) {
-			print("        0x");
-			printhex64(bn->v().base());
-			print(" 0x");
-			printhex64(bn->v().size());
-			print(" 0x");
-			printhex64((uint64_t)&bn->v());
-			print("\n");
+			s += "        0x";
+			s.append_hex64(bn->v().base(), 16);
+			s += " 0x";
+			s.append_hex64(bn->v().size(), 16);
+			s += " 0x";
+			s.append_hex64((uint64_t)&bn->v(), 16);
+			s += "\n";
 		}
 	}
-	print("MEMORY POOL:\n");
-	print("    bidir_node<memory_block>    = 0x");
-	printhex64(bidir_node<memory_block>::count());
-	print("\n");
-	print("    memory_block                = 0x");
-	printhex64(memory_block::count());
-	print("\n");
-	print("FREE BYTES: ");
-	printhex64(free);
-	print("\n");
+	s += "MEMORY POOL:\n";
+	s += "    bidir_node<memory_block>    = 0x";
+	s.append_hex64(bidir_node<memory_block>::count(), 16);
+	s += "\n";
+	s += "    memory_block                = 0x";
+	s.append_hex64(memory_block::count(), 16);
+	s += "\n";
+	s += "FREE BYTES: ";
+	s.append_hex64(free, 16);
+	s += "\n";
+	return s;
 }
 
 void
@@ -502,8 +511,8 @@ memory_stats()
 	print(s);
 }
 
-void
-memory_debug_memory_map(console_base &cb)
+utf8str
+memory_debug_memory_map()
 {
 	int i;
 	struct li_memdesc *limd = nullptr;
@@ -567,7 +576,7 @@ memory_debug_memory_map(console_base &cb)
 		}
 		s += "\n";
 	}
-	cb.print(s);
+	return s;
 }
 
 extern "C" void *memset(void *b, int c, size_t len);

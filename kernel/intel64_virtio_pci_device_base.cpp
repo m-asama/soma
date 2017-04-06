@@ -46,6 +46,16 @@ intel64_virtio_pci_device_base::pci_dump()
         s += "    ISR Status: ";
         s.append_hex64(isr_status(), 2);
         s += "\n";
+	for (int i = 0; i < 8; ++i) {
+		s.append_hex64(i, 2);
+		s += " ";
+		queue_select(i);
+		s += " Queue Address: ";
+		s.append_hex64(queue_address(), 8);
+		s += " Queue Size: ";
+		s.append_hex64(queue_size(), 4);
+		s += "\n";
+	}
         return s;
 }
 
@@ -131,5 +141,15 @@ uint8_t
 intel64_virtio_pci_device_base::isr_status()
 {
 	return inb(m_io_base + 0x13);
+}
+
+uint16_t
+intel64_virtio_pci_device_base::device_specific_header_offset()
+{
+	uint16_t device_specific_header_offset = 0x14;
+	if (msix_enable()) {
+		device_specific_header_offset += 0x04;
+	}
+	return device_specific_header_offset;
 }
 

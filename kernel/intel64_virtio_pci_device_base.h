@@ -11,7 +11,7 @@
 /**
  * Virtio PCI デバイスの基底クラス宣言。
  */
-class intel64_virtio_pci_device_base : public virtio_device_base, public pci_device_base {
+class intel64_virtio_pci_device_base : public virtual virtio_device_base, public virtual pci_device_base {
 
 public:
 	/**
@@ -57,67 +57,72 @@ public:
 	/**
 	 *
 	 */
-	virtual uint32_t device_features_bits();
+	uint32_t device_features_bits();
 
 	/**
 	 *
 	 */
-	virtual void driver_features_bits(uint32_t driver_features_bits);
+	void driver_features_bits(uint32_t driver_features_bits);
 
 	/**
 	 *
 	 */
-	virtual uint32_t driver_features_bits();
+	uint32_t driver_features_bits();
 
 	/**
 	 *
 	 */
-	virtual void queue_address(uint32_t queue_address);
+	void queue_address(uint32_t queue_address);
 
 	/**
 	 *
 	 */
-	virtual uint32_t queue_address();
+	uint32_t queue_address();
 
 	/**
 	 *
 	 */
-	virtual uint16_t queue_size();
+	uint16_t queue_size();
 
 	/**
 	 *
 	 */
-	virtual void queue_select(uint16_t queue_select);
+	void queue_select(uint16_t queue_select);
 
 	/**
 	 *
 	 */
-	virtual uint16_t queue_select();
+	uint16_t queue_select();
 
 	/**
 	 *
 	 */
-	virtual void queue_notify(uint16_t queue_notify);
+	void queue_notify(uint16_t queue_notify);
 
 	/**
 	 *
 	 */
-	virtual uint16_t queue_notify();
+	uint16_t queue_notify();
 
 	/**
 	 *
 	 */
-	virtual void device_status(uint8_t device_status);
+	void device_status(uint8_t device_status);
 
 	/**
 	 *
 	 */
-	virtual uint8_t device_status();
+	uint8_t device_status();
 
 	/**
 	 *
 	 */
-	virtual uint8_t isr_status();
+	uint8_t isr_status();
+
+	/**
+	 *
+	 */
+	uint16_t device_specific_header_offset();
 
 protected:
 	/**

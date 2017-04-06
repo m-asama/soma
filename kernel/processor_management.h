@@ -7,6 +7,7 @@
 #pragma once
 
 #include "type.h"
+#include "utf8str.h"
 #include "processor_base.h"
 #include "processor_state_base.h"
 
@@ -62,5 +63,5 @@ int processor_add_thread(thread &thread);
 
 void processor_dump();
 
-void processor_debug_interrupt_counters(console_base &cb);
+utf8str processor_debug_interrupt_counters();
 

@@ -22,6 +22,10 @@ void
 intel64_virtio_net_pci_device::pci_init()
 {
 	intel64_virtio_pci_device_base::pci_init();
+
+	if(msix_capable()) {
+		msix_enable(true);
+	}
 }
 
 utf8str
@@ -43,65 +47,72 @@ intel64_virtio_net_pci_device::pci_dump()
 void
 intel64_virtio_net_pci_device::set_mac(uint8_t *mac)
 {
-	outb(m_io_base + 0x14, mac[0]);
-	outb(m_io_base + 0x15, mac[1]);
-	outb(m_io_base + 0x16, mac[2]);
-	outb(m_io_base + 0x17, mac[3]);
-	outb(m_io_base + 0x18, mac[4]);
-	outb(m_io_base + 0x19, mac[5]);
+	uint16_t offset = device_specific_header_offset();
+	outb(m_io_base + offset + 0x00, mac[0]);
+	outb(m_io_base + offset + 0x01, mac[1]);
+	outb(m_io_base + offset + 0x02, mac[2]);
+	outb(m_io_base + offset + 0x03, mac[3]);
+	outb(m_io_base + offset + 0x04, mac[4]);
+	outb(m_io_base + offset + 0x05, mac[5]);
 }
 
 void
 intel64_virtio_net_pci_device::get_mac(uint8_t *mac)
 {
-	mac[0] = inb(m_io_base + 0x14);
-	mac[1] = inb(m_io_base + 0x15);
-	mac[2] = inb(m_io_base + 0x16);
-	mac[3] = inb(m_io_base + 0x17);
-	mac[4] = inb(m_io_base + 0x18);
-	mac[5] = inb(m_io_base + 0x19);
+	uint16_t offset = device_specific_header_offset();
+	mac[0] = inb(m_io_base + offset + 0x00);
+	mac[1] = inb(m_io_base + offset + 0x01);
+	mac[2] = inb(m_io_base + offset + 0x02);
+	mac[3] = inb(m_io_base + offset + 0x03);
+	mac[4] = inb(m_io_base + offset + 0x04);
+	mac[5] = inb(m_io_base + offset + 0x05);
 }
 
 utf8str
 intel64_virtio_net_pci_device::mac_utf8str()
 {
+	uint16_t offset = device_specific_header_offset();
 	utf8str mac_utf8str;
-	mac_utf8str.append_hex64(inb(m_io_base + 0x14), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x00), 2);
 	mac_utf8str += ":";
-	mac_utf8str.append_hex64(inb(m_io_base + 0x15), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x01), 2);
 	mac_utf8str += ":";
-	mac_utf8str.append_hex64(inb(m_io_base + 0x16), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x02), 2);
 	mac_utf8str += ":";
-	mac_utf8str.append_hex64(inb(m_io_base + 0x17), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x03), 2);
 	mac_utf8str += ":";
-	mac_utf8str.append_hex64(inb(m_io_base + 0x18), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x04), 2);
 	mac_utf8str += ":";
-	mac_utf8str.append_hex64(inb(m_io_base + 0x19), 2);
+	mac_utf8str.append_hex64(inb(m_io_base + offset + 0x05), 2);
 	return mac_utf8str;
 }
 
 void
 intel64_virtio_net_pci_device::status(uint16_t status)
 {
-	outw(m_io_base + 0x1a, status);
+	uint16_t offset = device_specific_header_offset();
+	outw(m_io_base + offset + 0x06, status);
 }
 
 uint16_t
 intel64_virtio_net_pci_device::status()
 {
-	return inw(m_io_base + 0x1a);
+	uint16_t offset = device_specific_header_offset();
+	return inw(m_io_base + offset + 0x06);
 }
 
 void
 intel64_virtio_net_pci_device::max_virtqueue_pairs(uint16_t max_virtqueue_pairs)
 {
-	outw(m_io_base + 0x1c, max_virtqueue_pairs);
+	uint16_t offset = device_specific_header_offset();
+	outw(m_io_base + offset + 0x08, max_virtqueue_pairs);
 }
 
 uint16_t
 intel64_virtio_net_pci_device::max_virtqueue_pairs()
 {
-	return inw(m_io_base + 0x1c);
+	uint16_t offset = device_specific_header_offset();
+	return inw(m_io_base + offset + 0x08);
 }
 
 pci_device_base *

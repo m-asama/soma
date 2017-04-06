@@ -15,6 +15,7 @@
 
 command_node *cn_show_debug_memory;
 command_node *cn_show_debug_memory_memory_map;
+command_node *cn_show_debug_memory_dump;
 
 bool
 cn_show_debug_memory_execute(console_base &cb, utf8str command)
@@ -36,7 +37,7 @@ msg cn_show_debug_memory_msg[] = {
 bool
 cn_show_debug_memory_memory_map_execute(console_base &cb, utf8str command)
 {
-	memory_debug_memory_map(cb);
+	cb.print(memory_debug_memory_map());
 	return true;
 }
 
@@ -48,6 +49,24 @@ msg cn_show_debug_memory_memory_map_msg[] = {
 	{
 		.lang = console_lang::lang_en,
 		.msg  = "Dump MemoryMap.",
+	},
+};
+
+bool
+cn_show_debug_memory_dump_execute(console_base &cb, utf8str command)
+{
+	cb.print(memory_dump());
+	return true;
+}
+
+msg cn_show_debug_memory_dump_msg[] = {
+	{
+		.lang = console_lang::lang_ja,
+		.msg  = "メモリ管理情報を表示。",
+	},
+	{
+		.lang = console_lang::lang_en,
+		.msg  = "Dump Memory Usage.",
 	},
 };
 
@@ -73,5 +92,14 @@ command_debug_memory_init()
 	t->description(cn_show_debug_memory_memory_map_msg);
 	t->parent(cn_show_debug_memory);
 	cn_show_debug_memory->add_child(*cn_show_debug_memory_memory_map);
+
+	cn_show_debug_memory_dump = new command_node;
+	t = cn_show_debug_memory_dump;
+	t->node_type(command_node_type::type_keyword);
+	t->keyword_label("dump");
+	t->execute(cn_show_debug_memory_dump_execute);
+	t->description(cn_show_debug_memory_dump_msg);
+	t->parent(cn_show_debug_memory);
+	cn_show_debug_memory->add_child(*cn_show_debug_memory_dump);
 }
 

@@ -36,7 +36,7 @@ msg cn_show_debug_processor_msg[] = {
 bool
 cn_show_debug_processor_interrupt_counters_execute(console_base &cb, utf8str command)
 {
-	processor_debug_interrupt_counters(cb);
+	cb.print(processor_debug_interrupt_counters());
 	return true;
 }
 

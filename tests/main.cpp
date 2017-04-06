@@ -22,6 +22,7 @@
 #include "ring_buffer_test.h"
 #include "util_test.h"
 #include "config_test.h"
+#include "virtqueue_test.h"
 
 #include "main.h"
 
@@ -80,6 +81,10 @@ struct test_module {
 	{
 		.name	= "設定",
 		.func	= config_test,
+	},
+	{
+		.name	= "Virtqueue",
+		.func	= virtqueue_test,
 	},
 	{
 		.func	= nullptr,

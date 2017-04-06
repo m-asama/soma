@@ -42,7 +42,7 @@ public:
 	 */
 	block_device_base &operator=(block_device_base &&src) = delete;
 
-private:
+protected:
 
 };
 

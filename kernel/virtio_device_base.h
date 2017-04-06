@@ -109,7 +109,7 @@ public:
 	 */
 	virtual uint8_t isr_status() = 0;
 
-private:
+protected:
 
 };
 

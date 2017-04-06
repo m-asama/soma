@@ -32,6 +32,7 @@ KERNEL_OBJS   = ../kernel/memory_management.o \
 		../kernel/config_model_argument_descriptions.o \
 		../kernel/config_model_formats.o \
 		../kernel/config_data_node.o \
+		../kernel/virtqueue.o \
 		../kernel/util.o
 
 KERNEL_SRCS   = ${KERNEL_OBJS:=.cpp}
@@ -45,6 +46,7 @@ OBJS	      = utf8str_test.o \
 		ring_buffer_test.o \
 		util_test.o \
 		config_test.o \
+		virtqueue_test.o \
 		main.o
 
 all: main

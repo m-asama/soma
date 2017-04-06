@@ -8,8 +8,7 @@
 
 #include "loader_info.h"
 
-//#include "console_base.h"
-class console_base;
+#include "utf8str.h"
 
 /**
  * ページサイズを表すための enum class。
@@ -35,16 +34,18 @@ void memory_free(void *ptr);
 /**
  * できるだけ低位のアドレスからページを割り当てる関数。
  * @param page_size 割り当てたいページサイズ。
+ * @param page_count 割り当てたいページの枚数。
  * @return 割り当てられたアドレスを指すポインタ。
  */
-void *memory_alloc_page_lo(memory_page_size page_size);
+void *memory_alloc_page_lo(memory_page_size page_size, uint64_t page_count);
 
 /*
  * できるだけ高位のアドレスからページを割り当てる関数。
  * @param page_size 割り当てたいページサイズ。
+ * @param page_count 割り当てたいページの枚数。
  * @return 割り当てられたアドレスを指すポインタ。
  */
-//void *memory_alloc_page_hi(memory_page_size page_size);
+//void *memory_alloc_page_hi(memory_page_size page_size, uint64_t page_count);
 
 /**
  * メモリ管理の初期化を行う関数。
@@ -79,12 +80,12 @@ uint64_t memory_block_bidir_node_count();
 /**
  * メモリ割り当てで管理している情報を表示する関数。
  */
-void memory_dump();
+utf8str memory_dump();
 void memory_free_dump();
 void memory_stats();
 
 /**
  *
  */
-void memory_debug_memory_map(console_base &cb);
+utf8str memory_debug_memory_map();
 

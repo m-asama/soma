@@ -42,7 +42,7 @@ public:
 	 */
 	net_device_base &operator=(net_device_base &&src) = delete;
 
-private:
+protected:
 
 };
 

@@ -36,7 +36,7 @@ intel64_processor_state::init(uint64_t thread_main, uint64_t thread_arg)
 		return -1;
 	}
 
-	page = memory_alloc_page_lo(memory_page_size::page_size_2m);
+	page = memory_alloc_page_lo(memory_page_size::page_size_2m, 1);
 	if (page == nullptr) {
 		delete pdt;
 		return -1;

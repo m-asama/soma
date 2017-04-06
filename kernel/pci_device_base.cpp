@@ -195,6 +195,58 @@ pci_device_base::bist()
 }
 
 void
+pci_device_base::base_address_register_at(uint8_t index, uint32_t base_address_register)
+{
+	switch (index) {
+	case 0:
+		base_address_register_0(base_address_register);
+		break;
+	case 1:
+		base_address_register_1(base_address_register);
+		break;
+	case 2:
+		base_address_register_2(base_address_register);
+		break;
+	case 3:
+		base_address_register_3(base_address_register);
+		break;
+	case 4:
+		base_address_register_4(base_address_register);
+		break;
+	case 5:
+		base_address_register_5(base_address_register);
+		break;
+	}
+}
+
+uint32_t
+pci_device_base::base_address_register_at(uint8_t index)
+{
+	uint32_t ret = 0;
+	switch (index) {
+	case 0:
+		ret = base_address_register_0();
+		break;
+	case 1:
+		ret = base_address_register_1();
+		break;
+	case 2:
+		ret = base_address_register_2();
+		break;
+	case 3:
+		ret = base_address_register_3();
+		break;
+	case 4:
+		ret = base_address_register_4();
+		break;
+	case 5:
+		ret = base_address_register_5();
+		break;
+	}
+	return ret;
+}
+
+void
 pci_device_base::base_address_register_0(uint32_t base_address_register_0)
 {
 	config_write_uint32(0, 0x10, base_address_register_0);
@@ -338,6 +390,576 @@ pci_device_base::max_lat()
 	return config_read_uint8(0, 0x3f);
 }
 
+bool
+pci_device_base::msi_capable()
+{
+	bool msi_capable = false;
+
+	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34) & 0xfc;
+	while (capp != 0x00) {
+		uint8_t capid = pci_config_read_uint8(m_bus, m_slot, 0, capp);
+		if (capid == 0x05) {
+			msi_capable = true;
+			break;
+		}
+		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
+	}
+
+	return msi_capable;
+}
+
+uint8_t
+pci_device_base::msi_capability_offset()
+{
+	uint8_t msi_capability_offset = 0;
+
+	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34) & 0xfc;
+	while (capp != 0x00) {
+		uint8_t capid = pci_config_read_uint8(m_bus, m_slot, 0, capp);
+		if (capid == 0x05) {
+			msi_capability_offset = capp;
+			break;
+		}
+		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
+	}
+
+	return msi_capability_offset;
+}
+
+void
+pci_device_base::msi_enable(bool msi_enable)
+{
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0xfffe;
+		if (msi_enable == true) {
+			tmp |= 0x0001;
+		}
+		pci_config_write_uint16(m_bus, m_slot, 0, offset + 2, tmp);
+	}
+}
+
+bool
+pci_device_base::msi_enable()
+{
+	bool msi_enable = false;
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		if ((tmp & 0x0001) != 0x0000) {
+			msi_enable = true;
+		}
+	}
+	return msi_enable;
+}
+
+bool
+pci_device_base::msi_per_vector_masking_capable()
+{
+	bool msi_per_vector_masking_capable = false;
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		if ((tmp & 0x0100) != 0x0000) {
+			msi_per_vector_masking_capable = true;
+		}
+	}
+	return msi_per_vector_masking_capable;
+}
+
+bool
+pci_device_base::msi_64bit_address_capable()
+{
+	bool msi_64bit_address_capable = false;
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		if ((tmp & 0x0080) != 0x0000) {
+			msi_64bit_address_capable = true;
+		}
+	}
+	return msi_64bit_address_capable;
+}
+
+void
+pci_device_base::msi_multiple_message_enable(sint8_t msi_multiple_message_enable)
+{
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0xff8f;
+		switch (msi_multiple_message_enable) {
+		case 1:
+			tmp |= 0x0000;
+			break;
+		case 2:
+			tmp |= 0x0010;
+			break;
+		case 4:
+			tmp |= 0x0020;
+			break;
+		case 8:
+			tmp |= 0x0030;
+			break;
+		case 16:
+			tmp |= 0x0040;
+			break;
+		case 32:
+			tmp |= 0x0050;
+			break;
+		}
+		pci_config_write_uint16(m_bus, m_slot, 0, offset + 2, tmp);
+	}
+}
+
+sint8_t
+pci_device_base::msi_multiple_message_enable()
+{
+	sint8_t msi_multiple_message_enable = -1;
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0xff8f;
+		switch (tmp) {
+		case 0x0000:
+			msi_multiple_message_enable = 1;
+			break;
+		case 0x0010:
+			msi_multiple_message_enable = 2;
+			break;
+		case 0x0020:
+			msi_multiple_message_enable = 4;
+			break;
+		case 0x0030:
+			msi_multiple_message_enable = 8;
+			break;
+		case 0x0040:
+			msi_multiple_message_enable = 16;
+			break;
+		case 0x0050:
+			msi_multiple_message_enable = 32;
+			break;
+		}
+	}
+	return msi_multiple_message_enable;
+}
+
+sint8_t
+pci_device_base::msi_multiple_message_capable()
+{
+	sint8_t msi_multiple_message_capable = -1;
+	uint8_t offset = msi_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0xfff1;
+		switch (tmp) {
+		case 0x0000:
+			msi_multiple_message_capable = 1;
+			break;
+		case 0x0002:
+			msi_multiple_message_capable = 2;
+			break;
+		case 0x0004:
+			msi_multiple_message_capable = 4;
+			break;
+		case 0x0006:
+			msi_multiple_message_capable = 8;
+			break;
+		case 0x0008:
+			msi_multiple_message_capable = 16;
+			break;
+		case 0x000a:
+			msi_multiple_message_capable = 32;
+			break;
+		}
+	}
+	return msi_multiple_message_capable;
+}
+
+void
+pci_device_base::msi_message_address(uint32_t msi_message_address)
+{
+	uint8_t offset = msi_capability_offset();
+	uint32_t tmp = msi_message_address & 0xfffffffc;
+	pci_config_write_uint32(m_bus, m_slot, 0, offset + 4, tmp);
+}
+
+uint32_t
+pci_device_base::msi_message_address()
+{
+	uint8_t offset = msi_capability_offset();
+	uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 4);
+	return tmp;
+}
+
+void
+pci_device_base::msi_message_upper_address(uint32_t msi_message_upper_address)
+{
+	uint8_t offset = msi_capability_offset();
+	if (msi_64bit_address_capable()) {
+		uint32_t tmp = msi_message_upper_address;
+		pci_config_write_uint32(m_bus, m_slot, 0, offset + 8, tmp);
+	}
+}
+
+uint32_t
+pci_device_base::msi_message_upper_address()
+{
+	uint8_t offset = msi_capability_offset();
+	uint32_t msi_message_upper_address = 0;
+	if (msi_64bit_address_capable()) {
+		uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 8);
+		msi_message_upper_address = tmp;
+	}
+	return msi_message_upper_address;
+}
+
+void
+pci_device_base::msi_message_data(uint16_t msi_message_data)
+{
+	uint8_t offset = msi_capability_offset();
+	offset += 8;
+	if (msi_64bit_address_capable()) {
+		offset += 4;
+	}
+	pci_config_write_uint16(m_bus, m_slot, 0, offset, msi_message_data);
+}
+
+uint16_t
+pci_device_base::msi_message_data()
+{
+	uint8_t offset = msi_capability_offset();
+	offset += 8;
+	if (msi_64bit_address_capable()) {
+		offset += 4;
+	}
+	return pci_config_read_uint16(m_bus, m_slot, 0, offset);
+}
+
+void
+pci_device_base::msi_mask_bits(uint32_t msi_mask_bits)
+{
+	uint8_t offset = msi_capability_offset();
+	if (msi_per_vector_masking_capable()) {
+		offset += 12;
+		if (msi_64bit_address_capable()) {
+			offset += 4;
+		}
+		pci_config_write_uint32(m_bus, m_slot, 0, offset, msi_mask_bits);
+	}
+}
+
+uint32_t
+pci_device_base::msi_mask_bits()
+{
+	uint8_t offset = msi_capability_offset();
+	if (msi_per_vector_masking_capable()) {
+		offset += 12;
+		if (msi_64bit_address_capable()) {
+			offset += 4;
+		}
+		return pci_config_read_uint32(m_bus, m_slot, 0, offset);
+	}
+	return 0;
+}
+
+uint32_t
+pci_device_base::msi_pending_bits()
+{
+	uint8_t offset = msi_capability_offset();
+	if (msi_per_vector_masking_capable()) {
+		offset += 16;
+		if (msi_64bit_address_capable()) {
+			offset += 4;
+		}
+		return pci_config_read_uint32(m_bus, m_slot, 0, offset);
+	}
+	return 0;
+}
+
+bool
+pci_device_base::msix_capable()
+{
+	bool msix_capable = false;
+
+	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34) & 0xfc;
+	while (capp != 0x00) {
+		uint8_t capid = pci_config_read_uint8(m_bus, m_slot, 0, capp);
+		if (capid == 0x11) {
+			msix_capable = true;
+			break;
+		}
+		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
+	}
+
+	return msix_capable;
+}
+
+uint8_t
+pci_device_base::msix_capability_offset()
+{
+	uint8_t msix_capability_offset = 0;
+
+	uint8_t capp = pci_config_read_uint8(m_bus, m_slot, 0, 0x34) & 0xfc;
+	while (capp != 0x00) {
+		uint8_t capid = pci_config_read_uint8(m_bus, m_slot, 0, capp);
+		if (capid == 0x11) {
+			msix_capability_offset = capp;
+			break;
+		}
+		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
+	}
+
+	return msix_capability_offset;
+}
+
+void
+pci_device_base::msix_enable(bool msix_enable)
+{
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0x7fff;
+		if (msix_enable == true) {
+			tmp |= 0x8000;
+		}
+		pci_config_write_uint16(m_bus, m_slot, 0, offset + 2, tmp);
+	}
+}
+
+bool
+pci_device_base::msix_enable()
+{
+	bool msix_enable = false;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		if ((tmp & 0x8000) != 0x0000) {
+			msix_enable = true;
+		}
+	}
+	return msix_enable;
+}
+
+void
+pci_device_base::msix_function_mask(bool msix_function_mask)
+{
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		tmp &= 0xbfff;
+		if (msix_function_mask == true) {
+			tmp |= 0x4000;
+		}
+		pci_config_write_uint16(m_bus, m_slot, 0, offset + 2, tmp);
+	}
+}
+
+bool
+pci_device_base::msix_function_mask()
+{
+	bool msix_function_mask = false;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		if ((tmp & 0x4000) != 0x0000) {
+			msix_function_mask = true;
+		}
+	}
+	return msix_function_mask;
+}
+
+uint16_t
+pci_device_base::msix_table_size()
+{
+	uint16_t msix_table_size = 0;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint16_t tmp = pci_config_read_uint16(m_bus, m_slot, 0, offset + 2);
+		msix_table_size = tmp & 0x07ff;
+		++msix_table_size;
+	}
+	return msix_table_size;
+}
+
+uint32_t
+pci_device_base::msix_table_offset()
+{
+	uint32_t msix_table_offset = 0;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 4);
+		msix_table_offset = tmp & 0xfffffff8;
+	}
+	return msix_table_offset;
+}
+
+sint8_t
+pci_device_base::msix_table_bir()
+{
+	sint8_t msix_table_bir = 0;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 4);
+		msix_table_bir = tmp & 0x07;
+	}
+	return msix_table_bir;
+}
+
+uint32_t
+pci_device_base::msix_pba_offset()
+{
+	uint32_t msix_pba_offset = 0;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 8);
+		msix_pba_offset = tmp & 0xfffffff8;
+	}
+	return msix_pba_offset;
+}
+
+sint8_t
+pci_device_base::msix_pba_bir()
+{
+	sint8_t msix_pba_bir = 0;
+	uint8_t offset = msix_capability_offset();
+	if (offset != 0) {
+		uint32_t tmp = pci_config_read_uint32(m_bus, m_slot, 0, offset + 8);
+		msix_pba_bir = tmp & 0x07;
+	}
+	return msix_pba_bir;
+}
+
+void
+pci_device_base::msix_message_address_at(uint16_t index, uint32_t msix_message_address)
+{
+	if (index >= msix_table_size()) {
+		return;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	p[index * 4] = msix_message_address;
+}
+
+uint32_t
+pci_device_base::msix_message_address_at(uint16_t index)
+{
+	if (index >= msix_table_size()) {
+		return 0;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	return p[index * 4];
+}
+
+void
+pci_device_base::msix_message_upper_address_at(uint16_t index, uint32_t msix_message_upper_address)
+{
+	if (index >= msix_table_size()) {
+		return;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	p[index * 4 + 1] = msix_message_upper_address;
+}
+
+uint32_t
+pci_device_base::msix_message_upper_address_at(uint16_t index)
+{
+	if (index >= msix_table_size()) {
+		return 0;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	return p[index * 4 + 1];
+}
+
+void
+pci_device_base::msix_message_data_at(uint16_t index, uint32_t msix_message_data)
+{
+	if (index >= msix_table_size()) {
+		return;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	p[index * 4 + 2] = msix_message_data;
+}
+
+uint32_t
+pci_device_base::msix_message_data_at(uint16_t index)
+{
+	if (index >= msix_table_size()) {
+		return 0;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	return p[index * 4 + 2];
+}
+
+void
+pci_device_base::msix_mask_bit_at(uint16_t index, bool msix_mask_bit)
+{
+	if (index >= msix_table_size()) {
+		return;
+	}
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	uint32_t tmp = p[index * 4 + 3] & 0xfffffffe;
+	if (msix_mask_bit == true) {
+		tmp |= 0x00000001;
+	}
+	p[index * 4 + 3] = tmp;
+}
+
+bool
+pci_device_base::msix_mask_bit_at(uint16_t index)
+{
+	if (index >= msix_table_size()) {
+		return 0;
+	}
+	bool msix_mask_bit = false;
+	uint64_t bar = base_address_register_at(msix_table_bir()) & 0xfffffff0;
+	uint32_t *p = (uint32_t *)bar;
+	if ((p[index * 4 + 3] & 0x00000001) == 0x00000001) {
+		msix_mask_bit = true;
+	}
+	return msix_mask_bit;
+}
+
+void
+pci_device_base::msix_pending_bit_at(uint16_t index, bool msix_pending_bit)
+{
+	if (index >= msix_table_size()) {
+		return;
+	}
+	uint64_t bar = base_address_register_at(msix_pba_bir()) & 0xfffffff0;
+	uint64_t *p = (uint64_t *)bar;
+	uint64_t tmp = p[(index >> 6)];
+	tmp &= ~(0x1ull << (index & 0x3f));
+	if (msix_pending_bit == true) {
+		tmp |= (0x1ull << (index & 0x3f));
+	}
+	p[(index >> 6)] = tmp;
+}
+
+bool
+pci_device_base::msix_pending_bit_at(uint16_t index)
+{
+	if (index >= msix_table_size()) {
+		return 0;
+	}
+	uint64_t bar = base_address_register_at(msix_pba_bir()) & 0xfffffff0;
+	uint64_t *p = (uint64_t *)bar;
+	uint64_t tmp = p[(index >> 6)];
+	uint64_t mask = 0x1ull << (index & 0x3f);
+	bool msix_pending_bit = false;
+	if ((tmp & mask) == mask) {
+		msix_pending_bit = true;
+	}
+	return msix_pending_bit;
+}
+
 utf8str
 pci_device_base::pci_dump()
 {
@@ -458,6 +1080,52 @@ pci_device_base::pci_dump()
 			s += " (Unknown Capability)\n";
 		}
 		capp = pci_config_read_uint8(m_bus, m_slot, 0, capp + 1) & 0xfc;
+	}
+
+	if (msi_capable()) {
+		s += "    MSI:\n";
+		s += "        Capability Offset: ";
+		s.append_hex64(msi_capability_offset(), 1);
+		s += "\n";
+		s += "        MSI Enable: ";
+		if (msi_enable()) {
+			s += "TRUE\n";
+		} else {
+			s += "FALSE\n";
+		}
+	}
+
+	if (msix_capable()) {
+		s += "    MSI-X:\n";
+		s += "        Capability Offset: ";
+		s.append_hex64(msix_capability_offset(), 8);
+		s += "\n";
+		s += "        MSI-X Enable: ";
+		if (msix_enable()) {
+			s += "TRUE\n";
+		} else {
+			s += "FALSE\n";
+		}
+		s += "        MSI-X Table Size: ";
+		s.append_hex64(msix_table_size(), 8);
+		s += "\n";
+		for (int i = 0; i < msix_table_size(); ++i) {
+			s += "        ";
+			s.append_hex64(i, 4);
+			s += " ";
+			s.append_hex64(msix_message_address_at(i), 8);
+			s += " ";
+			s.append_hex64(msix_message_upper_address_at(i), 8);
+			s += " ";
+			s.append_hex64(msix_message_data_at(i), 8);
+			s += " ";
+			if (msix_mask_bit_at(i) == true) {
+				s += "T";
+			} else {
+				s += "F";
+			}
+			s += "\n";
+		}
 	}
 
 	return s;
