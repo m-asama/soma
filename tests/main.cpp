@@ -23,6 +23,7 @@
 #include "util_test.h"
 #include "config_test.h"
 #include "virtqueue_test.h"
+#include "packet_buffer_test.h"
 
 #include "main.h"
 
@@ -85,6 +86,10 @@ struct test_module {
 	{
 		.name	= "Virtqueue",
 		.func	= virtqueue_test,
+	},
+	{
+		.name	= "パケットバッファ",
+		.func	= packet_buffer_test,
 	},
 	{
 		.func	= nullptr,

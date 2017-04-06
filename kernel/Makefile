@@ -71,6 +71,7 @@ OBJS	      = main.o \
 		virtio_device_base.o \
 		virtio_net_device_base.o \
 		virtio_block_device_base.o \
+		packet_buffer.o \
 		util.o
 
 .if "${SOMA_TARGET}" == "x86_64"
