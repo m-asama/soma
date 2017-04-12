@@ -8,6 +8,22 @@
 
 #include "virtio_device_base.h"
 #include "net_device_base.h"
+#include "virtqueue.h"
+
+/**
+ *
+ */
+const uint16_t virtio_net_receive_queue_index = 0;
+
+/**
+ *
+ */
+const uint16_t virtio_net_transmit_queue_index = 1;
+
+/**
+ *
+ */
+const uint16_t virtio_net_control_queue_index = 2;
 
 /**
  * Virtio-Net ネットワークデバイス基底クラス。
@@ -46,6 +62,20 @@ public:
 	virtio_net_device_base &operator=(virtio_net_device_base &&src) = delete;
 
 protected:
+	/**
+	 *
+	 */
+	virtqueue *m_transmit_queue;
+
+	/**
+	 *
+	 */
+	virtqueue *m_receive_queue;
+
+	/**
+	 *
+	 */
+	virtqueue *m_control_queue;
 
 };
 

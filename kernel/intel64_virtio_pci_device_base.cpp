@@ -46,16 +46,24 @@ intel64_virtio_pci_device_base::pci_dump()
         s += "    ISR Status: ";
         s.append_hex64(isr_status(), 2);
         s += "\n";
+	s += "    Virtqueues:\n";
 	for (int i = 0; i < 8; ++i) {
-		s.append_hex64(i, 2);
-		s += " ";
 		queue_select(i);
+		if (queue_size() == 0) {
+			break;
+		}
+		s += "        ";
+		s.append_hex64(i, 2);
 		s += " Queue Address: ";
 		s.append_hex64(queue_address(), 8);
 		s += " Queue Size: ";
 		s.append_hex64(queue_size(), 4);
 		s += "\n";
 	}
+	s += "    VirtIO Supported Features:\n";
+	if (device_features_bits() & (1 << 24)) { s += "        VIRTIO_F_NOTIFY_ON_EMPTY\n"; }
+	if (device_features_bits() & (1 << 28)) { s += "        VIRTIO_F_RING_INDIRECT_DESC\n"; }
+	if (device_features_bits() & (1 << 29)) { s += "        VIRTIO_F_RING_EVENT_IDX\n"; }
         return s;
 }
 

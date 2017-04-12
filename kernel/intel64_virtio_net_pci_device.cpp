@@ -7,6 +7,7 @@
 #include "print.h"
 #include "pci_device_management.h"
 #include "intel64_assembly.h"
+#include "virtqueue.h"
 
 #include "intel64_virtio_net_pci_device.h"
 
@@ -26,6 +27,15 @@ intel64_virtio_net_pci_device::pci_init()
 	if(msix_capable()) {
 		msix_enable(true);
 	}
+
+	queue_select(virtio_net_receive_queue_index);
+	m_receive_queue = new virtqueue(queue_size());
+
+	queue_select(virtio_net_transmit_queue_index);
+	m_transmit_queue = new virtqueue(queue_size());
+
+	queue_select(virtio_net_control_queue_index);
+	m_control_queue = new virtqueue(queue_size());
 }
 
 utf8str
@@ -41,6 +51,25 @@ intel64_virtio_net_pci_device::pci_dump()
 	s += "    Max Virtqueue Pairs: ";
 	s.append_hex64(max_virtqueue_pairs(), 2);
 	s += "\n";
+	s += "    VirtIO Net Supported Features:\n";
+	if (device_features_bits() & (1 <<  0)) { s += "        VIRTIO_NET_F_CSUM\n"; }
+	if (device_features_bits() & (1 <<  1)) { s += "        VIRTIO_NET_F_GUEST_CSUM\n"; }
+	if (device_features_bits() & (1 <<  5)) { s += "        VIRTIO_NET_F_MAC\n"; }
+	if (device_features_bits() & (1 <<  6)) { s += "        VIRTIO_NET_F_GSO\n"; }
+	if (device_features_bits() & (1 <<  7)) { s += "        VIRTIO_NET_F_GUEST_TSO4\n"; }
+	if (device_features_bits() & (1 <<  8)) { s += "        VIRTIO_NET_F_GUEST_TSO6\n"; }
+	if (device_features_bits() & (1 <<  9)) { s += "        VIRTIO_NET_F_GUEST_ECN\n"; }
+	if (device_features_bits() & (1 << 10)) { s += "        VIRTIO_NET_F_GUEST_UFO\n"; }
+	if (device_features_bits() & (1 << 11)) { s += "        VIRTIO_NET_F_HOST_TSO4\n"; }
+	if (device_features_bits() & (1 << 12)) { s += "        VIRTIO_NET_F_HOST_TSO6\n"; }
+	if (device_features_bits() & (1 << 13)) { s += "        VIRTIO_NET_F_HOST_ECN\n"; }
+	if (device_features_bits() & (1 << 14)) { s += "        VIRTIO_NET_F_HOST_UFO\n"; }
+	if (device_features_bits() & (1 << 15)) { s += "        VIRTIO_NET_F_MRG_RXBUF\n"; }
+	if (device_features_bits() & (1 << 16)) { s += "        VIRTIO_NET_F_STATUS\n"; }
+	if (device_features_bits() & (1 << 17)) { s += "        VIRTIO_NET_F_CTRL_VQ\n"; }
+	if (device_features_bits() & (1 << 18)) { s += "        VIRTIO_NET_F_CTRL_RX\n"; }
+	if (device_features_bits() & (1 << 19)) { s += "        VIRTIO_NET_F_CTRL_VLAN\n"; }
+	if (device_features_bits() & (1 << 21)) { s += "        VIRTIO_NET_F_GUEST_ANNOUNCE\n"; }
 	return s;
 }
 
