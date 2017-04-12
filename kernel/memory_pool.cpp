@@ -206,3 +206,25 @@ memory_pool<T>::vacancy()
 	return vacancy;
 }
 
+template<class T>
+T *
+memory_pool<T>::container_of(uint64_t address)
+{
+	T *p = nullptr;
+	int index;
+	uint64_t table_head = (uint64_t)&m_table[0];
+	uint64_t table_tail = (uint64_t)&m_table[64 * memory_pool_free_bits_size];
+
+	if ((address < table_head)
+	 || (address >= table_tail)) {
+		if (m_next != nullptr)
+			p = m_next->container_of(address);
+		return p;
+	}
+
+	index = (address - table_head + sizeof(T) - 1) / sizeof(T) - 1;
+	p = &m_table[index];
+
+	return p;
+}
+

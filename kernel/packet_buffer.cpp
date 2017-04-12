@@ -146,6 +146,12 @@ packet_buffer::tail_move(sint64_t offset)
 	return true;
 }
 
+packet_buffer *
+packet_buffer::container_of(uint64_t address)
+{
+	return s_mem_pool.container_of(address);
+}
+
 memory_pool<packet_buffer> packet_buffer::s_mem_pool;
 
 void

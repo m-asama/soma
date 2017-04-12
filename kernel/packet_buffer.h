@@ -117,6 +117,11 @@ public:
 	 */
 	bool tail_move(sint64_t offset);
 
+	/**
+	 *
+	 */
+	static packet_buffer *container_of(uint64_t address);
+
 private:
 	/**
 	 *

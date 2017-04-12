@@ -96,6 +96,13 @@ public:
 	 */
 	uint64_t vacancy();
 
+	/**
+	 * 割当済みオブジェクト内のアドレスからオブジェクトのポインタを返す関数。
+	 * @param address オブジェクト内のアドレス。
+	 * @return 渡されたアドレスを中にもつオブジェクトのポインタ。
+	 */
+	T *container_of(uint64_t address);
+
 private:
 	/**
 	 * 割り当てを管理するためのビット列。

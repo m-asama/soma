@@ -197,5 +197,30 @@ packet_buffer_test()
 	}
 	print_test_result("tail_move+: tail", res);
 
+	packet_buffer *parr[1000];
+	for (int i = 0; i < 1000; ++i) {
+		parr[i] = new packet_buffer;
+		uint64_t iha = parr[i]->initial_head_address();
+		for (int j = iha - 100; j < iha + 1100; ++j) {
+			packet_buffer *t = packet_buffer::container_of(j);
+			if (t != parr[i]) {
+				utf8str s;
+				s += "i = ";
+				s.append_sint64(i, 0);
+				s += " j = ";
+				s.append_sint64(j, 0);
+				s += " t = ";
+				s.append_hex64((uint64_t)t, 16);
+				s += " parr[i] = ";
+				s.append_hex64((uint64_t)parr[i], 16);
+				print_test_result(s, test_result::fail);
+			}
+		}
+	}
+	for (int i = 0; i < 1000; ++i) {
+		delete parr[i];
+	}
+	delete p;
+
 }
 
